@@ -4,9 +4,9 @@ Questions the human asks are treated as signals of what matters. Maintained auto
 
 ## Recurring themes
 <!-- - theme — count, last asked YYYY-MM-DD, where it's answered: [[note]] -->
-- Signal decomposition methods (ICA, wavelets, EMD vs Fourier): 2 questions, last 2026-10-10 (ICA components, non-Gaussianity, why not least squares). Answered in [[signal-quality-and-noise]], [[time-frequency-analysis]].
+- Signal decomposition methods (ICA, wavelets, EMD vs Fourier): 2 questions, last 2026-10-10 (ICA components, non-Gaussianity, why not least squares). Answered in [[independent-component-analysis]], [[time-frequency-analysis]].
 - Reliability of reported accuracies / split leakage / confounds (depression, medication): 2, last 2026-10-10. [[eeg-depression-detection]], [[evaluation-protocols]].
-- Classical ML baselines vs DL / foundation models (LDA, Riemannian): 2, last 2026-10-10. [[classical-ml-baselines]].
+- Classical ML baselines vs DL / foundation models (LDA, Riemannian): 2, last 2026-10-10. [[classical-ml-baselines]], [[riemannian-methods]].
 - Labels & metadata available with EEG: 1, 2026-10-10. [[eeg-labels-and-metadata]].
 - Spatial structure (electrode placement, regional differences, channel correlation): 1, 2026-10-10. [[q1-what-is-eeg]], [[q2-measuring-devices]]; more in [[niso2022wireless]] (next read).
 

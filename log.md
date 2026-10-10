@@ -48,3 +48,4 @@
   - Partly used but not fully read: [[roy2019deep]], [[wang2024cbramod]], [[wong2023eeg]], [[li2022eeg]], [[niso2022wireless]].
   - Several 🤖 general-knowledge passages need sources: ICA theory, LDA/Riemannian, the 10-20 naming convention.
   - Next: [[niso2022wireless]] (learning path step 2).
+- **Follow-up (same session):** promoted ICA and Riemannian methods to concept notes, [[independent-component-analysis]] and [[riemannian-methods]]. Their content moved out of [[signal-quality-and-noise]] and [[classical-ml-baselines]], which now link to them. Both are flagged for having fewer than 2 papers until [[roy2019deep]] and Lotte 2018 are read.

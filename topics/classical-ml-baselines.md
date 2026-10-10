@@ -20,21 +20,14 @@ updated: 2026-10-10
 ## Glossary (🤖 standard definitions, no vault source yet; Lotte 2018 should cover them)
 - **LDA = Linear Discriminant Analysis** (Fisher), *not* latent Dirichlet allocation. It assumes each class is Gaussian with a shared covariance and finds the projection that maximizes between-class over within-class variance, giving a linear decision boundary. In BCI it is usually used with covariance *shrinkage* because trials are few. It is cheap and hard to overfit.
 - **CSP (common spatial patterns):** learns channel weightings (spatial filters) whose output variance differs most between two classes. It is a supervised cousin of PCA/ICA.
-- **Riemannian methods:**
-  - **Input:** each trial (channels × time) is summarized by its channel covariance matrix C (C × C, symmetric positive-definite, SPD). These matrices live on a curved manifold, not a flat vector space.
-  - **Distance:** the usual one is the affine-invariant Riemannian distance, δ(A, B) = sqrt(Σᵢ log² λᵢ), where λᵢ are the eigenvalues of A⁻¹B. Its key property: δ(WAWᵀ, WBWᵀ) = δ(A, B) for any invertible W. Any fixed linear re-mixing of channels, such as volume conduction or a different reference, leaves distances unchanged.
-  - **Classifiers:** not only kNN.
-    - *MDM* (minimum distance to mean): a nearest-centroid classifier using Riemannian (Fréchet) class means.
-    - *Tangent-space mapping:* flatten the matrices at a reference point (e.g. the mean), vectorize, then use any vector classifier (logistic regression, SVM, LDA).
-    - kNN with δ is possible but less common.
-  - **Transfer:** "re-centering" each subject's or session's covariances to a common reference is a simple cross-subject adaptation trick.
+- **Riemannian methods:** covariance matrices + a mixing-invariant distance; MDM or tangent-space classifiers, not just kNN → [[riemannian-methods]].
 
 ## Comparisons
 | baseline | input | learned part | where seen |
 |---|---|---|---|
 | band power + SVM/LDA | spectral features | classifier only | [[chaddad2023electroencephalography]] |
 | FBCSP | band-passed raw EEG | spatial filters + linear classifier | [[song2022eeg]] (Table II) |
-| Riemannian (MDM / tangent space) | covariance matrices | class means / linear classifier | [[roy2019deep]] (§4) *(cited only)* |
+| [[riemannian-methods]] (MDM / tangent space) | covariance matrices | class means / linear classifier | [[roy2019deep]] (§4) *(cited only)* |
 | EEGNet | raw EEG | everything (3k params) | [[song2022eeg]], [[wang2024cbramod]] |
 
 ## Open threads

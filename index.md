@@ -21,7 +21,7 @@
 - 2026-10-10 [[sabio2024scoping]] — scoping review of consumer-grade EEG devices (916 studies)
 
 ## Concepts
-[[channel-heterogeneity]] · [[cnn-transformer-hybrid]] · [[consumer-grade-eeg-devices]] · [[evaluation-protocols]] · [[frequency-bands]] · [[self-supervised-pretraining]] · [[signal-quality-and-noise]] · [[time-frequency-analysis]]
+[[channel-heterogeneity]] · [[cnn-transformer-hybrid]] · [[consumer-grade-eeg-devices]] · [[evaluation-protocols]] · [[frequency-bands]] · [[independent-component-analysis]] · [[riemannian-methods]] · [[self-supervised-pretraining]] · [[signal-quality-and-noise]] · [[time-frequency-analysis]]
 
 ## See also
 - [[interests]] — what the human asks about; reading queue

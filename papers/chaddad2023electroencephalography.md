@@ -19,7 +19,7 @@ main_metric: ""
 main_result: ""
 code_available: false
 read_depth: full
-concepts: [time-frequency-analysis, signal-quality-and-noise, frequency-bands, evaluation-protocols, consumer-grade-eeg-devices, channel-heterogeneity]
+concepts: [independent-component-analysis, time-frequency-analysis, signal-quality-and-noise, frequency-bands, evaluation-protocols, consumer-grade-eeg-devices, channel-heterogeneity]
 ---
 
 # EEG Signal Processing review (Chaddad et al., 2023)
@@ -76,6 +76,7 @@ Survey the whole EEG processing pipeline, compare methods at each stage, and lis
 - [[consumer-grade-eeg-devices]]: Emotiv EPOC and Muse as portable examples (§2.1).
 - [[channel-heterogeneity]]: device heterogeneity across datasets; domain adaptation as the proposed remedy (§3).
 - [[time-frequency-analysis]]: wavelets and EMD for denoising (§2.2.4–2.2.5) and as a feature family (§2.4.1).
+- [[independent-component-analysis]]: main blind-source-separation denoiser (§2.2.2, Algorithm 3).
 
 ## Related papers
 - [[song2022eeg]]: Conformer replaces this review's hand-crafted feature stage with end-to-end conv + attention.
@@ -84,7 +85,7 @@ Survey the whole EEG processing pipeline, compare methods at each stage, and lis
 - [[roy2019deep]]: the systematic DL-for-EEG review that this one lacks. *(not yet read)*
 
 ## Q&A notes
-- 2026-10-10 **Q:** What does ICA "unmixing" mean, and is there a spatial prior? **A:** It estimates W ≈ A⁻¹ in X = AS (Eq. 2) by maximizing non-Gaussianity (Algorithm 3). There is no spatial prior, only independence. Components are labelled afterwards by eye (§2.2.2). → [[signal-quality-and-noise]] *How ICA "unmixes"*
+- 2026-10-10 **Q:** What does ICA "unmixing" mean, and is there a spatial prior? **A:** It estimates W ≈ A⁻¹ in X = AS (Eq. 2) by maximizing non-Gaussianity (Algorithm 3). There is no spatial prior, only independence. Components are labelled afterwards by eye (§2.2.2). → [[independent-component-analysis]]
 - 2026-10-10 **Q:** Are wavelets and EMD like Fourier analysis? **A:** They are relatives with time localisation. Wavelets use a fixed multi-scale filter bank (§2.2.4); EMD is a data-driven decomposition (§2.2.5). → [[time-frequency-analysis]]
 - 2026-10-10 **Q:** Is depression really that easy to detect? **A:** DeprNet drops from 99.37% to 91.4% with a subject split (Table 6). One subject-split benchmark (Mumtaz2016) still gives 0.92–0.96, but on 10 test subjects. Treated as open. → [[eeg-depression-detection]]
 - 2026-10-10 **Q:** What models are typical (the ML baseline)? **A:** Here: SVM, KNN, RF and LDA on hand-crafted features (§2.5.1). For the measured DL gain over these (median +5.4%) and the Riemannian caveat, see [[q4-evolution-of-methods]].
