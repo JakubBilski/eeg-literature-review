@@ -12,6 +12,12 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-10 [[jiang2024large]] — LaBraM: first large EEG foundation model (2,535 h, masked token prediction)
+- 2026-10-10 [[song2022eeg]] — EEG Conformer: CNN + Transformer, per-subject, common baseline
+- 2026-10-10 [[sabio2024scoping]] — scoping review of consumer-grade EEG devices (916 studies)
+
+## Concepts
+[[channel-heterogeneity]] · [[cnn-transformer-hybrid]] · [[consumer-grade-eeg-devices]] · [[evaluation-protocols]] · [[self-supervised-pretraining]] · [[signal-quality-and-noise]]
 
 ## See also
 - [[interests]] — what the human asks about; reading queue

@@ -12,6 +12,8 @@ argument-hint: <citekey | DOI | arXiv ID>
 
 ## 2. Read
 - Read the **whole** full text (in chunks with offset/limit for long files). PDF conversions have `<!-- page N -->` markers → cite `(p. N)`; JATS conversions have numbered sections → cite `(§N)`; tables `(Table N)`.
+- **Tables/figures embedded as images** (caption present, numbers missing — common in IEEE PDFs): `scripts/page_image.py <citekey> <page> [--top 0.6]`, read the PNG, and append a transcription to `fulltext/<citekey>.md` under `## Tables transcribed from page images (p. N)` so the numbers are searchable.
+- JATS conversions from Europe PMC may lack section numbers → cite by heading, e.g. `(§Validation)`, and say so once in the note.
 - Skim the reference list for papers already in the vault (grep citekey titles) and for important uncaptured ones → `interests.md` *Reading queue*.
 
 ## 3. Write `papers/<citekey>.md` from `templates/paper.md`

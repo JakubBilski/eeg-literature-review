@@ -1,7 +1,7 @@
 """Check the vault's link graph.
 
 Reports:
-  - broken wikilinks (target note does not exist), incl. frontmatter concept slugs
+  - broken wikilinks (no note and not a screened citekey), incl. frontmatter concept slugs
   - papers with no concepts
   - concepts with fewer than 2 papers
   - non-reciprocal paper <-> concept links
@@ -28,6 +28,11 @@ def main() -> None:
     targets = {p.stem for p in ROOT.rglob("*.md")
                if not skip.intersection(p.relative_to(ROOT).parts)}
     papers = {p.stem: p for p in note_paths("papers")}
+    # Citekeys in screening.csv without a note yet are "unread" links, not broken ones.
+    import csv
+    with open(ROOT / "data" / "screening.csv", newline="", encoding="utf-8") as fh:
+        screened = {r["citekey"] for r in csv.DictReader(fh)}
+    unread_links: set[str] = set()
     concepts = {p.stem: p for p in note_paths("concepts")}
 
     broken: list[str] = []
@@ -39,7 +44,11 @@ def main() -> None:
         links = wikilinks(body)
         rel = path.relative_to(ROOT).as_posix()
         for t in links:
-            if t not in targets:
+            if t in targets:
+                continue
+            if t in screened:
+                unread_links.add(t)
+            else:
                 broken.append(f"{rel} -> [[{t}]]")
         if path.stem in papers:
             fm = {str(c) for c in (meta.get("concepts") or [])}
@@ -86,6 +95,7 @@ def main() -> None:
                 ("Concepts with < 2 papers", [f"{c} ({n})" for c, n in thin]),
                 ("Non-reciprocal paper<->concept links", sorted(nonrecip)),
                 ("Not reachable from index.md", unreachable)]
+    print(f"Links to screened-but-unread papers (OK): {', '.join(sorted(unread_links)) or '-'}\n")
     print(f"{len(papers)} papers, {len(concepts)} concepts, "
           f"{len(note_paths('bridges'))} bridges\n")
     total = 0

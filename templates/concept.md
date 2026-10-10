@@ -1,6 +1,7 @@
 ---
 slug: "{{title}}"
 fields: []            # communities using it: eeg, neuro-clinical, signal-processing, ml
+familiarity: new     # human's level: new | introduced | understood | skip
 ---
 
 # {{title}}

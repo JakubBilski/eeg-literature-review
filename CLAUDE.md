@@ -43,6 +43,8 @@ scripts/             helper scripts (search, conversion, table export)
 - Scripts: `discover.py` (OpenAlex/arXiv search, lookup, snowballing, OA download), `convert.py` (PDF/JATS→Markdown), `search.py` (BM25), `export_comparison.py` (frontmatter→CSV), `check_links.py` (graph hygiene). Run the last two at the end of every session.
 - Obsidian: open the repo folder as a vault. Templates plugin points at `templates/`; `{{title}}` fills from the filename, so create the note as `<citekey>.md` first. Keep frontmatter `concepts:` as plain slugs (not `[[links]]`) so the CSV stays clean; graph links come from the body `## Concepts` section.
 - Discovery APIs reachable without keys: OpenAlex, arXiv, PubMed E-utilities, Europe PMC. Semantic Scholar needs `S2_API_KEY` (applied for 2026-10-10, pending); `discover.py` uses it automatically once set.
+- `page_image.py` renders PDF pages to PNG when tables/figures are embedded as images.
+- When writing files containing backslash escapes (e.g. `\n`) or apostrophes, use the Write/Edit tools, not bash heredocs (the shell layer mangles them).
 - Publisher and PMC PDF links block scripts (403 / bot pages). `discover.py pdf` falls back to Europe PMC JATS XML (`pdf/<citekey>.xml`), which `convert.py` handles; anything else becomes `needs_manual`.
 
 ## Identifiers
@@ -74,6 +76,8 @@ The human should never need to dig through session history. Knowledge produced i
 4. Mention briefly at the end of the reply what was filed where (one line, e.g. `Filed: [[song2022eeg]] Q&A, [[q4-evolution-of-methods]]`).
 
 **Anti-bloat rules:** update before you create. No note for a one-off fact — append it to an existing note. Each fact lives in one place; elsewhere link to it. Topic notes hold the *current* answer (rewrite, don't append contradictory versions; keep disagreements explicit under a heading). Skip filing for trivial clarifications or questions already answered verbatim by a note (just link the note).
+
+**What the human knows.** Concept notes carry `familiarity: new | introduced | understood | skip`. When a reply relies on a `new` concept, explain it in 1–2 plain sentences (then set `introduced`). Set `understood` when the human says so or their questions clearly build on it; `skip` when they say to skip it. Don't re-explain `understood`/`skip` concepts, and don't quiz. The human may edit the property directly in Obsidian.
 
 **Hubs = core questions.** `topics/q<N>-*.md` are maps of content for the core questions in Scope; every paper and topic note must be reachable from at least one hub or `index.md`.
 

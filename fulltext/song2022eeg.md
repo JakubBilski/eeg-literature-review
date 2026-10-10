@@ -383,3 +383,39 @@ using regularized graph neural networks,” IEEE Trans. Affect. Comput., vol. 13
 J. Mach. Learn. Res., vol. 9, pp. 2579–2605, Nov. 2008. [45] R. R. Selvaraju, M. Cogswell, A. Das, R. Vedantam, D. Parikh, and
 
 D. Batra, “Grad-CAM: Visual explanations from deep networks via gradient-based localization,” in Proc. IEEE Int. Conf. Comput. Vis. (ICCV), Oct. 2017, pp. 618–626. [46] A. Schnitzler, S. Salenius, R. Salmelin, V. Jousmäki, and R. Hari, “Involvement of primary motor cortex in motor imagery: A neuromagnetic study,” NeuroImage, vol. 6, no. 3, pp. 201–208, Oct. 1997.
+<!-- transcribed: tables below are images in the PDF; transcribed from a page render on 2026-10-10 -->
+
+## Tables transcribed from page images (p. 6)
+
+**TABLE II** Comparisons with state-of-the-art methods on Dataset I (BCI IV-2a), accuracy % per subject
+
+| method | S01 | S02 | S03 | S04 | S05 | S06 | S07 | S08 | S09 | average | kappa |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| FBCSP | 76.00 | 56.50 | 81.25 | 61.00 | 55.00 | 45.25 | 82.75 | 81.25 | 70.75 | 67.75 | 0.5700 |
+| ConvNet | 76.39 | 55.21 | 89.24 | 74.65 | 56.94 | 54.17 | 92.71 | 77.08 | 76.39 | 72.53 | 0.6337 |
+| EEGNet | 85.76 | 61.46 | 88.54 | 67.01 | 55.90 | 52.08 | 89.58 | 83.33 | 86.81 | 74.50 | 0.6600 |
+| C2CM | 87.50 | 65.28 | 90.28 | 66.67 | 62.50 | 45.49 | 89.58 | 83.33 | 79.51 | 74.46 | 0.6595 |
+| FBCNet | 85.42 | 60.42 | 90.63 | 76.39 | 74.31 | 53.82 | 84.38 | 79.51 | 80.90 | 76.20 | 0.6827 |
+| DRDA | 83.19 | 55.14 | 87.43 | 75.28 | 62.29 | 57.15 | 86.18 | 83.61 | 82.00 | 74.74 | 0.6632 |
+| Conformer | 88.19 | 61.46 | 93.40 | 78.13 | 52.08 | 65.28 | 92.36 | 88.19 | 88.89 | 78.66 | 0.7155 |
+
+**TABLE III** Comparisons with state-of-the-art methods on Dataset II (BCI IV-2b), accuracy % per subject
+
+| method | S01 | S02 | S03 | S04 | S05 | S06 | S07 | S08 | S09 | average | kappa |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| FBCSP | 70.00 | 60.36 | 60.94 | 97.50 | 93.12 | 80.63 | 78.13 | 92.50 | 86.88 | 80.00 | 0.6000 |
+| ConvNet | 76.56 | 50.00 | 51.56 | 96.88 | 93.13 | 85.31 | 83.75 | 91.56 | 85.62 | 79.37 | 0.5874 |
+| EEGNet | 75.94 | 57.64 | 58.43 | 98.13 | 81.25 | 88.75 | 84.06 | 93.44 | 89.69 | 80.48 | 0.6096 |
+| DRDA | 81.37 | 62.86 | 63.63 | 95.94 | 93.56 | 88.19 | 85.00 | 95.25 | 90.00 | 83.98 | 0.6796 |
+| Conformer | 82.50 | 65.71 | 63.75 | 98.44 | 86.56 | 90.31 | 87.81 | 94.38 | 92.19 | 84.63 | 0.6926 |
+
+**TABLE IV** Comparisons with state-of-the-art methods on Dataset III (SEED)
+
+| method | accuracy | kappa |
+|---|---|---|
+| SVM | 86.08 | 0.7912 |
+| GELM | 91.07 | 0.8661 |
+| DGCNN | 90.40 | 0.8560 |
+| R2G-STNN | 93.38 | 0.9007 |
+| RGNN | 94.24 | 0.9136 |
+| Conformer | 95.30 | 0.9295 |
