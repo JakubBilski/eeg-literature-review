@@ -1,6 +1,8 @@
-"""Convert pdf/*.pdf -> fulltext/<citekey>.md.
+"""Convert pdf/*.pdf and pdf/*.xml (JATS, from Europe PMC) -> fulltext/<citekey>.md.
 
-PDFs must be named <citekey>.pdf. Backend preference: marker > docling > pymupdf
+Files must be named <citekey>.pdf / <citekey>.xml. JATS XML is converted directly
+(sections, tables, figure captions, references; no page numbers — cite by section).
+For PDFs: Backend preference: marker > docling > pymupdf
 (pymupdf4llm is used inside the pymupdf fallback if installed). Already converted
 files are skipped unless --force. Page markers are written as <!-- page N --> where
 the backend allows it.
@@ -8,8 +10,10 @@ the backend allows it.
 from __future__ import annotations
 
 import argparse
+import re
 import statistics
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from notes import ROOT
@@ -78,6 +82,56 @@ def convert_pymupdf(pdf: Path) -> str:
     return "\n\n".join(out)
 
 
+def convert_jats(xml: Path) -> str:
+    def text(el) -> str:
+        return " ".join("".join(el.itertext()).split()) if el is not None else ""
+
+    def local(tag: str) -> str:
+        return tag.rsplit("}", 1)[-1]
+
+    def table_md(tw) -> list[str]:
+        out = [f"**{text(tw.find('label'))}** {text(tw.find('caption'))}".strip()]
+        for tr_i, tr in enumerate(tw.iter("tr")):
+            cells = [text(c).replace("|", "/") for c in tr if local(c.tag) in ("td", "th")]
+            out.append("| " + " | ".join(cells) + " |")
+            if tr_i == 0:
+                out.append("|" + "---|" * len(cells))
+        return ["\n".join(out)]
+
+    def walk(el, depth: int) -> list[str]:
+        out = []
+        for ch in el:
+            tag = local(ch.tag)
+            if tag == "sec":
+                label, title = text(ch.find("label")), text(ch.find("title"))
+                out.append("#" * min(depth, 6) + f" {label} {title}".rstrip())
+                out += walk(ch, depth + 1)
+            elif tag == "p":
+                out.append(text(ch))
+            elif tag == "list":
+                out.append("\n".join(f"- {text(li)}" for li in ch if local(li.tag) == "list-item"))
+            elif tag == "table-wrap":
+                out += table_md(ch)
+            elif tag == "fig":
+                out.append(f"*{text(ch.find('label'))}* {text(ch.find('caption'))}")
+            elif tag in ("boxed-text", "disp-quote"):
+                out += walk(ch, depth)
+        return out
+
+    root = ET.parse(xml).getroot()
+    meta = root.find(".//article-meta")
+    parts = [f"# {text(meta.find('.//article-title'))}"]
+    for ab in meta.findall("abstract"):
+        parts.append("## Abstract")
+        parts += walk(ab, 3) or [text(ab)]
+    if (body := root.find("body")) is not None:
+        parts += walk(body, 2)
+    if (refs := root.find(".//ref-list")) is not None:
+        parts.append("## References")
+        parts.append("\n".join(f"{i}. {text(r)}" for i, r in enumerate(refs.iter("ref"), 1)))
+    return "\n\n".join(p for p in parts if p.strip())
+
+
 def pick_backend(name: str):
     backends = {"marker": ("marker", convert_marker),
                 "docling": ("docling", convert_docling),
@@ -102,21 +156,26 @@ def main() -> None:
     ap.add_argument("--force", action="store_true", help="re-convert existing files")
     args = ap.parse_args()
 
-    pdfs = sorted((ROOT / "pdf").glob("*.pdf"))
+    files = sorted((ROOT / "pdf").glob("*.pdf")) + sorted((ROOT / "pdf").glob("*.xml"))
     if args.citekeys:
-        pdfs = [p for p in pdfs if p.stem in args.citekeys]
-    if not pdfs:
-        print("no PDFs to convert in pdf/")
+        files = [p for p in files if p.stem in args.citekeys]
+    if not files:
+        print("nothing to convert in pdf/")
         return
 
-    name, fn = pick_backend(args.backend)
-    print(f"backend: {name}")
+    pdf_name, pdf_fn = (None, None)
     done = skipped = failed = 0
-    for pdf in pdfs:
+    for pdf in files:
         out = ROOT / "fulltext" / f"{pdf.stem}.md"
         if out.exists() and not args.force:
             skipped += 1
             continue
+        if pdf.suffix == ".xml":
+            name, fn = "jats", convert_jats
+        else:
+            if pdf_fn is None:
+                pdf_name, pdf_fn = pick_backend(args.backend)
+            name, fn = pdf_name, pdf_fn
         try:
             md = fn(pdf)
         except Exception as e:  # keep going; report at the end
@@ -125,7 +184,7 @@ def main() -> None:
             continue
         header = f"<!-- source: pdf/{pdf.name} | converter: {name} -->\n\n"
         out.write_text(header + md, encoding="utf-8")
-        print(f"ok   {pdf.name} -> fulltext/{out.name} ({len(md):,} chars)")
+        print(f"ok   {pdf.name} -> fulltext/{out.name} [{name}] ({len(md):,} chars)")
         done += 1
     print(f"converted {done}, skipped {skipped} (already done), failed {failed}")
 

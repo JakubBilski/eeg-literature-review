@@ -50,3 +50,6 @@ concepts: []          # concept slugs, e.g. [masked-pretraining, linear-probing]
 
 ## Related papers
 <!-- [[citekey]] — one line on the relationship -->
+
+## Q&A notes
+<!-- distilled answers to the human's questions about this paper, newest last: - YYYY-MM-DD **Q:** … **A:** … (location / [[link]]) -->

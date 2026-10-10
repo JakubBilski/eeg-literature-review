@@ -10,7 +10,7 @@ import yaml
 sys.stdout.reconfigure(encoding="utf-8")  # Windows consoles default to cp1250/cp1252
 
 ROOT = Path(__file__).resolve().parent.parent
-NOTE_DIRS = ("papers", "concepts", "bridges")
+NOTE_DIRS = ("papers", "concepts", "topics", "bridges")
 
 # [[target]], [[target|alias]], [[target#heading]], [[target?]] (uncertain link)
 WIKILINK = re.compile(r"\[\[([^\]|#]+?)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]")

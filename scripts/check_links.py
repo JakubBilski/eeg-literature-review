@@ -5,6 +5,7 @@ Reports:
   - papers with no concepts
   - concepts with fewer than 2 papers
   - non-reciprocal paper <-> concept links
+  - papers / topics not reachable from index.md via wikilinks (hub rule)
 Exit code 1 if any issue is found and --strict is given.
 """
 from __future__ import annotations
@@ -66,10 +67,25 @@ def main() -> None:
             if c not in paper_to_concepts.get(p, set()):
                 nonrecip.append(f"[[{c}]] -> [[{p}]] but paper does not list the concept")
 
+    # Reachability from index.md (follow wikilinks through notes in the vault).
+    by_stem = {p.stem: p for p in note_paths()}
+    by_stem["index"] = ROOT / "index.md"
+    seen, stack = set(), ["index"]
+    while stack:
+        cur = stack.pop()
+        if cur in seen or cur not in by_stem:
+            continue
+        seen.add(cur)
+        meta, body = read_note(by_stem[cur])
+        stack.extend(wikilinks(body))
+    unreachable = sorted(p.relative_to(ROOT).as_posix() for p in note_paths("papers", "topics")
+                         if p.stem not in seen)
+
     sections = [("Broken wikilinks", broken),
                 ("Papers with no concepts", no_concepts),
                 ("Concepts with < 2 papers", [f"{c} ({n})" for c, n in thin]),
-                ("Non-reciprocal paper<->concept links", sorted(nonrecip))]
+                ("Non-reciprocal paper<->concept links", sorted(nonrecip)),
+                ("Not reachable from index.md", unreachable)]
     print(f"{len(papers)} papers, {len(concepts)} concepts, "
           f"{len(note_paths('bridges'))} bridges\n")
     total = 0

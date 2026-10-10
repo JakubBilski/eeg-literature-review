@@ -14,7 +14,7 @@ from rank_bm25 import BM25Okapi
 
 from notes import ROOT
 
-DIRS = ("fulltext", "papers", "concepts", "bridges")
+DIRS = ("fulltext", "papers", "concepts", "topics", "bridges")
 TOKEN = re.compile(r"[a-z0-9]+")
 PAGE = re.compile(r"<!--\s*page (\d+)\s*-->")
 
