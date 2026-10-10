@@ -82,6 +82,7 @@ Survey the whole EEG processing pipeline, compare methods at each stage, and lis
 - [[song2022eeg]]: Conformer replaces this review's hand-crafted feature stage with end-to-end conv + attention.
 - [[jiang2024large]]: LaBraM predicts Fourier amplitude/phase, the learned counterpart of the time–frequency features here.
 - [[sabio2024scoping]]: covers the same consumer devices (Emotiv, Muse) in much more depth.
+- [[niso2022wireless]]: works through the lab-vs-portable trade-off (§2.1 here) spec by spec for 48 wireless devices.
 - [[roy2019deep]]: the systematic DL-for-EEG review that this one lacks. *(not yet read)*
 
 ## Q&A notes

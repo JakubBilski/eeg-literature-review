@@ -19,7 +19,7 @@ main_metric: ""
 main_result: "916 studies (531 journal, 385 conference); Emotiv used in 67.69% (Abstract; §Consumer-grade EEG devices)"
 code_available: ""
 read_depth: full
-concepts: [consumer-grade-eeg-devices, signal-quality-and-noise, channel-heterogeneity]
+concepts: [consumer-grade-eeg-devices, signal-quality-and-noise, channel-heterogeneity, electrode-types]
 ---
 
 # Consumer-grade EEG devices in research: scoping review (Sabio et al., 2024)
@@ -75,9 +75,10 @@ Not applicable (descriptive charting; no quality appraisal by design) (§Introdu
 - [[consumer-grade-eeg-devices]]: the review's subject.
 - [[signal-quality-and-noise]]: validation evidence on noise floor and trial rejection.
 - [[channel-heterogeneity]]: 1–16 channels at non-standard positions.
+- [[electrode-types]]: consumer headsets use "minimal or no conductive medium" (§Consumer-grade EEG devices).
 
 ## Related papers
-- [[niso2022wireless]]: broader survey of wireless EEG systems. *(seed; PDF needs manual download)*
+- [[niso2022wireless]]: broader survey: 48 wireless devices (consumer, research and medical) and 110 high-impact studies. Also finds Emotiv the most used (25%, Fig. 6a).
 - [[kaongoen2023future]]: ear-EEG, a wearable form factor not covered here. *(seed; needs manual download)*
 - [[gans2024sleep]]: EEG wearables for sleep. *(seed; needs manual download)*
 - [[chaddad2023electroencephalography]]: briefer mention of the same consumer devices (Emotiv EPOC, Muse) (§2.1).

@@ -49,3 +49,28 @@
   - Several 🤖 general-knowledge passages need sources: ICA theory, LDA/Riemannian, the 10-20 naming convention.
   - Next: [[niso2022wireless]] (learning path step 2).
 - **Follow-up (same session):** promoted ICA and Riemannian methods to concept notes, [[independent-component-analysis]] and [[riemannian-methods]]. Their content moved out of [[signal-quality-and-noise]] and [[classical-ml-baselines]], which now link to them. Both are flagged for having fewer than 2 papers until [[roy2019deep]] and Lotte 2018 are read.
+
+## 2026-10-10 (session 3)
+- **Added:**
+  - Paper: [[niso2022wireless]] (full read). Table 1 has no text layer, so 17 of its columns were transcribed from a 450-dpi render and appended to `fulltext/niso2022wireless.md`.
+  - Concept: [[electrode-types]] (gel / wet / dry, active / passive / shielded).
+  - Core question and hub: [[q6-reliability-of-eeg-diagnoses]], added to Scope in CLAUDE.md and to `index.md` (approved by the human).
+- **Changed:**
+  - [[q2-measuring-devices]]: wireless device landscape, electrodes, mobility vocabulary, and a new section on why there's no cross-device signal-quality benchmark.
+  - [[q3-typical-tasks]]: applications of wireless EEG; what clinical EEG is good for.
+  - [[consumer-grade-eeg-devices]]: resolved the "consumer vs wireless research-grade" boundary question.
+  - [[signal-quality-and-noise]]: whether "noise" is well-posed.
+  - [[channel-heterogeneity]]: device shift vs montage shift, foundation models, shortcut risk.
+  - Reverse links in [[sabio2024scoping]] and [[chaddad2023electroencephalography]].
+  - The 10-20 naming convention is still 🤖 (Niso uses the names but doesn't explain them).
+- **Questions explored:**
+  - Why has no one compared signal quality across devices? → [[q2-measuring-devices]], [[niso2022wireless]] Q&A.
+  - Do the same arguments undermine clinical EEG diagnosis? → [[q3-typical-tasks]].
+  - Are per-device datasets big enough for populations to match? (No: the confounding is systematic.) → [[q2-measuring-devices]].
+  - Is "noise" ill-posed? → [[signal-quality-and-noise]].
+  - Can a foundation model bridge devices? → [[channel-heterogeneity]] (open).
+- **Open:**
+  - Search: 2022+ cross-device transfer / foundation models on low-channel dry data; a standardized multi-device benchmark (ERP CORE + SME). Both are in the `interests.md` reading queue and open questions.
+  - Backward-exception candidates: Casson 2019 (wearable/dry electrodes), Bateson 2017 (CoME).
+  - Still missing manual PDFs: wang2024eegpt, yang2023biot. gans2024sleep has no text layer.
+  - Next on the learning path: tasks stage, [[varbu2022past]] or [[wong2023eeg]].

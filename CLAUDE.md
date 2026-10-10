@@ -10,6 +10,7 @@ This folder is a literature review on EEG. You help find, screen, read, summariz
   3. What are the typical tasks involving EEG (e.g. clinical diagnosis, sleep staging, BCI, emotion/cognitive state)?
   4. How have EEG analysis methods evolved (classical signal processing → machine learning → deep learning → foundation models)?
   5. What is the current state of the art?
+  6. How reliable are EEG-based diagnoses and predictions (split leakage, confounds, small single-site data, cross-site/device generalization)? (added 2026-10-10)
 - **Inclusion:** published 2022 onward (last ~4 years), prioritised by influence (citation count, normalised for age) — start from the most influential papers and reviews. Peer-reviewed or preprint. English.
 - **Backward exception:** an older paper is included when 2022+ papers repeatedly cite it as foundational (a dataset, device standard, landmark method or canonical review). Record the citing papers in `reason`.
 - **Exclusion:** <to be refined after the pilot>

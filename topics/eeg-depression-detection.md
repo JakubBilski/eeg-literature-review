@@ -9,6 +9,8 @@ updated: 2026-10-10
 
 > Is depression (MDD, major depressive disorder) really that easy to detect from EEG?
 
+Hub: [[q6-reliability-of-eeg-diagnoses]]
+
 ## Current answer
 - **Reported numbers are very high**, and on the one dataset seen so far they stay high under a subject-disjoint split:
   - DeprNet: 99.37% when *recordings* are split, but 91.4% when *subjects* are split [[chaddad2023electroencephalography]] (Table 6). Part of the headline number is subject leakage.

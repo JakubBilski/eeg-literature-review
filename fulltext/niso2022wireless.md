@@ -831,3 +831,58 @@ Rolle, C.E., et al., 2019. Closed-loop digital meditation improves sustained att
 gling attentional and physical contributions to auditory attention tasks. J. Neural Eng.  13 (4), 046017 .
 
 17
+
+## Tables transcribed from page images (p. 4)
+
+Table 1 (Specifications of wireless EEG devices) is drawn as vector paths with no text layer; transcribed from a 450-dpi render on 2026-10-10. Selected columns only (omitted: reference location, accelerometer/gyroscope, bipolar ExG/aux, triggers, shielding, impedance check, input range/impedance/noise, CMRR, bandwidth, LSB, size, local storage, output format, smartphone support, website). Abbreviations as in the caption: Flex = flexible electrode placement; Prop = ISM proprietary 2.4 GHz; CoME D = device mobility (0–5); CoME S = system specification (4–20); price in k EUR, Dec 2022; "-" = not obtained.
+
+| Device | Company | Year | EEG ch | Placement | Electrode type | Preamp | Fs (Hz) | Bits | Weight (g) | Battery (h) | Protocol | Real-time | CoME D | CoME S | Med. cert. | Price (k EUR) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| B-Alert X10 | Advanced Brain Monitoring | 2010 | 9 | Fixed | Gel | Passive | 256 | 16 | 71 | 8 | Bluetooth | SDK | 4 | 9 | No | 8-10 |
+| B-Alert X24 | Advanced Brain Monitoring | 2012 | 20 | Fixed | Gel | Passive | 256 | 16 | 71 | 8 | Bluetooth | SDK | 4 | 9 | No | 12-15 |
+| Stat X-Series X24 | Advanced Brain Monitoring | 2020 | 20 | Fixed | Gel | Passive | 256 | 16 | 71 | 8 | Bluetooth | SDK | 4 | 9 | Yes | 12-15 |
+| eego mini 24 | ANT Neuro | 2022 | 24 | Flexible | Dry, Wet, Gel | Passive | 2048 | 24 | 100 | usb | WiFi | LSL/SDK | 4 | 14-12 | Yes | - |
+| eego mini 8 | ANT Neuro | 2016 | 8 | Flexible | Dry, Wet, Gel | Passive | 2048 | 24 | 100 | usb | WiFi | LSL/SDK | 4 | 14-12 | Yes | - |
+| eego sports | ANT Neuro | 2015 | 128/64/32 | Flexible | Dry, Wet, Gel | Passive | 2048 | 24 | 500 | 5 | WiFi | LSL/SDK | 4 | 15-13 | Yes | - |
+| Air | Bitbrain | 2018 | 8 | Fixed | Dry | Passive | 256 | 24 | 212 | 8 | Bluetooth | LSL/SDK | 4 | 10 | No | 5 |
+| Diadem | Bitbrain | 2016 | 12 | Fixed | Dry | Passive | 256 | 24 | 307 | 8 | Bluetooth | LSL/SDK | 4 | 10 | No | 13 |
+| Hero | Bitbrain | 2022 | 9 | Fixed | Dry | Passive | 256 | 24 | 250 | 3 | Bluetooth | LSL/SDK | 4 | 10 | No | 13 |
+| Neuroheadband | Bitbrain | 2023 | 5 | Fixed | Dry | Passive | 256 | 24 | 100 | 8 | BLE | LSL/SDK | 4 | 10 | On going | 2-4 |
+| Versatile EEG | Bitbrain | 2017 | 64/32/16/8 | Flexible | Wet | Passive | 256 | 24 | 192/290/450 | 8 | Bluetooth | LSL/SDK | 4 | 11 | No | 26/14/9/4 |
+| LiveAmp | Brain Products | 2015 | 64/32/16/8 | Flexible | Dry, Wet, Gel | Active/Passive | 1000/500/250 | 24 | 60 | 4/24 | Prop | LSL/SDK/TCP-IP | 3 | 15-10 | No | - |
+| X.on | Brain Products | 2022 | 7 | Fixed | Wet | Passive | 500/250/125 | 24 (BT5)/16 (BLE) | 120 | 5 | BLE, BT5 | LSL | 4 | 11-7 | No | 2.5 |
+| Mobile | CGX (Cognionics) | 2021 | 128/72 | Flexible | Gel | Active | 500 | 24 | 1000 | 10-4 | Bluetooth | LSL | 3 | 13 | No | 45-60 |
+| Quick20r v2 | CGX (Cognionics) | 2021 | 21 | Fixed | Dry | Active | 500 | 24 | 596 | 8 | BLE | LSL | 4 | 12 | No | 20 |
+| Quick32r | CGX (Cognionics) | 2021 | 30 | Fixed | Dry | Active | 500 | 24 | 646 | 8 | BLE | LSL | 4 | 12 | No | 28 |
+| Siesta Wireless | Compumedics | 2001 | 32 | Flexible | Wet, Gel | Active | 1000/100 | 16 | 300 | 24 | WiFi | - | 2 | 14-10 | Yes | - |
+| EPOC X | Emotiv | - | 14 | Fixed | Wet | Passive | 256/128 | 16/14 | 1000 | 12-6 | BLE, Bluetooth, Prop | - | 4 | 9-7 | No | <1 |
+| EPOC-Flex | Emotiv | - | 32 | Fixed | Wet, Gel | Passive | 128 | 14 | 1000 | 9 | BLE, Prop | - | 3 | 8-7 | No | 1-2 |
+| INSIGHT | Emotiv | - | 5 | Fixed | Dry | Passive | 128 | 16 | 1000 | 20 | BLE, Bluetooth | - | 4 | 8 | No | <0.5 |
+| g.Nautilus MULTI-PURPOSE | g.tec | 2014 | 32/16/8 | Flexible | Gel, Dry/Gel (hybrid) | Active | 500/250 | 24 | 110 | 10 | Prop | LSL | 3 | 12-10 | No | 5-36 |
+| g.Nautilus MULTI-PURPOSE | g.tec | 2014 | 64 | Flexible | Gel, Dry/Gel (hybrid) | Active | 250 | 24 | 140 | 6 | Prop | LSL | 3 | 14-11 | No | 5-36 |
+| g.Nautilus PRO Flexible | g.tec | - | 32/16/8 | Flexible | Gel, Dry/Gel (hybrid) | Active | 500/250 | 24 | 110 | 10 | Prop | LSL | 3 | 14-11 | Yes | 6.5-25 |
+| g.Nautilus RESEARCH | g.tec | 2014 | 32/16/8 | Flexible | Dry, Gel | Active | 500/250 | 24 | 110 | 10 | Prop | LSL | 3 | 12-10 | No | 5-35 |
+| g.Nautilus RESEARCH | g.tec | 2014 | 64 | Flexible | Dry, Gel | Active | 250 | 24 | 140 | 6 | Prop | LSL | 3 | 14-11 | No | 5-35 |
+| g.NautilusPRO | g.tec | 2014 | 32/16/8 | Flexible | Dry, Gel | Active | 500/250 | 24 | 110 | 10 | Prop | LSL | 3 | 14-11 | Yes | 6-20 |
+| Unicorn Hybrid Black | g.tec | 2019 | 8 | Flexible | Dry/Gel (hybrid) | Passive | 250 | 24 | - | 4 | Bluetooth | LSL | 4 | 11-9 | No | <1 |
+| Unicorn Naked BCI | g.tec | - | 8 | Flexible | Dry/Gel (hybrid) | Passive | 250 | 24 | - | 4 | Bluetooth | LSL | 4 | 11-9 | No | <1 |
+| MUSE 2 | InteraXon | 2018 | 4 | Fixed | Dry | Passive | 256 | 12 | 39 | 5 | Bluetooth | LSL/SDK/OSC | 4 | 7 | No | <0.5 |
+| MUSE S | InteraXon | 2021 | 4 | Fixed | Dry | Passive | 256 | 12 | 41 | 10 | Bluetooth | LSL/SDK/OSC | 4 | 8 | No | <0.5 |
+| Smarting MOBI | mBrainTrain | 2014 | 24 | Flexible | Wet, Gel | Passive | 500/250 | 24 | 60 | 4 | Bluetooth | LSL | 3 | 12-10 | No | - |
+| Smarting PRO | mBrainTrain | 2021 | 32 | Flexible | Wet, Gel | Passive | 1000/500/250 (2000 SD card) | 24 | 65 | 10 | BT5 | LSL | 4 | 14-11 | No | - |
+| Smarting PRO X | mBrainTrain | 2022 | 64 | Fixed | Wet, Gel | Passive | 1000/500/250 (4000 SD card) | 24 | 65 | 11 | BT5 | LSL | 4 | 14-11 | No | - |
+| Smarting SLEEP | mBrainTrain | 2017 | 24 | Flexible | Gel | Passive | 500/250 | 24 | 115 | 15 | Bluetooth | LSL | 3 | 13-12 | No | - |
+| Explore | Mentalab | 2020 | 8/4 | Flexible | Dry, Gel | Passive | 1000/500/250 | 24 | 27 | 12 | Bluetooth | LSL/API/SDK | 4 | 14-12 | No | 4.5-6 |
+| Explore+ | Mentalab | 2022 | 32/16/8 | Flexible | Dry, Gel | Passive | 1000/500/250 (2000 offline) | 24 | 36/27 | 12-10 | Bluetooth | LSL/API/SDK | 4 | 14-10 | No | 7-20 |
+| NeXus-10 MKII | Mind Media | - | 4 | Flexible | Gel | Passive | 2048 | 24 | 540 | 24 | Bluetooth | SDK | 2 | 17 | Yes | - |
+| SmartBCI x24/x32 | MITSAR | - | 32/24 | Flexible | Dry, Gel | Active | 500 (BT5)/250 (BT3) | 24 | 70 | 24-20 | Bluetooth, BT5 | - | 3 | 15-12 | Yes | - |
+| SmartBCI x64 | MITSAR | - | 64 | Flexible | Gel | - | 250 (BT5) (2000 onboard) | 24 | 200 | 24 | BT5 | - | 3 | 13 | No | - |
+| Enobio | Neuroelectrics | 2011 | 32/20/8 | Flexible | Dry, Gel | Passive | 500 | 24 | 81/83/97 | 6 | WiFi | LSL/SDK | 3 | 12-10 | Yes | 4-24 |
+| Crown | Neurosity | 2021 | 8 | Fixed | Dry | Active/Passive | 256 | 24 | 228 | 3 | BLE, WiFi | LSL/SDK/OSC | 5 | 11-10 | No | <1 |
+| Cyton+Daisy | OpenBCI | 2014 | 16/8 | Flexible | Dry, Wet, Gel | Active/Passive | 250/125 | 24 | 60 | 8 | BLE | LSL/Serial/UDP/OSC | 4 | 13-9 | No | 1-2 |
+| Ganglion | OpenBCI | 2016 | 4 | Flexible | Dry, Wet, Gel | Passive | 200 | 24 | 30 | 8 | BLE | LSL/Serial/UDP/OSC | 4 | 12-10 | No | <1 |
+| DSI-24 | Wearable Sensing | 2009 | 21 | Fixed | Dry | Active | 600/300 | 16 | 600 | 24 | Bluetooth | LSL/TCP-IP/API | 4 | 12-11 | No | - |
+| DSI-7 | Wearable Sensing | 2013 | 7 | Fixed | Dry | Active | 600/300 | 16 | 350 | 12-8 | Bluetooth | LSL/TCP-IP/API | 4 | 11-10 | No | - |
+| DSI-7 Flex | Wearable Sensing | 2013 | 7 | Flexible | Dry | Active | 600/300 | 16 | 200 | 12-8 | Bluetooth | LSL/TCP-IP/API | 4 | 11-10 | No | - |
+| VR300 | Wearable Sensing | 2015 | 7 | Fixed | Dry | Active | 600/300 | 16 | 400 | 12-8 | Bluetooth | LSL/TCP-IP/API | 4 | 11-10 | No | - |
+| Zeto WR19 | Zeto | 2020 | 21 | Fixed | Dry | Active | 500/250 | 24 | 680 | 6-5 | WiFi | LSL/SDK | 4 | 12 | Yes | - |
