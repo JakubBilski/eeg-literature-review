@@ -1169,3 +1169,43 @@ Sensors 2022, 22, 3331 43 of 44
 Sensors 2022, 22, 3331 44 of 44
 
 232. Cruz, A.; Pires, G.; Nunes, U.J. Double ErrP Detection for Automatic Error Correction in an ERP-Based BCI Speller. IEEE Trans. Neural Syst. Rehabil. Eng. 2017, 26, 26–36. [CrossRef] 233. Cruz, A.; Pires, G.; Lopes, A.; Carona, C.; Nunes, U.J. A Self-Paced BCI With a Collaborative Controller for Highly Reliable Wheelchair Driving: Experimental Tests With Physically Disabled Individuals. IEEE Trans. Hum.-Mach. Syst. 2021, 51, 109–119. [CrossRef] 234. Muhammad, Y.; Vaino, D. Controlling Electronic Devices with Brain Rhythms/Electrical Activity Using Artiﬁcial Neural Network (ANN). Bioengineering 2019, 6, 46. [CrossRef] 235. Roots, K.; Muhammad, Y.; Muhammad, N. Fusion Convolutional Neural Network for Cross-Subject EEG Motor Imagery Classiﬁcation. Computers 2020, 9, 72. [CrossRef] 236. Tamm, M.-O.; Muhammad, Y.; Muhammad, N. Classiﬁcation of Vowels from Imagined Speech with Convolutional Neural Networks. Computers 2020, 9, 46. [CrossRef] 237. Krauledat, M.; Tangermann, M.; Blankertz, B.; Müller, K.-R. Towards Zero Training for Brain-Computer Interfacing. PLoS ONE 2008, 3, e2967. [CrossRef] 238. Zhang, X.; Yao, L.; Wang, X.; Monaghan, J.; McAlpine, D.; Zhang, Y. A survey on deep learning-based non-invasive brain signals: Recent advances and new frontiers. J. Neural Eng. 2021, 18, 031002. [CrossRef] 239. Jiao, Y.; Zhou, T.; Yao, L.; Zhou, G.; Wang, X.; Zhang, Y. Multi-View Multi-Scale Optimization of Feature Representation for EEG Classiﬁcation Improvement. IEEE Trans. Neural Syst. Rehabil. Eng. 2020, 28, 2589–2597. [CrossRef] 240. Zhang, Y.; Zhou, T.; Wu, W.; Xie, H.; Zhu, H.; Zhou, G.; Cichocki, A. Improving EEG Decoding via Clustering-Based Multitask Feature Learning. IEEE Trans. Neural Netw. Learn. Syst. 2021, 1–11. [CrossRef] 241. Kwon, O.-Y.; Lee, M.-H.; Guan, C.; Lee, S.-W. Subject-Independent Brain–Computer Interfaces Based on Deep Convolutional Neural Networks. IEEE Trans. Neural Netw. Learn. Syst. 2019, 31, 3839–3852. [CrossRef] 242. Mussabayeva, A.; Jamwal, P.K.; Akhtar, M.T. Comparison of Generic and Subject-Speciﬁc Training for Features Classiﬁcation in P300 Speller. In Proceedings of the 2020 Asia-Paciﬁc Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC), Tokyo, Japan, 14–17 December 2020; pp. 222–227. 243. Joadder, A.; Siuly, S.; Kabir, E.; Wang, H.; Zhang, Y. A New Design of Mental State Classiﬁcation for Subject Independent BCI Systems. IRBM 2019, 40, 297–305. [CrossRef] 244. Kwon, J.; Im, C.-H. Subject-Independent Functional Near-Infrared Spectroscopy-Based Brain–Computer Interfaces Based on Convolutional Neural Networks. Front. Hum. Neurosci. 2021, 15, 121. [CrossRef] 245. Barrios, L.J.; del Castillo, M.D.; Serrano, J.I.; Pons, J.L. A review of fMRI as a tool for enhancing EEG-based brain-machine interfaces. Appl. Bionics Biomech. 2012, 9, 125–133. [CrossRef] 246. Edelman, B.J.; Meng, J.; Suma, D.; Zurn, C.; Nagarajan, E.; Baxter, B.S.; Cline, C.C.; He, B. Noninvasive neuroimaging enhances continuous neural tracking for robotic device control. Sci. Robot. 2019, 4, eaaw6844. [CrossRef] 247. Meng, J.; Zhang, S.; Bekyo, A.; Olsoe, J.; Baxter, B.; He, B. Noninvasive Electroencephalogram Based Control of a Robotic Arm for Reach and Grasp Tasks. Sci. Rep. 2016, 6, 38565. [CrossRef]
+## Tables transcribed from page images (pp. 14, 16, 17, 18, 19)
+
+**Figure 9 (p. 14): EEG devices used (n = 77 publications that named a device)**
+| Device | n | % |
+|---|---|---|
+| Emotiv EPOC | 31 | 40 |
+| Quik-Cap (Compumedics Neuroscan) | 7 | 9 |
+| MindWave (NeuroSky) | 6 | 8 |
+| Electrodes | 4 | 5 |
+| Easycap | 3 | 4 |
+| actiCAP (Brain Products) | 2 | 3 |
+| Active Two (Biosemi) | 2 | 3 |
+| Enobio (Neuroelectrics) | 2 | 3 |
+| MyndPlay BrainBandXL | 2 | 3 |
+| Other | 17 | 22 |
+| Multiple devices | 1 | 1 |
+
+**Figure 10 (p. 16): number of EEG channels (n = 163 publications)**
+1–10: 55; 11–20: 50; 21–30: 11; 31–40: 31; 41–60: 0; 61–70: 11; 71–110: 0; 111–120: 1; 121–130: 3; 131–160: 0; 161–170: 1.
+
+**Figure 11 (p. 17): technique / paradigm (n publications; % medical / non-medical / both)**
+| Technique | n | Med | Non-med | Both |
+|---|---|---|---|---|
+| Motor imagery | 38 | 62 | 24 | 14 |
+| Visual evoked potential | 31 | 23 | 61 | 16 |
+| Monitoring drowsiness/attention | 29 | 8 | 88 | 4 |
+| Monitoring emotions/affective states | 15 | 7 | 93 | 0 |
+| Auditory evoked potential | 7 | 57 | 43 | 0 |
+| Monitoring concentration | 6 | 17 | 50 | 33 |
+| Monitoring mental workload | 4 | 0 | 100 | 0 |
+| Vibrotactile evoked potential | 3 | 100 | 0 | 0 |
+| Imagined speech | 2 | 0 | 0 | 100 |
+| Error-related potential | 2 | 0 | 50 | 50 |
+| Multiple techniques | 18 | 22 | 67 | 11 |
+
+**Figure 12 (p. 18): feature extraction (n = 126)**
+PSD 23 (18%); Fourier transform 20 (16%); CSP 18 (14%); wavelet 8 (6%); fractal dimension 7 (6%); ICA 7 (6%); PCA 7 (6%); autoregressive 4 (3%); CCA 3 (2%); genetic algorithm 3 (2%); statistical features 3 (2%); other 10 (8%); multiple 13 (10%).
+
+**Figure 13 (p. 19): classifier (n = 114)**
+LDA 35 (31%); SVM 24 (21%); CNN 5 (4%); naive Bayes 4 (4%); random forest 4 (4%); ANN 3 (3%); DNN 3 (3%); GMM 2 (2%); kNN 2 (2%); other 13 (11%); multiple 19 (17%).

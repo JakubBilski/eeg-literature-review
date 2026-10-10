@@ -19,7 +19,7 @@ main_metric: "balanced accuracy"
 main_result: "TUEV bal. acc. 0.6409 (Base) vs BIOT 0.5281; TUAB 0.8140 vs 0.7959 (Tables 1–2)"
 code_available: "https://github.com/935963004/LaBraM"
 read_depth: full
-concepts: [time-frequency-analysis, frequency-bands, self-supervised-pretraining, channel-heterogeneity, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise]
+concepts: [time-frequency-analysis, frequency-bands, self-supervised-pretraining, channel-heterogeneity, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, bci-paradigms]
 ---
 
 # LaBraM: Large Brain Model (Jiang, Zhao & Lu, ICLR 2024)
@@ -71,6 +71,7 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - 🤖 Its place in the history: the first widely cited "large EEG model". Its design choices (channel-wise patches, electrode embeddings, spectral targets) answer [[channel-heterogeneity]] and [[signal-quality-and-noise]] directly.
 
 ## Concepts
+- [[bci-paradigms]]: pretraining corpus includes the PhysioNet Motor Movement/Imagery dataset (executed and imagined movements, 109 subjects) (App. D).
 - [[self-supervised-pretraining]]: masked token prediction with a VQ spectral tokenizer.
 - [[channel-heterogeneity]]: channel-wise patches plus learnable electrode embeddings make it montage-agnostic.
 - [[cnn-transformer-hybrid]]: a temporal conv encoder per patch before the Transformer.

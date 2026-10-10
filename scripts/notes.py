@@ -31,7 +31,8 @@ def read_note(path: Path) -> tuple[dict, str]:
 def wikilinks(text: str) -> list[str]:
     """Wikilink targets in text, ignoring HTML comments (template hints)."""
     text = HTML_COMMENT.sub("", text)
-    return [t.strip().rstrip("?").strip() for t in WIKILINK.findall(text)]
+    targets = [t.strip().rstrip("?").strip() for t in WIKILINK.findall(text)]
+    return [t for t in targets if not t.lower().endswith((".png", ".jpg", ".jpeg", ".svg", ".gif"))]
 
 
 def note_paths(*dirs: str) -> list[Path]:

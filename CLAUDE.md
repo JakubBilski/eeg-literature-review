@@ -11,6 +11,7 @@ This folder is a literature review on EEG. You help find, screen, read, summariz
   4. How have EEG analysis methods evolved (classical signal processing → machine learning → deep learning → foundation models)?
   5. What is the current state of the art?
   6. How reliable are EEG-based diagnoses and predictions (split leakage, confounds, small single-site data, cross-site/device generalization)? (added 2026-10-10)
+  7. How much do EEG foundation models actually beat strong classical (CSP, Riemannian, LDA) and small supervised (EEGNet) baselines under matched protocols, including few-shot and frozen-embedding probes? (added 2026-10-10)
 - **Inclusion:** published 2022 onward (last ~4 years), prioritised by influence (citation count, normalised for age) — start from the most influential papers and reviews. Peer-reviewed or preprint. English.
 - **Backward exception:** an older paper is included when 2022+ papers repeatedly cite it as foundational (a dataset, device standard, landmark method or canonical review). Record the citing papers in `reason`.
 - **Exclusion:** <to be refined after the pilot>
@@ -34,6 +35,8 @@ data/comparison.csv  one row per included paper, key comparable fields
 templates/           note templates (paper, concept, topic, bridge)
 .claude/skills/      find-papers, read-paper, wrap-session
 scripts/             helper scripts (search, conversion, table export)
+figures/             plots made from public EEG data (embed in notes with ![[file.png]])
+data/eeg/            downloaded raw EEG datasets (gitignored, re-downloadable)
 .obsidian/           Obsidian vault config (repo root is the vault)
 .venv/               local Python env (gitignored); deps in requirements.txt
 ```
@@ -45,6 +48,7 @@ scripts/             helper scripts (search, conversion, table export)
 - Obsidian: open the repo folder as a vault. Templates plugin points at `templates/`; `{{title}}` fills from the filename, so create the note as `<citekey>.md` first. Keep frontmatter `concepts:` as plain slugs (not `[[links]]`) so the CSV stays clean; graph links come from the body `## Concepts` section.
 - Discovery APIs reachable without keys: OpenAlex, arXiv, PubMed E-utilities, Europe PMC. Semantic Scholar needs `S2_API_KEY` (applied for 2026-10-10, pending); `discover.py` uses it automatically once set.
 - `page_image.py` renders PDF pages to PNG when tables/figures are embedded as images.
+- `plot_motor_erd.py` plots imagined vs executed movement (single trials + ERD/ERS at C3/C4) from PhysioNet EEG Motor Movement/Imagery into `figures/`. PhysioNet is slow (~1 file/min); download many files in parallel with curl into `data/eeg/MNE-eegbci-data/files/eegmmidb/1.0.0/`.
 - When writing files containing backslash escapes (e.g. `\n`) or apostrophes, use the Write/Edit tools, not bash heredocs (the shell layer mangles them).
 - Publisher and PMC PDF links block scripts (403 / bot pages). `discover.py pdf` falls back to Europe PMC JATS XML (`pdf/<citekey>.xml`), which `convert.py` handles; anything else becomes `needs_manual`.
 

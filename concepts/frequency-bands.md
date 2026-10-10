@@ -27,6 +27,7 @@ A recorded oscillating signal is split into a handful of conventional frequency 
 ## Papers
 - [[chaddad2023electroencephalography]]: canonical definitions and associations (§2.1). Bands are the basis of time–frequency features (§2.4.1).
 - [[song2022eeg]]: band-passes the input to 4–40 Hz (motor imagery) and 4–47 Hz (SEED) (§IV-A). Its topographies show changes in band power over motor cortex during imagined movement (ERD/ERS) (§IV-H).
+- [[varbu2022past]]: in 2009–2019 BCI papers, band-type features dominate: PSD in 23/126 and Fourier in 20/126 papers (Fig. 12). Passive BCIs (drowsiness, attention, emotion) work by "analysis of the changes in the EEG spectrum" (§5.7). → [[bci-paradigms]]
 - [[jiang2024large]]: instead of fixed bands, the tokenizer predicts the full Fourier amplitude and phase of each 1 s patch (§2.2), i.e. a learned and finer-grained version of band features.
 
 ## Variants & disagreements

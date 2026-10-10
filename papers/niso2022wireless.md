@@ -19,7 +19,7 @@ main_metric: ""
 main_result: "48 devices compared on ~35 specs (Table 1); 110 high-impact studies: cognitive monitoring 44%, clinical 24%, methodological 22%, control/communication 10% (Fig. 7a)"
 code_available: ""
 read_depth: full
-concepts: [consumer-grade-eeg-devices, electrode-types, signal-quality-and-noise, channel-heterogeneity]
+concepts: [consumer-grade-eeg-devices, electrode-types, signal-quality-and-noise, channel-heterogeneity, bci-paradigms, digital-filtering, eeg-preprocessing-pipeline]
 ---
 
 # Wireless EEG: a survey of systems and studies (Niso et al., 2022)
@@ -93,6 +93,9 @@ What wireless EEG hardware exists, how do the devices compare, and what has it b
 - 🤖 "Wireless" here is mostly a convenience feature: 61% of studies had participants who barely moved (Fig. 7d).
 
 ## Concepts
+- [[digital-filtering]]: dry-electrode drift below 2 Hz forces higher high-pass cut-offs (p. 6); sampling 250–500 Hz (§3.8).
+- [[eeg-preprocessing-pipeline]]: acquisition side: sampling, reference, impedance (§3).
+- [[bci-paradigms]]: SSVEP, motor imagery and P300 are the control paradigms in the 10% of wireless studies on communication and control (§4.2.3).
 - [[consumer-grade-eeg-devices]]: covers the whole spectrum from <0.5 k€ consumer headsets to 128-channel research and medical wireless systems.
 - [[electrode-types]]: gel vs wet vs dry and active vs passive trade-offs (§3.4–3.5).
 - [[signal-quality-and-noise]]: motion artifacts increase with mobility and can be confounded with the experimental condition (p. 3). Covers impedance monitoring and CMRR (§3.6–3.7).
@@ -102,6 +105,7 @@ What wireless EEG hardware exists, how do the devices compare, and what has it b
 - [[sabio2024scoping]]: narrower (5 consumer brands, 916 studies) but agrees that Emotiv dominates. Niso covers research and medical wireless systems too.
 - [[chaddad2023electroencephalography]]: names the lab-vs-portable trade-off (§2.1) that Niso details spec by spec.
 - [[kaongoen2023future]]: ear-EEG. Niso mentions cEEGrid behind-the-ear electrodes, often used with mBrainTrain amplifiers (p. 11). *(not yet read)*
+- [[varbu2022past]]: BCI applications 2009–2019. Agrees that monitoring dominates and Emotiv is the top device (40% of BCI device mentions). Application-centric where Niso is device-centric.
 - [[gans2024sleep]]: sleep wearables. Niso cites sleep staging at home as a main clinical use (§4.2.2). *(not yet read)*
 
 ## Q&A notes

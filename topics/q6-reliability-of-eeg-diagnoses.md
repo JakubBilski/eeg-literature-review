@@ -14,11 +14,12 @@ updated: 2026-10-10
 ## Current answer
 - **Clinical reading works best for large, stereotyped events** (seizures, spikes, periodic discharges) recorded on standardized gel 10-20 setups. It is weakest for subtle, population-level differences such as psychiatric conditions. → [[q3-typical-tasks]] (*What clinical EEG is good for*)
 - **Reported model accuracies depend heavily on the split.** Splitting by recording instead of by subject inflates scores, e.g. DeprNet 99.37% vs 91.4%, and papers mix protocols on the same dataset. → [[evaluation-protocols]]
+- **Confounded recording blocks inflate scores too (own example):** when each class is recorded in its own run, shuffled CV reports 0.83 but held-out runs give 0.64, and the same pipeline separates the *rest* periods equally well. → [[evaluation-protocols]], [[bci-paradigms]]
 - **Depression detection looks easy, but on tiny single-site data:** 0.91–0.96 balanced accuracy on 64 subjects with a 10-person test set; untested across sites. → [[eeg-depression-detection]]
 - **Results across devices are unverified.** There is no standardized multi-device quality benchmark, only pairwise validations, and a larger N doesn't remove the confounding between device, population, task and lab. → [[q2-measuring-devices]] (*Why there's no cross-device signal-quality benchmark*)
 - 🤖 **"Quality" depends on the task.** Apart from amplifier noise, how good a recording is depends on the prediction target, so reliability has to be judged for each task. → [[signal-quality-and-noise]]
 - **Transfer across montages and devices:** foundation models handle montage differences by design (electrode embeddings). Whether they bridge *devices*, and whether they pick up device fingerprints as shortcuts, is untested in the vault. → [[channel-heterogeneity]]
-- **How strong the baselines are:** small models and classical methods often come within a few points of foundation models, which limits how much a given benchmark can tell apart. → [[classical-ml-baselines]]
+- **How strong the baselines are:** small models and classical methods often come within a few points of foundation models, which limits how much a given benchmark can tell apart. → [[classical-ml-baselines]], [[q7-foundation-models-vs-baselines]]
 
 ## Comparisons
 

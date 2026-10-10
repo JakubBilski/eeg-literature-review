@@ -7,6 +7,7 @@
 - [[q4-evolution-of-methods]]
 - [[q5-state-of-the-art]]
 - [[q6-reliability-of-eeg-diagnoses]]
+- [[q7-foundation-models-vs-baselines]]
 
 ## Other topics
 <!-- synthesis notes not owned by a single hub -->
@@ -16,6 +17,7 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-10 [[varbu2022past]] — systematic review of 202 EEG-BCI application papers (2009–2019): paradigms, devices, LDA/SVM era
 - 2026-10-10 [[niso2022wireless]] — survey of 48 wireless EEG devices (spec glossary) and 110 studies using them
 - 2026-10-10 [[chaddad2023electroencephalography]] — review of the classical EEG pipeline: denoising, features, SVM-era classifiers
 - 2026-10-10 [[jiang2024large]] — LaBraM: first large EEG foundation model (2,535 h, masked token prediction)
@@ -23,7 +25,7 @@
 - 2026-10-10 [[sabio2024scoping]] — scoping review of consumer-grade EEG devices (916 studies)
 
 ## Concepts
-[[channel-heterogeneity]] · [[cnn-transformer-hybrid]] · [[consumer-grade-eeg-devices]] · [[electrode-types]] · [[evaluation-protocols]] · [[frequency-bands]] · [[independent-component-analysis]] · [[riemannian-methods]] · [[self-supervised-pretraining]] · [[signal-quality-and-noise]] · [[time-frequency-analysis]]
+[[bci-paradigms]] · [[channel-heterogeneity]] · [[cnn-transformer-hybrid]] · [[common-spatial-patterns]] · [[consumer-grade-eeg-devices]] · [[digital-filtering]] · [[eeg-preprocessing-pipeline]] · [[electrode-types]] · [[evaluation-protocols]] · [[frequency-bands]] · [[independent-component-analysis]] · [[riemannian-methods]] · [[self-supervised-pretraining]] · [[signal-quality-and-noise]] · [[time-frequency-analysis]]
 
 ## See also
 - [[interests]] — what the human asks about; reading queue

@@ -22,10 +22,11 @@ A sensor that picks up a weak electrical signal through a poorly conducting surf
   - **Wet (saline):** Ag/AgCl in a soaked sponge, an intermediate option. Recording time is shorter than with gel because the solution evaporates (p. 6).
   - **Active:** a pre-amplifier inside the electrode, so the cable can't act as an antenna. Better at high impedance (dry electrodes, rushed setup), but passive electrodes are cleaner at low impedance in the lab. Active electrodes are heavier and costlier (§3.5).
   - **Shielded:** a metal layer around the cable against interference in transit. Heavier and more expensive (§3.5).
+- [[varbu2022past]]: second-hand comparisons (p. 15). Soufineyestani: dry headsets are more robust to line noise but carry more artifacts, and both types degrade over time as moisture evaporates. Hinrichs 2020: wireless dry vs wired wet clinical EEG were "comparable", with slightly more artifacts on dry, less sensitivity to electromagnetic interference, and both patients and volunteers preferred dry for self-application.
 - [[sabio2024scoping]]: consumer headsets use "minimal or no conductive medium" (§Consumer-grade EEG devices). 🤖 This is plausibly one cause of the higher noise floor reported in §Validation. *(see [[consumer-grade-eeg-devices]])*
 
 ## Variants & disagreements
-- Dry-electrode quality: some reports find new dry systems comparable to conventional ones (Kam 2019), others find worse signal in moving participants (Mathewson 2017), both as cited in [[niso2022wireless]] (p. 6). There are "very few published results" with dry electrodes in mobile settings (p. 6).
+- Dry-electrode quality: some reports find new dry systems comparable to conventional ones (Kam 2019), others find worse signal in moving participants (Mathewson 2017), both as cited in [[niso2022wireless]] (p. 6). There are "very few published results" with dry electrodes in mobile settings (p. 6). Hinrichs 2020 (clinical, comparable) is on the optimistic side, as cited in [[varbu2022past]] (p. 15).
 - Active vs passive: no general winner; it depends on impedance and setting [[niso2022wireless]] (§3.5).
 
 ## Open questions

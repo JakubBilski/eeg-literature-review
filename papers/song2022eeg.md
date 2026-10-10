@@ -19,7 +19,7 @@ main_metric: "accuracy, Cohen's kappa"
 main_result: "78.66% mean acc., kappa 0.7155 on BCI IV-2a vs EEGNet 74.50% (Table II)"
 code_available: "https://github.com/eeyhsong/EEG-Conformer"
 read_depth: full
-concepts: [frequency-bands, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, channel-heterogeneity, self-supervised-pretraining]
+concepts: [frequency-bands, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, channel-heterogeneity, self-supervised-pretraining, bci-paradigms, common-spatial-patterns, digital-filtering, eeg-preprocessing-pipeline]
 ---
 
 # EEG Conformer (Song et al., 2022)
@@ -69,6 +69,10 @@ Can a compact model combine local features (CNNs) with long-range temporal depen
 - 🤖 The spatial conv is tied to a fixed channel count, so the model can't transfer across montages ([[channel-heterogeneity]]).
 
 ## Concepts
+- [[common-spatial-patterns]]: FBCSP is the classical motor imagery baseline it beats (Table II).
+- [[digital-filtering]]: band-passes inputs to 4–40 / 4–47 Hz before the model (§IV-A).
+- [[eeg-preprocessing-pipeline]]: end-to-end model: conv layers learn the temporal and spatial filters (§III).
+- [[bci-paradigms]]: evaluated on motor imagery (BCI IV-2a/2b). Names CSP/FBCSP for MI and CCA for SSVEP as the paradigm-specific classical pipelines (§I).
 - [[cnn-transformer-hybrid]]: the paper's core architecture.
 - [[evaluation-protocols]]: within-subject only; possible window leakage in the SEED CV.
 - [[signal-quality-and-noise]]: pooling large windows before attention to suppress noise.
@@ -80,6 +84,7 @@ Can a compact model combine local features (CNNs) with long-range temporal depen
 - [[jiang2024large]]: LaBraM keeps a conv encoder before the Transformer but adds large-scale pretraining and montage-agnostic patches.
 - [[lawhern2018eegnet]]: inspiration for the conv module and a baseline (Table II). *(not yet read)*
 - [[schirrmeister2017deep]]: ConvNet, the other conv-module inspiration and a baseline. *(screening: maybe)*
+- [[varbu2022past]]: BCI landscape 2009–2019. Motor imagery is the most common paradigm (38/155), and the CSP + LDA/SVM pipeline Conformer replaces was the norm (Figs. 11–13).
 - [[chaddad2023electroencephalography]]: review of the classical pipeline (denoising + hand-crafted features + SVM) that Conformer replaces end-to-end.
 
 ## Q&A notes

@@ -34,6 +34,7 @@ Several sensors each record a different weighted mixture of the same hidden sour
 
 ## Papers
 - [[chaddad2023electroencephalography]]: ICA as the main blind-source-separation denoiser (§2.2.2, Algorithm 3). ERASE adds EMG reference channels so muscle noise concentrates in a few components (26% more EMG removed). ICA + wavelet hybrids appear in Table 2.
+- [[varbu2022past]]: listed as a *feature extraction* method in 7/126 BCI papers (Fig. 12). 🤖 Likely used as spatial filtering or denoising before features; the review doesn't say how.
 - [[roy2019deep]]: wavelet-based ICA cited as an artifact method still needing expert tuning (p. 16) *(paper not yet fully read)*.
 
 ## Variants & disagreements

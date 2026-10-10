@@ -19,7 +19,7 @@ main_metric: ""
 main_result: "916 studies (531 journal, 385 conference); Emotiv used in 67.69% (Abstract; §Consumer-grade EEG devices)"
 code_available: ""
 read_depth: full
-concepts: [consumer-grade-eeg-devices, signal-quality-and-noise, channel-heterogeneity, electrode-types]
+concepts: [consumer-grade-eeg-devices, signal-quality-and-noise, channel-heterogeneity, electrode-types, bci-paradigms]
 ---
 
 # Consumer-grade EEG devices in research: scoping review (Sabio et al., 2024)
@@ -72,6 +72,7 @@ Not applicable (descriptive charting; no quality appraisal by design) (§Introdu
 - 🤖 Implication for ML: 1–16-channel consumer data is a very different input from 19–64-channel clinical or research caps. That gap is the practical case for montage-agnostic models ([[channel-heterogeneity]], [[jiang2024large]]).
 
 ## Concepts
+- [[bci-paradigms]]: BCI (motor imagery, SSVEP, P300) is the top use of consumer headsets, at 44.5% (§Research domains).
 - [[consumer-grade-eeg-devices]]: the review's subject.
 - [[signal-quality-and-noise]]: validation evidence on noise floor and trial rejection.
 - [[channel-heterogeneity]]: 1–16 channels at non-standard positions.
@@ -79,6 +80,7 @@ Not applicable (descriptive charting; no quality appraisal by design) (§Introdu
 
 ## Related papers
 - [[niso2022wireless]]: broader survey: 48 wireless devices (consumer, research and medical) and 110 high-impact studies. Also finds Emotiv the most used (25%, Fig. 6a).
+- [[varbu2022past]]: a systematic review of BCI applications (2009–2019) that also finds Emotiv EPOC the most used device (40%, Fig. 9). It gives the BCI paradigm taxonomy behind Sabio's "BCI" category.
 - [[kaongoen2023future]]: ear-EEG, a wearable form factor not covered here. *(seed; needs manual download)*
 - [[gans2024sleep]]: EEG wearables for sleep. *(seed; needs manual download)*
 - [[chaddad2023electroencephalography]]: briefer mention of the same consumer devices (Emotiv EPOC, Muse) (§2.1).

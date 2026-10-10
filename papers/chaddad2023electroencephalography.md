@@ -19,7 +19,7 @@ main_metric: ""
 main_result: ""
 code_available: false
 read_depth: full
-concepts: [independent-component-analysis, time-frequency-analysis, signal-quality-and-noise, frequency-bands, evaluation-protocols, consumer-grade-eeg-devices, channel-heterogeneity]
+concepts: [independent-component-analysis, time-frequency-analysis, signal-quality-and-noise, frequency-bands, evaluation-protocols, consumer-grade-eeg-devices, channel-heterogeneity, eeg-preprocessing-pipeline]
 ---
 
 # EEG Signal Processing review (Chaddad et al., 2023)
@@ -70,6 +70,7 @@ Survey the whole EEG processing pipeline, compare methods at each stage, and lis
 - 🤖 For an ML reader, the main takeaway is that classical EEG work spent most of its effort on **denoising + hand-crafted features**. Deep learning claims to make this end-to-end (§3), and foundation models go further by learning the features from unlabeled data.
 
 ## Concepts
+- [[eeg-preprocessing-pipeline]]: the classical pipeline: denoising → features → classifier (Fig. 2, §2.2–2.5).
 - [[signal-quality-and-noise]]: the main source in the vault on artifact types and classical denoising (regression, ICA/PCA, CCA, wavelets, EMD).
 - [[frequency-bands]]: defines the five canonical bands and their typical states.
 - [[evaluation-protocols]]: the DeprNet recording vs subject split (Table 6); tables mix protocols.

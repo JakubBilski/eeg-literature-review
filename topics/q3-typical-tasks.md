@@ -11,7 +11,12 @@ updated: 2026-10-10
 
 ## Current answer
 - Commonly listed tasks: seizure/epilepsy classification, stress detection, sleep staging, motor imagery, abnormal-EEG identification, emotion analysis, auditory attention detection [[jiang2024large]] (§1).
-- **BCI** paradigms: motor imagery, SSVEP, P300 spellers, used to control wheelchairs, prostheses, drones, software [[sabio2024scoping]] (§Research domains); [[song2022eeg]] (§I).
+- **BCI** paradigms: motor imagery, SSVEP, P300 spellers, used to control wheelchairs, prostheses, drones, software [[sabio2024scoping]] (§Research domains); [[song2022eeg]] (§I). What each paradigm is and how they're classified (active/passive, evoked/spontaneous, sync/async) → [[bci-paradigms]].
+  - **In 202 BCI application papers (2009–2019):** non-medical 58%, medical 31%, both 11% [[varbu2022past]] (Fig. 5).
+    - Medical BCI is mostly *assistive* (74%: robot arms, prostheses, wheelchairs), then rehabilitation (9%, mostly stroke) (Fig. 6).
+    - Non-medical BCI is mostly *monitoring* (50%: fatigue, attention, emotion), then machine control (17%) and entertainment (16%) (Fig. 7).
+  - Paradigm counts: motor imagery 38, visual evoked potentials 31, drowsiness/attention monitoring 29, emotion 15 (Fig. 11). Motor imagery is mostly medical (62%), monitoring almost entirely non-medical (88–93%).
+  - Main obstacles: subject-to-subject variability, calibration time, low throughput, and noise outside the lab (§6.1).
 - Among consumer-device studies: BCI 44.5%, experimental research 31.2%, signal processing 12.0%, clinical 6.2%, validation 6.2% [[sabio2024scoping]] (§Research domains).
 - Among 110 high-impact **wireless** EEG studies: cognitive monitoring 44% (attention, workload, emotion; classrooms, driving, neuromarketing), clinical 24% (mostly at-home seizure detection and sleep staging), methodological 22%, communication and control 10% (SSVEP, motor imagery, P300 for games and robots) [[niso2022wireless]] (§4.2, Fig. 7a; p. 14). Cognitive monitoring is 60% of the studies where participants move (§4.2.1).
   - 🤖 This differs from Sabio's consumer-device mix, where BCI leads (44.5%). The two use different categories and samples (5 brands vs high-citation journal papers).
@@ -27,14 +32,17 @@ updated: 2026-10-10
 ## Comparisons
 | task family | example datasets | in vault papers |
 |---|---|---|
-| motor imagery (BCI) | BCI IV-2a, 2b | [[song2022eeg]] |
+| motor imagery (BCI) | BCI IV-2a, 2b | [[song2022eeg]], [[varbu2022past]] |
+| SSVEP / P300 (BCI) | — (not yet in vault) | [[varbu2022past]], [[bci-paradigms]] |
+| drowsiness / attention / workload monitoring | — | [[varbu2022past]], [[niso2022wireless]] |
 | emotion recognition | SEED, SEED-V | [[song2022eeg]], [[jiang2024large]] |
 | clinical: abnormal / events | TUAB, TUEV | [[jiang2024large]] |
 | gait / movement regression | MoBI | [[jiang2024large]] |
 
 ## Open threads
 - Sleep staging and seizure detection: seeds [[gans2024sleep]], [[wong2023eeg]] (not yet read).
-- Emotion recognition review: [[li2022eeg]] (downloaded, not yet read). BCI overview: [[varbu2022past]] (downloaded, not yet read).
+- Emotion recognition review: [[li2022eeg]] (downloaded, not yet read).
+- BCI after 2019: [[varbu2022past]] stops in Oct 2019, so a 2022+ BCI review covering DL/transfer learning is still missing.
 
 ## Sources
 - [[chaddad2023electroencephalography]]: application tables and a dataset list (Tables 1, 3–6).
@@ -42,3 +50,4 @@ updated: 2026-10-10
 - [[sabio2024scoping]]: usage categories and BCI paradigms.
 - [[song2022eeg]]: motor imagery and emotion benchmarks.
 - [[niso2022wireless]]: application categories in wireless EEG studies.
+- [[varbu2022past]]: BCI applications 2009–2019; paradigm taxonomy and frequencies.

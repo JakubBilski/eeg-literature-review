@@ -74,3 +74,34 @@
   - Backward-exception candidates: Casson 2019 (wearable/dry electrodes), Bateson 2017 (CoME).
   - Still missing manual PDFs: wang2024eegpt, yang2023biot. gans2024sleep has no text layer.
   - Next on the learning path: tasks stage, [[varbu2022past]] or [[wong2023eeg]].
+
+## 2026-10-10 (session 4)
+- **Added:**
+  - Paper: [[varbu2022past]] (full read). Figures 9–13 (devices, channels, paradigms, features, classifiers) transcribed from page renders into `fulltext/varbu2022past.md`.
+  - Concepts: [[bci-paradigms]], [[eeg-preprocessing-pipeline]] (map of the processing steps), [[digital-filtering]], [[common-spatial-patterns]]. [[time-frequency-analysis]] rewritten as a plain-language primer (FFT/PSD, STFT, wavelets, Hilbert, EMD, time–frequency trade-off).
+  - Core question and hub: [[q7-foundation-models-vs-baselines]], added to Scope in CLAUDE.md and to `index.md` (approved by the human).
+  - Own analyses on PhysioNet EEG Motor Movement/Imagery (subjects 1–10, data in gitignored `data/eeg/`):
+    - `scripts/plot_motor_erd.py` → `figures/eegmmi-imagined-vs-executed.png` (single trials + ERD at C3/C4).
+    - `scripts/classify_imagery_vs_execution.py` → `figures/eegmmi-imagined-vs-executed-csp.png` (CSP + LDA under 4 protocols).
+  - Tooling: mne, matplotlib, numpy, scipy and scikit-learn added to `requirements.txt`. `figures/` and `data/eeg/` added to the CLAUDE.md layout. `notes.py` now ignores image embeds in the link check.
+- **Changed:**
+  - [[q3-typical-tasks]]: BCI section (domains, paradigm counts, obstacles).
+  - [[q4-evolution-of-methods]]: stage 1 confirmed for BCI; primer links.
+  - [[q2-measuring-devices]]: Emotiv share in BCI; Zerafa/Ratti/Hinrichs device comparisons.
+  - [[classical-ml-baselines]]: LDA is the BCI default.
+  - [[evaluation-protocols]], [[q6-reliability-of-eeg-diagnoses]]: own block-confound example.
+  - [[self-supervised-pretraining]]: plan for EEGMMI as a frozen-embedding / few-shot testbed (contamination: LaBraM pretrained on it).
+  - Reverse links in [[niso2022wireless]], [[sabio2024scoping]], [[song2022eeg]], [[jiang2024large]], [[chaddad2023electroencephalography]]; [[consumer-grade-eeg-devices]], [[electrode-types]], [[frequency-bands]], [[independent-component-analysis]].
+- **Questions explored:**
+  - Do imagined and executed movement give similar EEG? → [[bci-paradigms]] (shared mu/beta ERD; MRCP only in execution; imagery weaker).
+  - What would a real example look like? → [[bci-paradigms]] (figure). Execution ERD about −30% vs imagery about −20% at C3. Imagery is lateralized; execution was bilateral (unexplained).
+  - What are C3/C4? → [[bci-paradigms]], [[q2-measuring-devices]] *Montages*.
+  - Can single trials be told apart, and how is mu power measured? → [[bci-paradigms]], [[time-frequency-analysis]] *Band power over time and ERD%*.
+  - Time-series basics and CSP → [[eeg-preprocessing-pipeline]], [[digital-filtering]], [[time-frequency-analysis]], [[common-spatial-patterns]].
+  - Classify imagined vs executed: shuffled CV 0.83, held-out runs 0.64, rest control 0.65, cross-subject 0.56. Mostly the recording block, not the task. → [[bci-paradigms]], [[evaluation-protocols]].
+  - Is EEGMMI a good testbed for a pretrained model? → [[self-supervised-pretraining]], [[q7-foundation-models-vs-baselines]].
+- **Open:**
+  - Next analyses: left-vs-right imagery CSP + LDA with a few-shot curve (classical baseline for Q7); a cleaner rest control (late rest window); a Laplacian reference for the lateralization question.
+  - Reading queue: Pfurtscheller & Lopes da Silva 1999 (ERD/ERS), Zerafa 2018 (multi-device SSVEP), Lotte 2018 (now cited by 2 papers); a 2022+ BCI review. A paper note for [[wang2024cbramod]] is needed (used heavily in Q7).
+  - Many textbook 🤖 passages in the new primer notes are unsourced.
+  - Next on the learning path: [[gans2024sleep]] (render pages) or [[wong2023eeg]].

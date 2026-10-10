@@ -10,9 +10,12 @@ updated: 2026-10-10
 > How have EEG analysis methods evolved: classical signal processing → ML → deep learning → foundation models?
 
 ## Current answer
+*Signal-processing primer:* the ordered steps (filtering → reference → artifacts → epochs → features → classifier) are mapped in [[eeg-preprocessing-pipeline]], with per-step notes [[digital-filtering]], [[time-frequency-analysis]], [[common-spatial-patterns]].
+
 Rough stages as described by vault papers (to be confirmed by the review seeds):
 1. **Hand-crafted features + classifier:** CSP and filter-bank CSP for motor imagery, CCA for SSVEP, wavelet features, then SVM or MLP. Criticized as task-specific, with features and classifier optimized separately [[song2022eeg]] (§I).
    - The classical pipeline in full: acquisition → **denoising** (regression, ICA/PCA, CCA, wavelets, EMD) → **feature engineering** (time–frequency, higher-order spectra, nonlinear/entropy measures) → classifier (SVM most common; KNN, RF, LDA) [[chaddad2023electroencephalography]] (Fig. 2, §2.2–2.5).
+   - **What was actually used in BCI, 2009–2019** (202 papers): features PSD 18%, Fourier 16%, CSP 14%; classifiers LDA 31%, SVM 21%, CNN only 4% [[varbu2022past]] (Figs. 12–13). This confirms stage 1 was the norm in BCI up to ~2019.
    - Early DL often kept this pipeline and swapped only the classifier, feeding CNNs denoised, feature-engineered EEG re-formatted as 2D/3D "images" [[chaddad2023electroencephalography]] (§2.5.2, Fig. 4).
    - How much DL beat it (median +5.4% accuracy, 2010–2018, biased upward), and the Riemannian / LDA / CSP baselines explained → [[classical-ml-baselines]].
 2. **End-to-end CNNs:** ConvNet, EEGNet (temporal + spatial convolutions), beating FBCSP [[song2022eeg]] (§I, Table II).
@@ -36,6 +39,7 @@ Rough stages as described by vault papers (to be confirmed by the review seeds):
 
 ## Sources
 - [[roy2019deep]]: DL-vs-classical meta-analysis, summarized in [[classical-ml-baselines]] *(selected sections)*.
+- [[varbu2022past]]: method frequencies in BCI 2009–2019 (stage 1 in practice).
 - [[chaddad2023electroencephalography]]: the classical pipeline in detail (denoising, features, SVM-era classifiers).
 - [[song2022eeg]]: the classical → CNN → Transformer narrative (§I–II).
 - [[jiang2024large]]: SSL lineage (App. A).
