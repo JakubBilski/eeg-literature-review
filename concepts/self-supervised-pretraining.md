@@ -1,7 +1,7 @@
 ---
 slug: self-supervised-pretraining
 fields: [eeg, ml]
-familiarity: new     # human's level: new | introduced | understood | skip
+familiarity: understood     # human's level: new | introduced | understood | skip
 ---
 
 # self-supervised-pretraining

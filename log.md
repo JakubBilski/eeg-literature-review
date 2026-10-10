@@ -18,3 +18,33 @@
   - The checks are clean apart from `consumer-grade-eeg-devices`, which has one paper; expected until the device seeds are downloaded.
   - Skills created this session are loaded from the next session onward.
   - Next session: the human asks questions about the 3 pilot papers, which tests automatic capture.
+
+## 2026-10-10 (session 2: first reading + Q&A)
+- **Added:**
+  - Paper: [[chaddad2023electroencephalography]] (full read).
+  - Concepts: [[frequency-bands]], [[time-frequency-analysis]].
+  - Topics: [[eeg-depression-detection]], [[classical-ml-baselines]], [[eeg-labels-and-metadata]].
+- **Changed:**
+  - Converted the 4 PDFs the human fetched by hand (niso2022wireless, kaongoen2023future, weng2025self; gans2024sleep has no text layer) and marked them downloaded in screening.
+  - `convert.py` now includes JATS `<floats-group>` tables (chaddad had lost 5 of its 6 tables).
+  - `read-paper` skill gained a "revisit earlier questions" step and a matching section in the summary.
+  - Hubs Q1–Q4 updated.
+  - Q1 now has a physiology source: pyramidal neurons and spatially correlated channels ([[roy2019deep]] p. 2).
+  - Familiarity: `self-supervised-pretraining` and `evaluation-protocols` set to understood; `frequency-bands`, `signal-quality-and-noise` and `time-frequency-analysis` set to introduced.
+- **Questions explored:**
+  - What was fetched / is this a skill: tooling; not filed.
+  - ICA unmixing, number of components, non-Gaussianity, why not least squares → [[signal-quality-and-noise]].
+  - Wavelets/EMD vs Fourier → [[time-frequency-analysis]].
+  - Is depression easy to detect? Medication? → [[eeg-depression-detection]] (open).
+  - Typical ML baselines, LDA, Riemannian methods → [[classical-ml-baselines]].
+  - Labels/metadata available with EEG → [[eeg-labels-and-metadata]].
+  - Electrode placement standard, regional differences, channel correlation → [[q1-what-is-eeg]], [[q2-measuring-devices]].
+  - ECG channels: out of scope; answered in chat only.
+- **Open:**
+  - Manual PDFs still missing: wang2024eegpt, yang2023biot.
+  - gans2024sleep was saved via "Print to PDF" with no text layer. Read it via `page_image.py`, or re-download the original PDF.
+  - Backward-exception candidates to screen: Lopes da Silva 2013 (EEG physiology), Lotte 2018 (BCI classifiers / Riemannian).
+  - Still to find: a 2022+ review on EEG depression detection.
+  - Partly used but not fully read: [[roy2019deep]], [[wang2024cbramod]], [[wong2023eeg]], [[li2022eeg]], [[niso2022wireless]].
+  - Several 🤖 general-knowledge passages need sources: ICA theory, LDA/Riemannian, the 10-20 naming convention.
+  - Next: [[niso2022wireless]] (learning path step 2).

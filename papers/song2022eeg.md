@@ -19,7 +19,7 @@ main_metric: "accuracy, Cohen's kappa"
 main_result: "78.66% mean acc., kappa 0.7155 on BCI IV-2a vs EEGNet 74.50% (Table II)"
 code_available: "https://github.com/eeyhsong/EEG-Conformer"
 read_depth: full
-concepts: [cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, channel-heterogeneity, self-supervised-pretraining]
+concepts: [frequency-bands, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, channel-heterogeneity, self-supervised-pretraining]
 ---
 
 # EEG Conformer (Song et al., 2022)
@@ -74,10 +74,12 @@ Can a compact model combine local features (CNNs) with long-range temporal depen
 - [[signal-quality-and-noise]]: pooling large windows before attention to suppress noise.
 - [[channel-heterogeneity]]: fixed-montage spatial convolution (the counter-example).
 - [[self-supervised-pretraining]]: explicitly not used, citing limited data (§IV-E).
+- [[frequency-bands]]: band-pass input filtering (4–40 / 4–47 Hz) and band-power topographies over motor cortex (ERD/ERS) (§IV-A, §IV-H).
 
 ## Related papers
 - [[jiang2024large]]: LaBraM keeps a conv encoder before the Transformer but adds large-scale pretraining and montage-agnostic patches.
 - [[lawhern2018eegnet]]: inspiration for the conv module and a baseline (Table II). *(not yet read)*
 - [[schirrmeister2017deep]]: ConvNet, the other conv-module inspiration and a baseline. *(screening: maybe)*
+- [[chaddad2023electroencephalography]]: review of the classical pipeline (denoising + hand-crafted features + SVM) that Conformer replaces end-to-end.
 
 ## Q&A notes

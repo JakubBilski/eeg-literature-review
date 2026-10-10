@@ -126,6 +126,9 @@ def convert_jats(xml: Path) -> str:
         parts += walk(ab, 3) or [text(ab)]
     if (body := root.find("body")) is not None:
         parts += walk(body, 2)
+    if (floats := root.find("floats-group")) is not None:  # float tables/figs live outside <body>
+        parts.append("## Floating tables and figures")
+        parts += walk(floats, 3)
     if (refs := root.find(".//ref-list")) is not None:
         parts.append("## References")
         parts.append("\n".join(f"{i}. {text(r)}" for i, r in enumerate(refs.iter("ref"), 1)))

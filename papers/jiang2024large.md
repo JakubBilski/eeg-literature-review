@@ -19,7 +19,7 @@ main_metric: "balanced accuracy"
 main_result: "TUEV bal. acc. 0.6409 (Base) vs BIOT 0.5281; TUAB 0.8140 vs 0.7959 (Tables 1–2)"
 code_available: "https://github.com/935963004/LaBraM"
 read_depth: full
-concepts: [self-supervised-pretraining, channel-heterogeneity, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise]
+concepts: [time-frequency-analysis, frequency-bands, self-supervised-pretraining, channel-heterogeneity, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise]
 ---
 
 # LaBraM: Large Brain Model (Jiang, Zhao & Lu, ICLR 2024)
@@ -76,11 +76,14 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[cnn-transformer-hybrid]]: a temporal conv encoder per patch before the Transformer.
 - [[evaluation-protocols]]: patient-level splits on TUH; trial split on SEED-V; fine-tuning vs linear probe.
 - [[signal-quality-and-noise]]: predicts the spectrum, not raw signal, because of low SNR.
+- [[frequency-bands]]: predicts the full Fourier amplitude/phase per patch instead of fixed bands (§2.2).
+- [[time-frequency-analysis]]: Fourier amplitude/phase of 1 s patches as tokenizer targets (§2.2).
 
 ## Related papers
 - [[song2022eeg]]: the non-pretrained conv + attention predecessor pattern. Not used as a LaBraM baseline.
 - [[yang2023biot]]: BIOT, the main baseline and source of the evaluation splits. *(screening: maybe)*
 - [[wang2024cbramod]]: a later EEG foundation model that compares against LaBraM. *(seed, not yet read)*
 - [[lawhern2018eegnet]]: cited as the canonical CNN approach (§1). *(not yet read)*
+- [[chaddad2023electroencephalography]]: classical time–frequency features, which LaBraM's Fourier-amplitude/phase targets learn instead.
 
 ## Q&A notes

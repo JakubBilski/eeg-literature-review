@@ -80,5 +80,6 @@ Not applicable (descriptive charting; no quality appraisal by design) (§Introdu
 - [[niso2022wireless]]: broader survey of wireless EEG systems. *(seed; PDF needs manual download)*
 - [[kaongoen2023future]]: ear-EEG, a wearable form factor not covered here. *(seed; needs manual download)*
 - [[gans2024sleep]]: EEG wearables for sleep. *(seed; needs manual download)*
+- [[chaddad2023electroencephalography]]: briefer mention of the same consumer devices (Emotiv EPOC, Muse) (§2.1).
 
 ## Q&A notes

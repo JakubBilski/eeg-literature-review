@@ -26,6 +26,7 @@ argument-hint: <citekey | DOI | arXiv ID>
 - **Concepts:** for each concept the paper materially uses or discusses — existing note → add the paper under *Papers* with one line on *how*; new concept → create from `templates/concept.md` only if it is likely to recur (otherwise mention it in the paper note only). Prefer few, well-maintained concepts.
 - **Related papers:** link vault papers it builds on / competes with / cites, one line each — and add the reverse link in those notes' *Related papers*.
 - **Hubs/topics:** add the paper to the relevant `topics/q<N>-*.md` hub(s) (*Sources* plus a claim under *Current answer* if it contributes one). Update a synthesis topic note if the paper changes a comparison.
+- **Revisit earlier questions:** check `interests.md` (*Open questions*, *Recurring themes*), the *Open threads* of every hub/topic touched, and the `## Q&A notes` / Q&A sections of linked papers and concepts. Where the new paper answers, confirms, contradicts or refines an earlier answer, update that note in place (rewrite, keep disagreements explicit), and move answered open questions out of *Open questions* with a link to the answer.
 - `index.md` → *Recently read* (newest first).
 
 ## 5. Check
@@ -34,5 +35,6 @@ argument-hint: <citekey | DOI | arXiv ID>
 ## 6. Present to the human
 - TL;DR (2 lines) + 3–6 key findings with locations.
 - **Links:** papers already in the vault it relates to (and how), concepts it touches, hubs it feeds.
+- **Your earlier questions:** list each earlier question this paper changed (answered / confirmed / contradicted / refined), one line each with a link to the updated note. Omit the section if none.
 - What it leaves open / what to read next.
 - Then the human usually asks questions — handle them per *Knowledge capture* in CLAUDE.md (file answers as you go).

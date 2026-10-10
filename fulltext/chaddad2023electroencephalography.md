@@ -196,6 +196,96 @@ Addressing these challenges requires the development of new methods that can han
 
 This paper presents a comprehensive analysis of various techniques used for EEG preprocessing and feature extraction. We also discuss EEG acquisition methods and summarize signal denoising processes, including regression, blind source separation, wavelet transform, and empirical mode decomposition. Our study focuses on time–frequency analysis, high-order spectral analysis, and nonlinear dynamic analysis, and their applications in EEG feature engineering. We observed that machine learning algorithms have the potential to achieve high accuracy in EEG classification, although the accuracy of classifiers varies. We also found that deep learning models exhibit a comparable accuracy in detecting seizures. To date, AI based algorithms have the potential to improve EEG analysis and diagnosis, leading to better patient outcomes.
 
+## Floating tables and figures
+
+*Figure 1* Bar graph illustrating the number of published papers over the years obtained from Google Scholar, PubMed, and Web of Science searches for the subject of the electroencephalogram (EEG). The search query used was “EEG” in the title.
+
+*Figure 2* The four-step process for EEG signal analysis. The EEG signal analysis involves four stages: acquisition, denoising, feature engineering, and classification.
+
+*Figure 3* An example of 14 EEG signal channels, where the x-axis denotes time and the y-axis represents the magnitude of the 14 signals [39]. These signals can be characterized by their frequency, which refers to the number of cycles per second (Hz) of the electrical activity. These channels are named AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, and AF4, which correspond to the specific electrode placements on the Emotiv Epoc equipment.
+
+*Figure 4* The pipeline of DL models for EEG classification [149]. The pipeline starts with feature engineering applied to the EEG signal. The processed data is then transformed into 2D or 3D format, which serves as input to a convolutional neural network (CNN) model. Finally, the CNN model undergoes training and optimization, leading to the identification of an optimal model as the final result of the pipeline.
+
+**Table 1** Research on EEG applications.
+| Ref. | Prupose | Acquisition Method | Data Processing |
+|---|---|---|---|
+| Ma [42] | Recognize driver fatigue | Commercial Neuroscan system with 40 electrodes | Third-order Butterworth bandpass filter |
+| Gamage [43] | Detect driver’s EEG to reduce traffic accidents | Evoke the emotions of the test driver with video and audio | EEGLAB Toolbox of Matlab |
+| Shen [44] | Strengthen the depression recognition performance | Traditional 128-electrode mounted elastic cap and a wearable 3-electrode EEG collector | EEGLAB Toolbox of Matlab |
+| Saedi [45] | Detect the working status of construction workers | Investigate mental and motor work | A mix of macro and micro scrutiny |
+| Han [46] | Classification of eye state | EEG measured around the ear | Estimating classification accuracy using 3 CNN models |
+| Pawuś and Paszkiel [47] | Use BCI to control the robot | Emotiv EPOC | Classic algorithms and the neural network |
+| Chen [48] | EEG decoding | Obtained in the open world | Supervised deep learning |
+| Pei [49] | PreG electrode in BCI | Obtained form PreG electrode | SSVEP-based BCI |
+| Jemal [50] | Epileptic seizure prediction | Publicly available CHB-MIT dataset | Deep neural network model |
+| Wen [51] | Evaluate spatial cognitive ability | From 7 subjects participating in the game | Coupling strength calculation |
+| Li [52] | Emotion recognition | SJTU Emotion EEG Dataset | Experiment-level BN |
+| Freismuth et al. [53] | Treatment and diagnosis of ADHD | Wearable EEG device | HiLCPS framework |
+
+**Table 2** Application of denoising method in EEG signal.
+| Ref. | Signal Processing Method | Conclusion |
+|---|---|---|
+| Li [65] | EMG reference artifacts of neck and head muscles | More precise EMG separation without manual intervention |
+| Maddirala and Veluvolu [66] | CWT and K-means | It is suitable for situations with few EEG signal channels and can accurately separate artifacts |
+| Patel [67] | Combining EEMD and PCA | Automatic detection and suppression of human eye artifacts can be achieved |
+| Xie [68] | PCA with an SVM-based semi-supervised classification model | It is suitable for processing signals with a low signal-to-noise ratio and only a few labels, with high recognition accuracy and less training time |
+| Sheoran and Saini [69] | Combining CCA and NAPCT | Artifact components are removed without manual intervention |
+| Miao [73] | CCA and MWF | Eye artifacts can be adaptively removed from multi-channel EEG data without the need for a reference signal |
+| Zhou and Gotman [80] | Wavelet transform | The combination of wavelet transform and ICA can effectively remove EMG and ECG artifacts in EEG signals |
+| Tibdewal [81] | Use the adaptive threshold of wavelet coefficients | Effectively reduces artifacts and noise while preserving the original brain signal |
+| Chen [83] | EEMD and CCA techniques | It can make good use of interchannel information and has a good artifact removal effect in the case of serious signal pollution |
+| Yang [84] | Extract spikes to the first IMF | Can alleviate splitting effects, but not suitable for separating multipoint spikes |
+| Li and Zhang [85] | EMD | It can eliminate the effect of multipoint spikes on IMF screening and better remove EOG artifacts |
+
+**Table 3** Summary of commonly used EEG signal analysis datasets.
+| Dataset | Sample (n) | Types | SF (Hz) |
+|---|---|---|---|
+| Zhang [112] | 122 | Object recognition | 256 |
+| Koelstra [113] | 32 | Emotion analysis | 128 |
+| Zheng and Lu [114] | 15 | Emotion recognition | 200 |
+| Ang [115] | 9 | Emotion recognition | 250 |
+| Tangermann [116] | 9 | BCI | 250 |
+| Sajda [117] | 9 | BCI | 100 |
+| Andrzejak [118] | 10 | Seizure detection | 173.86 |
+| Shoeb [119] | 23 | Seizure detection/prediction | 256 |
+| Detti [120] | 14 | Seizure detection/prediction | 512 |
+| Zhang [121] | 6 | Mental workload | 500 |
+| Venkatachalam [122] | 5 | MIC | 150 |
+| Zhang [123] | 64 | EEG denoising | 512 |
+
+**Table 4** Application of traditional classification method in EEG research.
+| Ref. | Domain | Propose Method | Conclusion |
+|---|---|---|---|
+| H and A. [125] | Epilepsy | Used KNN and ANN classifiers to predict seizures | For KNN classifier, HFD with sample entropy had the highest accuracy of about 98% |
+| Ping [126] | Epilepsy | Created an SVM classifier based on nonlinear feature extraction | Successfully improved the correct recognition rate |
+| Jamunadevi [127] | Epilepsy | Used RF for detection and evaluation | RF had better results in eliminating epilepsy error detection |
+| Jiahui [128] | MI | Added Gaussian noise and performed binary classification | The maximum average classification accuracy of KNN classifier reached 88.57% |
+| Jiaying [129] | MI | Created a lower extremity MI classification algorithm based on LDA+KNN. | The average classification accuracy of the two paradigms was 67.5% and 84.62%, respectively |
+| Dongare and Padole [130] | MI | Created a majority voting classifier that combines SVM, LDA, and ANN | The accuracy of performance measurement was 85.36% |
+| Ren [131] | Stroke | Adopted C4.5 decision tree | Constructed a DT model with 37 nodes |
+| Huaiwen and Yin [132] | Stroke | Used ROC and AUC for model screening | The SVM model performed best as AUC = 1.000 |
+| Hanqi [133] | Stroke | Build model based on LASSO, DWI, PWI, and SVM | The accuracy of the combined model was 0.822, which was better than that of the single sequence model |
+| Yong [134] | Stroke | Used CTA image collection set data and K-fold cross validation | The random forest model had the best prediction effect, with an accuracy of 94.9% and 90.8% in predicting new ischemic stroke |
+
+**Table 6** Application of the deep learning method in EEG research.
+| Ref. | Domain | Proposed Method | Conclusion |
+|---|---|---|---|
+| Morabito [150] | Alzheimer’s disease | A method was proposed to generate a suitable feature set using convolution and then use full connectivity to make predictions | The method achieved 80% classification accuracy in Alzheimer’s disease |
+| Morabito [151] | Alzheimer’s disease | A deep learning processing system to reduce the dimensionality of the feature space | The system achieved nearly 90% classification accuracy in diagnosing Alzheimer’s disease |
+| Kim [152] | Alzheimer’s disease | A novel end-to-end model designed for the purpose of low-cost and noninvasive diagnosis of brain disorders | Their method achieved a high ROC-AUC score of 0.9 |
+| Kunekar [153] | Epilepsy | A deep learning and multimodal fusion approach was proposed for the diagnosis of epilepsy | The method allowed for improved diagnostic accuracy and earlier prediction of seizures due to the continuous performance of the data |
+| Sagga [154] | Epilepsy | Proposed a simple CNN model to identify epileptic seizures | The CNN model achieved 98% accuracy in seizure detection |
+| Qing [155] | Epilepsy | Using neural network model to process one-dimensional time series and two-dimensional EEG image EEG data types to detect seizures | The classification accuracy of EfficientNetV2 model for epileptic EEG was 98.69% |
+| Ouyu [156] | Ischemic stroke | A deep learning-based stroke evaluation model for stroke diagnosis | CNN was 22.86% more accurate than logistic regression |
+| Kumar and Sengupta [157] | Ischemic stroke | Stroke detection using VGG-16 and Resnet-50 models | The accuracy of the model in predicting stroke reached 90% |
+| Seal [158] | Depression | A CNN DeprNet was proposed for depression diagnosis | The accuracy of the results obtained in recording split and subjective split experiments was 99.37% and 91.4%, respectively |
+| Rafiei [159] | Depression | Automatic detection of MDD Using EEG data and deep neural network architecture | The accuracy reached 91.67% when all 19 channels were used and 87.5% after the channels were reduced |
+| Sudhakar [160] | Sleep | Alexnet and GoogleNet used EEG signals to detect sleep disorders | AlexNet was better at detecting sleep disorders with an accuracy of 93.33% |
+| Leino [161] | Sleep | Combined CNN and RNN to determine the sleep stage of the EEG channel measured by AES | When considering all datasets, the highest automatic scoring accuracy was 79.7% |
+| Kang and Hong [162] | Sleep | The optimized GoogleNet model was used to construct CNN automatic sleep stage classification in single channel EEG | The accuracy of the sleep state of the EEG F4 channel was the highest at 77.6% |
+| Almogbel [163] | Cognitive | An end-to-end deep neural network could accommodate the original EEG signals from 4 channels within a month as input | This model could successfully promote EEG signals and classify drivers’ cognitive workload with high accuracy |
+| Bhardwaj [164] | Cognitive | A highly accurate, EEG based driver fatigue classification system to reduce fatigue related road accidents | Based on different indicators, the accuracy of the deep learning automatic encoder was as high as 99.7% |
+
 ## References
 
 1. 1. FanJ. FangL. WuJ. GuoY. DaiQ. From brain science to artificial intelligenceEngineering2020624825210.1016/j.eng.2019.11.012

@@ -16,6 +16,7 @@ Recordings come from sensor setups that differ in the number and placement of se
 - **General ML:** variable-length / set-structured inputs, missing modalities, positional encoding of sensors
 
 ## Papers
+- [[chaddad2023electroencephalography]]: names device differences across datasets as a key challenge and proposes domain adaptation (§3). No montage-agnostic architecture is discussed.
 - [[song2022eeg]]: the counter-example. Its spatial conv kernel spans exactly `ch` channels (§III-C), so it is tied to one montage (22, 3 or 62 channels).
 - [[jiang2024large]]: designs for it. Each channel is patched separately, and learnable spatial embeddings index electrodes in the 10-20 universal set (§2.1). Without them pretraining doesn't converge and fine-tuning drops (App. L).
 - [[sabio2024scoping]]: the device side. Consumer headsets have 1–16 channels at non-standard positions (e.g. Muse AF7/AF8/TP9/TP10, MindWave FP1) (Table 3).

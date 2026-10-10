@@ -16,6 +16,7 @@ Low-cost, wireless sensor headsets sold to non-specialists. They have few sensor
 - **General ML:** wearable sensors, edge devices
 
 ## Papers
+- [[chaddad2023electroencephalography]]: Emotiv EPOC (14 ch + 2 reference) records real EEG but performs worse than larger devices. Muse has 4 electrodes (AF7, AF8, TP9, TP10) and an Fpz reference (§2.1).
 - [[sabio2024scoping]]: charts 916 research studies using 5 brands. Emotiv 67.69%; 1–16 channels; BCI is the main use; validation is thin except for Emotiv (Table 3; §Research domains; §Validation).
 
 ## Variants & disagreements
