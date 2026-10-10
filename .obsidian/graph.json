@@ -1,9 +1,44 @@
 {
+  "collapse-filter": true,
   "search": "-path:templates -path:fulltext",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
   "colorGroups": [
-    {"query": "path:papers", "color": {"a": 1, "rgb": 4886754}},
-    {"query": "path:concepts", "color": {"a": 1, "rgb": 15105570}},
-    {"query": "path:bridges", "color": {"a": 1, "rgb": 10181046}}
+    {
+      "query": "path:papers",
+      "color": {
+        "a": 1,
+        "rgb": 4886754
+      }
+    },
+    {
+      "query": "path:concepts",
+      "color": {
+        "a": 1,
+        "rgb": 15105570
+      }
+    },
+    {
+      "query": "path:bridges",
+      "color": {
+        "a": 1,
+        "rgb": 10181046
+      }
+    }
   ],
-  "showOrphans": true
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.6632778469636713,
+  "close": true
 }

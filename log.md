@@ -14,3 +14,7 @@
   - OpenAlex undercounts ML-venue citations.
   - Q1 has no source on physiological origin yet.
   - Conformer tables were images and were transcribed by hand; values should be spot-checked.
+- **Wrap-up:**
+  - The checks are clean apart from `consumer-grade-eeg-devices`, which has one paper; expected until the device seeds are downloaded.
+  - Skills created this session are loaded from the next session onward.
+  - Next session: the human asks questions about the 3 pilot papers, which tests automatic capture.
