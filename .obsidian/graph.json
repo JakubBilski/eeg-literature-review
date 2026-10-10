@@ -1,0 +1,9 @@
+{
+  "search": "-path:templates -path:fulltext",
+  "colorGroups": [
+    {"query": "path:papers", "color": {"a": 1, "rgb": 4886754}},
+    {"query": "path:concepts", "color": {"a": 1, "rgb": 15105570}},
+    {"query": "path:bridges", "color": {"a": 1, "rgb": 10181046}}
+  ],
+  "showOrphans": true
+}

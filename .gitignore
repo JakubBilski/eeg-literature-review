@@ -218,3 +218,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# raw PDFs (copyright; re-downloadable)
+pdf/
+# python
+.venv/
+__pycache__/
+*.pyc
+# Obsidian per-device UI state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/

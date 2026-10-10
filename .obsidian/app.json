@@ -1,0 +1,16 @@
+{
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": true,
+  "propertiesInDocument": "visible",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "papers",
+  "attachmentFolderPath": "pdf",
+  "userIgnoreFilters": [
+    "pdf/",
+    ".venv/",
+    "scripts/",
+    "data/"
+  ]
+}
