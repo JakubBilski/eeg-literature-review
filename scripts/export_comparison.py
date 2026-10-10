@@ -10,7 +10,7 @@ import csv
 from notes import ROOT, note_paths, read_note
 
 FIELDS = ["citekey", "title", "authors", "year", "venue", "doi", "arxiv", "pmid",
-          "field", "task", "datasets", "n_subjects", "n_channels", "model_type",
+          "field", "paper_type", "task", "datasets", "n_subjects", "n_channels", "model_type",
           "eval_protocol", "main_metric", "main_result", "code_available",
           "read_depth", "concepts"]
 

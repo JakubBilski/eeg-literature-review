@@ -7,7 +7,8 @@ venue: ""
 doi: ""
 arxiv: ""
 pmid: ""
-field: eeg            # eeg | ecg | mi | other
+field: eeg            # eeg | other
+paper_type: ""        # review | method | dataset | benchmark | device | clinical-study
 task: ""              # e.g. motor imagery classification, sleep staging, seizure detection
 datasets: []
 n_subjects:

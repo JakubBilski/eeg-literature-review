@@ -1,13 +1,19 @@
 # EEG Literature Review — Agent Instructions
 
-This folder is a literature review on EEG, with deliberate links to ECG and mechanistic interpretability (MI). You help find, screen, read, summarize, compare and connect papers. The human owns the conclusions; you own the bookkeeping and first drafts.
+This folder is a literature review on EEG. You help find, screen, read, summarize, compare and connect papers. The human owns the conclusions; you own the bookkeeping and first drafts.
 
-## Scope (edit me)
+## Scope
 
-- **Core question:** <fill in, e.g. "How are deep learning / foundation models applied to EEG, and how are they evaluated and interpreted?">
-- **Inclusion:** <e.g. peer-reviewed or preprint, 2018+, scalp EEG, reports quantitative results>
-- **Exclusion:** <e.g. intracranial-only, no full text, non-English>
-- **Adjacent fields to watch:** ECG / other biosignals; mechanistic interpretability & probing of neural networks.
+- **Core questions** (for now):
+  1. What is EEG (what it measures, physiological origin, strengths and limits)?
+  2. What are the standard measuring devices (clinical/research systems, consumer/wearable headsets, electrode types, montages)?
+  3. What are the typical tasks involving EEG (e.g. clinical diagnosis, sleep staging, BCI, emotion/cognitive state)?
+  4. How have EEG analysis methods evolved (classical signal processing → machine learning → deep learning → foundation models)?
+  5. What is the current state of the art?
+- **Inclusion:** published 2022 onward (last ~4 years), prioritised by influence (citation count, normalised for age) — start from the most influential papers and reviews. Peer-reviewed or preprint. English.
+- **Backward exception:** an older paper is included when 2022+ papers repeatedly cite it as foundational (a dataset, device standard, landmark method or canonical review). Record the citing papers in `reason`.
+- **Exclusion:** <to be refined after the pilot>
+- **Other fields:** out of scope for now. EEG is the only field; don't create cross-field bridges until the human widens the scope.
 
 ## Folder layout
 
@@ -46,7 +52,7 @@ scripts/             helper scripts (search, conversion, table export)
 3. **Acquire** — download open-access PDFs only (arXiv, PMC, bioRxiv/medRxiv, publisher OA, Unpaywall by DOI). If paywalled, set `pdf_status=needs_manual` and move on; the human will fetch it. Never use shadow libraries.
 4. **Convert** — PDF → Markdown into `fulltext/` (see `scripts/`). Keep section headings and page markers where the tool allows.
 5. **Read & note** — fill `papers/<citekey>.md` from the template, using the full text, not just the abstract.
-6. **Connect** — create or update concept notes and link both directions. Propose bridges when a concept appears in more than one field.
+6. **Connect** — create or update concept notes and link both directions. (Bridges are on hold while scope is EEG-only.)
 7. **Log** — append a short entry to `log.md`: date, what was added/changed, open questions.
 
 ## Accuracy rules (important)
@@ -66,15 +72,15 @@ Use `templates/paper.md`. Frontmatter fields must stay machine-readable (they fe
 
 Use `templates/concept.md`. Each concept note must have:
 - a **field-neutral description** (1–3 sentences, no field jargon), so cross-field matching works without embeddings;
-- **synonyms by field** (EEG / ECG / MI / general ML);
+- **synonyms by community** (EEG / neuroscience & clinical / signal processing / general ML);
 - a list of papers that use or discuss it, each with one line on *how*;
 - open questions.
 
 Prefer a modest number of well-maintained concepts over many thin ones. Split a concept only when papers clearly use it in different ways. Use lowercase-hyphenated slugs (`channel-attention`, `artifact-removal`, `linear-probing`).
 
-## Bridges (cross-field links)
+## Bridges (cross-field links) — on hold
 
-A bridge is a note claiming that an idea, method or problem in one field corresponds to one in another. Use `templates/bridge.md`. A bridge needs: the two (or more) concept notes, the field-neutral common ground, concrete papers on each side, where the analogy breaks, and a confidence level (`speculative` / `plausible` / `established`). Look for bridges by comparing the field-neutral descriptions and synonym lists across concept notes — this is the main mechanism; no vector store is used.
+Not used while the scope is EEG-only; kept for later. A bridge is a note claiming that an idea, method or problem in one field corresponds to one in another. Use `templates/bridge.md`. A bridge needs: the two (or more) concept notes, the field-neutral common ground, concrete papers on each side, where the analogy breaks, and a confidence level (`speculative` / `plausible` / `established`). Look for bridges by comparing the field-neutral descriptions and synonym lists across concept notes — this is the main mechanism; no vector store is used.
 
 ## Search inside the corpus
 

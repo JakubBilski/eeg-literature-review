@@ -1,6 +1,6 @@
 ---
 slug: "{{title}}"
-fields: []            # any of: eeg, ecg, mi, ml
+fields: []            # communities using it: eeg, neuro-clinical, signal-processing, ml
 ---
 
 # {{title}}
@@ -8,10 +8,10 @@ fields: []            # any of: eeg, ecg, mi, ml
 ## Field-neutral description
 <!-- 1–3 sentences, no field jargon — this is what cross-field matching runs on -->
 
-## Synonyms by field
+## Synonyms by community
 - **EEG:**
-- **ECG:**
-- **MI:**
+- **Neuroscience / clinical:**
+- **Signal processing:**
 - **General ML:**
 
 ## Papers
