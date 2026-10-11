@@ -22,11 +22,37 @@ updated: 2026-10-10
 - **Time vs space:** excellent temporal resolution (milliseconds) but low spatial resolution. The skull and other tissue smear the fields, "as a result, EEG channels are often highly correlated spatially". Reconstructing the sources is the "inverse problem" [[roy2019deep]] (p. 2).
 - **Regions do differ functionally**, e.g. imagined left- vs right-hand movement shows over the opposite side's motor cortex [[song2022eeg]] (§IV-H). Neighbouring electrodes are strongly correlated, though, not weakly: an extra electrode close to others "might not provide significantly different information" [[roy2019deep]] (p. 13). 🤖 Region-specific information is present, but blurred and spread across many correlated channels, which is why spatial filters (CSP, ICA, learned spatial convs) are central to EEG methods.
 
+## Is EEG redundant to imaging? (asked 2026-10-11)
+*Mostly textbook knowledge (🤖, unsourced). Candidate sources added to screening: [[bitar2024utility]] (ICU continuous EEG), [[bank2022structural]] (MRI in new focal epilepsy), [[riha2022multimodal]], [[nascimento2023focal]].*
+
+- 🤖 **The ECG analogy is the right one, but it cuts the other way.** ECG isn't an inferior CT. It measures the heart's *electrical conduction*, so it is the primary test for arrhythmias, which CT can't see. EEG relates to brain imaging the same way:
+  - **Structural imaging** ([[computed-tomography]], [[magnetic-resonance-imaging]]) shows *what the brain looks like*: tumours, strokes, bleeding, scars, malformations.
+  - **EEG** shows *what the brain is doing electrically, millisecond by millisecond*.
+  - A person with epilepsy often has a completely normal MRI, and a brain lesion on MRI doesn't tell you whether it is causing seizures.
+- 🤖 **Where imaging did make EEG redundant:** localizing structural lesions. Before CT (1970s), EEG slowing over one area was used to find tumours and strokes. CT/MRI replaced that, which is one reason EEG's clinical role shrank to "functional" questions.
+- 🤖 **Where EEG is still the only practical tool:**
+  - **Seizures and epilepsy:** diagnosing and classifying epilepsy (interictal spikes), telling seizures from mimics such as fainting or psychogenic events, and detecting **nonconvulsive seizures** in comatose ICU patients, which have no visible signs. Continuous monitoring over days is only possible with EEG.
+  - **Sleep** (PSG), **depth of anaesthesia**, and **coma / post-cardiac-arrest prognosis**. Ancillary use in brain-death testing, varying by country.
+  - **Epilepsy surgery** combines both: MRI finds a candidate lesion, and scalp then intracranial EEG confirm where seizures actually start → [[seizure-detection]].
+- 🤖 **The functional imaging alternatives each lose something:**
+
+  | method | measures | time resolution | spatial | practicality |
+  |---|---|---|---|---|
+  | EEG | neural electrical activity (cortex, synchronized) | ms | cm, smeared | cheap, portable, bedside, days-long |
+  | MEG | magnetic field of the same currents | ms | better than EEG | shielded room, very expensive, still head |
+  | fMRI | blood oxygenation (BOLD), an indirect, slow proxy | seconds | mm | scanner; no long or bedside recording |
+  | PET / SPECT | metabolism / blood flow via radioactive tracer | minutes | mm–cm | radiation; snapshots (ictal SPECT used in epilepsy surgery) |
+  | fNIRS | blood oxygenation, outer cortex only | seconds | cm | portable; slower than EEG |
+  | ultrasound | anatomy (newborns, through the open fontanelle); blood-flow velocity (transcranial Doppler) | — | — | the adult skull blocks imaging; it doesn't measure neural activity |
+
+- 🤖 **Bottom line:** EEG is redundant for *structure* and inferior in *spatial* detail. For *fast electrical events over long periods at the bedside* (seizures, sleep, coma, anaesthesia) it has no replacement. That is also exactly where its clinical value is → [[q3-typical-tasks]] *What clinical EEG is good for*.
+
 ## Comparisons
 
 ## Open threads
 - Physiological origin and the spatial resolution limits of EEG: no source yet.
 - Why the bands map to brain states, and *how* coarse the spatial resolution is (in cm): not yet sourced.
+- EEG vs imaging (CT/MRI/fMRI/MEG/ultrasound): answered from textbook knowledge only (🤖). Source it from [[bitar2024utility]] / [[bank2022structural]] (screening, not read).
 - Why only synchronized cortical pyramidal neurons are visible (deep structures, cancellation): needs a physiology source.
 
 ## Sources

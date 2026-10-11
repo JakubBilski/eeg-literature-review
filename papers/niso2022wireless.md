@@ -19,7 +19,7 @@ main_metric: ""
 main_result: "48 devices compared on ~35 specs (Table 1); 110 high-impact studies: cognitive monitoring 44%, clinical 24%, methodological 22%, control/communication 10% (Fig. 7a)"
 code_available: ""
 read_depth: full
-concepts: [consumer-grade-eeg-devices, electrode-types, signal-quality-and-noise, channel-heterogeneity, bci-paradigms, digital-filtering, eeg-preprocessing-pipeline, sleep-staging]
+concepts: [consumer-grade-eeg-devices, electrode-types, signal-quality-and-noise, channel-heterogeneity, bci-paradigms, digital-filtering, eeg-preprocessing-pipeline, sleep-staging, seizure-detection]
 ---
 
 # Wireless EEG: a survey of systems and studies (Niso et al., 2022)
@@ -93,6 +93,7 @@ What wireless EEG hardware exists, how do the devices compare, and what has it b
 - 🤖 "Wireless" here is mostly a convenience feature: 61% of studies had participants who barely moved (Fig. 7d).
 
 ## Concepts
+- [[seizure-detection]]: at-home seizure monitoring is one of the two main clinical uses of wireless EEG (§4.2.2).
 - [[digital-filtering]]: dry-electrode drift below 2 Hz forces higher high-pass cut-offs (p. 6); sampling 250–500 Hz (§3.8).
 - [[eeg-preprocessing-pipeline]]: acquisition side: sampling, reference, impedance (§3).
 - [[bci-paradigms]]: SSVEP, motor imagery and P300 are the control paradigms in the 10% of wireless studies on communication and control (§4.2.3).
@@ -108,6 +109,7 @@ What wireless EEG hardware exists, how do the devices compare, and what has it b
 - [[kaongoen2023future]]: ear-EEG. Niso mentions cEEGrid behind-the-ear electrodes, often used with mBrainTrain amplifiers (p. 11). *(not yet read)*
 - [[varbu2022past]]: BCI applications 2009–2019. Agrees that monitoring dominates and Emotiv is the top device (40% of BCI device mentions). Application-centric where Niso is device-centric.
 - [[gans2024sleep]]: sleep wearables, 24 validated against PSG. It supplies the per-device validation evidence for the home sleep staging that Niso lists as a main clinical use (§4.2.2).
+- [[wong2023eeg]]: the public seizure datasets behind seizure-detection ML. All come from clinical gel or implanted systems; none are wearable.
 
 ## Q&A notes
 - 2026-10-10 **Q:** Why has no one compared signal quality across devices? **A:** Pairwise validations exist; what's missing is a standardized protocol. Quality depends on the task (p. 13), there is no ground truth, setup and fit matter, and public datasets confound device with lab and task. → [[q2-measuring-devices]]

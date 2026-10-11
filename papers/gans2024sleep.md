@@ -101,5 +101,6 @@ Which EEG-based wearables exist for measuring human sleep, in which populations 
 - [[kaongoen2023future]]: ear-EEG review. Gans covers cEEGrid, IDUN and unnamed in-ear devices for sleep (Table 1, S4). *(not yet read)*
 - [[wang2024cbramod]]: sleep staging on ISRUC (6-channel PSG EEG, 30 s epochs, AASM 5 classes) as a foundation-model benchmark (App. E.1).
 - [[roy2019deep]]: sleep staging is one of the main DL-for-EEG applications, and manual scoring is slow (p. 2).
+- [[wong2023eeg]]: the seizure counterpart. A dataset catalogue rather than a device validation; imbalance and expert labels as in sleep.
 
 ## Q&A notes

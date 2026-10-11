@@ -108,6 +108,7 @@ The human's objection: expert agreement is poor (N1 κ 0.24, N2/N3 0.57 [[lee202
 - 🤖 Why is REM detectable from forehead devices at all? Probably via eye-movement artifacts picked up by frontal electrodes. To check.
 
 ## Related concepts
+- [[seizure-detection]]: the other clinical task with expert labels and heavy class imbalance
 - [[frequency-bands]]: stages are defined largely by which bands dominate (alpha, theta, spindles, delta).
 - [[consumer-grade-eeg-devices]]: sleep headbands are a large consumer category.
 - [[evaluation-protocols]]: device validation against a simultaneous reference; κ for imbalanced classes.

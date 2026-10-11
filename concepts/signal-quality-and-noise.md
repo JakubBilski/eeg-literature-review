@@ -23,6 +23,7 @@ The measured signal is weak relative to unwanted contributions (other body signa
 - [[sabio2024scoping]]: consumer devices have a higher noise floor, more rejected trials, and poor connectivity estimates. Signal depends on headset fit (§Validation).
 
 - [[gans2024sleep]]: in sleep wearables, quality is reported as feasibility (artifact share, recording success rate, compliance), e.g. Dreem <20% artifacts, Cerebra 83% success (p. 9). It is validated by agreement with a simultaneous PSG, not by signal metrics (Table 1).
+- [[wong2023eeg]]: intracranial EEG has a higher signal-to-noise ratio than scalp EEG and is less affected by artifacts and the environment (§7).
 
 ## Variants & disagreements
 - **Is "noise" well-posed?** (discussed 2026-10-10) Only in part.

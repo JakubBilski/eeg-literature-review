@@ -21,6 +21,7 @@ Recordings come from sensor setups that differ in the number and placement of se
 - [[jiang2024large]]: designs for it. Each channel is patched separately, and learnable spatial embeddings index electrodes in the 10-20 universal set (§2.1). Without them pretraining doesn't converge and fine-tuning drops (App. L).
 - [[niso2022wireless]]: device channel counts range from 4 to 128. Across 110 wireless studies the median is 14 channels, 37 studies used <8 and 11 used a single channel (Table 1; Fig. 5c). Electrode placement is either fixed by the headset or flexible via caps; headbands cannot reach the top of the head (§3.2).
 - [[sabio2024scoping]]: the device side. Consumer headsets have 1–16 channels at non-standard positions (e.g. Muse AF7/AF8/TP9/TP10, MindWave FP1) (Table 3).
+- [[wong2023eeg]]: public seizure datasets range from 1 to 76 channels. They mix 10-20 with extended 10-10 ("Nomenclature") placements and name channels inconsistently. Sampling rates run 173.86–5000 Hz and vary even within one dataset. So a model "cannot truly" be tested on another dataset without re-tuning (§5.1, §6.3, §7, Tables 2, 8).
 
 ## Variants & disagreements
 - Fixed montage + spatial conv (Conformer, EEGNet) vs channel-as-token + electrode embedding (LaBraM). Other strategies (graph/topology-aware, mapping channels to a template) are not yet in the vault.

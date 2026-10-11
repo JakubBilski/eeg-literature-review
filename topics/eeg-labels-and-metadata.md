@@ -28,14 +28,14 @@ updated: 2026-10-10
 |---|---|---|---|
 | experiment design | motor imagery cue, film clip | free | high for "what was asked", unknown for "what the brain did" |
 | self-report | valence/arousal ratings | cheap | noisy, subjective |
-| expert annotation (🤖 for sleep stages, the label is *defined* by the EEG/EOG/EMG pattern itself → [[sleep-staging]]) | seizures, sleep stages, abnormal EEG | expensive | sleep stages: human κ 0.76 overall, 0.24 on N1 [[lee2021interrater]]; seizures: no vault number yet |
+| expert annotation (🤖 for sleep stages, the label is *defined* by the EEG/EOG/EMG pattern itself → [[sleep-staging]]) | seizures, sleep stages, abnormal EEG | expensive | sleep stages: human κ 0.76 overall, 0.24 on N1 [[lee2021interrater]]; seizures: no vault number yet; preictal windows are conventions (e.g. 5 min before onset, [[wong2023eeg]] Table 4) |
 | clinical records | diagnosis, medications | varies | rarely released |
 
 ## Open threads
 - Does Mumtaz2016 (depression) include medication status? Not stated in the vault. Check the dataset paper → [[eeg-depression-detection]].
-- Inter-rater agreement for seizure annotation: check [[wong2023eeg]]. (Sleep answered: [[lee2021interrater]], see [[sleep-staging]].)
+- Inter-rater agreement for seizure annotation: not covered by [[wong2023eeg]] (checked 2026-10-11); still unsourced → [[seizure-detection]] *Open questions*. (Sleep answered: [[lee2021interrater]], see [[sleep-staging]].)
 
 ## Sources
-- [[wong2023eeg]]: metadata audit of seizure datasets (§5.6–5.7, Tables 5–6) *(selected sections only so far)*.
+- [[wong2023eeg]]: metadata audit of seizure datasets (§5.6–5.7, Tables 5–6).
 - [[li2022eeg]]: emotion label models *(selected sections only)*.
 - [[jiang2024large]], [[song2022eeg]], [[wang2024cbramod]]: label types per benchmark.

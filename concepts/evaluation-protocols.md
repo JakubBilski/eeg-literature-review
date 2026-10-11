@@ -26,6 +26,8 @@ How data is split into training and test sets, and what is measured, determines 
 
 - [[gans2024sleep]]: **device validation** is a different protocol: the wearable and the reference (PSG) record at the same time, and their stage labels are compared epoch by epoch. Metrics vary (accuracy, κ, sensitivity, correlation), and the authors recommend κ for imbalanced classes (p. 10). Per-stage one-vs-rest accuracy misleads: N1 accuracy 0.90 with sensitivity 0.21 (Table 1, p. 5).
 - [[lee2021interrater]]: **label noise sets a ceiling.** Two human sleep scorers agree at κ 0.76 overall and 0.24 on N1 (Abstract), so a model scored against one human can't meaningfully exceed that.
+- [[wong2023eeg]]: **dataset construction can make proper splits impossible.** Bonn and Hauz Khas pool segments without patient IDs (§5.6). Bonn is balanced by hand-picking segments (§6.1). Kaggle Melbourne-NIH and NeuroVista Ictal share patients, which risks leakage if combined (§7). Seizures are <1% of recorded EEG (§2), and resampling to balance "does not represent the true nature" of recordings (§7).
+- [[wang2024cbramod]] on CHB-MIT: a subject split, but the test set is only 2 children (subjects 22–23). With heavy imbalance, balanced accuracy is 0.57–0.74 and AUC-PR 0.12–0.37, while AUROC is 0.80–0.89 (App. E.2, Table 8). 🤖 AUROC looks good under rare positives; AUC-PR is the more honest number.
 
 ## Variants & disagreements
 - Same dataset, different protocol: SEED appears as 5-fold window CV in Conformer and as a trial split in LaBraM (SEED-V). Accuracies are not comparable.

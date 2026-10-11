@@ -139,3 +139,25 @@
 - **Changed:** `CLAUDE.md` Scope: Q8 exception allows regulatory summaries (FDA 510(k) / De Novo / PMA, CE / EUDAMED) as sources, with `regulatory_id`, `source_type: regulatory` and a manufacturer-based citekey (human decision).
 - **Questions explored:** none beyond setting up Q8.
 - **Open:** run find-papers for commercial / FDA-cleared EEG analysis tools (seizure detection, ICU EEG, automated sleep scoring, BIS, qEEG for TBI); the search leads in the hub are 🤖 from model memory and unverified.
+
+## 2026-10-11 (session 6)
+- **Added:**
+  - Paper: [[wong2023eeg]] (full read, JATS). Covers 10 public seizure datasets. The most used, Bonn (58/120 studies), is single-channel, pre-balanced and has no patient IDs.
+  - Concepts: [[seizure-detection]] (ictal/preictal/interictal, detection vs prediction, dataset table, own CHB-MIT figure), [[computed-tomography]], [[magnetic-resonance-imaging]].
+  - Figure: `figures/chbmit-seizure-chb01_03.png` (18 bipolar channels plus a spectrogram), made by the new `scripts/plot_seizure.py`. Data in `data/eeg/chbmit/` (gitignored, SHA256 verified).
+  - Screening: [[bitar2024utility]], [[bank2022structural]] (include); [[riha2022multimodal]], [[nascimento2023focal]] (maybe). Source: the EEG-vs-imaging question.
+- **Changed:**
+  - [[q6-reliability-of-eeg-diagnoses]]: new section *Does EEG ML "work"?* (scorecard by task). It records the human's refined view: the bottleneck is well-labelled multi-subject data and well-defined diagnostic problems, not data volume. Also the TUAB "abnormal" caveat (🤖, unverified).
+  - [[q1-what-is-eeg]]: *Is EEG redundant to imaging?* (textbook 🤖; comparison table of EEG/MEG/fMRI/PET/fNIRS/ultrasound).
+  - [[q3-typical-tasks]], [[q7-foundation-models-vs-baselines]] (CHB-MIT: EEGNet 0.566 → CBraMod 0.740), [[eeg-labels-and-metadata]], [[evaluation-protocols]], [[channel-heterogeneity]], [[electrode-types]], [[signal-quality-and-noise]], [[sleep-staging]]; reverse links in 4 paper notes.
+  - `CLAUDE.md` Tooling: plot_seizure.py and parallel range downloads from PhysioNet.
+- **Questions explored:**
+  - What does a seizure look like on EEG? → [[seizure-detection]] *What a seizure looks like* (own plot).
+  - Do EEG methods work at all, or is there too little data? → [[q6-reliability-of-eeg-diagnoses]] *Does EEG ML "work"?*
+  - What does "abnormal" mean in TUAB? → same section (🤖, needs the dataset paper).
+  - Is EEG redundant to CT/MRI/ultrasound, like ECG vs CT? → [[q1-what-is-eeg]] *Is EEG redundant to imaging?*
+- **Open:**
+  - Sourcing the EEG-vs-imaging section: read [[bitar2024utility]] / [[bank2022structural]].
+  - TUAB dataset paper: label definition.
+  - Seizure inter-rater agreement; a 2022+ seizure-detection review with clinical metrics (false alarms/h).
+  - Next on the learning path: [[li2022eeg]] (emotion), then roy2019deep / EEGNet, then forward snowballing toward 2025–26.

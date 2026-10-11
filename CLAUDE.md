@@ -51,6 +51,7 @@ data/eeg/            downloaded raw EEG datasets (gitignored, re-downloadable)
 - Discovery APIs reachable without keys: OpenAlex, arXiv, PubMed E-utilities, Europe PMC. Semantic Scholar needs `S2_API_KEY` (applied for 2026-10-10, pending); `discover.py` uses it automatically once set.
 - `page_image.py` renders PDF pages to PNG when tables/figures are embedded as images.
 - `plot_motor_erd.py` plots imagined vs executed movement (single trials + ERD/ERS at C3/C4) from PhysioNet EEG Motor Movement/Imagery into `figures/`. PhysioNet is slow (~1 file/min); download many files in parallel with curl into `data/eeg/MNE-eegbci-data/files/eegmmidb/1.0.0/`.
+- `plot_seizure.py` plots one annotated CHB-MIT seizure (18 bipolar channels plus a spectrogram) into `figures/`. EDFs go in `data/eeg/chbmit/`. PhysioNet supports range requests, so fetch a 42 MB EDF in ~20 parallel `curl -r` chunks (~15 min), then check it against `SHA256SUMS.txt`.
 - When writing files containing backslash escapes (e.g. `\n`) or apostrophes, use the Write/Edit tools, not bash heredocs (the shell layer mangles them).
 - Publisher and PMC PDF links block scripts (403 / bot pages). `discover.py pdf` falls back to Europe PMC JATS XML (`pdf/<citekey>.xml`), which `convert.py` handles; anything else becomes `needs_manual`.
 

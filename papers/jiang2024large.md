@@ -19,7 +19,7 @@ main_metric: "balanced accuracy"
 main_result: "TUEV bal. acc. 0.6409 (Base) vs BIOT 0.5281; TUAB 0.8140 vs 0.7959 (Tables 1–2)"
 code_available: "https://github.com/935963004/LaBraM"
 read_depth: full
-concepts: [time-frequency-analysis, frequency-bands, self-supervised-pretraining, channel-heterogeneity, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, bci-paradigms]
+concepts: [time-frequency-analysis, frequency-bands, self-supervised-pretraining, channel-heterogeneity, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, bci-paradigms, seizure-detection]
 ---
 
 # LaBraM: Large Brain Model (Jiang, Zhao & Lu, ICLR 2024)
@@ -71,6 +71,7 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - 🤖 Its place in the history: the first widely cited "large EEG model". Its design choices (channel-wise patches, electrode embeddings, spectral targets) answer [[channel-heterogeneity]] and [[signal-quality-and-noise]] directly.
 
 ## Concepts
+- [[seizure-detection]]: TUSZ is the largest pretraining source (1,138.5 of 2,535 h, App. D).
 - [[bci-paradigms]]: pretraining corpus includes the PhysioNet Motor Movement/Imagery dataset (executed and imagined movements, 109 subjects) (App. D).
 - [[self-supervised-pretraining]]: masked token prediction with a VQ spectral tokenizer.
 - [[channel-heterogeneity]]: channel-wise patches plus learnable electrode embeddings make it montage-agnostic.
@@ -86,5 +87,6 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[wang2024cbramod]]: a later EEG foundation model that compares against LaBraM. *(seed, not yet read)*
 - [[lawhern2018eegnet]]: cited as the canonical CNN approach (§1). *(not yet read)*
 - [[chaddad2023electroencephalography]]: classical time–frequency features, which LaBraM's Fourier-amplitude/phase targets learn instead.
+- [[wong2023eeg]]: describes TUSZ, LaBraM's largest pretraining source: 3,050 seizures, the richest clinical metadata (Tables 5–6, 8).
 
 ## Q&A notes
