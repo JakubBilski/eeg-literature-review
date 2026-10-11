@@ -51,6 +51,21 @@ updated: 2026-10-11
   - *2026 update:* the first matched benchmark marks which downstream sets each FM saw in pretraining (e.g. TUAB for 7 of 12). A leakage-aware ranking that drops those sets barely changes the order [[liu2026eeg]] (Supp. Table 54). CHB-MIT there is ictal vs pre-ictal segment classification, not continuous detection, so it says nothing about false alarms per hour (p. 15). 🤖 Within-subject few-shot scores up to 95–99% (EEGMat, SSVEP) may include temporal adjacency between train and test windows; the paper does not describe the split.
 - **How strong the baselines are:** small models and classical methods often come within a few points of foundation models, which limits how much a given benchmark can tell apart. → [[classical-ml-baselines]], [[q7-foundation-models-vs-baselines]]
 
+### Thought experiment: a normative model of healthy EEG (asked 2026-10-11)
+*The human asked: what if a large, clean, single-device dataset with patient-level splits existed, and FMs got good at modelling what healthy EEG should look like? Entirely 🤖 speculation; the vault has no EEG normative-modelling source yet (reading queue in [[interests]]).*
+- **The idea has a name: normative modelling.** You model the healthy distribution conditioned on age, sex and state, then score each person by how far they deviate. Analogues known from memory, not yet verified: MRI "brain charts" (Bethlehem et al. 2022), ECG-predicted age vs real age as a mortality marker, and EEG "brain age" from sleep EEG.
+- **What it would plausibly fix:**
+  - *Fewer false positives:* a model that knows the range of benign variants could counter over-reading, a known cause of epilepsy misdiagnosis → [[q3-typical-tasks]] *Indications*.
+  - *Label-free triage:* it needs only "healthy" labels, not disease labels, so it sidesteps the bottleneck identified above (well-labelled data and well-defined diagnostic problems).
+  - *Per-person deviation maps:* a disease may deviate in different ways in different patients, which group classifiers average away.
+  - *Personal baselines over time:* deviation from your own earlier EEG (ICU trending, wearables).
+- **What it can't fix:**
+  - *Sampling:* if no spike occurs during a 20-min recording, no model of normal will find one. The exception would be a subtle *background* difference in epilepsy, which is directly testable: score the "normal" first EEGs of patients later diagnosed with epilepsy.
+  - *Deviation ≠ diagnosis:* drowsiness, medication, age and artifacts deviate more than most diseases do. The model must be conditioned on them, which needs metadata → [[eeg-labels-and-metadata]].
+  - *Better prediction ≠ better anomaly detection:* lower pretext loss doesn't track feature quality, and raw-MSE error mostly measures power → [[q9-pretraining-objectives-and-scale]] *Is pretext loss itself informative?* In ML generally, generative models can give *higher* likelihood to simple out-of-distribution inputs (Nalisnick et al. 2019, from memory).
+  - *Who counts as "healthy"?* Hospital archives (TUH, HEEDB [[sun2025harvard]]) hold referred patients. A "normal" report is a weak proxy for healthy, and volunteer cohorts are skewed (students). A single device keeps the data clean but brings device shift back at deployment.
+- **Likely outcome:** better triage, fewer false positives, and a nonspecific "brain-health / brain-age gap" index. New disease-specific diagnoses are unlikely without labelled cohorts, which are needed at least for validation. For psychiatry an honest normative model may mostly show overlap with healthy people, which is itself useful evidence.
+
 ## Comparisons
 
 ## Open threads

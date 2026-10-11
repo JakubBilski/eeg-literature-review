@@ -15,12 +15,16 @@ updated: 2026-10-11
 - **Automatic sleep staging ships in wearable headbands.** Dreem (5 dry electrodes) scores sleep automatically, with accuracy 0.84 and κ 0.73 against manual PSG; N1 κ is only 0.43 [[gans2024sleep]] (p. 4). Sleep Profiler under-reports N3 and over-reports N1 (p. 9). → [[sleep-staging]]
 - **No agreed standard for automatic sleep scoring yet** [[gans2024sleep]] (p. 10).
 - **Clinical certification (FDA/EMA) is required for clinical research use** of EEG devices [[niso2022wireless]] (§3.15). The vault doesn't yet say which *analysis software* is cleared, or for what.
-- Nothing else sourced yet: the hub is a stub.
+- **Commercial spike detectors work on interictal spikes but less well on seizures.** A Leiden thesis compared Persyst, encevis and BESA: Persyst did best, with sensitivity 95% on 30-min selections vs 82% on 10-s epochs (encevis 86% / 61%). Short (<10 s) or subtle seizures are often missed ([Leiden thesis](https://scholarlypublications.universiteitleiden.nl/handle/1887/3715500), via web search, not read). A peer-reviewed real-world comparison of Persyst vs encevis on 125 routine EEGs is in screening: [[janmohamed2023comparison]] (needs_manual).
+- **Wearable / point-of-care seizure detection has 510(k) clearances:** Epitel REMI Vigilenz (2024) marks recorded EEG sections that may be seizures ≥10 s, but explicitly makes "no diagnostic conclusion". A later clearance adds bedside alerts, for non-ICU settings only. Ceribell's Clarity algorithm is reported as cleared for all ages, neonates included ([BusinessWire](https://www.businesswire.com/news/home/20241021071646/en/Epitel-Expands-AI-Portfolio-With-A-Fourth-FDA-510k-Clearance-for-REMI), [MassDevice](https://www.massdevice.com/fda-clears-epitel-remote-monitoring-ai-detection/); manufacturer press releases. K-numbers not yet looked up).
+- 🤖 **Pattern so far:** cleared products *flag segments for a human to review* (triage) and don't diagnose. That matches where EEG itself has clinical value → [[q3-typical-tasks]] *Indications and how well EEG performs*.
 
 ## Comparisons
 | system | predicts | evidence | source |
 |---|---|---|---|
 | Dreem headband | sleep stages (5-class) | κ 0.73 vs PSG | [[gans2024sleep]] p. 4 |
+| Persyst / encevis / BESA | interictal spikes, seizures | thesis: Persyst sens. 95% (30-min), 82% (10-s) | Leiden thesis (web) |
+| Epitel REMI Vigilenz | candidate seizure segments ≥10 s | 510(k) 2024, manufacturer-reported | press release |
 | *(to fill)* | | | |
 
 ## Open threads

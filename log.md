@@ -279,3 +279,18 @@
   - Liu's few-shot split procedure is not described (temporal adjacency?).
   - Check whether [[coon2025foundation]] = the preprint of [[coon2026sleep]].
   - Needs manual PDF: [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-11 (session 13)
+- **Added:**
+  - Screening: [[turella2024predictive]] (EEG prognosis after cardiac arrest, TTM2, include) and [[janmohamed2023comparison]] (Persyst vs encevis spike detection, include, needs_manual).
+- **Changed:**
+  - [[q3-typical-tasks]]: new subsection *Indications and how well EEG performs*. Covers epilepsy yield (first routine EEG ~22%, ~80% cumulative), low-yield indications (syncope, headache), ICU and post-arrest prognosis, other established uses, and uses that are not clinically established. Partly web-sourced, the rest textbook 🤖.
+  - [[q8-commercial-eeg-analysis-systems]]: commercial spike/seizure detectors (Persyst/encevis/BESA thesis numbers), Epitel REMI and Ceribell 510(k) seizure products (press releases), and the "cleared products triage, they don't diagnose" pattern.
+  - [[q6-reliability-of-eeg-diagnoses]]: new section *Thought experiment: a normative model of healthy EEG* (🤖 speculation).
+- **Questions explored:**
+  - Which conditions can EEG diagnose, and what are commercial systems used for? → Q3, Q8.
+  - Would a large, clean dataset plus FMs that model healthy EEG enable diagnosis? → Q6 (links Q9 *Is pretext loss itself informative?*).
+- **Open:**
+  - Full reads of [[turella2024predictive]] and [[bitar2024utility]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]].
+  - Find a 2022+ routine-EEG yield review, EEG normative-modelling / brain-age papers, and the FDA K-numbers for Epitel and Ceribell.
+  - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
