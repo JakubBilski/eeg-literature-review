@@ -21,6 +21,8 @@ How data is split into training and test sets, and what is measured, determines 
 
 - [[varbu2022past]]: in BCI, inter- and intra-subject variability is "one of the most important obstacles", and subject-independent BCIs remain a challenge. Per-user calibration is time-consuming and especially hard for people with mental disabilities (§6.1, pp. 21–22).
 - [[chaddad2023electroencephalography]]: a clear example of split dependence. DeprNet (depression) gets 99.37% with a recording-level split vs 91.4% with a subject-level split (Table 6). The review's accuracy tables mix protocols.
+- [[coppola2024hubert]] (ECG parallel): the same evaluation problems outside EEG. The fine-tuning datasets are in the pretraining pool (defended as standard, pp. 10–11), splits are by ECG with no patient-level statement (p. 15), and most baselines are numbers quoted from papers that used other label subsets (p. 10).
+- [[liu2026eeg]]: two complementary scenarios, LOSO (zero calibration) and within-subject few-shot (≈5–30% of one session). Linear probe vs full fine-tune for every FM. A leakage-aware ranking excludes downstream sets in each FM's pretraining corpus, and it barely changes the order. Reports the test score at the final epoch, with 3 seeds and a Friedman/Nemenyi test (pp. 15–17, 71–72). 🤖 The few-shot split procedure (contiguous vs random windows) is not stated.
 
 - **Own worked example (2026-10-10):** CSP + LDA, imagined vs executed fist on EEGMMI (10 subjects). Shuffled 5-fold 0.83 → leave-one-run-pair-out 0.64 → cross-subject 0.56. A control on *rest* periods also reaches 0.65, i.e. the model mostly learns which recording block a trial came from, because the class is confounded with the run → [[bci-paradigms]] *Imagined vs executed movement*.
 

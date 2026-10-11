@@ -19,6 +19,8 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-11 [[liu2026eeg]] — EEG-FM-Compass: survey of 55 FMs + matched benchmark of 12; specialists tie FMs cross-subject and win few-shot, probes weak, no scaling
+- 2026-10-11 [[coppola2024hubert]] — HuBERT-ECG (ECG method parallel): k-means pseudo-labels on MFCC then latent features, 9.1M ECGs; same recipe as Sleep2.0 → bridge [[hubert-style-pseudo-labels]]
 - 2026-10-11 [[kuruppu2026eeg]] — critical review of the first 10 EEG foundation models: transformers + masked reconstruction, weak linear probes, weak scaling evidence, mostly in-distribution tests
 - 2026-10-11 [[weng2025self]] — survey of ~70 EEG self-supervised methods (2019–2023): predictive / generative / contrastive / hybrid taxonomy; no performance numbers, no foundation models
 - 2026-10-11 [[lawhern2018eegnet]] — EEGNet: ~2k-parameter CNN that mimics FBCSP; matches paradigm-specific pipelines on 4 BCI paradigms, loses to Riemannian on cross-subject ERN
@@ -32,6 +34,9 @@
 - 2026-10-10 [[jiang2024large]] — LaBraM: first large EEG foundation model (2,535 h, masked token prediction)
 - 2026-10-10 [[song2022eeg]] — EEG Conformer: CNN + Transformer, per-subject, common baseline
 - 2026-10-10 [[sabio2024scoping]] — scoping review of consumer-grade EEG devices (916 studies)
+
+## Bridges (ECG ↔ EEG)
+- [[hubert-style-pseudo-labels]] — HuBERT-ECG and Sleep2.0 share the k-means pseudo-label recipe (plausible)
 
 ## Concepts
 [[bci-paradigms]] · [[channel-heterogeneity]] · [[cnn-transformer-hybrid]] · [[common-spatial-patterns]] · [[computed-tomography]] · [[consumer-grade-eeg-devices]] · [[digital-filtering]] · [[domain-adaptation]] · [[eeg-preprocessing-pipeline]] · [[electrode-types]] · [[emotion-recognition]] · [[evaluation-protocols]] · [[frequency-bands]] · [[independent-component-analysis]] · [[linear-discriminant-analysis]] · [[magnetic-resonance-imaging]] · [[riemannian-methods]] · [[self-supervised-pretraining]] · [[seizure-detection]] · [[signal-quality-and-noise]] · [[sleep-staging]] · [[time-frequency-analysis]]

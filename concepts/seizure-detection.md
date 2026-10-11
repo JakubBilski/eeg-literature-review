@@ -57,6 +57,7 @@ What to see (own analysis; readings marked 🤖 are my interpretation):
 - [[roy2019deep]]: epilepsy is the largest clinical DL domain of 2010–2018 (26 papers, 21 detection). CHB-MIT (9) and Bonn (7) were already the top datasets (Fig. 4, Table 6). Raw-EEG CNNs beat SVMs on frequency features (p. 27). Going from 4 to 22 channels raised specificity from 40% to 90% (ref [153], p. 13).
 - [[kuruppu2026eeg]]: asks FM papers to report clinically meaningful metrics such as false positives per hour and to keep the natural interictal ≫ ictal imbalance (§5.2, p. 18). In BrainWave's paper, a general time-series FM (MOMENT) beat EEG-FMs on seizure detection (p. 17).
 - [[weng2025self]]: SSL seizure methods include MBrain (channel-correlation prediction + CPC), Wavelet2vec (per-band masked reconstruction, seizure subtypes), EEG-CGS (graph anomaly detection) and BrainNet (SEEG) (Tables 1–3). No performance comparison.
+- [[liu2026eeg]]: CHB-MIT as ictal vs 10-min pre-ictal segment classification, not continuous detection. Few-shot (first seizure only): Conformer 91.58, CBraMod 88.54, PSD+SVM 77.71. LOSO: ShallowConv 80.18 vs best FM LUNA 78.12 (Tables 2, 15).
 
 ## Variants & disagreements
 - **Segment vs event metrics.** Window-level accuracy on balanced pre-cut segments (Bonn) is not comparable to event-level sensitivity with false alarms per hour on continuous recordings. 🤖 Clinically, false alarms per hour is what decides usability; the vault has no source for it yet.

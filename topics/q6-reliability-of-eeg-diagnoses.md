@@ -48,6 +48,7 @@ updated: 2026-10-11
 - 🤖 **"Quality" depends on the task.** Apart from amplifier noise, how good a recording is depends on the prediction target, so reliability has to be judged for each task. → [[signal-quality-and-noise]]
 - **Transfer across montages and devices:** foundation models handle montage differences by design (electrode embeddings). Whether they bridge *devices*, and whether they pick up device fingerprints as shortcuts, is untested in the vault. → [[channel-heterogeneity]]
 - **Foundation-model evaluations (to Sep 2024) are mostly in-distribution:** 4 of 10 FMs test only on datasets seen in pretraining, and only 2 test on unseen datasets [[kuruppu2026eeg]] (§5.1). No model did artifact removal, so artifact-driven shortcuts are unexamined (§4.1). Clinical few-shot claims (ADHD, MDD, schizophrenia AUC 0.72–0.90 in BrainWave) rest on small public sets (Supp. Table 2). → [[evaluation-protocols]]
+  - *2026 update:* the first matched benchmark marks which downstream sets each FM saw in pretraining (e.g. TUAB for 7 of 12). A leakage-aware ranking that drops those sets barely changes the order [[liu2026eeg]] (Supp. Table 54). CHB-MIT there is ictal vs pre-ictal segment classification, not continuous detection, so it says nothing about false alarms per hour (p. 15). 🤖 Within-subject few-shot scores up to 95–99% (EEGMat, SSVEP) may include temporal adjacency between train and test windows; the paper does not describe the split.
 - **How strong the baselines are:** small models and classical methods often come within a few points of foundation models, which limits how much a given benchmark can tell apart. → [[classical-ml-baselines]], [[q7-foundation-models-vs-baselines]]
 
 ## Comparisons
@@ -60,6 +61,7 @@ updated: 2026-10-11
 
 ## Sources
 - [[kuruppu2026eeg]]: in-distribution vs OOD evaluation of EEG foundation models; asks for subject/temporal splits and clinical metrics.
+- [[liu2026eeg]]: leakage-aware FM ranking; segment-level CHB-MIT; within-subject few-shot.
 - [[chaddad2023electroencephalography]]: split dependence (DeprNet, Table 6).
 - [[wang2024cbramod]]: depression benchmark (Mumtaz2016, Table 10).
 - [[jiang2024large]]: patient-level splits; pretraining dominated by TUH.

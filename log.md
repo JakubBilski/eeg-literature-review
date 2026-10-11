@@ -260,3 +260,22 @@
   - First ECG↔EEG bridge note (HuBERT-style pseudo-labels) once an ECG paper is read; the HuBERT-ECG full text is blocked (medRxiv 403) → may need a manual PDF.
   - The HEEDB hours and access terms are unchecked.
   - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-11 (session 12)
+- **Added:**
+  - Paper: [[coppola2024hubert]] (HuBERT-ECG, full read from medRxiv v4, PDF fetched by hand; `field: other`, ECG method parallel). Masked prediction of k-means pseudo-labels: k = 100 on 39-d MFCCs, then k = 500 on layer-8 states. 9.1M ECGs; fine-tuning datasets overlap pretraining; weak frozen features; scaling not monotonic.
+  - First bridge: [[hubert-style-pseudo-labels]] (ECG ↔ EEG, plausible). HuBERT-ECG vs Sleep2.0 ([[coon2026sleep]]), plus E3GT/PSGFM from the same JHU APL group. Covers where the analogy breaks: fixed 12 leads vs EEG montages; morphology vs spectral state; cluster validation.
+  - Paper: [[liu2026eeg]] (EEG-FM-Compass, full read, arXiv v3). Survey of 55 FMs + matched benchmark of 12 open FMs vs 8 specialists on 13 datasets, in a leave-one-subject-out (LOSO) and a within-subject few-shot scenario. CBraMod is rank 1 but not significantly ahead of EEGNet/Conformer/ShallowConv. Specialists win few-shot, and classical pipelines win few-shot MI/SSVEP/workload. The linear probe is worse than fine-tuning for 9/12 FMs. No size or objective effect.
+  - Screening: [[xiong2025eeg]] (EEG-FM-Bench, include), [[wu2025adabrain]], [[shen2026brain4fms]], [[ogg2025eeg]] (E3GT), [[coon2025foundation]] (PSGFM) (maybe). Liu's PSGFM DOI is wrong; the correct one was found by title.
+- **Changed:**
+  - [[q9-pretraining-objectives-and-scale]]: HuBERT-ECG tokenization corrected from the paper (MFCC-only, not stats + MFCC). Added the ECG pretext-loss-vs-probe evidence, "objective family doesn't decide" and the 2026 scaling evidence.
+  - [[q7-foundation-models-vs-baselines]] (status → active): new top bullet and a BCI IV-2a LOSO/few-shot table. [[q5-state-of-the-art]]: no single SOTA; per-protocol table rows. [[q4-evolution-of-methods]]: stage 6 extended to 55 FMs (2025–26 branches). [[q6-reliability-of-eeg-diagnoses]]: leakage-aware ranking, segment-level CHB-MIT, possible few-shot adjacency.
+  - Concepts: [[self-supervised-pretraining]], [[channel-heterogeneity]] (six unification strategies), [[evaluation-protocols]], [[common-spatial-patterns]], [[bci-paradigms]], [[domain-adaptation]] (Euclidean alignment), [[eeg-preprocessing-pipeline]], [[seizure-detection]].
+  - `index.md`: new *Bridges* section.
+- **Questions explored:** none new (reading session); the earlier "how does HuBERT-ECG tokenize?" answer was corrected → [[coppola2024hubert]] Q&A, Q9.
+- **Open:**
+  - Next reads: [[chen2026benchmarking]] (EEG-Arena), [[kontras2026neuroatlas]], [[zare2026negative]], [[xiong2025eeg]]; full note on [[xie2026specbram]].
+  - Riemannian baselines are still untested against FMs.
+  - Liu's few-shot split procedure is not described (temporal adjacency?).
+  - Check whether [[coon2025foundation]] = the preprint of [[coon2026sleep]].
+  - Needs manual PDF: [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
