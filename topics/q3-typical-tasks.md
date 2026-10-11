@@ -27,6 +27,10 @@ updated: 2026-10-10
 
 - **Where labels come from** (experiment design, self-report, expert annotation) and which clinical metadata ships with datasets → [[eeg-labels-and-metadata]].
 - **What clinical EEG is good for** (discussed 2026-10-10): EEG is "the most common diagnostic investigation for patients with suspected seizures or epilepsy" [[wong2023eeg]] (§1). Clinical reading looks for large, stereotyped events such as seizures, spikes and periodic discharges (the TUEV classes; [[jiang2024large]] §3.1). Recordings use certified devices, gel and 10-20 [[niso2022wireless]] (§3.15). 🤖 So the arguments against comparing devices bite less here: the events are big relative to noise and the setup is standardized. They bite hard for subtle population-level differences such as psychiatric conditions → [[eeg-depression-detection]]. Scalp EEG is "less sensitive" than intracranial EEG [[wong2023eeg]] (§2).
+- **Sleep staging:** each 30 s epoch of a night is labelled Wake / N1 / N2 / N3 / REM. The clinical reference is polysomnography (PSG): EEG + eye + chin muscle + cardio-respiratory channels, scored by hand [[gans2024sleep]] (pp. 1–2); [[wang2024cbramod]] (App. E.1). → [[sleep-staging]]
+  - It is the clearest at-home use of wearable EEG: 34 devices exist, 24 validated against PSG. Overall κ is 0.42–0.79 where reported, N1 is poorly detected, and 64% of validations were run in a clinic or lab, only 12% at home [[gans2024sleep]] (§3, Table 1).
+  - Diagnostic use: the stage percentages are mostly descriptive. Diagnosis relies on REM (narcolepsy, REM sleep behaviour disorder as an early Parkinson's sign), on sleep/wake timing, and on breathing channels for apnea → [[sleep-staging]] *Diagnostic use of the stages* (mostly 🤖, partly sourced via [[gans2024sleep]] refs).
+  - As an ML benchmark (ISRUC, 5-class): κ 0.70–0.74 across EEGNet, USleep, LaBraM and CBraMod [[wang2024cbramod]] (Table 7).
 - **Depression (MDD) detection:** reported accuracies are very high (0.91–0.99), but they rest on small single-site datasets and depend on the split. See [[eeg-depression-detection]].
 
 ## Comparisons
@@ -38,9 +42,11 @@ updated: 2026-10-10
 | emotion recognition | SEED, SEED-V | [[song2022eeg]], [[jiang2024large]] |
 | clinical: abnormal / events | TUAB, TUEV | [[jiang2024large]] |
 | gait / movement regression | MoBI | [[jiang2024large]] |
+| sleep staging | ISRUC, Sleep-EDF; wearable-vs-PSG validations | [[gans2024sleep]], [[wang2024cbramod]], [[sleep-staging]] |
 
 ## Open threads
-- Sleep staging and seizure detection: seeds [[gans2024sleep]], [[wong2023eeg]] (not yet read).
+- Seizure detection: seed [[wong2023eeg]] (selected sections only so far).
+- Sleep: human inter-scorer agreement is now sourced (κ 0.76 overall, 0.24 on N1 [[lee2021interrater]], abstract only) → [[sleep-staging]]. Full read pending (open access in PMC).
 - Emotion recognition review: [[li2022eeg]] (downloaded, not yet read).
 - BCI after 2019: [[varbu2022past]] stops in Oct 2019, so a 2022+ BCI review covering DL/transfer learning is still missing.
 
@@ -50,4 +56,5 @@ updated: 2026-10-10
 - [[sabio2024scoping]]: usage categories and BCI paradigms.
 - [[song2022eeg]]: motor imagery and emotion benchmarks.
 - [[niso2022wireless]]: application categories in wireless EEG studies.
+- [[gans2024sleep]]: sleep staging with EEG wearables, validated against PSG.
 - [[varbu2022past]]: BCI applications 2009–2019; paradigm taxonomy and frequencies.

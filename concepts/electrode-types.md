@@ -23,6 +23,7 @@ A sensor that picks up a weak electrical signal through a poorly conducting surf
   - **Active:** a pre-amplifier inside the electrode, so the cable can't act as an antenna. Better at high impedance (dry electrodes, rushed setup), but passive electrodes are cleaner at low impedance in the lab. Active electrodes are heavier and costlier (§3.5).
   - **Shielded:** a metal layer around the cable against interference in transit. Heavier and more expensive (§3.5).
 - [[varbu2022past]]: second-hand comparisons (p. 15). Soufineyestani: dry headsets are more robust to line noise but carry more artifacts, and both types degrade over time as moisture evaporates. Hinrichs 2020: wireless dry vs wired wet clinical EEG were "comparable", with slightly more artifacts on dry, less sensitivity to electromagnetic interference, and both patients and volunteers preferred dry for self-application.
+- [[gans2024sleep]]: form factors in sleep wearables (Table 1): dry electrodes in a headband (Dreem), hydrogel forehead patches (LANMAO, Bittium silver-ink, Onera), a pre-gelled self-applied grid (trEEGrid), a flex-printed adhesive strip behind the ear (cEEGrid), in-ear electrodes (IDUN). The dry Dreem had <20% artifacts in most tests (p. 9). There is no head-to-head comparison by electrode type.
 - [[sabio2024scoping]]: consumer headsets use "minimal or no conductive medium" (§Consumer-grade EEG devices). 🤖 This is plausibly one cause of the higher noise floor reported in §Validation. *(see [[consumer-grade-eeg-devices]])*
 
 ## Variants & disagreements

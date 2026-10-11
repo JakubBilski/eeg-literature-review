@@ -28,7 +28,7 @@ The two vault reviews describe the same skeleton: raw EEG → preprocessing (den
 | 5 | **artifact removal** | remove eye, muscle and heart signals: regression, ICA, CCA, wavelet thresholding, EMD | [[independent-component-analysis]], [[signal-quality-and-noise]] | toolbox in [[chaddad2023electroencephalography]] (§2.2, Table 2) |
 | 6 | **epoching** | cut fixed windows around events (cues, stimuli) or sliding windows; optional baseline correction | [[bci-paradigms]], [[evaluation-protocols]] | e.g. 0.5–3.5 s after a cue |
 | 7 | **feature extraction** | temporal: band-pass to a band; spectral: PSD/FFT, STFT, wavelets, Hilbert envelope; spatial: CSP; covariance (Riemannian) | [[time-frequency-analysis]], [[frequency-bands]], [[common-spatial-patterns]], [[riemannian-methods]] | log band power per channel or per CSP component |
-| 8 | **classifier** | LDA, SVM, … or a neural net | [[classical-ml-baselines]] | LDA with shrinkage for BCI ([[varbu2022past]] Fig. 13) |
+| 8 | **classifier** | LDA, SVM, … or a neural net | [[linear-discriminant-analysis]], [[classical-ml-baselines]] | LDA with shrinkage for BCI ([[varbu2022past]] Fig. 13) |
 
 - **In deep learning**, steps 7–8 merge: the network takes lightly filtered, epoched EEG and learns temporal filters (conv over time) and spatial filters (conv over channels) itself [[song2022eeg]] (§III); [[lawhern2018eegnet]] (§1). Steps 1–6 mostly remain. 🤖 Choices there (filter band, reference, which epochs to drop) still change results and are a hidden source of incomparability across papers (→ [[evaluation-protocols]]).
 - **Order matters** (🤖):

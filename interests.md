@@ -8,20 +8,23 @@ Questions the human asks are treated as signals of what matters. Maintained auto
 - Reliability of reported accuracies / split leakage / confounds (depression, medication) / diagnostic power of clinical EEG: 3, last 2026-10-10. **Promoted to the core question [[q6-reliability-of-eeg-diagnoses]] (2026-10-10).** [[q3-typical-tasks]] (what clinical EEG is good for). [[eeg-depression-detection]], [[evaluation-protocols]].
 - Classical ML baselines vs DL / foundation models (LDA, Riemannian, frozen-embedding probes): 3, last 2026-10-10. **Promoted to the core question [[q7-foundation-models-vs-baselines]] (2026-10-10).** [[classical-ml-baselines]], [[riemannian-methods]], [[self-supervised-pretraining]] (*EEGMMI as a frozen-embedding testbed*).
 - Device signal quality / validation across devices / cross-device transfer: 2, last 2026-10-10. [[q2-measuring-devices]] (why there's no benchmark; why large N doesn't fix it), [[signal-quality-and-noise]] (is noise well-posed), [[channel-heterogeneity]] (can foundation models bridge devices).
-- Labels & metadata available with EEG: 1, 2026-10-10. [[eeg-labels-and-metadata]].
+- Labels & metadata available with EEG / label reliability: 3, last 2026-10-11 (what PSG is; are N1-N3 clearly defined; are stages defined by the EEG itself; why a benchmark). **Not a separate core question (human, 2026-10-11): stays in [[eeg-labels-and-metadata]] + [[q6-reliability-of-eeg-diagnoses]].**. [[eeg-labels-and-metadata]], [[sleep-staging]] (*PSG*, *How clearly are the stages defined?*).
 - Spatial structure (electrode placement, regional differences, channel correlation, what C3/C4 are): 2, last 2026-10-10. [[q1-what-is-eeg]], [[q2-measuring-devices]], [[bci-paradigms]] (C3/C4 over the hand areas; CSP spatial filters → [[common-spatial-patterns]]). [[niso2022wireless]] adds the reference electrode and coverage vs channel count (§3.2), but not the 10-20 naming convention.
 
+- Sleep stages: definition, clinical use, value as a benchmark: 2, 2026-10-11 (diagnostic value of N1-N3; why benchmark on it). [[sleep-staging]] (*Diagnostic use of the stages*). Related to the labels theme above.
 - Physiology of BCI signals (motor imagery vs actual movement, single-trial separability): 2, 2026-10-10. [[bci-paradigms]] (*Imagined vs executed movement*).
 
 ## Open questions
 - How much weaker is imagery ERD than execution ERD, and do executed-movement decoders transfer to imagery? (2026-10-10) → [[bci-paradigms]]. Partial, from own analysis of EEGMMI (10 subjects): ~20% vs ~30% mu drop at C3. Imagery is lateralized but execution was bilateral, which is unexplained. Transfer is untested.
 <!-- questions not yet answered by the vault; remove when answered (link the answer) -->
-- Is there a 2022+ standardized multi-device EEG signal-quality benchmark (ERP CORE / SME across several headsets)? (2026-10-10) → [[q2-measuring-devices]]. Partial: a pre-2022 multi-device SSVEP comparison exists (Zerafa 2018, via [[varbu2022past]]); still nothing 2022+.
+- Which sleep-EEG features have diagnostic value beyond REM and sleep/wake timing (spindle density, slow-wave activity in schizophrenia, Alzheimer's, depression), and do they replicate across sites? (2026-10-11) -> [[sleep-staging]]. Only a textbook answer so far.
+- Is there a 2022+ standardized multi-device EEG signal-quality benchmark (ERP CORE / SME across several headsets)? (2026-10-10) → [[q2-measuring-devices]]. Partial: a pre-2022 multi-device SSVEP comparison exists (Zerafa 2018, via [[varbu2022past]]); still nothing 2022+. Refined 2026-10-11 by [[gans2024sleep]]: even in sleep, where every device is validated against simultaneous PSG, devices are tested in separate studies and can't be ranked.
 - Does EEG depression detection hold up across sites/datasets, or is it driven by single-site confounds? (2026-10-10) → [[eeg-depression-detection]]
 - How strong are Riemannian / classical baselines against EEG foundation models on matched protocols? (2026-10-10) → [[classical-ml-baselines]]. Planned own test: frozen FM + ridge vs CSP + LDA on EEGMMI left-vs-right imagery, few-shot, held-out subjects → [[self-supervised-pretraining]]
 
 ## Reading queue
 <!-- papers pointed to by questions or by reads: - citekey/title — why, from [[note]] -->
+- To find: a 2022+ review of sleep-EEG biomarkers (spindles, slow waves, REM) in psychiatric and neurodegenerative disease. Would source the textbook part of [[sleep-staging]] *Diagnostic use*.
 - To find: 2022+ cross-device / cross-headset EEG transfer (foundation models on low-channel dry data; paired multi-device recordings). From [[channel-heterogeneity]].
 - Lopes da Silva 2013, "EEG and MEG: Relevance to neuroscience" (Neuron, doi 10.1016/j.neuron.2013.10.017): physiological origin of EEG, the main Q1 gap. Cited by [[chaddad2023electroencephalography]] as ref [3]. Older than 2022, so it is a candidate for the backward exception if 2022+ papers keep citing it. Not yet in screening.
 - Lotte et al. 2018, "A Review of Classification Algorithms for EEG-based BCIs: A 10-year Update" (J. Neural Eng. 15(3)): Riemannian and classical baselines. Cited by [[roy2019deep]] as ref [105] and by [[varbu2022past]] (2022) as ref [22]. Backward-exception candidate; not yet in screening.
@@ -34,4 +37,6 @@ Questions the human asks are treated as signals of what matters. Maintained auto
 - Bateson et al. 2017, "Categorization of mobile EEG: a researcher's perspective" (BioMed Res. Int. 2017:5496196): source of the CoME scoring used throughout [[niso2022wireless]] (§3.14). Low priority; not in screening.
 - Casson 2019, "Wearable EEG and beyond" (Biomed. Eng. Lett. 9(1)): review of dry electrode materials, cited in [[niso2022wireless]] (p. 6) and relevant to [[electrode-types]]. Backward-exception candidate; not in screening.
 - [[yang2023biot]] — LaBraM's main baseline and split source, from [[jiang2024large]] (screening: maybe)
-- Needs manual PDF: [[kaongoen2023future]], [[gans2024sleep]], [[weng2025self]], [[wang2024eegpt]]
+- [[lee2021interrater]]: full read (abstract-only note so far; open access via PMC8807917). Gives human inter-scorer kappa per stage; check how it varies with patient groups. Cited by [[gans2024sleep]] ref [96]. Screening: include.
+- [[gaiduk2023current]]: Gaiduk et al. 2023, "Current status and prospects of automatic sleep stages scoring: review" (Biomed Eng Lett 13(3):247–72): automatic sleep scoring and the lack of a standard. Cited by [[gans2024sleep]] ref [95]. Screening: maybe.
+- Needs manual PDF: [[kaongoen2023future]], [[weng2025self]], [[wang2024eegpt]]

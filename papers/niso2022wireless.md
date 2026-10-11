@@ -19,7 +19,7 @@ main_metric: ""
 main_result: "48 devices compared on ~35 specs (Table 1); 110 high-impact studies: cognitive monitoring 44%, clinical 24%, methodological 22%, control/communication 10% (Fig. 7a)"
 code_available: ""
 read_depth: full
-concepts: [consumer-grade-eeg-devices, electrode-types, signal-quality-and-noise, channel-heterogeneity, bci-paradigms, digital-filtering, eeg-preprocessing-pipeline]
+concepts: [consumer-grade-eeg-devices, electrode-types, signal-quality-and-noise, channel-heterogeneity, bci-paradigms, digital-filtering, eeg-preprocessing-pipeline, sleep-staging]
 ---
 
 # Wireless EEG: a survey of systems and studies (Niso et al., 2022)
@@ -99,6 +99,7 @@ What wireless EEG hardware exists, how do the devices compare, and what has it b
 - [[consumer-grade-eeg-devices]]: covers the whole spectrum from <0.5 k€ consumer headsets to 128-channel research and medical wireless systems.
 - [[electrode-types]]: gel vs wet vs dry and active vs passive trade-offs (§3.4–3.5).
 - [[signal-quality-and-noise]]: motion artifacts increase with mobility and can be confounded with the experimental condition (p. 3). Covers impedance monitoring and CMRR (§3.6–3.7).
+- [[sleep-staging]]: at-home sleep staging is one of the main clinical uses of wireless EEG (§4.2.2).
 - [[channel-heterogeneity]]: device channel counts span 4–128 and study channel counts 1–264 (median 14) (Table 1, Fig. 5c).
 
 ## Related papers
@@ -106,7 +107,7 @@ What wireless EEG hardware exists, how do the devices compare, and what has it b
 - [[chaddad2023electroencephalography]]: names the lab-vs-portable trade-off (§2.1) that Niso details spec by spec.
 - [[kaongoen2023future]]: ear-EEG. Niso mentions cEEGrid behind-the-ear electrodes, often used with mBrainTrain amplifiers (p. 11). *(not yet read)*
 - [[varbu2022past]]: BCI applications 2009–2019. Agrees that monitoring dominates and Emotiv is the top device (40% of BCI device mentions). Application-centric where Niso is device-centric.
-- [[gans2024sleep]]: sleep wearables. Niso cites sleep staging at home as a main clinical use (§4.2.2). *(not yet read)*
+- [[gans2024sleep]]: sleep wearables, 24 validated against PSG. It supplies the per-device validation evidence for the home sleep staging that Niso lists as a main clinical use (§4.2.2).
 
 ## Q&A notes
 - 2026-10-10 **Q:** Why has no one compared signal quality across devices? **A:** Pairwise validations exist; what's missing is a standardized protocol. Quality depends on the task (p. 13), there is no ground truth, setup and fit matter, and public datasets confound device with lab and task. → [[q2-measuring-devices]]

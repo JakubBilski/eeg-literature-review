@@ -105,3 +105,31 @@
   - Reading queue: Pfurtscheller & Lopes da Silva 1999 (ERD/ERS), Zerafa 2018 (multi-device SSVEP), Lotte 2018 (now cited by 2 papers); a 2022+ BCI review. A paper note for [[wang2024cbramod]] is needed (used heavily in Q7).
   - Many textbook 🤖 passages in the new primer notes are unsourced.
   - Next on the learning path: [[gans2024sleep]] (render pages) or [[wong2023eeg]].
+
+## 2026-10-11 (session 5)
+- **Added:**
+  - Paper: [[gans2024sleep]] (full read). The PDF has no text layer, so all 13 pages were read from renders and transcribed into `fulltext/gans2024sleep.md`, including Table 1 device by device.
+  - Paper: [[lee2021interrater]] (abstract only, from PubMed). Human inter-scorer κ for sleep staging: 0.76 overall, N1 0.24.
+  - Concept: [[sleep-staging]] (PSG; stage definitions; diagnostic use; why it is a benchmark).
+  - Screening: [[lee2021interrater]] (include), [[gaiduk2023current]] (maybe), both from gans refs.
+- **Changed:**
+  - [[q2-measuring-devices]]: sleep wearables. Even sleep, the one domain validated against a simultaneous reference, gives no device ranking.
+  - [[q3-typical-tasks]]: sleep staging section and table row.
+  - [[q6-reliability-of-eeg-diagnoses]]: wearable vs PSG agreement; the human-scorer ceiling; label reliability lives here.
+  - [[q7-foundation-models-vs-baselines]]: ISRUC κ (EEGNet 0.704 vs CBraMod 0.744).
+  - [[eeg-labels-and-metadata]]: inter-rater thread answered for sleep.
+  - [[consumer-grade-eeg-devices]], [[electrode-types]], [[evaluation-protocols]], [[signal-quality-and-noise]], [[frequency-bands]]; reverse links in [[niso2022wireless]], [[sabio2024scoping]], [[chaddad2023electroencephalography]].
+  - `index.md`: [[linear-discriminant-analysis]] added to the concept list.
+- **Questions explored:**
+  - What is PSG? → [[sleep-staging]] *PSG, the reference recording*.
+  - Are N1–N3 clearly defined? Rules yes; human agreement is poor (N1 κ 0.24) → [[sleep-staging]], [[lee2021interrater]].
+  - Are the stages defined in terms of EEG? Yes: there is no independent ground truth → [[sleep-staging]].
+  - Diagnostic use of N1–N3: rarely used; diagnosis relies on REM, sleep/wake timing, breathing → [[sleep-staging]] (mostly 🤖).
+  - Why benchmark on 5-class staging? Free labels, workload to automate, standard rules, inertia; it measures scorer imitation → [[sleep-staging]].
+  - Labels / label reliability: the human decided it stays in [[eeg-labels-and-metadata]] + [[q6-reliability-of-eeg-diagnoses]], not a separate core question.
+  - When to move to newer papers → reading plan (see the reply; learning-path memory updated).
+- **Open:**
+  - The diagnostic-use and benchmark sections of [[sleep-staging]] are largely 🤖 textbook. A 2022+ sleep-EEG biomarker review is needed (reading queue).
+  - [[lee2021interrater]] full read (open access, PMC8807917). The gans supplement (S1–S4) was not retrieved.
+  - [[wang2024eegpt]]: the PDF is present but not converted yet.
+  - Next: [[wong2023eeg]] (seizures), then switch to forward snowballing toward 2025–26 papers.

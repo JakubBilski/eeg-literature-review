@@ -37,4 +37,5 @@ A recorded oscillating signal is split into a handful of conventional frequency 
 - Why do these ranges correspond to distinct brain states (the physiological mechanism)? No vault source yet. See [[q1-what-is-eeg]].
 
 ## Related concepts
+- [[sleep-staging]]: sleep stages are defined largely by which bands dominate (alpha in relaxed wake, theta in N1, spindles in N2, delta in N3).
 - [[signal-quality-and-noise]]: 🤖 (general knowledge, no vault source yet) muscle artifacts mostly contaminate high frequencies (beta/gamma), and eye artifacts the low ones (delta).

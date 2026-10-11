@@ -22,6 +22,8 @@ The measured signal is weak relative to unwanted contributions (other body signa
 - [[niso2022wireless]]: the hardware side. Gel/wet/dry and active/passive electrodes (§3.4–3.5, see [[electrode-types]]); continuous impedance monitoring can flag noisy segments for post-hoc analysis (§3.6); CMRR measures rejection of interference common to all electrodes (§3.7). Motion artifacts grow with mobility and become a confound when they differ between conditions, e.g. walking vs sitting (p. 3).
 - [[sabio2024scoping]]: consumer devices have a higher noise floor, more rejected trials, and poor connectivity estimates. Signal depends on headset fit (§Validation).
 
+- [[gans2024sleep]]: in sleep wearables, quality is reported as feasibility (artifact share, recording success rate, compliance), e.g. Dreem <20% artifacts, Cerebra 83% success (p. 9). It is validated by agreement with a simultaneous PSG, not by signal metrics (Table 1).
+
 ## Variants & disagreements
 - **Is "noise" well-posed?** (discussed 2026-10-10) Only in part.
   - *Well-posed, task-independent:* noise the device adds, measurable without a brain: amplifier input noise (mostly ≈0.05–1 µVrms, but Enobio 10–100), CMRR, quantisation step [[niso2022wireless]] (Table 1, §3.7, §3.9). This is small next to scalp EEG's "tens of µV" [[roy2019deep]] (p. 2).

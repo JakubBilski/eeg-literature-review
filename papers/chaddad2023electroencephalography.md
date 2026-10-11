@@ -19,7 +19,7 @@ main_metric: ""
 main_result: ""
 code_available: false
 read_depth: full
-concepts: [independent-component-analysis, time-frequency-analysis, signal-quality-and-noise, frequency-bands, evaluation-protocols, consumer-grade-eeg-devices, channel-heterogeneity, eeg-preprocessing-pipeline]
+concepts: [independent-component-analysis, time-frequency-analysis, signal-quality-and-noise, frequency-bands, evaluation-protocols, consumer-grade-eeg-devices, channel-heterogeneity, eeg-preprocessing-pipeline, linear-discriminant-analysis, sleep-staging]
 ---
 
 # EEG Signal Processing review (Chaddad et al., 2023)
@@ -73,6 +73,8 @@ Survey the whole EEG processing pipeline, compare methods at each stage, and lis
 - [[eeg-preprocessing-pipeline]]: the classical pipeline: denoising → features → classifier (Fig. 2, §2.2–2.5).
 - [[signal-quality-and-noise]]: the main source in the vault on artifact types and classical denoising (regression, ICA/PCA, CCA, wavelets, EMD).
 - [[frequency-bands]]: defines the five canonical bands and their typical states.
+- [[sleep-staging]]: CNN+RNN reaches 79.7% on Fp1/Fp2 sleep staging (§2.5.2); Sleep-EDF is the listed sleep dataset (Table 3).
+- [[linear-discriminant-analysis]]: one of the traditional classifiers (SVM, KNN, RF, LDA, NB); SVM, not LDA, is named the key one (§2.5.1).
 - [[evaluation-protocols]]: the DeprNet recording vs subject split (Table 6); tables mix protocols.
 - [[consumer-grade-eeg-devices]]: Emotiv EPOC and Muse as portable examples (§2.1).
 - [[channel-heterogeneity]]: device heterogeneity across datasets; domain adaptation as the proposed remedy (§3).

@@ -19,7 +19,7 @@ main_metric: ""
 main_result: "202 papers: non-medical 58% / medical 31% / both 11% (Fig. 5); motor imagery 38, VEP 31, drowsiness/attention 29 papers (Fig. 11); LDA 31% + SVM 21% of classifiers, CNN 4% (Fig. 13); Emotiv EPOC 40% of devices (Fig. 9)"
 code_available: ""
 read_depth: full
-concepts: [bci-paradigms, consumer-grade-eeg-devices, electrode-types, frequency-bands, evaluation-protocols, independent-component-analysis, time-frequency-analysis, common-spatial-patterns, digital-filtering, eeg-preprocessing-pipeline]
+concepts: [bci-paradigms, consumer-grade-eeg-devices, electrode-types, frequency-bands, evaluation-protocols, independent-component-analysis, time-frequency-analysis, common-spatial-patterns, digital-filtering, eeg-preprocessing-pipeline, linear-discriminant-analysis]
 ---
 
 # Past, Present, and Future of EEG-Based BCI Applications (Värbu et al., 2022)
@@ -82,6 +82,7 @@ Five objectives (§3, p. 6): publication trends; techniques for obtaining EEG da
 
 ## Concepts
 - [[common-spatial-patterns]]: CSP is the third most common BCI feature (18/126); noise-sensitive (Fig. 12, §5.8).
+- [[linear-discriminant-analysis]]: the most common BCI classifier, 35/114 papers (31%); "simple … low computation requirements and acceptable accuracy" (Fig. 13, §5.9).
 - [[digital-filtering]]: dry headsets reportedly more robust to line noise (p. 15).
 - [[eeg-preprocessing-pipeline]]: raw → preprocessing → features → classification skeleton (§2).
 - [[bci-paradigms]]: the source of the active/passive, evoked/spontaneous and sync/async taxonomy (Tables 1–2), with paradigm frequencies (Fig. 11).

@@ -20,7 +20,7 @@ A supervised way to combine many sensors into a few "virtual sensors" for a two-
 - **Step 1, covariance per class:** average the channel×channel covariance matrix over trials of class A (Σ_A) and of class B (Σ_B). The diagonal is power per channel; the off-diagonals are how channels co-vary.
 - **Step 2, generalized eigenproblem:** solve Σ_A w = λ (Σ_A + Σ_B) w. Each eigenvector w is a spatial filter, i.e. a weight per channel. λ near 1 means the filtered signal has high power in A and low in B; λ near 0 means the opposite.
 - **Step 3, keep the extremes:** take the k filters with the largest λ and the k with the smallest (k = 2–3 per side is typical).
-- **Step 4, features:** for each trial, apply the filters, take the variance (= band power) of each virtual channel, then log it. Feed the 2k numbers to [[classical-ml-baselines|LDA]].
+- **Step 4, features:** for each trial, apply the filters, take the variance (= band power) of each virtual channel, then log it. Feed the 2k numbers to [[linear-discriminant-analysis|LDA]].
 - **Why it helps:** one electrode picks up a blur of many sources plus noise (volume conduction, see [[independent-component-analysis]]). A learned weighted sum can cancel shared noise and emphasize the part that differs between classes. For left vs right hand motor imagery, the top filters focus on C3 vs C4 regions ([[bci-paradigms]]).
 - **Filters vs patterns:** the *filter* w is what you multiply the data by. The *pattern* (columns of the inverse) shows how the underlying source projects onto the scalp. Only patterns are physiologically interpretable; filters also contain noise-cancelling weights. MNE plots patterns.
 - **Weaknesses** (Xie, cited in [[varbu2022past]] §5.8): "sensitive to noise and requires multiple electrodes". 🤖 Also: it overfits with few trials, so it needs covariance regularization (shrinkage). It is two-class (multi-class needs one-vs-rest). It assumes the discriminative information is in power, not in waveform timing.
@@ -40,6 +40,7 @@ A supervised way to combine many sensors into a few "virtual sensors" for a two-
 
 ## Related concepts
 - [[classical-ml-baselines]]: CSP + LDA is the canonical motor imagery baseline.
+- [[linear-discriminant-analysis]]: the classifier usually fed CSP log-variances (LDA separates means, CSP separates variances).
 - [[riemannian-methods]]: the other covariance-based family.
 - [[independent-component-analysis]]: another linear spatial unmixing, but unsupervised (statistical independence instead of class contrast).
 - [[digital-filtering]]: temporal filtering before spatial filtering.

@@ -19,7 +19,7 @@ updated: 2026-10-10
 - **DL in that period:** CNN 41%, RNN ~14%, autoencoders ~13%, CNN+RNN 7% of papers [[roy2019deep]] (§3, p. 17).
 
 ## Glossary (🤖 standard definitions, no vault source yet; Lotte 2018 should cover them)
-- **LDA = Linear Discriminant Analysis** (Fisher), *not* latent Dirichlet allocation. It assumes each class is Gaussian with a shared covariance and finds the projection that maximizes between-class over within-class variance, giving a linear decision boundary. In BCI it is usually used with covariance *shrinkage* because trials are few. It is cheap and hard to overfit.
+- **LDA = Linear Discriminant Analysis** (Fisher), *not* latent Dirichlet allocation: a linear classifier assuming Gaussian classes with shared covariance, used with shrinkage in BCI → [[linear-discriminant-analysis]].
 - **CSP (common spatial patterns):** learns channel weightings (spatial filters) whose output variance differs most between two classes; a supervised cousin of PCA/ICA → [[common-spatial-patterns]].
 - **Riemannian methods:** covariance matrices + a mixing-invariant distance; MDM or tangent-space classifiers, not just kNN → [[riemannian-methods]].
 
