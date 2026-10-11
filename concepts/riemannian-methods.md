@@ -28,6 +28,7 @@ Summarize each multichannel recording by how its channels co-vary, then compare 
 
 ## Papers
 - [[roy2019deep]]: only 2 of 156 DL papers used Riemannian baselines, "although these methods have set a new state-of-the-art in multiple EEG classification tasks" (§4, p. 28) *(cited only; paper not yet fully read)*.
+- [[li2022eeg]]: in emotion recognition, (a) aligning source and target subjects' covariances on the Riemannian manifold as a cross-subject fix (§4.5, p. 18), and (b) RFNet, which maps covariances to the tangent space and fuses them with an LSTM over band signals (§4.4, Fig. 23). It recommends raw-signal Riemannian alignment, borrowed from motor imagery, for cross-dataset emotion work (p. 29). → [[domain-adaptation]]
 
 ## Variants & disagreements
 - How they compare with pretrained foundation models on matched protocols: no vault evidence → [[classical-ml-baselines]].
@@ -36,6 +37,7 @@ Summarize each multichannel recording by how its channels co-vary, then compare 
 - Source to add: Lotte et al. 2018 (BCI classifier review, Roy ref [105]). It would let this note move from 🤖 to sourced.
 
 ## Related concepts
+- [[domain-adaptation]]: re-centering is one of its simplest forms.
 - [[independent-component-analysis]]: same linear-mixing view of EEG. ICA undoes the mixing; the Riemannian distance is invariant to it.
 - [[channel-heterogeneity]]: ? covariance matrices are tied to a fixed channel set, so montage changes break them. Re-centering helps across subjects, but not across montages (🤖 to verify).
 - [[evaluation-protocols]]: re-centering is a cross-subject / cross-session technique.

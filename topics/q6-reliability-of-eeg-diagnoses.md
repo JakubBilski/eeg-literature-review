@@ -22,7 +22,8 @@ updated: 2026-10-10
 | abnormal vs normal EEG (TUAB) | bal. acc. 0.83, AUROC 0.92 [[jiang2024large]] Table 1 | — | moderate, but it depends on what "abnormal" means (below) |
 | seizure detection (CHB-MIT, subject split) | bal. acc. 0.74, AUC-PR 0.37 [[wang2024cbramod]] Table 8 | — | far from clinical use; test set is 2 children |
 | motor imagery, 4-class, cross-subject | 0.64 (chance 0.25) [[wang2024cbramod]] Table 3 | — | works per user after calibration; weak across people |
-| depression, emotion | 0.9+ reported | small single-site data, leaky splits | unknown; numbers probably inflated |
+| emotion, 9-class, held-out subjects (FACED, 123 subj.) | bal. acc. 0.55 (CBraMod; chance ≈ 0.11) [[wang2024cbramod]] Table 2 | 0.9+ in the literature, mostly within-subject or segment splits [[li2022eeg]] Table 4 | above chance, far from a per-person readout; labels are clip categories or self-reports → [[emotion-recognition]] |
+| depression | 0.9+ reported | small single-site data, leaky splits | unknown; numbers probably inflated |
 
 - 🤖 **It works where the signal is big and the label is tied to the signal:** sleep stages are *defined* by the EEG pattern, and seizures are large discharges. It fails or is unverified where the target is subtle, subjective or confounded (depression, emotion, cross-subject imagery).
 - 🤖 **More data alone hasn't been the fix.** Pretraining on 2,500 h barely helps motor imagery (CBraMod 0.642 vs 0.620 without pretraining; [[wang2024cbramod]] Table 4). LaBraM-Base pretrained on 500 h beat the same model on 2,500 h on TUAB ([[jiang2024large]] §3.6, Fig. 5). The ceilings come from label noise (sleep κ 0.76), person-to-person variability ([[varbu2022past]] §6.1) and few labelled *subjects* rather than few hours: CHB-MIT has 326,993 windows but 23 people ([[wang2024cbramod]] App. E.2).
@@ -33,6 +34,7 @@ updated: 2026-10-10
 - **Clinical reading works best for large, stereotyped events** (seizures, spikes, periodic discharges) recorded on standardized gel 10-20 setups. It is weakest for subtle, population-level differences such as psychiatric conditions. → [[q3-typical-tasks]] (*What clinical EEG is good for*)
 - **Reported model accuracies depend heavily on the split.** Splitting by recording instead of by subject inflates scores, e.g. DeprNet 99.37% vs 91.4%, and papers mix protocols on the same dataset. → [[evaluation-protocols]]
 - **Confounded recording blocks inflate scores too (own example):** when each class is recorded in its own run, shuffled CV reports 0.83 but held-out runs give 0.64, and the same pipeline separates the *rest* periods equally well. → [[evaluation-protocols]], [[bci-paradigms]]
+- **Emotion recognition: the same model loses 10–26 points going from within- to cross-subject** (DGCNN on SEED 90.4 → 79.95%; BiDCNN on DEAP valence 94.4 → 68.1%), and the review itself calls random segment-level k-fold a leaky, "wrong" split (§5.3) [[li2022eeg]] (Table 4, p. 25). 🤖 Two possible confounds are untested: decoding the *clip* instead of the emotion, and facial muscle in the β/γ bands. → [[emotion-recognition]], [[domain-adaptation]]
 - **Depression detection looks easy, but on tiny single-site data:** 0.91–0.96 balanced accuracy on 64 subjects with a 10-person test set; untested across sites. → [[eeg-depression-detection]]
 - **Results across devices are unverified.** There is no standardized multi-device quality benchmark, only pairwise validations, and a larger N doesn't remove the confounding between device, population, task and lab. → [[q2-measuring-devices]] (*Why there's no cross-device signal-quality benchmark*)
 - **Wearable sleep staging vs PSG:** overall κ is 0.42–0.79 where reported, and N1 sensitivity goes as low as 0.16–0.21. Validation is mostly in labs with small samples, and 21 of 38 studies are at high risk of bias in ≥1 QUADAS-2 domain [[gans2024sleep]] (§3, §3.3, Table 1). The "ground truth" is itself a human scorer, whose results vary with training (p. 10). → [[sleep-staging]]
@@ -60,4 +62,5 @@ updated: 2026-10-10
 - [[sabio2024scoping]]: pairwise device validations (§Validation).
 - [[gans2024sleep]]: reliability of wearable sleep staging against PSG; risk of bias (§3.3).
 - [[lee2021interrater]]: human inter-scorer κ for sleep staging *(abstract only)*.
+- [[li2022eeg]]: emotion recognition; within vs cross-subject gap; split taxonomy with segment leakage (§4.5, §5.3, Table 4).
 - [[wong2023eeg]]: EEG as the main diagnostic test for epilepsy; how dataset construction (no patient IDs, balancing, channel preselection, overlap) inflates seizure results (§5–8).

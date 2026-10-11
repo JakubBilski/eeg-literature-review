@@ -37,6 +37,7 @@ Recordings come from sensor setups that differ in the number and placement of se
 - How are electrodes outside the 10-20 set (e.g. ear-EEG) embedded? → [[kaongoen2023future]]
 
 ## Related concepts
+- [[domain-adaptation]]: the general family of fixes for subject, session, device and dataset shift.
 - [[consumer-grade-eeg-devices]]: a major source of non-standard montages.
 - [[self-supervised-pretraining]]: pooling datasets forces the issue.
 - [[cnn-transformer-hybrid]]: where spatial mixing happens decides montage dependence.

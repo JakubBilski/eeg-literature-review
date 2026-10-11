@@ -28,9 +28,11 @@ How data is split into training and test sets, and what is measured, determines 
 - [[lee2021interrater]]: **label noise sets a ceiling.** Two human sleep scorers agree at κ 0.76 overall and 0.24 on N1 (Abstract), so a model scored against one human can't meaningfully exceed that.
 - [[wong2023eeg]]: **dataset construction can make proper splits impossible.** Bonn and Hauz Khas pool segments without patient IDs (§5.6). Bonn is balanced by hand-picking segments (§6.1). Kaggle Melbourne-NIH and NeuroVista Ictal share patients, which risks leakage if combined (§7). Seizures are <1% of recorded EEG (§2), and resampling to balance "does not represent the true nature" of recordings (§7).
 - [[wang2024cbramod]] on CHB-MIT: a subject split, but the test set is only 2 children (subjects 22–23). With heavy imbalance, balanced accuracy is 0.57–0.74 and AUC-PR 0.12–0.37, while AUROC is 0.80–0.89 (App. E.2, Table 8). 🤖 AUROC looks good under rare positives; AUC-PR is the more honest number.
+- [[li2022eeg]]: a 7-strategy split taxonomy for emotion EEG (Fig. 32, §5.3). Trial-level splits are recommended. Cutting trials into segments that inherit the trial label adds label noise, and random k-fold over segments is "wrong" because segments of one trial land in both train and test (p. 25). The reason people do it: subjects give ≤~100 trials (p. 25). Its own results table (Table 4) doesn't mark which papers used which split.
 
 ## Variants & disagreements
-- Same dataset, different protocol: SEED appears as 5-fold window CV in Conformer and as a trial split in LaBraM (SEED-V). Accuracies are not comparable.
+- Same dataset, different protocol: SEED appears as 5-fold window CV in Conformer and as a trial split in LaBraM (SEED-V). Accuracies are not comparable. The emotion review [[li2022eeg]] calls the first one wrong (§5.3).
+- Within vs cross-subject on the same model and data: DGCNN on SEED 90.4% → 79.95%; BiDCNN on DEAP valence 94.4% → 68.1% [[li2022eeg]] (Table 4). → [[domain-adaptation]]
 - Baselines copied vs re-run: LaBraM copies BIOT's baseline numbers (§3.2). Conformer doesn't say.
 
 ## Open questions
@@ -38,4 +40,5 @@ How data is split into training and test sets, and what is measured, determines 
 - What is the protocol-matched gap between within- and cross-subject accuracy on motor imagery?
 
 ## Related concepts
+- [[domain-adaptation]]: methods that try to close the within/cross-subject gap.
 - [[self-supervised-pretraining]]: probing vs fine-tuning, and pretraining/test overlap.

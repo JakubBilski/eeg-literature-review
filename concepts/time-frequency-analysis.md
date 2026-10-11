@@ -80,6 +80,7 @@ How `scripts/plot_motor_erd.py` computes "mu power" for [[bci-paradigms]]:
 - [[chaddad2023electroencephalography]]: wavelets and EMD for denoising (§2.2.4–2.2.5); time–frequency analysis as a feature family (§2.4.1).
 - [[varbu2022past]]: PSD (23/126) and Fourier (20/126) are the most common BCI features, wavelets 8/126 (Fig. 12).
 - [[jiang2024large]]: tokenizer targets are the Fourier amplitude and phase of 1 s patches (§2.2), i.e. a per-patch short-time Fourier view.
+- [[li2022eeg]]: DWT levels mapped to EEG bands at 128 Hz (A5 ≈ δ, D5 ≈ θ, D4 ≈ α, D3 ≈ β, D2 ≈ γ; Table 1); wavelet energy and entropy per level as features. Recommends wavelets over STFT for non-stationary EEG (§3.4, pp. 6–7). Also EMD/VMD (p. 7).
 
 ## Variants & disagreements
 - Fixed basis (Fourier, wavelets) vs data-driven (EMD) vs learned (CNN filters). There is no vault evidence yet on which works best as model input.

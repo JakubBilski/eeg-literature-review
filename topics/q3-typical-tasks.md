@@ -35,6 +35,11 @@ updated: 2026-10-10
   - Seizures are <1% of recorded EEG (§2). There are 10 public datasets, 5 scalp and 4 intracranial (Table 2).
   - The most used is Bonn (58 of 120 studies, Table A1): single-channel, pre-cut, balanced, no patient IDs.
   - TUSZ is the largest (≈600 subjects, 3,050 seizures; Tables 5, 8). CHB-MIT (23 children) is the usual foundation-model benchmark [[wang2024cbramod]] (Table 8).
+- **Emotion recognition** → [[emotion-recognition]]. Subjects watch film clips, music videos or pictures. Labels are either the clip's intended emotion (SEED) or the person's own valence/arousal rating per trial (DEAP, DREAMER) [[li2022eeg]] (§2.1, Table 3).
+  - Datasets are small: 15–32 subjects (Table 3). FACED is a larger exception (123 subjects, [[wang2024cbramod]] §4).
+  - Reported accuracies: 0.85–0.98 within-subject, mostly 0.65–0.90 cross-subject [[li2022eeg]] (Table 4). On held-out subjects in FACED (9 classes) the best is 0.55 [[wang2024cbramod]] (Table 2).
+  - The neural basis is unsettled: frontal alpha asymmetry vs beta effects; no single region per emotion [[li2022eeg]] (§2.2).
+  - Applications named: driver monitoring, affective disorders (PTSD, depression), music/media recommendation, games, VR learning (§1, p. 2).
 - **Depression (MDD) detection:** reported accuracies are very high (0.91–0.99), but they rest on small single-site datasets and depend on the split. See [[eeg-depression-detection]].
 
 ## Comparisons
@@ -43,7 +48,7 @@ updated: 2026-10-10
 | motor imagery (BCI) | BCI IV-2a, 2b | [[song2022eeg]], [[varbu2022past]] |
 | SSVEP / P300 (BCI) | — (not yet in vault) | [[varbu2022past]], [[bci-paradigms]] |
 | drowsiness / attention / workload monitoring | — | [[varbu2022past]], [[niso2022wireless]] |
-| emotion recognition | SEED, SEED-V | [[song2022eeg]], [[jiang2024large]] |
+| emotion recognition | DEAP, SEED, SEED-IV/V, DREAMER, FACED | [[li2022eeg]], [[song2022eeg]], [[jiang2024large]], [[wang2024cbramod]], [[emotion-recognition]] |
 | clinical: abnormal / events | TUAB, TUEV | [[jiang2024large]] |
 | gait / movement regression | MoBI | [[jiang2024large]] |
 | seizure detection / prediction | CHB-MIT, TUSZ, Bonn, Siena | [[wong2023eeg]], [[wang2024cbramod]], [[seizure-detection]] |
@@ -52,7 +57,7 @@ updated: 2026-10-10
 ## Open threads
 - Seizure detection: datasets covered by [[wong2023eeg]]. Still missing: a 2022+ review of methods and clinical performance (sensitivity, false alarms per hour), and inter-rater agreement on seizure labels.
 - Sleep: human inter-scorer agreement is now sourced (κ 0.76 overall, 0.24 on N1 [[lee2021interrater]], abstract only) → [[sleep-staging]]. Full read pending (open access in PMC).
-- Emotion recognition review: [[li2022eeg]] (downloaded, not yet read).
+- Emotion: read [[li2022eeg]] (2026-10-11). Still missing: any test of whether emotion models decode the clip or muscle activity rather than emotion → [[emotion-recognition]] *Open questions*.
 - BCI after 2019: [[varbu2022past]] stops in Oct 2019, so a 2022+ BCI review covering DL/transfer learning is still missing.
 
 ## Sources
@@ -64,3 +69,4 @@ updated: 2026-10-10
 - [[gans2024sleep]]: sleep staging with EEG wearables, validated against PSG.
 - [[varbu2022past]]: BCI applications 2009–2019; paradigm taxonomy and frequencies.
 - [[wong2023eeg]]: public seizure datasets and their characteristics.
+- [[li2022eeg]]: emotion recognition: labels, datasets, features, models, splits.

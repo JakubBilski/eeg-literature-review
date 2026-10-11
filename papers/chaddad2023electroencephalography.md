@@ -19,7 +19,7 @@ main_metric: ""
 main_result: ""
 code_available: false
 read_depth: full
-concepts: [independent-component-analysis, time-frequency-analysis, signal-quality-and-noise, frequency-bands, evaluation-protocols, consumer-grade-eeg-devices, channel-heterogeneity, eeg-preprocessing-pipeline, linear-discriminant-analysis, sleep-staging, seizure-detection, magnetic-resonance-imaging]
+concepts: [independent-component-analysis, time-frequency-analysis, signal-quality-and-noise, frequency-bands, evaluation-protocols, consumer-grade-eeg-devices, channel-heterogeneity, eeg-preprocessing-pipeline, linear-discriminant-analysis, sleep-staging, seizure-detection, magnetic-resonance-imaging, domain-adaptation, emotion-recognition]
 ---
 
 # EEG Signal Processing review (Chaddad et al., 2023)
@@ -82,6 +82,8 @@ Survey the whole EEG processing pipeline, compare methods at each stage, and lis
 - [[channel-heterogeneity]]: device heterogeneity across datasets; domain adaptation as the proposed remedy (§3).
 - [[time-frequency-analysis]]: wavelets and EMD for denoising (§2.2.4–2.2.5) and as a feature family (§2.4.1).
 - [[independent-component-analysis]]: main blind-source-separation denoiser (§2.2.2, Algorithm 3).
+- [[domain-adaptation]]: proposes domain adaptation for device differences across datasets (§3).
+- [[emotion-recognition]]: lists DEAP and SEED as the standard emotion datasets (Table 3).
 
 ## Related papers
 - [[song2022eeg]]: Conformer replaces this review's hand-crafted feature stage with end-to-end conv + attention.
@@ -90,6 +92,7 @@ Survey the whole EEG processing pipeline, compare methods at each stage, and lis
 - [[niso2022wireless]]: works through the lab-vs-portable trade-off (§2.1 here) spec by spec for 48 wireless devices.
 - [[roy2019deep]]: the systematic DL-for-EEG review that this one lacks. *(not yet read)*
 - [[wong2023eeg]]: audits the seizure datasets listed here (Bonn, CHB-MIT, Siena). Bonn is single-channel, pre-balanced and has no patient IDs, which puts the "CNN 98%" seizure figure (Table 6) in context.
+- [[li2022eeg]]: emotion-specific review; gives the details behind the DEAP/SEED rows of Table 3.
 
 ## Q&A notes
 - 2026-10-10 **Q:** What does ICA "unmixing" mean, and is there a spatial prior? **A:** It estimates W ≈ A⁻¹ in X = AS (Eq. 2) by maximizing non-Gaussianity (Algorithm 3). There is no spatial prior, only independence. Components are labelled afterwards by eye (§2.2.2). → [[independent-component-analysis]]

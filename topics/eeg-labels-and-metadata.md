@@ -12,7 +12,7 @@ updated: 2026-10-10
 ## Current answer
 - **Labels come from the experiment design, from self-report, or from experts.** Expert annotation is costly: "annotation of EEG data usually requires a lot of effort on the part of experts" [[jiang2024large]] (§1, p. 2).
   - *Design labels (free):* the cue the subject was told to imagine (left/right hand) [[song2022eeg]] (§IV-A); the film clip shown (SEED: positive/neutral/negative) [[song2022eeg]] (§IV-A).
-  - *Self-report:* emotion ratings on valence (sad→happy) and arousal (calm→excited) scales using the Self-Assessment Manikin [[li2022eeg]] (§2.1, Fig. 1, p. 3). 🤖 These are noisy, subjective and usually one rating per trial.
+  - *Self-report:* emotion ratings on valence (sad→happy) and arousal (calm→excited) scales using the Self-Assessment Manikin [[li2022eeg]] (§2.1, Fig. 1, p. 3). Emotion also drifts within a trial, so the single per-trial rating is "only their overall evaluation", and every segment cut from the trial inherits it [[li2022eeg]] (p. 14, Fig. 16; p. 25). 🤖 These are noisy, subjective and usually one rating per trial.
   - *Expert annotation:* normal vs abnormal recording (TUAB) [[jiang2024large]] (§3, p. 6); seizure segments labelled ictal (during), preictal (before) and interictal (between) [[wong2023eeg]] (§6.1); sleep stages, typically per 30 s window [[roy2019deep]] (p. 11).
 - **Clinical metadata is sparse and uneven.** In seizure datasets:
   - TUSZ is the richest: medical history, *medications*, seizure type, EEG description and the clinician's "impression", and per-channel information.
@@ -37,5 +37,5 @@ updated: 2026-10-10
 
 ## Sources
 - [[wong2023eeg]]: metadata audit of seizure datasets (§5.6–5.7, Tables 5–6).
-- [[li2022eeg]]: emotion label models *(selected sections only)*.
+- [[li2022eeg]]: emotion label models (discrete vs valence/arousal, SAM ratings), induction protocols, label drift within trials (§2.1, §2.3, §5.3).
 - [[jiang2024large]], [[song2022eeg]], [[wang2024cbramod]]: label types per benchmark.

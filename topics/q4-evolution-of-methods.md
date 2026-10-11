@@ -35,10 +35,11 @@ Rough stages as described by vault papers (to be confirmed by the review seeds):
 
 ## Open threads
 - Confirm the stages against the systematic reviews: [[roy2019deep]] and [[weng2025self]] (full text ready, not yet read). [[chaddad2023electroencephalography]] confirms stage 1 and early CNNs, but has no Transformers or SSL.
-- Where do graph neural networks and Riemannian methods fit?
+- Where do graph neural networks and Riemannian methods fit? *Partial (2026-10-11):* in emotion recognition, GNNs over electrode graphs (fixed connectivity like PLV, or learned adjacency as in DGCNN/RGNN, 2018–2020) were a main DL branch alongside CNN-on-electrode-grid, CNN-LSTM hybrids and adversarial domain adaptation. A Riemannian-tangent-space + LSTM fusion network also appears [[li2022eeg]] (§4.3–4.5, Table 4). Stage 2–3 in emotion therefore looked more like "DL on hand-crafted features (DE per band)" than raw end-to-end.
 
 ## Sources
 - [[roy2019deep]]: DL-vs-classical meta-analysis, summarized in [[classical-ml-baselines]] *(selected sections)*.
+- [[li2022eeg]]: emotion-recognition method routes 2016–2022 (Fig. 7): features + SVM → DBN/CNN/GNN on feature maps → end-to-end CNN/RNN → domain adaptation; proposes large pretrained EEG models (p. 29).
 - [[varbu2022past]]: method frequencies in BCI 2009–2019 (stage 1 in practice).
 - [[chaddad2023electroencephalography]]: the classical pipeline in detail (denoising, features, SVM-era classifiers).
 - [[song2022eeg]]: the classical → CNN → Transformer narrative (§I–II).

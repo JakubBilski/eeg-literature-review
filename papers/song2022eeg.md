@@ -19,7 +19,7 @@ main_metric: "accuracy, Cohen's kappa"
 main_result: "78.66% mean acc., kappa 0.7155 on BCI IV-2a vs EEGNet 74.50% (Table II)"
 code_available: "https://github.com/eeyhsong/EEG-Conformer"
 read_depth: full
-concepts: [frequency-bands, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, channel-heterogeneity, self-supervised-pretraining, bci-paradigms, common-spatial-patterns, digital-filtering, eeg-preprocessing-pipeline]
+concepts: [frequency-bands, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, channel-heterogeneity, self-supervised-pretraining, bci-paradigms, common-spatial-patterns, digital-filtering, eeg-preprocessing-pipeline, emotion-recognition]
 ---
 
 # EEG Conformer (Song et al., 2022)
@@ -79,6 +79,7 @@ Can a compact model combine local features (CNNs) with long-range temporal depen
 - [[channel-heterogeneity]]: fixed-montage spatial convolution (the counter-example).
 - [[self-supervised-pretraining]]: explicitly not used, citing limited data (§IV-E).
 - [[frequency-bands]]: band-pass input filtering (4–40 / 4–47 Hz) and band-power topographies over motor cortex (ERD/ERS) (§IV-A, §IV-H).
+- [[emotion-recognition]]: SEED benchmark, 5-fold CV over 1 s windows within a session (95.30%).
 
 ## Related papers
 - [[jiang2024large]]: LaBraM keeps a conv encoder before the Transformer but adds large-scale pretraining and montage-agnostic patches.
@@ -86,5 +87,6 @@ Can a compact model combine local features (CNNs) with long-range temporal depen
 - [[schirrmeister2017deep]]: ConvNet, the other conv-module inspiration and a baseline. *(screening: maybe)*
 - [[varbu2022past]]: BCI landscape 2009–2019. Motor imagery is the most common paradigm (38/155), and the CSP + LDA/SVM pipeline Conformer replaces was the norm (Figs. 11–13).
 - [[chaddad2023electroencephalography]]: review of the classical pipeline (denoising + hand-crafted features + SVM) that Conformer replaces end-to-end.
+- [[li2022eeg]]: emotion review whose split taxonomy (§5.3) calls random k-fold over segments, the protocol used here on SEED, "wrong" because of leakage.
 
 ## Q&A notes

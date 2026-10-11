@@ -19,7 +19,7 @@ main_metric: ""
 main_result: "202 papers: non-medical 58% / medical 31% / both 11% (Fig. 5); motor imagery 38, VEP 31, drowsiness/attention 29 papers (Fig. 11); LDA 31% + SVM 21% of classifiers, CNN 4% (Fig. 13); Emotiv EPOC 40% of devices (Fig. 9)"
 code_available: ""
 read_depth: full
-concepts: [bci-paradigms, consumer-grade-eeg-devices, electrode-types, frequency-bands, evaluation-protocols, independent-component-analysis, time-frequency-analysis, common-spatial-patterns, digital-filtering, eeg-preprocessing-pipeline, linear-discriminant-analysis]
+concepts: [bci-paradigms, consumer-grade-eeg-devices, electrode-types, frequency-bands, evaluation-protocols, independent-component-analysis, time-frequency-analysis, common-spatial-patterns, digital-filtering, eeg-preprocessing-pipeline, linear-discriminant-analysis, domain-adaptation, emotion-recognition]
 ---
 
 # Past, Present, and Future of EEG-Based BCI Applications (Värbu et al., 2022)
@@ -92,6 +92,8 @@ Five objectives (§3, p. 6): publication trends; techniques for obtaining EEG da
 - [[evaluation-protocols]]: subject-independent BCI is named as the key open problem (§6.1).
 - [[independent-component-analysis]]: used as a feature extractor in 7/126 papers (Fig. 12).
 - [[time-frequency-analysis]]: PSD and Fourier are the top BCI features (43/126 papers); wavelets 8/126 (Fig. 12).
+- [[domain-adaptation]]: inter-/intra-subject variability and calibration time as the main BCI obstacles (§6.1).
+- [[emotion-recognition]]: emotion as a passive-BCI paradigm: 15 of 202 papers, 93% non-medical (Fig. 11).
 
 ## Related papers
 - [[roy2019deep]]: a DL-for-EEG systematic review of the same period. Värbu reuses its PRISMA data-item scheme (§4.1) and channel findings (§5.6).
@@ -100,5 +102,6 @@ Five objectives (§3, p. 6): publication trends; techniques for obtaining EEG da
 - [[song2022eeg]]: a motor imagery decoder. Värbu shows motor imagery is the most common BCI paradigm and mostly medical.
 - [[lawhern2018eegnet]]: a compact CNN tested across BCI paradigms (P300, ERN, MRCP, SMR); the DL answer to the paradigm-specific pipelines counted here. *(not yet read)*
 - [[kaongoen2023future]]: ear-EEG, which Värbu lists as a future direction (p. 23). *(not yet read)*
+- [[li2022eeg]]: emotion recognition (a passive-BCI paradigm here) reviewed in depth: datasets, features, cross-subject transfer.
 
 ## Q&A notes

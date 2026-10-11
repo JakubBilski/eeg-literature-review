@@ -19,7 +19,7 @@ main_metric: "balanced accuracy"
 main_result: "TUEV bal. acc. 0.6409 (Base) vs BIOT 0.5281; TUAB 0.8140 vs 0.7959 (Tables 1–2)"
 code_available: "https://github.com/935963004/LaBraM"
 read_depth: full
-concepts: [time-frequency-analysis, frequency-bands, self-supervised-pretraining, channel-heterogeneity, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, bci-paradigms, seizure-detection]
+concepts: [time-frequency-analysis, frequency-bands, self-supervised-pretraining, channel-heterogeneity, cnn-transformer-hybrid, evaluation-protocols, signal-quality-and-noise, bci-paradigms, seizure-detection, emotion-recognition]
 ---
 
 # LaBraM: Large Brain Model (Jiang, Zhao & Lu, ICLR 2024)
@@ -80,6 +80,7 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[signal-quality-and-noise]]: predicts the spectrum, not raw signal, because of low SNR.
 - [[frequency-bands]]: predicts the full Fourier amplitude/phase per patch instead of fixed bands (§2.2).
 - [[time-frequency-analysis]]: Fourier amplitude/phase of 1 s patches as tokenizer targets (§2.2).
+- [[emotion-recognition]]: SEED-V downstream task (5-class, subjects pooled, trial split); SEED-family data in pretraining.
 
 ## Related papers
 - [[song2022eeg]]: the non-pretrained conv + attention predecessor pattern. Not used as a LaBraM baseline.
@@ -88,5 +89,6 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[lawhern2018eegnet]]: cited as the canonical CNN approach (§1). *(not yet read)*
 - [[chaddad2023electroencephalography]]: classical time–frequency features, which LaBraM's Fourier-amplitude/phase targets learn instead.
 - [[wong2023eeg]]: describes TUSZ, LaBraM's largest pretraining source: 3,050 seizures, the richest clinical metadata (Tables 5–6, 8).
+- [[li2022eeg]]: 2022 emotion review that proposed an emotion-agnostic large pretrained EEG model as future work (p. 29); LaBraM is one.
 
 ## Q&A notes

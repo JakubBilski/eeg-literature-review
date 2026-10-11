@@ -161,3 +161,22 @@
   - TUAB dataset paper: label definition.
   - Seizure inter-rater agreement; a 2022+ seizure-detection review with clinical metrics (false alarms/h).
   - Next on the learning path: [[li2022eeg]] (emotion), then roy2019deep / EEGNet, then forward snowballing toward 2025–26.
+
+## 2026-10-11 (session 7)
+- **Added:**
+  - Paper: [[li2022eeg]] (full read, arXiv PDF). Tutorial review of EEG emotion recognition: labels, physiology, features, DL routes, cross-subject transfer, datasets, and a 7-strategy split taxonomy (random segment k-fold = leakage).
+  - Concepts: [[emotion-recognition]] (with a table of how accuracy depends on protocol), [[domain-adaptation]].
+  - Reading queue: the DEAP / SEED dataset papers, FACED (Chen 2023), the Wan 2021 transfer-learning review, and a confound study on emotion EEG (to find).
+- **Changed:**
+  - [[q3-typical-tasks]]: emotion section and table row.
+  - [[q6-reliability-of-eeg-diagnoses]]: emotion scorecard row now sourced (FACED 0.55 on held-out subjects vs 0.9+ in the literature); within-to-cross-subject gap.
+  - [[q4-evolution-of-methods]]: partly answered where GNNs fit.
+  - [[eeg-labels-and-metadata]]: label drift within trials.
+  - [[self-supervised-pretraining]]: partly answered whether pretraining helps emotion.
+  - [[evaluation-protocols]], [[frequency-bands]], [[time-frequency-analysis]], [[riemannian-methods]], [[consumer-grade-eeg-devices]], [[channel-heterogeneity]].
+  - Reverse links in 4 paper notes.
+- **Questions explored:** none beyond the read.
+- **Open:**
+  - 🤖 Untested confounds in emotion EEG: clip identity vs felt emotion; EMG in β/γ → [[emotion-recognition]] *Open questions*.
+  - Next on the learning path: roy2019deep, then EEGNet, then forward snowballing toward 2025–26.
+  - Needs manual PDF: unchanged (kaongoen2023future, weng2025self, wang2024eegpt).

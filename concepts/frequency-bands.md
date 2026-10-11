@@ -29,6 +29,7 @@ A recorded oscillating signal is split into a handful of conventional frequency 
 - [[song2022eeg]]: band-passes the input to 4–40 Hz (motor imagery) and 4–47 Hz (SEED) (§IV-A). Its topographies show changes in band power over motor cortex during imagined movement (ERD/ERS) (§IV-H).
 - [[varbu2022past]]: in 2009–2019 BCI papers, band-type features dominate: PSD in 23/126 and Fourier in 20/126 papers (Fig. 12). Passive BCIs (drowsiness, attention, emotion) work by "analysis of the changes in the EEG spectrum" (§5.7). → [[bci-paradigms]]
 - [[jiang2024large]]: instead of fixed bands, the tokenizer predicts the full Fourier amplitude and phase of each 1 s patch (§2.2), i.e. a learned and finer-grained version of band features.
+- [[li2022eeg]]: emotion. Bands δ 1–4, θ 4–8, α 8–13, β 13–30, γ >30 Hz (§3.3). Frontal alpha asymmetry vs valence is contested (some studies find beta-2 18–22 Hz instead). In ML, β and γ features work best, but all bands combined work better still (§2.2, p. 4). Differential entropy per band equals log band power for a Gaussian signal (§3.5). 🤖 β/γ overlaps the EMG range (>30 Hz, §3.1), so muscle may contribute → [[emotion-recognition]].
 
 ## Variants & disagreements
 - Boundaries differ between papers (e.g. alpha 8–12 vs 8–13 Hz; the gamma upper limit is often left open). Check each paper's definition before comparing.

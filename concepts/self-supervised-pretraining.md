@@ -34,7 +34,7 @@ Idea: freeze a pretrained encoder, fit ridge/logistic regression (or few-shot) o
 
 ## Open questions
 - How much pretraining data is enough? LaBraM extrapolates to ≥10k h (§3.6), but Base peaks at 500 h on TUAB.
-- Does pretraining help cross-subject BCI tasks (motor imagery, emotion), or mostly clinical TUH-like tasks? (the 🤖 point in [[jiang2024large]])
+- Does pretraining help cross-subject BCI tasks (motor imagery, emotion), or mostly clinical TUH-like tasks? (the 🤖 point in [[jiang2024large]]) *Partial (2026-10-11):* on FACED emotion (held-out subjects, 9 classes) pretrained models lead: CBraMod 0.551, LaBraM 0.527, BIOT 0.512 vs best non-pretrained 0.489 (ContraWR) and EEGNet 0.409 [[wang2024cbramod]] (Table 2). A modest gain → [[emotion-recognition]].
 - Fine-tuning vs linear probing: which should count as evidence of "generic" representations? → [[evaluation-protocols]]
 
 ## Related concepts
