@@ -56,7 +56,7 @@ updated: 2026-10-10
 - Why only synchronized cortical pyramidal neurons are visible (deep structures, cancellation): needs a physiology source.
 
 ## Sources
-- [[roy2019deep]]: pyramidal-neuron origin, temporal vs spatial resolution, spatially correlated channels (p. 2) *(intro and selected sections only so far)*.
+- [[roy2019deep]]: pyramidal-neuron origin, temporal vs spatial resolution, spatially correlated channels (p. 2).
 - [[chaddad2023electroencephalography]]: bands, the reference problem, volume conduction, the challenge list (§2.1, §3).
 - [[sabio2024scoping]]: plain-language definition (intro of a device review).
 - [[jiang2024large]]: EEG as data (matrix, 10-20 system).

@@ -44,9 +44,10 @@ The two vault reviews describe the same skeleton: raw EEG → preprocessing (den
 - [[varbu2022past]]: four-step skeleton; frequencies of feature and classifier choices (§2; Figs. 12–13).
 - [[chaddad2023electroencephalography]]: the classical pipeline with the denoising toolbox in detail (Fig. 2, §2.2–2.5).
 - [[niso2022wireless]]: acquisition side: sampling rate, reference, impedance (§3).
+- [[roy2019deep]]: how much DL papers (2010–2018) preprocess: 72% do, 24% handle artifacts (46% don't), 49% feed raw EEG vs 48% features (§3.4, Fig. 9, pp. 15–16).
 
 ## Variants & disagreements
-- Minimal vs heavy preprocessing before DL: whether the network should learn from near-raw data. No vault evidence on which is better.
+- Minimal vs heavy preprocessing before DL: should the network learn from near-raw data? [[roy2019deep]] concludes that artifact removal "is in general not required", because 46% of DL papers skipped it and still beat their baselines (p. 27). It also calls preprocessing in general an open question: two raw-EEG models beat preprocessed baselines by ~4% (p. 27). Exception: tasks that provoke fast eye movements (p. 27). 🤖 This is weak evidence: it counts what papers did instead of comparing pipelines, and a network may exploit artifacts (EMG, eye movements) as features. A controlled comparison is still missing from the vault.
 
 ## Open questions
 - What preprocessing do foundation models (LaBraM, CBraMod) apply, and does it differ enough between pretraining corpora to matter?

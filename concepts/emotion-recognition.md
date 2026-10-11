@@ -55,6 +55,7 @@ Predict a person's momentary affective state, either a category (happy, sad, fea
 - [[wang2024cbramod]]: CBraMod on FACED (held-out subjects) and SEED-V; the most honest numbers in the vault so far.
 - [[varbu2022past]]: emotion = 15 of 202 BCI papers, 93% non-medical (Fig. 11).
 - [[chaddad2023electroencephalography]]: lists DEAP and SEED as the standard emotion datasets (Table 3).
+- [[roy2019deep]]: emotion is the largest monitoring domain of 2010–2018 (17 papers; DEAP 9, SEED 3; Table 6). Noise augmentation on SEED raised LeNet 49.6% → 74.3%, merely matching an SVM at 74.2% (p. 14).
 
 ## Open questions
 - Has anyone tested whether SEED/DEAP models decode the clip rather than the emotion (e.g. train on clip identity, or test on new clips)?

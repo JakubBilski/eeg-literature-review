@@ -2,7 +2,7 @@
 slug: q6-reliability-of-eeg-diagnoses
 kind: hub
 status: stub
-updated: 2026-10-10
+updated: 2026-10-11
 ---
 
 # q6-reliability-of-eeg-diagnoses
@@ -28,10 +28,12 @@ updated: 2026-10-10
 - 🤖 **It works where the signal is big and the label is tied to the signal:** sleep stages are *defined* by the EEG pattern, and seizures are large discharges. It fails or is unverified where the target is subtle, subjective or confounded (depression, emotion, cross-subject imagery).
 - 🤖 **More data alone hasn't been the fix.** Pretraining on 2,500 h barely helps motor imagery (CBraMod 0.642 vs 0.620 without pretraining; [[wang2024cbramod]] Table 4). LaBraM-Base pretrained on 500 h beat the same model on 2,500 h on TUAB ([[jiang2024large]] §3.6, Fig. 5). The ceilings come from label noise (sleep κ 0.76), person-to-person variability ([[varbu2022past]] §6.1) and few labelled *subjects* rather than few hours: CHB-MIT has 326,993 windows but 23 people ([[wang2024cbramod]] App. E.2).
 - 🤖 **What TUAB "abnormal" means (unverified, needs the dataset paper):** as I understand it, each *recording session* carries one normal/abnormal label taken from the neurologist's report. "Abnormal" lumps together any reportable finding (focal or diffuse slowing, epileptiform discharges, ...), and every 10 s window inherits its session's label. If so, this is triage ("does a neurologist need to look closely?"), not a diagnosis. Window-level accuracy is also partly mislabelled by construction, since an abnormal recording has many normal-looking windows. The vault so far only says "all data have been annotated as normal or abnormal" ([[jiang2024large]] §3.1, p. 6). The TUAB dataset paper is in the reading queue.
+- **The labelled-data view has a source:** already in 2018, DL-EEG papers on clinical data named "the lack of labeled data, rather than the quantity of data" as the obstacle [[roy2019deep]] (p. 24). Half the datasets in 156 DL papers had <13 subjects (p. 11). In one study, accuracy on new subjects plateaued above ~15 training subjects (ref [191], p. 12).
 - 🤖 **Much of the "doesn't work" impression comes from evaluation, not models.** Leaky splits, curated datasets like Bonn, and confounds produce near-perfect numbers that collapse under honest protocols (rows below). The honest numbers are modest but real.
 
 ### Other findings
 - **Clinical reading works best for large, stereotyped events** (seizures, spikes, periodic discharges) recorded on standardized gel 10-20 setups. It is weakest for subtle, population-level differences such as psychiatric conditions. → [[q3-typical-tasks]] (*What clinical EEG is good for*)
+- **The DL-EEG literature of 2010–2018 was mostly unverifiable:** 60% of 156 papers used no cross-validation, and only 22 of 108 inter-subject studies held subjects out. 21% had no baseline, and only 7% could easily be reproduced (no data or code for 61 papers). The median +5.4% gain over baselines is probably biased upward [[roy2019deep]] (§3.7–3.8, pp. 21–25, p. 28). → [[evaluation-protocols]], [[classical-ml-baselines]]
 - **Reported model accuracies depend heavily on the split.** Splitting by recording instead of by subject inflates scores, e.g. DeprNet 99.37% vs 91.4%, and papers mix protocols on the same dataset. → [[evaluation-protocols]]
 - **Confounded recording blocks inflate scores too (own example):** when each class is recorded in its own run, shuffled CV reports 0.83 but held-out runs give 0.64, and the same pipeline separates the *rest* periods equally well. → [[evaluation-protocols]], [[bci-paradigms]]
 - **Emotion recognition: the same model loses 10–26 points going from within- to cross-subject** (DGCNN on SEED 90.4 → 79.95%; BiDCNN on DEAP valence 94.4 → 68.1%), and the review itself calls random segment-level k-fold a leaky, "wrong" split (§5.3) [[li2022eeg]] (Table 4, p. 25). 🤖 Two possible confounds are untested: decoding the *clip* instead of the emotion, and facial muscle in the β/γ bands. → [[emotion-recognition]], [[domain-adaptation]]
@@ -64,3 +66,4 @@ updated: 2026-10-10
 - [[lee2021interrater]]: human inter-scorer κ for sleep staging *(abstract only)*.
 - [[li2022eeg]]: emotion recognition; within vs cross-subject gap; split taxonomy with segment leakage (§4.5, §5.3, Table 4).
 - [[wong2023eeg]]: EEG as the main diagnostic test for epilepsy; how dataset construction (no patient IDs, balancing, channel preselection, overlap) inflates seizure results (§5–8).
+- [[roy2019deep]]: evaluation and reproducibility practice in 156 DL-EEG papers, 2010–2018; clinical bottleneck = labelled data (pp. 21–25).

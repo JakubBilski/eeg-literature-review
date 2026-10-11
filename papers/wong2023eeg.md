@@ -110,5 +110,6 @@ Which public EEG datasets are used for seizure detection/prediction, how do they
 - [[jiang2024large]]: pretrains largely on TUSZ (App. D).
 - [[niso2022wireless]]: at-home seizure monitoring with wireless EEG (§4.2.2).
 - [[gans2024sleep]]: the parallel case for sleep, where wearables are validated against a reference recording.
+- [[roy2019deep]]: in 2010–2018 DL papers, CHB-MIT (9) and Bonn (7) were already the most used seizure datasets (Table 6). 60% of DL-EEG papers used no cross-validation (p. 22).
 
 ## Q&A notes

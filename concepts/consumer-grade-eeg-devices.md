@@ -22,6 +22,7 @@ Low-cost, wireless sensor headsets sold to non-specialists. They have few sensor
 - [[gans2024sleep]]: 34 sleep wearables (headbands, eye masks, ear-EEG, forehead patches, portable PSG), 24 of them validated against simultaneous PSG. Overall κ 0.42–0.79, N1 poorly detected, mostly lab studies, 21/38 at high risk of bias (§3, §3.3, Table 1). Muse reached κ 0.77–0.79 for sleep staging in a 2023 deep-learning study (§3.2).
 - [[sabio2024scoping]]: charts 916 research studies using 5 brands. Emotiv 67.69%; 1–16 channels; BCI is the main use; validation is thin except for Emotiv (Table 3; §Research domains; §Validation).
 - [[li2022eeg]]: DREAMER, a standard emotion benchmark, was recorded with a 14-channel Emotiv EPOC (Table 3), "portable, wearable, wireless and low-cost" (p. 24).
+- [[roy2019deep]]: defines low-cost as <$1,000. Among the 156 DL papers of 2010–2018, the Emotiv EPOC was the most used low-cost device, then OpenBCI, Muse and NeuroSky (§3.3.3, Fig. 8a, p. 13).
 
 ## Variants & disagreements
 - "Consumer-grade" (marketed to the public) vs "wearable/wireless research-grade" (e.g. mobile clinical systems): the boundary is fuzzy. [[niso2022wireless]] avoids it by defining "wireless EEG" as any device with a wireless protocol, a category spanning consumer headsets, research systems and 11 medically certified devices (Table 1). Ambulatory clinical EEG belongs in that wider category, not in this note.

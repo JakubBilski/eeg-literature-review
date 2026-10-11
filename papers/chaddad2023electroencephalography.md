@@ -90,7 +90,7 @@ Survey the whole EEG processing pipeline, compare methods at each stage, and lis
 - [[jiang2024large]]: LaBraM predicts Fourier amplitude/phase, the learned counterpart of the time–frequency features here.
 - [[sabio2024scoping]]: covers the same consumer devices (Emotiv, Muse) in much more depth.
 - [[niso2022wireless]]: works through the lab-vs-portable trade-off (§2.1 here) spec by spec for 48 wireless devices.
-- [[roy2019deep]]: the systematic DL-for-EEG review that this one lacks. *(not yet read)*
+- [[roy2019deep]]: the systematic DL-for-EEG review that this one lacks.
 - [[wong2023eeg]]: audits the seizure datasets listed here (Bonn, CHB-MIT, Siena). Bonn is single-channel, pre-balanced and has no patient IDs, which puts the "CNN 98%" seizure figure (Table 6) in context.
 - [[li2022eeg]]: emotion-specific review; gives the details behind the DEAP/SEED rows of Table 3.
 

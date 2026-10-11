@@ -18,6 +18,7 @@ Training a model on large amounts of unlabeled data with a task made from the da
 ## Papers
 - [[jiang2024large]]: masked prediction of discrete spectral tokens over 2,535 h from ~20 datasets. Scaling helps the largest model, but weak linear probing means fine-tuning is required (§3.6, App. K).
 - [[song2022eeg]]: explicitly *does not* pretrain because of "limited data for calibration" (§IV-E). This is the small-data, per-subject paradigm that foundation models argue against.
+- [[roy2019deep]]: an early precursor. In 2010–2018, 25% of 156 DL-EEG papers used multi-step training: unsupervised feature learning with RBMs, DBNs or autoencoders, then a classifier (§3.5.2, pp. 18–19). This faded once end-to-end CNNs took over from 2015 (p. 17). The review expected large corpora like TUH to make deeper models usable (p. 27).
 
 ## Variants & disagreements
 - Objective: predict raw signal, spectrum, or discrete codes. LaBraM found raw reconstruction better on TUAB but discrete codes better on TUEV (App. G, Table 7). The best target may depend on the task.

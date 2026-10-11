@@ -27,7 +27,7 @@ Summarize each multichannel recording by how its channels co-vary, then compare 
 - **Transfer:** re-centering each subject's or session's covariances to a common reference is a simple cross-subject adaptation.
 
 ## Papers
-- [[roy2019deep]]: only 2 of 156 DL papers used Riemannian baselines, "although these methods have set a new state-of-the-art in multiple EEG classification tasks" (§4, p. 28) *(cited only; paper not yet fully read)*.
+- [[roy2019deep]]: only 2 of 156 DL papers used Riemannian baselines, "although these methods have set a new state-of-the-art in multiple EEG classification tasks" (§4, p. 28).
 - [[li2022eeg]]: in emotion recognition, (a) aligning source and target subjects' covariances on the Riemannian manifold as a cross-subject fix (§4.5, p. 18), and (b) RFNet, which maps covariances to the tangent space and fuses them with an LSTM over band signals (§4.4, Fig. 23). It recommends raw-signal Riemannian alignment, borrowed from motor imagery, for cross-dataset emotion work (p. 29). → [[domain-adaptation]]
 
 ## Variants & disagreements

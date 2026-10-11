@@ -36,6 +36,7 @@ A model trained on data from some sources (people, sessions, devices, datasets) 
 - [[li2022eeg]]: the 4-family taxonomy above for emotion recognition, and many cross-subject numbers (Table 4). It recommends cross-*dataset* adaptation and raw-signal Riemannian alignment as next steps (pp. 28–29).
 - [[varbu2022past]]: inter-subject variability and calibration as the main practical BCI obstacles (§6.1).
 - [[chaddad2023electroencephalography]]: proposes domain adaptation for device differences across datasets (§3).
+- [[roy2019deep]]: in 2010–2018, 61% of DL papers were inter-subject, but only 22 of 108 held subjects out (pp. 22–23). One study got 75% on seen vs 38% on unseen subjects (p. 23). Pooling subjects, then fine-tuning per subject worked best (ref [127], p. 27).
 
 ## Variants & disagreements
 - 🤖 Many DA papers use the *unlabelled* target subject's test data during training (transductive). That's legitimate only if the deployment scenario allows it, so compare DA numbers to plain cross-subject numbers with care.

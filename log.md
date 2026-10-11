@@ -180,3 +180,21 @@
   - 🤖 Untested confounds in emotion EEG: clip identity vs felt emotion; EMG in β/γ → [[emotion-recognition]] *Open questions*.
   - Next on the learning path: roy2019deep, then EEGNet, then forward snowballing toward 2025–26.
   - Needs manual PDF: unchanged (kaongoen2023future, weng2025self, wang2024eegpt).
+
+## 2026-10-11 (session 8)
+- **Added:**
+  - Paper: [[roy2019deep]] (full read, arXiv PDF). Systematic review of 156 DL-EEG papers, 2010–2018. CNNs on raw EEG took over from 2015. Median +5.4% over weak baselines. 60% of papers used no cross-validation, only 22/108 inter-subject studies held subjects out, and 7% were easily reproducible.
+  - Reading queue: MOABB (Jayaram & Barachant 2018) for the Q7 benchmark question; [[schirrmeister2017deep]] (Deep/Shallow ConvNet, now cited by 4 vault papers).
+- **Changed:**
+  - [[q4-evolution-of-methods]]: stages 1–2 confirmed. New sub-stage: the 2010–2014 DBN/AE unsupervised-pretraining wave.
+  - [[q6-reliability-of-eeg-diagnoses]]: sourced the human's "labelled data, not volume" view (Roy p. 24); state of evaluation practice in 2010–2018.
+  - [[classical-ml-baselines]]: evaluation looseness behind the +5.4%.
+  - [[eeg-preprocessing-pipeline]]: minimal vs heavy preprocessing (weak evidence, 🤖).
+  - 9 other concept notes; reverse links in [[li2022eeg]], [[wong2023eeg]], [[jiang2024large]].
+  - Cleared the "(not yet fully read)" markers on Roy citations.
+- **Questions explored:** none beyond the read.
+- **Open:**
+  - Next on the learning path: [[lawhern2018eegnet]] (full text ready). Then propose forward snowballing toward 2025–26.
+  - Q4 stages 3–5 need [[weng2025self]].
+  - Needs manual PDF: unchanged (kaongoen2023future, weng2025self, wang2024eegpt).
+  - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
