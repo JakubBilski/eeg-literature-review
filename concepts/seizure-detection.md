@@ -55,6 +55,7 @@ What to see (own analysis; readings marked 🤖 are my interpretation):
 - [[chaddad2023electroencephalography]]: lists Bonn, CHB-MIT and Siena as standard datasets; quotes "CNN 98%" seizure detection (Tables 3, 6).
 - [[niso2022wireless]]: at-home seizure monitoring is a main clinical use of wireless EEG (§4.2.2).
 - [[roy2019deep]]: epilepsy is the largest clinical DL domain of 2010–2018 (26 papers, 21 detection). CHB-MIT (9) and Bonn (7) were already the top datasets (Fig. 4, Table 6). Raw-EEG CNNs beat SVMs on frequency features (p. 27). Going from 4 to 22 channels raised specificity from 40% to 90% (ref [153], p. 13).
+- [[weng2025self]]: SSL seizure methods include MBrain (channel-correlation prediction + CPC), Wavelet2vec (per-band masked reconstruction, seizure subtypes), EEG-CGS (graph anomaly detection) and BrainNet (SEEG) (Tables 1–3). No performance comparison.
 
 ## Variants & disagreements
 - **Segment vs event metrics.** Window-level accuracy on balanced pre-cut segments (Bonn) is not comparable to event-level sensitivity with false alarms per hour on continuous recordings. 🤖 Clinically, false alarms per hour is what decides usability; the vault has no source for it yet.

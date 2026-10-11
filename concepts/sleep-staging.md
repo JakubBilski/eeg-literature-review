@@ -80,6 +80,7 @@ A night of recording is cut into fixed-length windows, and each window is labell
 - [[roy2019deep]]: sleep staging is among the main DL-for-EEG tasks. Manual scoring "requires a lot of time" from trained technicians (p. 2). "Transitional sleep stages (e.g. S1 and S3) often lead to … unbalanced classes" (p. 14).
 - [[chaddad2023electroencephalography]]: CNN+RNN reaches 79.7% on Fp1/Fp2 sleep staging (§2.5.2); Sleep-EDF is the listed sleep dataset (Table 3).
 - [[niso2022wireless]]: at-home sleep staging is one of the main clinical uses of wireless EEG (§4.2.2).
+- [[weng2025self]]: sleep is the most common SSL-EEG downstream task (15 of 34 contrastive methods, Table 3), favoured because sleep sets are long, few-channel recordings (p. 28). Relative positioning and CPC exploit slow stage changes (§3.2).
 
 ## Why is 5-class staging a benchmark at all? (asked 2026-10-11)
 The human's objection: expert agreement is poor (N1 κ 0.24, N2/N3 0.57 [[lee2021interrater]]), the label is not grounded in brain function (it is a rule over the signal itself), and the stages are rarely used diagnostically (above). So why benchmark on it?

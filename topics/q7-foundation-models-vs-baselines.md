@@ -17,6 +17,7 @@ updated: 2026-10-11
 - **Pretraining adds little on motor imagery:** CBraMod 0.642 vs 0.620 without pretraining (same architecture), and EEGNet (3k params) 0.581 on PhysioNet-MI 4-class, cross-subject [[wang2024cbramod]] (Tables 3–4). On depression, EEGNet 0.923 vs CBraMod 0.956 (Table 10). On sleep staging (ISRUC, 5-class), κ is EEGNet 0.704, USleep 0.721 (a dedicated supervised sleep model), LaBraM 0.723 and CBraMod 0.744 (Table 7). → [[classical-ml-baselines]], [[sleep-staging]]
 - **Seizure detection (CHB-MIT, subject split) is where pretraining helps most so far:** balanced accuracy EEGNet 0.566, Conformer 0.598, BIOT 0.707, LaBraM 0.708, CBraMod 0.740. AUC-PR roughly doubles (0.19 → 0.37) [[wang2024cbramod]] (Table 8). Caveats: the test set is 2 subjects, and LaBraM pretrained on TUSZ (other seizure data) [[jiang2024large]] (App. D). → [[seizure-detection]]
 - **Foundation-model papers compare against deep baselines only.** FBCSP and Riemannian pipelines are missing, so the gap to a strong classical pipeline is unknown. → [[classical-ml-baselines]]
+- **The SSL literature before foundation models doesn't settle it either:** the main survey of ≈70 EEG SSL methods reports no performance numbers or SSL-vs-supervised comparisons [[weng2025self]] (Tables 1–4). Frozen-encoder evaluation ("UT" mode) was common in that period (§2.2).
 - **Frozen embeddings can be weak:** LaBraM linear probe 0.346 vs 0.641 fine-tuned on TUEV [[jiang2024large]] (Table 10). → [[self-supervised-pretraining]]
 - **Matched protocols matter more than models:** shuffled vs held-out-block vs cross-subject splits move CSP + LDA from 0.83 to 0.64 to 0.56 on one task (own test). → [[evaluation-protocols]], [[bci-paradigms]]
 
@@ -36,6 +37,7 @@ updated: 2026-10-11
 - Does pretraining help more for clinical tasks (TUAB/TUEV) than for BCI?
 
 ## Sources
+- [[weng2025self]]: SSL survey; training modes (fine-tune / joint / frozen); no quantitative comparison.
 - [[roy2019deep]]: DL vs traditional baselines meta-analysis.
 - [[lawhern2018eegnet]]: EEGNet itself; matched comparison with xDAWN+RG and FBCSP.
 - [[wang2024cbramod]]: baseline tables and pretraining ablation *(paper note not yet written)*.

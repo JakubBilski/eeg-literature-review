@@ -101,5 +101,6 @@ Two families: **ERP** BCIs (time-locked waveform, robust across subjects) vs **o
 - [[li2022eeg]]: EEGNet as an end-to-end baseline in emotion recognition (p. 15).
 - [[varbu2022past]]: the paradigm-specific pipelines that EEGNet aims to replace.
 - [[schirrmeister2017deep]]: source of DeepConvNet/ShallowConvNet baselines (ref [32]); not yet read.
+- [[weng2025self]]: lists SPP-EEGNet (SSL built on EEGNet, ref [87]); no SSL-vs-EEGNet numbers.
 
 ## Q&A notes

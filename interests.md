@@ -13,7 +13,8 @@ Questions the human asks are treated as signals of what matters. Maintained auto
 
 - EEG's clinical niche vs other modalities (is EEG redundant to CT/MRI/ultrasound, like "ECG vs CT"?): 1, 2026-10-11. [[q1-what-is-eeg]] *Is EEG redundant to imaging?* (textbook 🤖, unsourced). Related: the human's refined view on Q6. The bottleneck is well-labelled multi-subject data and well-defined diagnostic problems, not data volume → [[q6-reliability-of-eeg-diagnoses]].
 - Sleep stages: definition, clinical use, value as a benchmark: 2, 2026-10-11 (diagnostic value of N1-N3; why benchmark on it). [[sleep-staging]] (*Diagnostic use of the stages*). Related to the labels theme above.
-- Physiology of BCI signals (motor imagery vs actual movement, single-trial separability; what a BCI is): 3, last 2026-10-11. [[bci-paradigms]] (*What a BCI is*, *Imagined vs executed movement*).
+- SSL objectives (what contrastive learning is; contrastive vs masked): 1, 2026-10-11. [[self-supervised-pretraining]] (*Contrastive learning, explained*).
+- Physiology of BCI signals (motor imagery vs actual movement, single-trial separability; what a BCI is): 3, last 2026-10-11. **Not a separate core question (human, 2026-10-11): stays under [[q3-typical-tasks]].** [[bci-paradigms]] (*What a BCI is*, *Imagined vs executed movement*).
 
 ## Open questions
 - Which commercial automated EEG analysis systems exist, what do they predict, and how well are they validated? (2026-10-11) → [[q8-commercial-eeg-analysis-systems]] (new core question). Only sleep headbands sourced so far. Regulatory summaries allowed as sources for Q8 (2026-10-11).
@@ -50,4 +51,7 @@ Questions the human asks are treated as signals of what matters. Maintained auto
 - Chen et al. 2023, FACED dataset (123 subjects, 9 emotions): the largest emotion EEG set in the vault, used by [[wang2024cbramod]]. 2023, so in scope; not in screening.
 - Wan et al. 2021, "A review on transfer learning in EEG signal analysis" (Neurocomputing 421:1–14): recommended by [[li2022eeg]] (p. 21) for cross-subject methods → [[domain-adaptation]]. Pre-2022; not in screening.
 - To find: a 2022+ study testing confounds in EEG emotion recognition (clip identity, EMG, cross-dataset). From [[emotion-recognition]].
-- PDFs (updated 2026-10-11): [[kaongoen2023future]] (paywalled, fetched by hand on 2026-10-10), [[weng2025self]], [[wang2024eegpt]] and [[yang2023biot]] are all in `pdf/` and converted to `fulltext/`; none read yet. Still needs a manual PDF: [[bank2022structural]].
+- PDFs (updated 2026-10-11): [[kaongoen2023future]] (paywalled, fetched by hand on 2026-10-10), [[wang2024eegpt]] and [[yang2023biot]] are in `pdf/` and converted to `fulltext/`; none read yet. ([[weng2025self]] read 2026-10-11, from arXiv v1; the 2025 ACM version is 3 pages longer and may add foundation models.) Still needs a manual PDF: [[bank2022structural]].
+- [[rafiei2022self]]: Rafiei et al. 2022, "Self-Supervised Learning for Electroencephalography" (IEEE TNNLS, 317 citations): the other SSL-EEG review, cited by [[weng2025self]] ref [112]. May have the quantitative comparison Weng lacks. Screening: include.
+- [[banville2020uncovering]]: Banville et al. 2021, "Uncovering the structure of clinical EEG signals with self-supervised learning" (J. Neural Eng. 18(4):046020): relative positioning, temporal shuffling and CPC on sleep and TUH pathology, the template for many later SSL methods [[weng2025self]] (§3.2, §5.1). Backward-exception candidate. Screening: maybe.
+- To find: a 2025+ survey of EEG foundation models (LaBraM, CBraMod, EEGPT and successors), to source stage 6 of [[q4-evolution-of-methods]]. [[weng2025self]] stops before them.

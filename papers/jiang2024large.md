@@ -91,5 +91,6 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[wong2023eeg]]: describes TUSZ, LaBraM's largest pretraining source: 3,050 seizures, the richest clinical metadata (Tables 5–6, 8).
 - [[li2022eeg]]: 2022 emotion review that proposed an emotion-agnostic large pretrained EEG model as future work (p. 29); LaBraM is one.
 - [[roy2019deep]]: the pre-foundation-model DL-EEG landscape (2010–2018). It anticipated that large corpora like TUH would make deeper models usable (p. 27). Its 2010–2014 unsupervised pretraining (RBM/DBN/AE) is a precursor to LaBraM's.
+- [[weng2025self]]: survey of the SSL methods before LaBraM (≈2019–2023). LaBraM itself isn't covered.
 
 ## Q&A notes

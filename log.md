@@ -218,3 +218,20 @@
   - Needs manual PDF: [[bank2022structural]].
   - EEGNet numbers are approximate (read off charts).
   - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-11 (session 10)
+- **Added:**
+  - Paper: [[weng2025self]] (full read, arXiv v1 Jan 2024; the ACM CSUR 2025 version is 38 pp. vs 35 and may differ). Survey of ~70 EEG SSL methods (≈2019–2023): predictive / generative / contrastive / hybrid taxonomy, three training modes (fine-tune / joint / frozen), 31 datasets. No performance numbers; no BIOT/LaBraM/CBraMod.
+  - Screening: [[rafiei2022self]] (include; the other SSL-EEG review), [[banville2020uncovering]] (maybe; relative positioning / CPC, backward-exception candidate).
+- **Changed:**
+  - [[q4-evolution-of-methods]]: old stage 5 split into stage 5 (per-dataset SSL, 2019–2023, confirmed by Weng) and stage 6 (foundation models on pooled corpora).
+  - [[q7-foundation-models-vs-baselines]]: the SSL literature gives no SSL-vs-supervised numbers.
+  - [[self-supervised-pretraining]]: taxonomy, the contrastive claim with no numbers behind it, a *Contrastive learning, explained* section.
+  - [[evaluation-protocols]], [[channel-heterogeneity]], [[sleep-staging]], [[emotion-recognition]], [[seizure-detection]], [[time-frequency-analysis]]: Weng entries. Reverse links in [[jiang2024large]], [[roy2019deep]], [[lawhern2018eegnet]], [[li2022eeg]].
+  - [[interests]]: BCI theme kept under Q3, not a core question (human's decision). New SSL-objectives theme. 3 reading-queue items.
+- **Questions explored:**
+  - What does "contrastive" mean? → [[self-supervised-pretraining]] *Contrastive learning, explained* (InfoNCE, EEG positive-pair choices, subject-fingerprint shortcut 🤖). The human linked it to how embedding models are trained.
+- **Open:**
+  - Next on the learning path: [[wang2024cbramod]] (paper 14). Then switch to forward snowballing for 2025–26, starting with a 2025+ EEG foundation-model survey (stage 6 of Q4).
+  - Full texts ready but unread: [[kaongoen2023future]], [[wang2024eegpt]], [[yang2023biot]]. Needs manual PDF: [[bank2022structural]].
+  - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).

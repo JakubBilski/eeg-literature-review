@@ -19,10 +19,24 @@ Training a model on large amounts of unlabeled data with a task made from the da
 - [[jiang2024large]]: masked prediction of discrete spectral tokens over 2,535 h from ~20 datasets. Scaling helps the largest model, but weak linear probing means fine-tuning is required (§3.6, App. K).
 - [[song2022eeg]]: explicitly *does not* pretrain because of "limited data for calibration" (§IV-E). This is the small-data, per-subject paradigm that foundation models argue against.
 - [[roy2019deep]]: an early precursor. In 2010–2018, 25% of 156 DL-EEG papers used multi-step training: unsupervised feature learning with RBMs, DBNs or autoencoders, then a classifier (§3.5.2, pp. 18–19). This faded once end-to-end CNNs took over from 2015 (p. 17). The review expected large corpora like TUH to make deeper models usable (p. 27).
+- [[weng2025self]]: survey of ~70 EEG SSL methods (≈2019–2023), grouped as predictive (relative positioning, temporal shuffling, band-stop prediction), generative (autoencoders, masked reconstruction, BENDR), contrastive (CPC, SimCLR-style augmentations, channel/graph views, EEG–image/speech alignment) and hybrid (Fig. 3, Tables 1–4). Sleep staging is the most common target (Table 3). It reports no performance numbers and predates LaBraM/CBraMod.
 
 ## Variants & disagreements
 - Objective: predict raw signal, spectrum, or discrete codes. LaBraM found raw reconstruction better on TUAB but discrete codes better on TUEV (App. G, Table 7). The best target may depend on the task.
-- Contrastive (BENDR, BIOT) vs masked (LaBraM, CBraMod): not yet compared in the vault.
+- Contrastive (BENDR, BIOT) vs masked (LaBraM, CBraMod): not yet compared in the vault. [[weng2025self]] calls contrastive "the most widely used" and "the most effective" (§5, §5.6) but gives no numbers. 🤖 Note that BENDR is itself a hybrid: masked embeddings with a contrastive loss (§4.1).
+- **Taxonomy (pre-foundation-model, ≈2019–2023):** predictive (classify a pseudo-label: time distance, shuffled order, removed band, applied augmentation), generative (reconstruct masked signal, spectrum or embeddings; GANs), contrastive (pull augmented views together; CPC), hybrid [[weng2025self]] (Fig. 3). 🤖 Foundation models mostly use the generative / masked branch at scale.
+
+## Contrastive learning, explained (asked 2026-10-11)
+- **Idea:** train an encoder so that two "views" of the same thing get nearby embeddings and views of different things get distant ones. No labels are needed. The supervision is *which pairs belong together*, and the designer decides that.
+- **Loss (InfoNCE):** for each anchor, a softmax over its similarity to 1 positive and N negatives (usually the rest of the batch), with a temperature τ. In effect it is an (N+1)-way classification: "which candidate is my partner?" [[weng2025self]] (Eq. 17, p. 20). 🤖 NLP analogues: word2vec negative sampling, SimCSE (dropout as the augmentation), CLIP (image–caption pairs).
+- **Choosing the positives fixes what the model learns to ignore.** EEG versions:
+  - two augmentations of the same window (noise, amplitude ×0.5–2, time shift, crop, DC shift) (§5.2, p. 20);
+  - CPC: a context summary must pick out the true *future* window from other windows (§5.1);
+  - channel views: region-shuffled or node-dropped electrode graphs (§5.3);
+  - cross-modal: the EEG and the image or speech that evoked it (§5.5).
+- **Negative-free variants** (BYOL, Barlow Twins, ContraWR) keep only positives and prevent the collapse to a constant embedding by other means (§5.2).
+- **Versus masked modeling:** masked models must *reconstruct* content. Contrastive models only have to *tell samples apart*, so they may throw away detail that isn't needed for that.
+- 🤖 **The EEG-specific risk:** if positives come from the same recording, the easiest way to tell samples apart is a subject or session fingerprint (electrode impedance, montage, individual alpha). Those embeddings then cluster by person rather than by brain state, the same confound as in [[evaluation-protocols]]. The survey's version is milder: "arbitrarily chosen sample pairs may yield counterproductive results" (§5.6, p. 25).
 
 ## EEGMMI as a frozen-embedding / few-shot testbed (plan, 2026-10-10)
 Idea: freeze a pretrained encoder, fit ridge/logistic regression (or few-shot) on its embeddings of PhysioNet EEG Motor Movement/Imagery, and compare with CSP + LDA ([[bci-paradigms]] *Own test*).

@@ -117,5 +117,6 @@ Descriptive statistics per data item, plus a meta-comparison: for 102 studies/ta
 - [[wong2023eeg]]: CHB-MIT and Bonn are already the top seizure datasets in 2018 (Table 6).
 - [[gans2024sleep]]: cites Roy for the manual sleep-scoring workload.
 - [[jiang2024large]], [[wang2024cbramod]]: the pretraining-on-TUH direction that Roy anticipated (p. 27: large datasets like TUH might make deeper models usable).
+- [[weng2025self]]: the next survey in time: SSL for EEG ≈2019–2023. Its autoencoder entries continue Roy's RBM/DBN/AE pretraining wave.
 
 ## Q&A notes

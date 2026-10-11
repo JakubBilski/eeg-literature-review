@@ -23,7 +23,10 @@ Rough stages as described by vault papers (to be confirmed by the review seeds):
    - **EEGNet (2016 preprint, 2018) as the design template:** temporal conv (learned filter bank) → depthwise conv over channels (spatial filters per band) → separable conv, ~1–2k parameters, "inspired in part by" FBCSP. One architecture across P300, ERN, MRCP and motor imagery, vs paradigm-specific pipelines before it [[lawhern2018eegnet]] (§2.2.1, p. 7, Table 3). 🤖 Stage 2 did not discard the classical pipeline; it made it differentiable.
 3. **RNN/LSTM, then Transformers:** for long-range dependencies. RNNs can't be parallelized and lose memory over long spans [[song2022eeg]] (§I).
 4. **CNN + Transformer hybrids** trained per subject: EEG Conformer (2022), +10.9 pts over FBCSP on BCI IV-2a [[song2022eeg]] (Table II). → [[cnn-transformer-hybrid]]
-5. **Self-supervised pretraining / foundation models:** BENDR (2021, contrastive) → BIOT (2023) → LaBraM (2024: 2,500 h, masked token prediction, montage-agnostic) [[jiang2024large]] (§1, App. A). → [[self-supervised-pretraining]]
+5. **Self-supervised pretraining (≈2019–2023), per dataset:** a burst of SSL methods borrowed from CV/NLP, mostly CNN backbones pretrained on one dataset or task family [[weng2025self]] (Tables 1–4).
+   - Families: predictive (relative positioning, temporal shuffling, band-stop prediction), generative (autoencoders, masked reconstruction, BENDR), contrastive (CPC, SimCLR-style augmentations, graph/channel views), hybrid (Fig. 3). Sleep staging is the most common target (Table 3).
+   - Its own critique: pretext tasks are mostly copied from CV/NLP and "ignore the intrinsic characteristics of EEG"; pooling heterogeneous EEG (channels, devices, sampling rates) was still open in early 2024 (§8).
+6. **Foundation models (2023→), pooled corpora:** BENDR (2021, contrastive) → BIOT (2023) → LaBraM (2024: 2,500 h, masked token prediction, montage-agnostic) [[jiang2024large]] (§1, App. A) → CBraMod [[wang2024cbramod]]. The step from stage 5: one model pretrained across many datasets and montages. 🤖 This answers the "heterogeneous EEG" direction in [[weng2025self]] (§8). → [[self-supervised-pretraining]]
 - 🤖 What drives the shift: limited labeled data and montage differences push toward pretraining on pooled unlabeled data ([[jiang2024large]] §1). The per-subject small-data paradigm ([[song2022eeg]]) is what this replaces.
 - **Today's supervised baselines** in foundation-model papers (EEGNet, Conformer, ... BIOT, LaBraM) and how small the gaps can be → [[classical-ml-baselines]], [[eeg-depression-detection]].
 
@@ -36,10 +39,11 @@ Rough stages as described by vault papers (to be confirmed by the review seeds):
 | params | not stated (+17.6% from attention) | 5.8M–369M |
 
 ## Open threads
-- Confirm the stages against the systematic reviews. *Stages 1–2 confirmed (2026-10-11)* by [[roy2019deep]]: DBN/FC until 2014, CNNs from 2015, a median +5.4% over classical baselines. It also added the unsupervised-pretraining wave of 2010–2014. Stages 3–5 still need [[weng2025self]] (full text ready). [[chaddad2023electroencephalography]] confirms stage 1 and early CNNs, but has no Transformers or SSL.
+- Confirm the stages against the systematic reviews. *Stages 1–2 confirmed (2026-10-11)* by [[roy2019deep]]: DBN/FC until 2014, CNNs from 2015, a median +5.4% over classical baselines. It also added the unsupervised-pretraining wave of 2010–2014. *Stage 5 (SSL) confirmed (2026-10-11)* by [[weng2025self]], which covers ≈2019–2023 but has no performance numbers and no foundation models. Stage 6 (foundation models) still needs a 2025+ FM survey; stages 3–4 (RNN → Transformer) rest on [[song2022eeg]] only. [[chaddad2023electroencephalography]] confirms stage 1 and early CNNs, but has no Transformers or SSL.
 - Where do graph neural networks and Riemannian methods fit? *Partial (2026-10-11):* in emotion recognition, GNNs over electrode graphs (fixed connectivity like PLV, or learned adjacency as in DGCNN/RGNN, 2018–2020) were a main DL branch alongside CNN-on-electrode-grid, CNN-LSTM hybrids and adversarial domain adaptation. A Riemannian-tangent-space + LSTM fusion network also appears [[li2022eeg]] (§4.3–4.5, Table 4). Stage 2–3 in emotion therefore looked more like "DL on hand-crafted features (DE per band)" than raw end-to-end.
 
 ## Sources
+- [[weng2025self]]: survey of EEG self-supervised learning ≈2019–2023: taxonomy of pretext tasks, training modes, 31 datasets; no numbers.
 - [[lawhern2018eegnet]]: EEGNet, the compact CNN that encodes FBCSP; the default small baseline in later papers.
 - [[roy2019deep]]: systematic review of 156 DL-EEG papers, 2010–2018: architecture trends, DL-vs-classical meta-analysis (→ [[classical-ml-baselines]]).
 - [[li2022eeg]]: emotion-recognition method routes 2016–2022 (Fig. 7): features + SVM → DBN/CNN/GNN on feature maps → end-to-end CNN/RNN → domain adaptation; proposes large pretrained EEG models (p. 29).

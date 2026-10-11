@@ -127,5 +127,6 @@ Give newcomers a holistic view of the technical routes in EEG emotion recognitio
 - [[varbu2022past]]: emotion as a passive-BCI paradigm (15 of 202 BCI papers).
 - [[lawhern2018eegnet]]: EEGNet, cited as an end-to-end baseline that EmotioNet beat (p. 15).
 - [[roy2019deep]]: DL-EEG review of 2010–2018. Emotion was already its largest monitoring domain (DEAP 9 papers, SEED 3; Table 6). It raised the same concerns: few subject-held-out splits, and window overlap inflating example counts.
+- [[weng2025self]]: shares the motivation that emotion labels are subjective; catalogues SSL methods for emotion (GMSS, meiosis contrast).
 
 ## Q&A notes

@@ -56,6 +56,7 @@ Predict a person's momentary affective state, either a category (happy, sad, fea
 - [[varbu2022past]]: emotion = 15 of 202 BCI papers, 93% non-medical (Fig. 11).
 - [[chaddad2023electroencephalography]]: lists DEAP and SEED as the standard emotion datasets (Table 3).
 - [[roy2019deep]]: emotion is the largest monitoring domain of 2010–2018 (17 papers; DEAP 9, SEED 3; Table 6). Noise augmentation on SEED raised LeNet 49.6% → 74.3%, merely matching an SVM at 74.2% (p. 14).
+- [[weng2025self]]: emotion labels from self-report or stimulus type "may introduce significant bias", a stated motivation for SSL (§7, p. 27). Emotion-specific SSL uses spatial / graph contrast (GMSS) and "meiosis": swapping channel halves between two trials of the same stimulus (§5.3).
 
 ## Open questions
 - Has anyone tested whether SEED/DEAP models decode the clip rather than the emotion (e.g. train on clip identity, or test on new clips)?
