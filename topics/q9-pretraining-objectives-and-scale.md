@@ -2,7 +2,7 @@
 slug: q9-pretraining-objectives-and-scale
 kind: hub
 status: active
-updated: 2026-10-11
+updated: 2026-10-12
 ---
 
 # q9-pretraining-objectives-and-scale
@@ -17,7 +17,8 @@ updated: 2026-10-11
 - **Raw-waveform MSE wastes capacity on unpredictable phase** (the double penalty, below). Spectral and latent targets avoid it, at the cost of morphology for transient events (🤖 + [[xie2026specbram]] §4).
 - **In a matched benchmark, the objective family doesn't decide the outcome.** 12 open FMs on 13 datasets: raw-reconstruction models rank 1–15, embedded-token models 7–18, codebook models 9–20. The best of each family (CBraMod, Neuro-GPT, LaBraM) are all competitive. No objective matches a paradigm: spectral-target FMs are not best on SSVEP [[liu2026eeg]] (§4.1, Supp. Table 53). 🤖 Objective is confounded with corpus, architecture and preprocessing here, unlike SpecBraM's matched ablation.
 - **Scale is small by LLM standards:** ~0.3–3B single-channel 1 s patches, at most ~15k–25k distinct people in public corpora, ~108k patients in HEEDB. Evidence for data or model scaling is "weak, if any" [[kuruppu2026eeg]] (§5.1). The 2026 benchmark agrees: the top six FMs are 0.16–5.8M params, and within the codebook family the larger models rank worse (LaBraM 5.8M 9.36 < BrainOmni 8.4M 12.33 < 33M 12.76) [[liu2026eeg]] (pp. 21–22).
-- **Pretext loss is not a quality metric.** Lower loss can come with worse features [[wang2024eegpt]] (Table 5); [[xie2026specbram]] (App. C). Held-out pretext loss is almost never reported.
+- **Pretext loss is not a quality metric.** Lower loss can come with worse features [[wang2024eegpt]] (Table 5); [[xie2026specbram]] (App. C). Held-out pretext loss is almost never reported. The main reasons are that loss values depend on the target definition and that the objective is misaligned with downstream tasks; overfitting during small-data fine-tuning comes next → *Why pretext gains don't transfer downstream*.
+- 🤖 **Predictability alone doesn't identify what matters clinically.** It separates structure from noise only relative to the context and loss. MSE learns the conditional mean, but rhythm state lives in the variance. Much predictable structure is nuisance (artifacts, device fingerprints), and spike or seizure timing is unpredictable yet clinical → *Does predictability reveal what matters clinically?*
 - **The same recipes appear in ECG:** HuBERT-style k-means pseudo-labels are used in both HuBERT-ECG and the sleep-EEG model Sleep2.0, with nearly identical settings (k = 100 on spectral features → k = 500 on hidden states) → bridge [[hubert-style-pseudo-labels]]. ECG also shows that scale is not monotonic: the 30M model beats the 188M one on small datasets ([[coppola2024hubert]] pp. 5–6).
 
 ## Scale, targets and pretext loss in detail (asked 2026-10-11)
@@ -77,6 +78,39 @@ updated: 2026-10-11
 - **Lower pretext loss ≠ better features.** EEGPT without target normalization reached reconstruction loss 0.002 vs 0.56 but lost 1–7 points downstream; without its alignment loss, reconstruction loss was unchanged but downstream fell 6–9 points [[wang2024eegpt]] (Table 5). SpecBraM with learnable target filters drove its loss to 4×10⁻⁴ by shrinking the targets, and the features became uninformative [[xie2026specbram]] (App. C). The same holds in ECG [[coppola2024hubert]]: at 50 Hz the pretext validation loss was lower but the linear probe worse (0.918 vs 0.933 at 100 Hz) (p. 35). The setup with the best pretext loss and accuracy (0.586 / 0.831) probed worse (0.924) than the default (0.638 / 0.821 → 0.933) (p. 51). 🤖 Easier pretext tasks give lower loss and worse features. The loss only says how easy the targets are.
 - 🤖 **Pretext loss as an anomaly score (the human's idea):** plausible for unlabelled screening, but a raw-MSE score mostly measures *power*: its irreducible part scales with signal power ([[xie2026specbram]] §4), so high-amplitude artifacts (movement, electrode pops), slow waves and seizures all score high. A usable score would need per-patch normalization or a likelihood under predicted band powers, and artifacts would still dominate unless removed first. Not tested in the vault → Open questions.
 
+## Why pretext gains don't transfer downstream (asked 2026-10-11)
+*The human's question: is "better at pretraining, worse downstream" due to overfitting, ill-posed downstream tasks, ill-posed pretext comparisons, or something else?*
+
+- **The "pattern" is two different observations.** (A) *Within one model:* an ablation lowers pretext loss and downstream gets worse ([[wang2024eegpt]] Table 5; [[xie2026specbram]] App. C; [[coppola2024hubert]] pp. 35, 51). (B) *Across models:* bigger models or more pretraining data don't rank better ([[liu2026eeg]] pp. 21–22; [[jiang2024large]] §3.6 Fig. 5; [[coppola2024hubert]] pp. 5–6). In (B) nobody reports held-out pretext loss ([[kuruppu2026eeg]] p. 15), so "stronger on pretraining" is assumed there, not measured.
+- **Ranked explanations (🤖 synthesis):**
+  1. **Ill-posed pretext comparison: strongest support, explains every case of (A).** The loss value depends on how the target is defined, so a change to the target (scale, sampling rate, learnable filters) changes the loss without changing the features. EEGPT: removing target normalization drops the loss 0.56 → 0.002 by shrinking the target. SpecBraM: learnable filters let the model shrink its own targets (4×10⁻⁴), the human's "target is part of the model" case. HuBERT-ECG: 50 Hz removes hard high-frequency content. The loss also measures only one term: removing EEGPT's alignment loss left the reconstruction loss unchanged while downstream fell 6–9 points.
+  2. **The objective is misaligned with the downstream task, so a better optimum can be worse.** Even with a fixed, honest target, a lower loss can come from fitting what the downstream task doesn't need: interpolating masked patches from neighbouring seconds and channels, unpredictable phase, power-dominated low frequencies (the double penalty above; [[xie2026specbram]] §4; [[yu2026neural]] abstract). LaBraM's target ablation shows no target wins on every task (App. G Table 7). The large probe-vs-fine-tune gaps ([[liu2026eeg]] Supp. Table 58; [[kuruppu2026eeg]] Supp. Table 2) are consistent with features specialised to the pretext.
+  3. **Overfitting in the fine-tuning stage, not in pretraining.** Downstream sets have few *subjects* (CHB-MIT 23 people, test on 2: [[wang2024cbramod]] App. E.2), and few-shot uses ~21 trials per class ([[liu2026eeg]] Supp. Table 15). Big models lose most where data are smallest: HuBERT-ECG SMALL 0.894 vs BASE 0.756 on small CPSC-Extra, flat on large MIMIC-IV ([[coppola2024hubert]] p. 5, Table 3). Whether pretraining itself overfits can't be checked without held-out pretext loss.
+  4. **Ill-posed / noisy downstream evaluation: compresses and scrambles ranks, but doesn't create a systematic inversion.** Label noise caps scores (sleep κ 0.76 between humans: [[lee2021interrater]]). CBraMod vs the top CNNs is within the Nemenyi critical difference ([[liu2026eeg]] p. 72). Many size–rank differences are therefore noise. Shortcuts make it worse: all encoders decode dataset identity at 1.000 ([[zare2026negative]], screening abstract).
+  5. **Confounding across models.** Size goes together with corpus, preprocessing, architecture and objective in [[liu2026eeg]]. Corpus diversity seems to matter more than volume: LaBraM (80k channel-hours, many sources) beats ~541k mostly-TUEG models ([[kuruppu2026eeg]] p. 15). The "bigger is worse" ranks are not a clean size effect.
+- **What would separate them:** the same model and target, a scaling sweep, held-out pretext loss on *other* datasets, and a layer-wise probe on several downstream tasks with enough subjects. No paper in the vault does this. → *Open threads*.
+
+## Does predictability reveal what matters clinically? (asked 2026-10-12)
+*The human's question: with enough data from the true distribution, would "what the model can predict" separate clinically important signal from noise?*
+
+🤖 Mostly reasoning; vault evidence is cited where it exists. **Short answer:** predictability separates *structure from noise relative to a chosen context and loss*. Clinical relevance is a third axis that it doesn't determine.
+
+- **What does hold:** with infinite data, an MSE model converges to the conditional mean E[target | context], and everything unpredictable from the context averages out. So it really won't learn random patterns.
+- **Caveat 1: MSE only learns the mean, and for EEG rhythms the state is in the variance.** For a random-phase rhythm, E[waveform | context] decays to ~0 a few cycles away from the visible context, whatever the brain state, so an MSE model learns little about the state there. The state (e.g. strong vs weak alpha) lives in the conditional *variance/spectrum*. This is SpecBraM's argument: for a stationary Gaussian patch the periodogram is sufficient and phase carries no state information ([[xie2026specbram]] §4, App. A). "Predictable" must mean the full conditional distribution (likelihood, discrete tokens + CE, spectral or latent targets), not the mean.
+- **Caveat 2: predictability is relative to the context.** A masked 1 s patch is mostly predictable from neighbouring seconds and electrodes (autocorrelation, volume conduction), so the cheapest predictable structure is local smoothness, not brain state ([[yu2026neural]] abstract). Context length, masking design and the target decide which structure counts as predictable.
+- **Caveat 3: predictable ≠ relevant.** Much of the most predictable structure is nuisance: mains hum, cardiac artifact, blinks on frontal channels, electrode drift, device and montage fingerprints. All encoders decode dataset identity at 1.000 ([[zare2026negative]], screening abstract). Early FMs did no artifact removal ([[kuruppu2026eeg]] §4.1). In a clinical archive, medication effects and ICU-vs-routine recording conditions are predictable and correlate with disease without being the disease.
+- **Caveat 4: unpredictable ≠ irrelevant.** The *timing* of spikes and seizure onsets is close to unpredictable from the past (otherwise seizure prediction would be solved), and these events are rare, so they add little to an average loss. What makes them learnable is the *spatial* context: a spike's field appears at the same moment on neighbouring electrodes. Spatial masking can therefore teach spike morphology, while purely temporal prediction can't.
+- **Caveat 5: phase is not always clinically irrelevant.** The phase *within one channel* is mostly irrelevant for rhythms. Phase *relationships between channels* are clinical: clinicians localize a spike by **phase reversal**, where in a chain of bipolar channels (differences between adjacent electrodes) the deflection flips sign across the electrode nearest the source. Connectivity measures (coherence, PLV) also use phase ([[time-frequency-analysis]]). A target that is phase-invariant per channel but keeps cross-channel phase would fit this best.
+- **Caveat 6: relevance needs an outside variable.** A perfect density model contains all information, the diagnosis included, but tangled with everything else. Long-context SSL pushes slowly varying, recording-level factors into the representation: diagnosis, but also age, drugs, device, impedance. Separating clinical factors from nuisance needs labels or interventions (e.g. the same person recorded on several devices). Predictability alone can't do it.
+- **Summary grid:**
+
+  | | clinically relevant | not relevant |
+  |---|---|---|
+  | **predictable** | background slowing, sleep/vigilance state, a spike's spatial field | mains hum, blinks, ECG artifact, device/montage, medication |
+  | **unpredictable** | spike / seizure *timing*, onset | sensor noise, within-channel rhythm phase |
+
+- 🤖 *Analogy:* text is already a compressed, human-designed code for meaning, so next-token prediction lands near "what matters". Raw audio isn't, which is why speech SSL moved to clustered targets (HuBERT). EEG is closer to raw audio, and the bridge [[hubert-style-pseudo-labels]] is the same move.
+
 ## Tokenization: HuBERT-style pseudo-labels in ECG and EEG (asked 2026-10-11)
 *ECG is in scope as a method parallel since 2026-10-11. Full side-by-side comparison → bridge [[hubert-style-pseudo-labels]]. HuBERT-ECG was read in full on 2026-10-11 (medRxiv v4, fetched by hand); this replaces the earlier answer reconstructed from its code.*
 
@@ -107,6 +141,8 @@ updated: 2026-10-11
 - Is pretext-loss error usable as an unsupervised anomaly score? → [[self-supervised-pretraining]] *Open questions*.
 - No matched comparison of HuBERT-style clustering vs a learned codebook vs band-power regression on the same EEG data and probe.
 - Do band-power targets lose on transient-morphology tasks (spikes, TUEV events), as SpecBraM's theory predicts? Not tested on TUEV in the vault.
+- No EEG paper sweeps scale with one fixed target while reporting held-out pretext loss and layer-wise probes, so the causes of "better pretext, worse downstream" can't be separated yet.
+- Does a cross-channel-phase-aware but per-channel-phase-invariant target help spike/TUEV tasks? Untested (see *Does predictability reveal what matters clinically?*).
 - Does scale help once corpora reach HEEDB size (~108k patients)? No result yet.
 - Full reads queued: [[xie2026specbram]], [[ouahidi2025reve]], [[yu2026neural]], [[coon2026sleep]].
 

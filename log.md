@@ -294,3 +294,17 @@
   - Full reads of [[turella2024predictive]] and [[bitar2024utility]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]].
   - Find a 2022+ routine-EEG yield review, EEG normative-modelling / brain-age papers, and the FDA K-numbers for Epitel and Ceribell.
   - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-12 (session 14)
+- **Added:** none (Q&A session).
+- **Changed:**
+  - [[q9-pretraining-objectives-and-scale]]: two new sections, *Why pretext gains don't transfer downstream* (ranked causes: target-dependent loss values > objective misalignment > overfitting in small-data fine-tuning > noisy downstream evaluation > cross-model confounding) and *Does predictability reveal what matters clinically?* (🤖: conditional mean vs variance, context-relative predictability, predictable nuisance, unpredictable-but-clinical events, cross-channel phase/phase reversal). Current answer and open threads updated.
+  - `interests.md`: SSL-objectives theme → 5 questions, 3 sessions.
+- **Questions explored:**
+  - Why do FMs get better at pretext tasks but worse downstream? → Q9.
+  - Would predictability on infinite data separate clinical signal from noise? → Q9.
+- **Open:**
+  - No EEG paper sweeps scale with a fixed target while reporting held-out pretext loss and layer-wise probes.
+  - Untested: a target that ignores phase within a channel but keeps cross-channel phase (spike/TUEV tasks).
+  - Phase reversal (clinical spike localization) is unsourced in the vault; needs a clinical EEG reference.
+  - Carried over: reads of [[zare2026negative]], [[yu2026neural]], [[xie2026specbram]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
