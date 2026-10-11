@@ -97,6 +97,8 @@ The human's objection: expert agreement is poor (N1 κ 0.24, N2/N3 0.57 [[lee202
   - Predicting outcomes or diagnoses from a whole night, which [[wang2024cbramod]] cites as a combined task ("Lpsgm: … sleep staging and mental disorder diagnosis").
   - Scoring with soft labels or several scorers, to measure the model against the spread between humans rather than one hypnogram.
 
+- [[xie2026specbram]]: ISRUC/HMC sleep staging as the main probe task. Hand-crafted 5-band power ≈ FM frozen features (Table 5); fine-tuned SOTA 0.811 BA on ISRUC (Table 6). Comparison noise: std over 3 pretraining seeds is 0.002–0.008, but there's no CI over test subjects.
+
 ## Variants & disagreements
 - **5 vs 4 stages:** many consumer devices merge N1+N2 into "light" (Zeo, Neuroon, Umind, Zmachine, LANMAO) [[gans2024sleep]] (Table 1). Scores on 4-class and 5-class outputs are not comparable.
 - **Reference labels are noisy:** the "ground truth" is one human scorer's hypnogram. Two human scorers agree at κ 0.76 overall and 0.24 on N1 [[lee2021interrater]] (Abstract). See *How clearly are the stages defined?* above.

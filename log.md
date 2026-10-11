@@ -235,3 +235,28 @@
   - Next on the learning path: [[wang2024cbramod]] (paper 14). Then switch to forward snowballing for 2025–26, starting with a 2025+ EEG foundation-model survey (stage 6 of Q4).
   - Full texts ready but unread: [[kaongoen2023future]], [[wang2024eegpt]], [[yang2023biot]]. Needs manual PDF: [[bank2022structural]].
   - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-11 (session 11)
+- **Added:**
+  - Switched the reading phase to 2025–26 papers: forward snowballing from LaBraM/CBraMod plus 2025+ searches. 22 candidates screened (9 include), 9 PDFs converted (kuruppu2026eeg, liu2026eeg, chen2026benchmarking, kontras2026neuroatlas, zare2026negative, tao2026separating, steglich2026representational, wang2026eeg, coon2026sleep), plus xie2026specbram.
+  - Paper: [[kuruppu2026eeg]] (full read, arXiv v3). Critical review of the first 10 EEG FMs: transformers + masked reconstruction, weak linear probes, weak scaling evidence, mostly in-distribution evaluation. Supp. Table 2 transcribed from the page image.
+  - Core question **Q9** [[q9-pretraining-objectives-and-scale]] (human's request): pretext targets, data scale, what pretext loss tells us. HuBERT-ECG vs Sleep2.0 tokenization; target-family table.
+  - Screening: kiessner2024reaching, yuan2024brainwave, xie2026specbram (include), sun2025harvard (HEEDB), ouahidi2025reve, coppola2024hubert (ECG parallel).
+- **Changed:**
+  - **Scope (human):** ECG papers allowed as method parallels via bridges, no cap (CLAUDE.md *Other fields*, *Bridges*).
+  - [[q4-evolution-of-methods]] stage 6 sourced (10 early FMs). [[q5-state-of-the-art]]: no shared leaderboard as of Sep 2024. [[q7-foundation-models-vs-baselines]]: the probe gap is field-wide; hand-crafted band power ≈ published FM frozen features on sleep staging ([[xie2026specbram]] Table 5). [[q6-reliability-of-eeg-diagnoses]]: FM evaluations mostly in-distribution.
+  - [[self-supervised-pretraining]]: scale/targets material moved to Q9. New sections *Latent-space targets, explained* (JEPA, momentum encoder, LN) and pretext loss as an anomaly score (open question).
+  - [[evaluation-protocols]]: pretraining exposure to test recordings (LaBraM excluded them; CBraMod gives no statement; SpecBraM admits it). [[channel-heterogeneity]], [[eeg-preprocessing-pipeline]], [[seizure-detection]], [[time-frequency-analysis]], [[sleep-staging]], [[classical-ml-baselines]]: Kuruppu / SpecBraM entries.
+- **Questions explored:**
+  - FM data scale; tokens + CE vs raw µV + MSE → [[q9-pretraining-objectives-and-scale]].
+  - Anything bigger than TUEG (HEEDB ~280k EEGs / ~108k patients; REVE 60k h; sleep PSG) → Q9.
+  - Held-out pretext loss, pretext loss as an anomaly score → [[self-supervised-pretraining]], Q9.
+  - Can a pretraining leak explain fine-tuning gains? → [[evaluation-protocols]].
+  - Does SpecBraM mean FMs barely train / is the gap within noise? → [[q7-foundation-models-vs-baselines]].
+  - MSE double penalty (the human's point) → Q9.
+  - HuBERT-ECG tokens vs EEG; JEPA / momentum encoder / layer norm → Q9, [[self-supervised-pretraining]].
+- **Open:**
+  - Next reads: [[liu2026eeg]] (EEG-FM-Compass), a full note on [[xie2026specbram]], then [[chen2026benchmarking]], [[kontras2026neuroatlas]], [[zare2026negative]].
+  - First ECG↔EEG bridge note (HuBERT-style pseudo-labels) once an ECG paper is read; the HuBERT-ECG full text is blocked (medRxiv 403) → may need a manual PDF.
+  - The HEEDB hours and access terms are unchecked.
+  - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).

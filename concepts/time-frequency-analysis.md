@@ -82,6 +82,7 @@ How `scripts/plot_motor_erd.py` computes "mu power" for [[bci-paradigms]]:
 - [[jiang2024large]]: tokenizer targets are the Fourier amplitude and phase of 1 s patches (§2.2), i.e. a per-patch short-time Fourier view.
 - [[li2022eeg]]: DWT levels mapped to EEG bands at 128 Hz (A5 ≈ δ, D5 ≈ θ, D4 ≈ α, D3 ≈ β, D2 ≈ γ; Table 1); wavelet energy and entropy per level as features. Recommends wavelets over STFT for non-stationary EEG (§3.4, pp. 6–7). Also EMD/VMD (p. 7).
 - [[weng2025self]]: time–frequency views as SSL targets: masked reconstruction of continuous-wavelet maps with a ViT, per-band reconstruction, and Fourier magnitude + phase prediction (neuro2vec) (§4.2).
+- [[kuruppu2026eeg]]: FM input choices: raw time series (6/10), power spectra (BIOT, EEGFormer), time series + spectra (Brant, FoME), per-channel STFT/superlet spectrograms (BrainBERT, BrainWave). No ablation settles which is better (§4.1, §5.2).
 
 ## Variants & disagreements
 - Fixed basis (Fourier, wavelets) vs data-driven (EMD) vs learned (CNN filters). There is no vault evidence yet on which works best as model input.

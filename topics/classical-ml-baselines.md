@@ -20,6 +20,8 @@ updated: 2026-10-11
   - Cross-subject: CNNs win on P300 (0.90 vs 0.80) and MRCP (0.81 vs 0.70), but **xDAWN+RG wins on ERN** (0.765 vs 0.745). On motor imagery, CNNs beat FBCSP (0.40 vs 0.32), but chance is 0.25.
   - 🤖 So the classical pipelines were not dominated; the winner depends on the paradigm and the protocol.
 - **Today's supervised baselines in foundation-model papers** are deep, not classical: EEGNet, Conformer, SPaRCNet, ContraWR, etc. On Mumtaz2016, EEGNet (3k params) gets 0.923 vs 0.956 for CBraMod [[wang2024cbramod]] (Table 10). 🤖 Riemannian / FBCSP baselines are missing from these comparisons, so the vault can't yet tell how much pretraining beats a strong classical pipeline.
+- **FM papers rarely compare with expert features:** only 4 of 10 early EEG foundation models did, and those reported "substantial improvements" after fine-tuning [[kuruppu2026eeg]] (Fig. 4a, §5.1). The review recommends benchmarking against expert features and task-specific supervised models with statistical tests (§6.1). TUAB may already be saturated at 85–87% accuracy with traditional approaches (§5.2, ref Kiessner 2024).
+- **Band power is still a strong baseline for frozen features:** on sleep staging, 5-band power with logistic regression matches or beats the frozen embeddings of LaBraM, BIOT and CBraMod [[xie2026specbram]] (Table 5). → [[q7-foundation-models-vs-baselines]]
 - **DL in that period:** CNN 41%, RNN ~14%, autoencoders ~13%, CNN+RNN 7% of papers [[roy2019deep]] (§3, p. 17).
 
 ## Glossary (🤖 standard definitions, no vault source yet; Lotte 2018 should cover them)
@@ -40,6 +42,7 @@ updated: 2026-10-11
 - Protocol-matched comparison: Riemannian/FBCSP vs foundation models (also in [[interests]] *Open questions*). Source to add: Lotte et al. 2018 (Roy ref [105]; also [[varbu2022past]] ref [22], which cites it for the need for user-adaptive classifiers, §5.9).
 
 ## Sources
+- [[kuruppu2026eeg]]: review of 10 EEG-FMs; how rarely they test against classical baselines (Fig. 4a).
 - [[lawhern2018eegnet]]: matched EEGNet vs xDAWN+RG / FBCSP comparison across 4 paradigms, within and cross-subject.
 - [[roy2019deep]]: meta-analysis of DL vs traditional baselines, 2010–2018 (§3.7, §4.5).
 - [[chaddad2023electroencephalography]]: catalogue of classical classifiers.

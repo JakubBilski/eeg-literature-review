@@ -9,6 +9,7 @@
 - [[q6-reliability-of-eeg-diagnoses]]
 - [[q7-foundation-models-vs-baselines]]
 - [[q8-commercial-eeg-analysis-systems]]
+- [[q9-pretraining-objectives-and-scale]]
 
 ## Other topics
 <!-- synthesis notes not owned by a single hub -->
@@ -18,6 +19,7 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-11 [[kuruppu2026eeg]] — critical review of the first 10 EEG foundation models: transformers + masked reconstruction, weak linear probes, weak scaling evidence, mostly in-distribution tests
 - 2026-10-11 [[weng2025self]] — survey of ~70 EEG self-supervised methods (2019–2023): predictive / generative / contrastive / hybrid taxonomy; no performance numbers, no foundation models
 - 2026-10-11 [[lawhern2018eegnet]] — EEGNet: ~2k-parameter CNN that mimics FBCSP; matches paradigm-specific pipelines on 4 BCI paradigms, loses to Riemannian on cross-subject ERN
 - 2026-10-11 [[roy2019deep]] — systematic review of 156 DL-EEG papers (2010–2018): CNNs on raw EEG take over, median +5.4% vs weak baselines, 7% reproducible

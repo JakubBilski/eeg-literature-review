@@ -47,6 +47,7 @@ updated: 2026-10-11
 - **Label reliability belongs in this hub** (decided 2026-10-11; not a separate core question). Expert labels can be defined by the signal itself (sleep stages), clinically marginal (N1–N3 are rarely used diagnostically), and noisy, yet still serve as benchmarks. → [[sleep-staging]] *Why is 5-class staging a benchmark at all?*, [[eeg-labels-and-metadata]]
 - 🤖 **"Quality" depends on the task.** Apart from amplifier noise, how good a recording is depends on the prediction target, so reliability has to be judged for each task. → [[signal-quality-and-noise]]
 - **Transfer across montages and devices:** foundation models handle montage differences by design (electrode embeddings). Whether they bridge *devices*, and whether they pick up device fingerprints as shortcuts, is untested in the vault. → [[channel-heterogeneity]]
+- **Foundation-model evaluations (to Sep 2024) are mostly in-distribution:** 4 of 10 FMs test only on datasets seen in pretraining, and only 2 test on unseen datasets [[kuruppu2026eeg]] (§5.1). No model did artifact removal, so artifact-driven shortcuts are unexamined (§4.1). Clinical few-shot claims (ADHD, MDD, schizophrenia AUC 0.72–0.90 in BrainWave) rest on small public sets (Supp. Table 2). → [[evaluation-protocols]]
 - **How strong the baselines are:** small models and classical methods often come within a few points of foundation models, which limits how much a given benchmark can tell apart. → [[classical-ml-baselines]], [[q7-foundation-models-vs-baselines]]
 
 ## Comparisons
@@ -58,6 +59,7 @@ updated: 2026-10-11
 - Inter-rater agreement among clinicians reading EEG: answered for sleep (below). Seizure and abnormal-EEG reading are still unsourced; [[wong2023eeg]] does not cover it.
 
 ## Sources
+- [[kuruppu2026eeg]]: in-distribution vs OOD evaluation of EEG foundation models; asks for subject/temporal splits and clinical metrics.
 - [[chaddad2023electroencephalography]]: split dependence (DeprNet, Table 6).
 - [[wang2024cbramod]]: depression benchmark (Mumtaz2016, Table 10).
 - [[jiang2024large]]: patient-level splits; pretraining dominated by TUH.

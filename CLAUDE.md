@@ -13,11 +13,12 @@ This folder is a literature review on EEG. You help find, screen, read, summariz
   6. How reliable are EEG-based diagnoses and predictions (split leakage, confounds, small single-site data, cross-site/device generalization)? (added 2026-10-10)
   7. How much do EEG foundation models actually beat strong classical (CSP, Riemannian, LDA) and small supervised (EEGNet) baselines under matched protocols, including few-shot and frozen-embedding probes? (added 2026-10-10)
   8. What commercially deployed automated EEG analysis systems exist (clinical software, regulator-cleared devices, consumer products), what do they predict, and how well are they validated? (added 2026-10-11)
+  9. What should EEG foundation models learn from unlabelled data: pretext targets (raw waveform, spectral, discrete tokens, latent), data scale and diversity, and what pretext loss tells us? (added 2026-10-11)
 - **Inclusion:** published 2022 onward (last ~4 years), prioritised by influence (citation count, normalised for age) — start from the most influential papers and reviews. Peer-reviewed or preprint. English.
 - **Q8 exception (regulatory sources):** for Q8 only, regulatory summaries are allowed as sources (FDA 510(k) / De Novo / PMA decision summaries, CE / EUDAMED records), regardless of year. Identifier = the submission number (e.g. `K201234`, `DEN200001`) plus its public URL, recorded as `regulatory_id` in frontmatter. Citekey = `manufacturer` + `year` + product name, e.g. `persyst2021persyst14`. Set `source_type: regulatory`. 🤖 Treat them as manufacturer-reported evidence, not independent validation. (added 2026-10-11)
 - **Backward exception:** an older paper is included when 2022+ papers repeatedly cite it as foundational (a dataset, device standard, landmark method or canonical review). Record the citing papers in `reason`.
 - **Exclusion:** <to be refined after the pilot>
-- **Other fields:** out of scope for now. EEG is the only field; don't create cross-field bridges until the human widens the scope.
+- **Other fields:** EEG is the primary field. **ECG exception (added 2026-10-11, no cap):** ECG papers are included as *method parallels* when they inform an EEG core question (mostly Q7, Q9: tokenization, pretext targets, scale, evaluation). Set `field: other` in frontmatter, and connect them to EEG through bridge notes in `bridges/`, not by mixing them into EEG concept lists. Same inclusion rules (2022+, identifiers, OA only). Other fields stay out of scope until the human widens it.
 
 ## Folder layout
 
@@ -67,7 +68,7 @@ data/eeg/            downloaded raw EEG datasets (gitignored, re-downloadable)
 3. **Acquire** — download open-access PDFs only (arXiv, PMC, bioRxiv/medRxiv, publisher OA, Unpaywall by DOI). If paywalled, set `pdf_status=needs_manual` and move on; the human will fetch it. Never use shadow libraries.
 4. **Convert** — PDF → Markdown into `fulltext/` (see `scripts/`). Keep section headings and page markers where the tool allows.
 5. **Read & note** — fill `papers/<citekey>.md` from the template, using the full text, not just the abstract.
-6. **Connect** — create or update concept notes and link both directions. (Bridges are on hold while scope is EEG-only.)
+6. **Connect** — create or update concept notes and link both directions. (Bridges are active for ECG↔EEG method parallels only.)
 7. **Log** — append a short entry to `log.md`: date, what was added/changed, open questions.
 
 ## Knowledge capture (automatic, every session)
@@ -114,9 +115,9 @@ Use `templates/concept.md`. Each concept note must have:
 
 Prefer a modest number of well-maintained concepts over many thin ones. Split a concept only when papers clearly use it in different ways. Use lowercase-hyphenated slugs (`channel-attention`, `artifact-removal`, `linear-probing`).
 
-## Bridges (cross-field links) — on hold
+## Bridges (cross-field links): active for ECG ↔ EEG
 
-Not used while the scope is EEG-only; kept for later. A bridge is a note claiming that an idea, method or problem in one field corresponds to one in another. Use `templates/bridge.md`. A bridge needs: the two (or more) concept notes, the field-neutral common ground, concrete papers on each side, where the analogy breaks, and a confidence level (`speculative` / `plausible` / `established`). Look for bridges by comparing the field-neutral descriptions and synonym lists across concept notes — this is the main mechanism; no vector store is used.
+Active since 2026-10-11 for ECG↔EEG method parallels; other fields are still on hold. A bridge is a note claiming that an idea, method or problem in one field corresponds to one in another. Use `templates/bridge.md`. A bridge needs: the two (or more) concept notes, the field-neutral common ground, concrete papers on each side, where the analogy breaks, and a confidence level (`speculative` / `plausible` / `established`). Look for bridges by comparing the field-neutral descriptions and synonym lists across concept notes — this is the main mechanism; no vector store is used.
 
 ## Search inside the corpus
 

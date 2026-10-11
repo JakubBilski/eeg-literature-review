@@ -44,6 +44,7 @@ The two vault reviews describe the same skeleton: raw EEG → preprocessing (den
 - [[varbu2022past]]: four-step skeleton; frequencies of feature and classifier choices (§2; Figs. 12–13).
 - [[chaddad2023electroencephalography]]: the classical pipeline with the denoising toolbox in detail (Fig. 2, §2.2–2.5).
 - [[niso2022wireless]]: acquisition side: sampling rate, reference, impedance (§3).
+- [[kuruppu2026eeg]]: foundation models pretrain on *minimally* preprocessed EEG: bandpass from 0.5 Hz, notch, resample to 200/250 Hz, 1–10 s epochs, with no artifact removal or outlier exclusion and mostly undescribed normalization (§4.1, p. 9). The effect of that choice is an open gap (§5.2).
 - [[roy2019deep]]: how much DL papers (2010–2018) preprocess: 72% do, 24% handle artifacts (46% don't), 49% feed raw EEG vs 48% features (§3.4, Fig. 9, pp. 15–16).
 
 ## Variants & disagreements

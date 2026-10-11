@@ -95,6 +95,7 @@ Survey and categorize SSL frameworks for EEG, the downstream tasks and datasets 
 - [[time-frequency-analysis]]: wavelet / Fourier reconstruction targets (§4.2).
 
 ## Related papers
+- [[kuruppu2026eeg]]: the follow-on review of foundation models (to Sep 2024); cites this survey (ref [26]) as architecture/objective-focused.
 - [[jiang2024large]]: LaBraM, the next step (masked token prediction at scale), not covered here.
 - [[wang2024cbramod]]: later foundation model; not covered.
 - [[yang2023biot]]: BIOT is absent, but its author's ContraWR (ref [146], sleep, negative-free contrastive) is included.

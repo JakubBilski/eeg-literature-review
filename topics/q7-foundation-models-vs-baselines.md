@@ -19,6 +19,9 @@ updated: 2026-10-11
 - **Foundation-model papers compare against deep baselines only.** FBCSP and Riemannian pipelines are missing, so the gap to a strong classical pipeline is unknown. → [[classical-ml-baselines]]
 - **The SSL literature before foundation models doesn't settle it either:** the main survey of ≈70 EEG SSL methods reports no performance numbers or SSL-vs-supervised comparisons [[weng2025self]] (Tables 1–4). Frozen-encoder evaluation ("UT" mode) was common in that period (§2.2).
 - **Frozen embeddings can be weak:** LaBraM linear probe 0.346 vs 0.641 fine-tuned on TUEV [[jiang2024large]] (Table 10). → [[self-supervised-pretraining]]
+  - **This holds across the field:** every early FM that reports both shows a large probe → fine-tune gap (BrainBERT AUC 0.59 → 0.83, FoME TUEV F1 ~46 → 79, Neuro-GPT on BCI IV-2a 44.3% → 64.5%), and Neuro-GPT's probe falls *below* supervised baselines [[kuruppu2026eeg]] (Supp. Table 2; §4.3, p. 13).
+- **Hand-crafted band power ≈ published FM frozen features on sleep staging.** Strict linear probe, balanced accuracy at 100% of labels: ISRUC 5-band power 0.742 vs LaBraM-Base 0.752, BIOT 0.736, CBraMod 0.729; HMC 5-band 0.682 vs BIOT 0.658, LaBraM 0.633, CBraMod 0.620. A "rich" hand-crafted set beats all three (0.763 / 0.723), and a band-power-target FM beats everything (0.792 / 0.742) [[xie2026specbram]] (Table 5). With 1% of labels, 5-band power leads all published FMs (ISRUC 0.707 vs ≤0.680). 🤖 Caveats: sleep stages are defined by spectral content, so band power is task-aligned; and probing official weights under the authors' preprocessing (10 s windows, 256 Hz, per-recording robust normalization) may disadvantage them. Fine-tuned FMs still beat EEGNet (ISRUC 0.763 LaBraM vs 0.715; Table 6).
+- **Field audit up to Sep 2024:** after fine-tuning, FMs give "at least some improvement, if not drastic" over supervised DL; expert-feature baselines appear in only 4 of 10 papers; scaling evidence is "weak, if any" [[kuruppu2026eeg]] (Fig. 4, §5.1). General time-series FMs not trained on EEG sometimes beat EEG-FMs (p. 17). 🤖 This is the pre-benchmark picture; the 2026 benchmarks ([[chen2026benchmarking]], [[kontras2026neuroatlas]], [[zare2026negative]]) test it directly.
 - **Matched protocols matter more than models:** shuffled vs held-out-block vs cross-subject splits move CSP + LDA from 0.83 to 0.64 to 0.56 on one task (own test). → [[evaluation-protocols]], [[bci-paradigms]]
 
 ## Comparisons
@@ -33,10 +36,12 @@ updated: 2026-10-11
 
 ## Open threads
 - Own test planned: frozen CBraMod + ridge vs CSP + LDA vs EEGNet on EEGMMI left-vs-right imagery, few-shot (k trials from a held-out subject). Plan → [[self-supervised-pretraining]] *EEGMMI as a frozen-embedding testbed*.
-- Literature: a benchmark paper that runs Riemannian/FBCSP alongside foundation models on matched splits. Not searched yet. Lotte 2018 for classical baselines (reading queue).
+- Literature: a benchmark paper that runs Riemannian/FBCSP alongside foundation models on matched splits. *Searched 2026-10-11:* candidates are [[chen2026benchmarking]] (25 supervised baselines), [[liu2026eeg]], [[wang2026eeg]] (tuned baselines), [[zare2026negative]] (classical features); not yet read. Lotte 2018 for classical baselines (reading queue).
 - Does pretraining help more for clinical tasks (TUAB/TUEV) than for BCI?
 
 ## Sources
+- [[xie2026specbram]]: matched pretext-target study; hand-crafted band power vs FM frozen features on sleep (Tables 2, 5, 6) *(key tables read; no paper note yet)*.
+- [[kuruppu2026eeg]]: review of 10 early EEG-FMs; probe vs fine-tune across models, scaling, classical baselines rarely tested.
 - [[weng2025self]]: SSL survey; training modes (fine-tune / joint / frozen); no quantitative comparison.
 - [[roy2019deep]]: DL vs traditional baselines meta-analysis.
 - [[lawhern2018eegnet]]: EEGNet itself; matched comparison with xDAWN+RG and FBCSP.
