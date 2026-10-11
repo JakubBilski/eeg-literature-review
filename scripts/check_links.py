@@ -5,7 +5,7 @@ Reports:
   - papers with no concepts
   - concepts with fewer than 2 papers
   - non-reciprocal paper <-> concept links
-  - papers / topics not reachable from index.md via wikilinks (hub rule)
+  - papers / topics / experiments not reachable from index.md via wikilinks (hub rule)
 Exit code 1 if any issue is found and --strict is given.
 """
 from __future__ import annotations
@@ -87,7 +87,7 @@ def main() -> None:
         seen.add(cur)
         meta, body = read_note(by_stem[cur])
         stack.extend(wikilinks(body))
-    unreachable = sorted(p.relative_to(ROOT).as_posix() for p in note_paths("papers", "topics")
+    unreachable = sorted(p.relative_to(ROOT).as_posix() for p in note_paths("papers", "topics", "experiments")
                          if p.stem not in seen)
 
     sections = [("Broken wikilinks", broken),
@@ -97,7 +97,8 @@ def main() -> None:
                 ("Not reachable from index.md", unreachable)]
     print(f"Links to screened-but-unread papers (OK): {', '.join(sorted(unread_links)) or '-'}\n")
     print(f"{len(papers)} papers, {len(concepts)} concepts, "
-          f"{len(note_paths('bridges'))} bridges\n")
+          f"{len(note_paths('bridges'))} bridges, "
+          f"{len(note_paths('experiments'))} experiments\n")
     total = 0
     for title, items in sections:
         print(f"## {title}: {len(items)}")

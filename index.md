@@ -35,6 +35,15 @@
 - 2026-10-10 [[song2022eeg]] — EEG Conformer: CNN + Transformer, per-subject, common baseline
 - 2026-10-10 [[sabio2024scoping]] — scoping review of consumer-grade EEG devices (916 studies)
 
+## Experiments
+<!-- own tests; status · cost · core questions -->
+- [[eegmmi-imagined-vs-executed]] — done · low · Q3/Q6/Q7: CSP + LDA "decodes" imagined vs executed only via recording-block identity
+- [[eegmmi-frozen-probe]] — planned · medium · Q7: frozen FM probe vs CSP / Riemannian / EEGNet, few-shot MI
+- [[pretext-loss-anomaly-score]] — idea · medium · Q9/Q6: is masked-prediction error more than a power detector?
+- [[covariance-pseudo-labels]] — idea · high · Q9: filter-bank covariance k-means as HuBERT targets
+- [[cross-channel-phase-target]] — idea · high · Q9: per-channel phase-invariant, cross-channel phase-aware target for TUEV
+- [[pretext-downstream-scaling-sweep]] — idea · high · Q9/Q7: fixed-target size × data sweep with held-out pretext loss
+
 ## Bridges (ECG ↔ EEG)
 - [[hubert-style-pseudo-labels]] — HuBERT-ECG and Sleep2.0 share the k-means pseudo-label recipe (plausible)
 

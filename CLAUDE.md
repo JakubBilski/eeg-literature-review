@@ -30,12 +30,13 @@ fulltext/            Markdown conversions of PDFs, named <citekey>.md
 papers/              one structured note per paper, <citekey>.md
 concepts/            one note per concept, <concept-slug>.md
 topics/              hubs (one per core question, q<N>-<slug>.md) + synthesis notes
-bridges/             cross-field connection notes, <slug>.md (on hold)
+bridges/             cross-field connection notes, <slug>.md (ECG<->EEG active)
+experiments/         own experiment ideas, plans and results, <slug>.md
 index.md             vault home: hubs, other topics, recently read
 interests.md         what the human asks about; open questions; reading queue
 data/screening.csv   every candidate paper and its include/exclude decision
 data/comparison.csv  one row per included paper, key comparable fields
-templates/           note templates (paper, concept, topic, bridge)
+templates/           note templates (paper, concept, topic, bridge, experiment)
 .claude/skills/      find-papers, read-paper, wrap-session
 scripts/             helper scripts (search, conversion, table export)
 figures/             plots made from public EEG data (embed in notes with ![[file.png]])
@@ -80,7 +81,8 @@ The human should never need to dig through session history. Knowledge produced i
 2. **File the distilled answer** — claims with citations, not a transcript — in the most specific existing note:
    - about one paper → that paper's `## Q&A notes` section;
    - about a concept in general → the concept note (body, or `## Variants & disagreements`);
-   - comparison / synthesis across ≥2 sources → a topic note in `topics/` (update an existing one if it fits; create one only if none does) and link it from the relevant hub.
+   - comparison / synthesis across ≥2 sources → a topic note in `topics/` (update an existing one if it fits; create one only if none does) and link it from the relevant hub;
+   - a concrete experiment idea (names data, comparison and metric) → an experiment note in `experiments/` (see *Experiments*); vaguer ideas stay as hub open threads.
 3. **Record the signal** in `interests.md`: bump/add the theme under *Recurring themes* (with date and where it's answered); unanswered → *Open questions*; papers the question points to → *Reading queue* (and screening.csv).
 4. Mention briefly at the end of the reply what was filed where (one line, e.g. `Filed: [[song2022eeg]] Q&A, [[q4-evolution-of-methods]]`).
 
@@ -114,6 +116,16 @@ Use `templates/concept.md`. Each concept note must have:
 - open questions.
 
 Prefer a modest number of well-maintained concepts over many thin ones. Split a concept only when papers clearly use it in different ways. Use lowercase-hyphenated slugs (`channel-attention`, `artifact-removal`, `linear-probing`).
+
+## Experiments (own tests)
+
+Added 2026-10-12. Ideas for experiments the human might run, and the results of those already run, live in `experiments/<slug>.md` (template `templates/experiment.md`), not inside topic or concept notes.
+- **Entry bar:** create a note only when the idea names its data, comparison and metric. Vaguer ideas stay in the hub's *Open threads*. A bridge's *What would test it* stays in the bridge until promoted to a real plan.
+- **Frontmatter:** `status` (idea / planned / running / done / dropped), `questions`, `concepts`, `datasets`, `scripts`, `figures`, `cost` (low = laptop + public data; medium = GPU hours or big download; high = FM pretraining), `origin`, `updated`.
+- **One home:** design, numbers and caveats live in the experiment note. Hubs, topics and concepts keep a one-line pointer; a finished experiment's main result goes into the hub's *Current answer* as a short claim linked to the note ("own test → [[slug]]").
+- **Prior work first:** list the closest papers before running, and add them to screening if missing.
+- Own results follow the accuracy rules too: script + figure for every number, 🤖 for interpretation.
+- Every experiment is listed in `index.md` *Experiments* with its status.
 
 ## Bridges (cross-field links): active for ECG ↔ EEG
 

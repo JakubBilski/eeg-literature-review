@@ -308,3 +308,20 @@
   - Untested: a target that ignores phase within a channel but keeps cross-channel phase (spike/TUEV tasks).
   - Phase reversal (clinical spike localization) is unsourced in the vault; needs a clinical EEG reference.
   - Carried over: reads of [[zare2026negative]], [[yu2026neural]], [[xie2026specbram]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-12 (session 15)
+- **Added:**
+  - New note type `experiments/` (template `templates/experiment.md`; rules in CLAUDE.md *Experiments*; listed in `index.md`). 6 notes migrated from scattered hub/concept text: [[eegmmi-imagined-vs-executed]] (done), [[eegmmi-frozen-probe]] (planned), [[pretext-loss-anomaly-score]], [[covariance-pseudo-labels]], [[cross-channel-phase-target]], [[pretext-downstream-scaling-sweep]] (ideas).
+  - Screening (+5, from 2 OpenAlex searches on Riemannian/SPD + SSL): [[tibermacine2026manifold]] (Manifold-SimCLR), [[chen2026unified]], [[kobler2022spd]], [[wilson2025deep]] (include); [[pan2024task]] (maybe).
+- **Changed:**
+  - [[q9-pretraining-objectives-and-scale]]: new section *Covariance matrices as pseudo-label seeds?* (🤖: plausible, adds cross-channel coupling; obstacles: filter bank needed, clusters follow subject/device unless re-centred, fixed montage, noisy per-patch estimates, no morphology). Current answer and open threads now point to experiment notes.
+  - [[riemannian-methods]]: deep Riemannian / SPD-token papers and the SSL variant.
+  - Own-test text replaced by links in [[bci-paradigms]], [[self-supervised-pretraining]], [[evaluation-protocols]], [[q6-reliability-of-eeg-diagnoses]], [[q7-foundation-models-vs-baselines]].
+  - Tooling: `check_links.py`, `notes.py`, `search.py` include `experiments/`; `/wrap-session` files experiment ideas.
+- **Questions explored:**
+  - If Riemannian methods are SOTA, why not use covariance clusters as initial SSL targets? → Q9 + [[covariance-pseudo-labels]].
+  - Should experiment ideas be their own note type? → yes, `experiments/` (tooling).
+- **Open:**
+  - Read [[tibermacine2026manifold]] (no abstract in OpenAlex; check OA) before pursuing covariance targets.
+  - Check whether the released CBraMod checkpoint includes its reconstruction head (needed for [[pretext-loss-anomaly-score]]).
+  - Carried over: reads of [[zare2026negative]], [[yu2026neural]], [[xie2026specbram]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).

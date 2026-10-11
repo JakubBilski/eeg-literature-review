@@ -44,20 +44,9 @@ A recipe for producing a brain signal that a classifier can reliably tell apart.
       - 🤖 The power spike ~0.25 s after the cue in both conditions is most likely the visual response to the on-screen cue, not motor activity.
       - How "power vs rest" is computed (band-pass → Hilbert envelope → trial average → % of rest) → [[time-frequency-analysis]] *Band power over time and ERD%*.
     - **Single-trial decoding is possible but far from perfect.** On PhysioNet-MI, 4 *imagined* classes (left fist, right fist, both fists, feet), 64 channels, 4 s trials, with unseen test subjects (subjects 90–109): CBraMod 0.642 and EEGNet 0.581 balanced accuracy vs 0.25 chance [[wang2024cbramod]] (Table 3, p. 8; split §3). The models see all channels and learn spatial filters, which is far more than the single C3 trace in the figure.
-      - **Own test, imagined vs executed (2026-10-10).** `scripts/classify_imagery_vs_execution.py`: CSP (6 components, shrinkage) + LDA on EEGMMI subjects 1–10, ~90 trials/subject (45 per class, left and right fist pooled), epochs 0.5–3.5 s after the cue. Accuracy, mean ± SEM over subjects, chance 0.50:
-        ![[eegmmi-imagined-vs-executed-csp.png]]
-        | band | shuffled 5-fold | by-block (leave one run pair out) | rest control (by-block) | cross-subject (LOSO) |
-        |---|---|---|---|---|
-        | 8–30 Hz (mu/beta) | 0.83 ± 0.03 | 0.64 ± 0.06 | 0.65 ± 0.06 | 0.56 ± 0.02 |
-        | 30–75 Hz (muscle) | 0.88 ± 0.03 | 0.66 ± 0.05 | 0.57 ± 0.06 | 0.50 ± 0.02 |
-        - **Shuffled CV is inflated.** Imagined and executed trials come from different runs, so shuffling lets the model learn "which recording". It drops from 0.83 to 0.64 when whole run pairs are held out. Per-subject by-block scores range from 0.39 to 0.86.
-        - **The rest control scores as high as the task (0.65).** The same pipeline separates the *rest* periods of executed vs imagined runs, when nobody is doing anything. So most of the within-subject separability is recording-block differences, not the task. 🤖 Caveat: rest epochs start right after a trial, so a post-movement beta rebound after real clenching could make part of this genuine.
-        - **The muscle band beats mu/beta under shuffling** (0.88): high-frequency, non-brain signal is the easiest cue.
-        - **Cross-subject it is at chance** (0.56 / 0.50).
-        - **The CSP patterns point at the wrong place:** subject 1's top components sit at the frontal/temporal edge (around AF7/AF8/F8), which is typical of eye and muscle artifacts, not over C3/C4.
-        - 🤖 Conclusion: with CSP + LDA on this dataset there is no evidence of a usable, brain-based imagined-vs-executed decoder. The apparent 83% is a split artifact. This is a worked example for [[evaluation-protocols]] and [[q6-reliability-of-eeg-diagnoses]].
+      - **Own test, imagined vs executed (2026-10-10):** CSP + LDA on EEGMMI subjects 1–10 reaches 0.83 with shuffled CV but 0.64 with whole runs held out, a rest-period control scores the same (0.65), and cross-subject is at chance (0.56). 🤖 So the apparent separability is mostly recording-block identity, not a brain-based decoder. Design, table and caveats → [[eegmmi-imagined-vs-executed]].
       - Imagined vs executed as a classification task in the literature: not covered in the vault.
-      - Revisiting this with a pretrained encoder (contamination, better targets) → [[self-supervised-pretraining]] *EEGMMI as a frozen-embedding testbed*. 🤖 It is probably easier than telling imagined classes apart, because execution adds muscle artifacts and a stronger, bilateral ERD. But a classifier could succeed on the artifacts rather than the brain signal.
+      - Revisiting this with a pretrained encoder (contamination, better targets) → [[eegmmi-frozen-probe]]. 🤖 It is probably easier than telling imagined classes apart, because execution adds muscle artifacts and a stronger, bilateral ERD. But a classifier could succeed on the artifacts rather than the brain signal.
     - Data with both conditions: PhysioNet EEG Motor Movement/Imagery (109 subjects, 64 ch, both executed and imagined fists/feet) [[jiang2024large]] (App. D); [[wang2024cbramod]] uses its imagery part (§3, p. 8).
 - **Visual evoked potentials:**
   - **SSVEP:** targets flicker at different frequencies, and looking at one makes visual cortex activity oscillate at that frequency. The system just finds the dominant frequency, typically with CCA [[varbu2022past]] (Table 1); [[song2022eeg]] (§I). It needs gaze, so it is a "dependent" BCI (Table 2).

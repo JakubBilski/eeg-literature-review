@@ -32,7 +32,10 @@ Summarize each multichannel recording by how its channels co-vary, then compare 
 
 - [[lawhern2018eegnet]]: **xDAWN + tangent space + elastic net** (the Kaggle BCI Challenge winner: xDAWN ERP spatial filters → covariances → tangent space with the log-Euclidean metric → elastic net) as the ERP baseline, run on the same splits as the CNNs (§2.2.3, p. 10). Cross-subject it beats every CNN on ERN (AUC ~0.765 vs ≤0.745) but loses on P300 (~0.80 vs ~0.90) and MRCP (~0.70 vs ~0.81) (Fig. 4, p. 14). Within-subject it is behind EEGNet on all three (Fig. 2).
 
+- Deep Riemannian networks and SSL (2022+, abstracts only, screening 2026-10-12): [[kobler2022spd]] (TSMNet: end-to-end tangent-space network with SPD batch norm per domain; abstract claims SOTA inter-session/subject transfer on 6 BCI sets), [[wilson2025deep]] (EE(G)-SPDNet beats ConvNets on 5 datasets with learned filters instead of fixed bands), [[chen2026unified]] (covariances as transformer tokens; Log-Euclidean embedding best), [[tibermacine2026manifold]] (Manifold-SimCLR, contrastive SSL on covariances; title only), [[pan2024task]] (unsupervised microstate clustering with Riemannian distance).
+
 ## Variants & disagreements
+- As a self-supervised target (covariance k-means as HuBERT pseudo-labels): untried in FMs. Main obstacles: filter bank needed, clusters follow subject/device unless re-centered, fixed montage → [[q9-pretraining-objectives-and-scale]] *Covariance matrices as pseudo-label seeds?*
 - How they compare with pretrained foundation models on matched protocols: no vault evidence → [[classical-ml-baselines]].
 - Against small CNNs (2018, matched splits): mixed, paradigm-dependent, see [[lawhern2018eegnet]] above.
 

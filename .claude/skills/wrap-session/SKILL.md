@@ -5,7 +5,7 @@ description: End-of-session vault maintenance — sweep the conversation for unf
 
 # wrap-session
 
-1. **Sweep for unfiled knowledge.** Re-scan this session's Q&A: every substantive answer, comparison or paper connection should already be in a note (see *Knowledge capture* in CLAUDE.md). File anything missing now. Check that each question asked is reflected in `interests.md`.
+1. **Sweep for unfiled knowledge.** Re-scan this session's Q&A: every substantive answer, comparison or paper connection should already be in a note (see *Knowledge capture* in CLAUDE.md). File anything missing now. Check that each question asked is reflected in `interests.md`. Concrete experiment ideas or own results from this session go into `experiments/` (create or update the note, set `status`, update the `index.md` *Experiments* list).
 2. **Consolidate (anti-bloat).** For notes touched this session: merge duplicate facts (keep one home, link elsewhere); rewrite topic-note *Current answer* sections so they read as the current state, not a changelog; move resolved items out of *Open questions*.
 3. **Core-question check.** If a theme in `interests.md` has ≥3 questions across ≥2 sessions, or a topic note has ≥5 sources / its own sub-topics, **propose** promoting it to a hub (`topics/q<N>-<slug>.md` + Scope + `index.md`). Ask; don't add silently.
 4. **Checks.** `.venv/Scripts/python.exe scripts/check_links.py` and `scripts/export_comparison.py`. Fix broken links, non-reciprocal links and unreachable notes; leave "concepts with < 2 papers" if they're genuinely new but list them.

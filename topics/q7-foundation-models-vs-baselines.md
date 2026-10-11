@@ -2,7 +2,7 @@
 slug: q7-foundation-models-vs-baselines
 kind: hub
 status: active
-updated: 2026-10-11
+updated: 2026-10-12
 ---
 
 # q7-foundation-models-vs-baselines
@@ -29,7 +29,7 @@ updated: 2026-10-11
 - **Hand-crafted band power ≈ published FM frozen features on sleep staging.** Strict linear probe, balanced accuracy at 100% of labels: ISRUC 5-band power 0.742 vs LaBraM-Base 0.752, BIOT 0.736, CBraMod 0.729; HMC 5-band 0.682 vs BIOT 0.658, LaBraM 0.633, CBraMod 0.620. A "rich" hand-crafted set beats all three (0.763 / 0.723), and a band-power-target FM beats everything (0.792 / 0.742) [[xie2026specbram]] (Table 5). With 1% of labels, 5-band power leads all published FMs (ISRUC 0.707 vs ≤0.680). 🤖 Caveats: sleep stages are defined by spectral content, so band power is task-aligned; and probing official weights under the authors' preprocessing (10 s windows, 256 Hz, per-recording robust normalization) may disadvantage them. Fine-tuned FMs still beat EEGNet (ISRUC 0.763 LaBraM vs 0.715; Table 6).
 - **The same pattern in ECG (method parallel):** HuBERT-ECG compares mostly against numbers quoted from papers that used other label subsets, with no classical-feature baseline. On PTB-XL it trails supervised and other SSL models (0.911 vs 0.925–0.947), and freezing the encoder was not effective [[coppola2024hubert]] (Supp. Table 10, p. 16).
 - **Field audit up to Sep 2024:** after fine-tuning, FMs give "at least some improvement, if not drastic" over supervised DL; expert-feature baselines appear in only 4 of 10 papers; scaling evidence is "weak, if any" [[kuruppu2026eeg]] (Fig. 4, §5.1). General time-series FMs not trained on EEG sometimes beat EEG-FMs (p. 17). 🤖 This is the pre-benchmark picture; [[liu2026eeg]] (top bullet) confirms it under matched protocols, and [[chen2026benchmarking]], [[kontras2026neuroatlas]], [[zare2026negative]] are still to read.
-- **Matched protocols matter more than models:** shuffled vs held-out-block vs cross-subject splits move CSP + LDA from 0.83 to 0.64 to 0.56 on one task (own test). → [[evaluation-protocols]], [[bci-paradigms]]
+- **Matched protocols matter more than models:** shuffled vs held-out-block vs cross-subject splits move CSP + LDA from 0.83 to 0.64 to 0.56 on one task (own test). → [[eegmmi-imagined-vs-executed]], [[evaluation-protocols]]
 
 ## Comparisons
 | model | type | PhysioNet-MI 4-class bal. acc. (cross-subject) | source |
@@ -56,7 +56,7 @@ updated: 2026-10-11
 🤖 Different protocol from [[song2022eeg]]'s 78.7% for Conformer (full session 1 → session 2, same subject). With ~30% of one session, every model loses 20+ points.
 
 ## Open threads
-- Own test planned: frozen CBraMod + ridge vs CSP + LDA vs EEGNet on EEGMMI left-vs-right imagery, few-shot (k trials from a held-out subject). Plan → [[self-supervised-pretraining]] *EEGMMI as a frozen-embedding testbed*.
+- Own test planned: frozen CBraMod + linear probe vs CSP + LDA, Riemannian and EEGNet on EEGMMI left vs right imagery, few-shot → [[eegmmi-frozen-probe]].
 - Literature: a benchmark paper that runs Riemannian/FBCSP alongside foundation models on matched splits. *Searched 2026-10-11:* [[liu2026eeg]] read (CSP/xDAWN/PSD/TRCA but no Riemannian). Still to read: [[chen2026benchmarking]] (25 supervised baselines), [[wang2026eeg]] (tuned baselines), [[zare2026negative]] (classical features), [[xiong2025eeg]] (EEG-FM-Bench). Lotte 2018 for classical baselines (reading queue).
 - Does pretraining help more for clinical tasks (TUAB/TUEV) than for BCI?
 
