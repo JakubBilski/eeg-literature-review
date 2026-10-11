@@ -100,7 +100,7 @@ Five objectives (§3, p. 6): publication trends; techniques for obtaining EEG da
 - [[niso2022wireless]]: also finds monitoring dominant and Emotiv first. Niso is device-centric; Värbu is application-centric.
 - [[sabio2024scoping]]: BCI is the top use of consumer devices there (44.5%), and Emotiv is the top device in both.
 - [[song2022eeg]]: a motor imagery decoder. Värbu shows motor imagery is the most common BCI paradigm and mostly medical.
-- [[lawhern2018eegnet]]: a compact CNN tested across BCI paradigms (P300, ERN, MRCP, SMR); the DL answer to the paradigm-specific pipelines counted here. *(not yet read)*
+- [[lawhern2018eegnet]]: a compact CNN tested across BCI paradigms (P300, ERN, MRCP, SMR); the DL answer to the paradigm-specific pipelines counted here.
 - [[kaongoen2023future]]: ear-EEG, which Värbu lists as a future direction (p. 23). *(not yet read)*
 - [[li2022eeg]]: emotion recognition (a passive-BCI paradigm here) reviewed in depth: datasets, features, cross-subject transfer.
 

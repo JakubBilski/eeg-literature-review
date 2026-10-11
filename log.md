@@ -198,3 +198,23 @@
   - Q4 stages 3–5 need [[weng2025self]].
   - Needs manual PDF: unchanged (kaongoen2023future, weng2025self, wang2024eegpt).
   - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-11 (session 9)
+- **Added:**
+  - Paper: [[lawhern2018eegnet]] (full read, arXiv v4). EEGNet: a ~1–2k-param CNN that mimics FBCSP (temporal conv → depthwise spatial conv). Tested on 4 BCI paradigms within and across subjects against DeepConvNet, ShallowConvNet, xDAWN + Riemannian and FBCSP. Bar-chart values (Figs. 2–5) read by eye and transcribed into the full text.
+  - Converted [[wang2024eegpt]] and [[yang2023biot]] (PDFs were already in `pdf/`; screening corrected `needs_manual` → `downloaded`).
+- **Changed:**
+  - [[classical-ml-baselines]], [[q7-foundation-models-vs-baselines]]: first matched DL-vs-classical comparison incl. a Riemannian pipeline. The result is mixed and depends on the paradigm (xDAWN+RG wins cross-subject ERN).
+  - [[q4-evolution-of-methods]]: EEGNet as the stage-2 design template ("differentiable FBCSP" 🤖).
+  - [[q6-reliability-of-eeg-diagnoses]]: P300 button-press confound found by filter visualization.
+  - [[evaluation-protocols]], [[bci-paradigms]], [[common-spatial-patterns]]: within- vs cross-subject gap per paradigm (SMR 4-class ~0.68 → ~0.40). Open questions marked partial.
+  - [[riemannian-methods]], [[channel-heterogeneity]]: EEGNet entries.
+  - [[interests]]: PDF status list corrected. kaongoen2023future was fetched by hand on 2026-10-10 and is converted; it was wrongly listed as needing a manual PDF.
+- **Questions explored:**
+  - What is a BCI? → [[bci-paradigms]] *What a BCI is*.
+- **Open:**
+  - Next on the learning path: [[weng2025self]] (full text ready). Then propose forward snowballing toward 2025–26.
+  - Full texts ready but unread: [[kaongoen2023future]], [[wang2024eegpt]], [[yang2023biot]].
+  - Needs manual PDF: [[bank2022structural]].
+  - EEGNet numbers are approximate (read off charts).
+  - Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).

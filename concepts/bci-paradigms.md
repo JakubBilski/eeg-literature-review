@@ -15,6 +15,13 @@ A recipe for producing a brain signal that a classifier can reliably tell apart.
 - **Signal processing:** phase-locked (time-domain template) vs non-phase-locked (band-power) signal
 - **General ML:** task / label definition; trial-based (epoch) classification vs continuous (streaming) detection
 
+## What a BCI is (asked 2026-10-11)
+- **Brain–computer interface (BCI):** a system that turns brain activity into commands for a device, without using muscles. It translates brain-activity patterns into commands "independent of the normal muscle pathways" [[varbu2022past]] (§2), giving "direct communication with a machine via brain signals" [[lawhern2018eegnet]] (§1, p. 2).
+- **A closed loop, usually near real time:** BCI systems "allow users nearly real-time control of an external actuator" [[varbu2022past]] (§1). There are 5 stages: record → preprocess/clean → extract features → classify (the decision) → **feedback** to the user [[lawhern2018eegnet]] (§1, p. 2).
+- **Uses:** originally medical, e.g. controlling prosthetic limbs [[lawhern2018eegnet]] (§1), or communication for paralysed users. Now also healthy users: games, device control, and "passive" monitoring of drowsiness or emotion [[varbu2022past]] (§1).
+- 🤖 **ML framing:** a BCI is a classifier (often per user) on short EEG windows, where the human is part of the loop. The user can adapt to the feedback, which is why per-user calibration (~20 min for motor imagery, [[lawhern2018eegnet]] §2.1.4) is standard. The paradigm (below) decides what the classes are.
+- The EEG here is non-invasive scalp EEG. Implanted-electrode BCIs exist but are out of scope.
+
 ## The main paradigms (plain-language)
 - **Motor imagery (MI) / sensorimotor rhythm (SMR):** the user imagines moving a hand, foot or tongue. This changes rhythmic activity over the motor cortex, the strip across the top of the head that controls the opposite side of the body. No stimulus is needed ("spontaneous"). Information is in **band power** over specific electrodes, which is why CSP + LDA was the standard pipeline [[varbu2022past]] (Table 1; §5.8). Benchmarks: BCI IV-2a/2b [[song2022eeg]].
   - **Imagined vs executed movement** (asked 2026-10-10):
@@ -73,14 +80,14 @@ A recipe for producing a brain signal that a classifier can reliably tell apart.
 - [[song2022eeg]]: an MI decoder (BCI IV-2a/2b). Lists CSP/FBCSP for MI and CCA for SSVEP as the classical paradigm-specific pipelines (§I).
 - [[niso2022wireless]]: control/communication with wireless EEG is SSVEP, MI and P300, mostly for games and robots, and only 10% of studies (§4.2.3).
 - [[sabio2024scoping]]: BCI is the top use of consumer headsets (44.5%), with MI, SSVEP and P300 paradigms (§Research domains).
-- [[lawhern2018eegnet]]: one compact CNN across four paradigms (P300, ERN, MRCP, SMR), i.e. a paradigm-agnostic model replacing paradigm-specific pipelines (Abstract, Table 1). *(not yet read in full)*
+- [[lawhern2018eegnet]]: one compact CNN across four paradigms (P300, ERN, MRCP, SMR), i.e. a paradigm-agnostic model replacing paradigm-specific pipelines (Abstract, Table 1). Within-subject it matches or beats the paradigm-specific pipelines; cross-subject 4-class SMR is near chance for every model (~0.40 CNNs, 0.32 FBCSP, chance 0.25; Fig. 5). **Confound example:** P300 targets required a button press, so the model also learned a left-motor-cortex alpha-desynchronization filter (Fig. 6, p. 15).
 
 ## Variants & disagreements
 - **"BCI" scope:** [[varbu2022past]] includes passive monitoring (emotion, fatigue) as BCI, while narrower definitions require intentional real-time control. This changes all reported domain shares.
 - **ERP vs oscillatory:** [[lawhern2018eegnet]] splits paradigms into ERP-based (P300, ERN, MRCP) and oscillatory (SMR). 🤖 This is the more useful split for ML: time-domain templates vs band-power features.
 
 ## Open questions
-- How large is the within- vs cross-subject gap per paradigm? Varbu names subject-independent BCI as the key obstacle (§6.1). → [[evaluation-protocols]]
+- How large is the within- vs cross-subject gap per paradigm? Varbu names subject-independent BCI as the key obstacle (§6.1). → [[evaluation-protocols]] *Partial (2026-10-11):* ERPs transfer across subjects far better than oscillatory SMR. P300 AUC ~0.92 → ~0.90, but SMR 4-class accuracy ~0.68 → ~0.40 for EEGNet [[lawhern2018eegnet]] (Figs. 2–5).
 - Does a decoder trained on executed movement transfer to imagery, and how much weaker is imagery ERD than execution ERD? Not quantified in the vault. Pfurtscheller & Lopes da Silva 1999 (ERD/ERS basic principles) is the canonical source.
 - What fraction of users can't produce a usable MI signal ("BCI illiteracy")? Not in the vault yet.
 

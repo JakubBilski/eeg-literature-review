@@ -2,7 +2,7 @@
 slug: q7-foundation-models-vs-baselines
 kind: hub
 status: stub
-updated: 2026-10-10
+updated: 2026-10-11
 ---
 
 # q7-foundation-models-vs-baselines
@@ -13,6 +13,7 @@ updated: 2026-10-10
 
 ## Current answer
 - **Historical DL gain over classical pipelines was modest and overstated:** median +5.4% accuracy (2010–2018), against often weak baselines; only 2 studies used Riemannian methods. → [[classical-ml-baselines]] ([[roy2019deep]])
+- **Before foundation models, small CNN vs classical was already a split decision:** with matched splits, EEGNet beat xDAWN + Riemannian on P300 and MRCP but lost on cross-subject ERN, and tied FBCSP within-subject on motor imagery [[lawhern2018eegnet]] (Figs. 2–5). → [[classical-ml-baselines]]
 - **Pretraining adds little on motor imagery:** CBraMod 0.642 vs 0.620 without pretraining (same architecture), and EEGNet (3k params) 0.581 on PhysioNet-MI 4-class, cross-subject [[wang2024cbramod]] (Tables 3–4). On depression, EEGNet 0.923 vs CBraMod 0.956 (Table 10). On sleep staging (ISRUC, 5-class), κ is EEGNet 0.704, USleep 0.721 (a dedicated supervised sleep model), LaBraM 0.723 and CBraMod 0.744 (Table 7). → [[classical-ml-baselines]], [[sleep-staging]]
 - **Seizure detection (CHB-MIT, subject split) is where pretraining helps most so far:** balanced accuracy EEGNet 0.566, Conformer 0.598, BIOT 0.707, LaBraM 0.708, CBraMod 0.740. AUC-PR roughly doubles (0.19 → 0.37) [[wang2024cbramod]] (Table 8). Caveats: the test set is 2 subjects, and LaBraM pretrained on TUSZ (other seizure data) [[jiang2024large]] (App. D). → [[seizure-detection]]
 - **Foundation-model papers compare against deep baselines only.** FBCSP and Riemannian pipelines are missing, so the gap to a strong classical pipeline is unknown. → [[classical-ml-baselines]]
@@ -36,6 +37,7 @@ updated: 2026-10-10
 
 ## Sources
 - [[roy2019deep]]: DL vs traditional baselines meta-analysis.
+- [[lawhern2018eegnet]]: EEGNet itself; matched comparison with xDAWN+RG and FBCSP.
 - [[wang2024cbramod]]: baseline tables and pretraining ablation *(paper note not yet written)*.
 - [[jiang2024large]]: linear probe vs fine-tune; pretraining corpus.
 - [[song2022eeg]]: FBCSP vs Conformer on BCI IV-2a.

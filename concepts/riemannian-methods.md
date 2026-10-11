@@ -30,8 +30,11 @@ Summarize each multichannel recording by how its channels co-vary, then compare 
 - [[roy2019deep]]: only 2 of 156 DL papers used Riemannian baselines, "although these methods have set a new state-of-the-art in multiple EEG classification tasks" (§4, p. 28).
 - [[li2022eeg]]: in emotion recognition, (a) aligning source and target subjects' covariances on the Riemannian manifold as a cross-subject fix (§4.5, p. 18), and (b) RFNet, which maps covariances to the tangent space and fuses them with an LSTM over band signals (§4.4, Fig. 23). It recommends raw-signal Riemannian alignment, borrowed from motor imagery, for cross-dataset emotion work (p. 29). → [[domain-adaptation]]
 
+- [[lawhern2018eegnet]]: **xDAWN + tangent space + elastic net** (the Kaggle BCI Challenge winner: xDAWN ERP spatial filters → covariances → tangent space with the log-Euclidean metric → elastic net) as the ERP baseline, run on the same splits as the CNNs (§2.2.3, p. 10). Cross-subject it beats every CNN on ERN (AUC ~0.765 vs ≤0.745) but loses on P300 (~0.80 vs ~0.90) and MRCP (~0.70 vs ~0.81) (Fig. 4, p. 14). Within-subject it is behind EEGNet on all three (Fig. 2).
+
 ## Variants & disagreements
 - How they compare with pretrained foundation models on matched protocols: no vault evidence → [[classical-ml-baselines]].
+- Against small CNNs (2018, matched splits): mixed, paradigm-dependent, see [[lawhern2018eegnet]] above.
 
 ## Open questions
 - Source to add: Lotte et al. 2018 (BCI classifier review, Roy ref [105]). It would let this note move from 🤖 to sourced.

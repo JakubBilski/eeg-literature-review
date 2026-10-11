@@ -86,7 +86,7 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[song2022eeg]]: the non-pretrained conv + attention predecessor pattern. Not used as a LaBraM baseline.
 - [[yang2023biot]]: BIOT, the main baseline and source of the evaluation splits. *(screening: maybe)*
 - [[wang2024cbramod]]: a later EEG foundation model that compares against LaBraM. *(seed, not yet read)*
-- [[lawhern2018eegnet]]: cited as the canonical CNN approach (§1). *(not yet read)*
+- [[lawhern2018eegnet]]: cited as the canonical CNN approach (§1).
 - [[chaddad2023electroencephalography]]: classical time–frequency features, which LaBraM's Fourier-amplitude/phase targets learn instead.
 - [[wong2023eeg]]: describes TUSZ, LaBraM's largest pretraining source: 3,050 seizures, the richest clinical metadata (Tables 5–6, 8).
 - [[li2022eeg]]: 2022 emotion review that proposed an emotion-agnostic large pretrained EEG model as future work (p. 29); LaBraM is one.

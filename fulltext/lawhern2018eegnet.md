@@ -991,3 +991,30 @@ device control,” in Foundations of Augmented Cognition. Directing the Future o
 subject-generated artifacts in {EEG} signals using autoregressive models,” Journal of Neuroscience Methods, vol. 208, no. 2, pp. 181 – 189, 2012.
 
 30
+## Tables transcribed from page images (pp. 13–15)
+
+Values read off bar charts by eye (approximate, ±0.01); error bars = 2 SEM.
+
+**Figure 2 (p. 13): within-subject 4-fold CV, AUC**
+
+| Model | P300 | MRCP | ERN |
+|---|---|---|---|
+| xDAWN+RG | 0.87 | 0.75 | 0.77 |
+| DeepConvNet | 0.92 | 0.66 | 0.75 |
+| ShallowConvNet | 0.92 | 0.54 | 0.75 |
+| EEGNet-4,2 | 0.92 | 0.79 | 0.81 |
+| EEGNet-8,2 | 0.92 | 0.80 | 0.82 |
+
+**Figure 3 (p. 14): within-subject SMR (BCI IV 2a, 4 classes), accuracy**: FBCSP 0.68; DeepConvNet 0.51; ShallowConvNet 0.70; EEGNet-4,2 0.63; EEGNet-8,2 0.68.
+
+**Figure 4 (p. 14): cross-subject, AUC**
+
+| Model | P300 | MRCP | ERN |
+|---|---|---|---|
+| xDAWN+RG | 0.80 | 0.70 | 0.765 |
+| DeepConvNet | 0.90 | 0.83 | 0.71 |
+| ShallowConvNet | 0.875 | 0.75 | 0.72 |
+| EEGNet-4,2 | 0.895 | 0.79 | 0.725 |
+| EEGNet-8,2 | 0.90 | 0.81 | 0.745 |
+
+**Figure 5 (p. 15): cross-subject SMR, accuracy**: FBCSP 0.32; DeepConvNet 0.39; ShallowConvNet 0.40; EEGNet-4,2 0.40; EEGNet-8,2 0.395 (chance = 0.25).

@@ -83,7 +83,7 @@ Can a compact model combine local features (CNNs) with long-range temporal depen
 
 ## Related papers
 - [[jiang2024large]]: LaBraM keeps a conv encoder before the Transformer but adds large-scale pretraining and montage-agnostic patches.
-- [[lawhern2018eegnet]]: inspiration for the conv module and a baseline (Table II). *(not yet read)*
+- [[lawhern2018eegnet]]: inspiration for the conv module and a baseline (Table II).
 - [[schirrmeister2017deep]]: ConvNet, the other conv-module inspiration and a baseline. *(screening: maybe)*
 - [[varbu2022past]]: BCI landscape 2009–2019. Motor imagery is the most common paradigm (38/155), and the CSP + LDA/SVM pipeline Conformer replaces was the norm (Figs. 11–13).
 - [[chaddad2023electroencephalography]]: review of the classical pipeline (denoising + hand-crafted features + SVM) that Conformer replaces end-to-end.

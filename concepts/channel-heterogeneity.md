@@ -18,6 +18,7 @@ Recordings come from sensor setups that differ in the number and placement of se
 ## Papers
 - [[chaddad2023electroencephalography]]: names device differences across datasets as a key challenge and proposes domain adaptation (§3). No montage-agnostic architecture is discussed.
 - [[song2022eeg]]: the counter-example. Its spatial conv kernel spans exactly `ch` channels (§III-C), so it is tied to one montage (22, 3 or 62 channels).
+- [[lawhern2018eegnet]]: same constraint as Conformer. The depthwise conv has a (C, 1) kernel over all channels (Table 2), so each model is trained per montage (64, 56, 64 or 22 channels; §2.1). MRCP data were reduced from 256 to the standard 64-channel BioSemi montage (§2.1.3).
 - [[jiang2024large]]: designs for it. Each channel is patched separately, and learnable spatial embeddings index electrodes in the 10-20 universal set (§2.1). Without them pretraining doesn't converge and fine-tuning drops (App. L).
 - [[niso2022wireless]]: device channel counts range from 4 to 128. Across 110 wireless studies the median is 14 channels, 37 studies used <8 and 11 used a single channel (Table 1; Fig. 5c). Electrode placement is either fixed by the headset or flexible via caps; headbands cannot reach the top of the head (§3.2).
 - [[sabio2024scoping]]: the device side. Consumer headsets have 1–16 channels at non-standard positions (e.g. Muse AF7/AF8/TP9/TP10, MindWave FP1) (Table 3).

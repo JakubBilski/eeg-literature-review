@@ -18,6 +18,7 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-11 [[lawhern2018eegnet]] — EEGNet: ~2k-parameter CNN that mimics FBCSP; matches paradigm-specific pipelines on 4 BCI paradigms, loses to Riemannian on cross-subject ERN
 - 2026-10-11 [[roy2019deep]] — systematic review of 156 DL-EEG papers (2010–2018): CNNs on raw EEG take over, median +5.4% vs weak baselines, 7% reproducible
 - 2026-10-11 [[li2022eeg]] — tutorial review of EEG emotion recognition: labels, features, DL routes, cross-subject transfer, leaky segment splits
 - 2026-10-11 [[wong2023eeg]] — review of 10 public seizure EEG datasets; the most used (Bonn) is the least realistic

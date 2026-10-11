@@ -30,15 +30,17 @@ How data is split into training and test sets, and what is measured, determines 
 - [[wang2024cbramod]] on CHB-MIT: a subject split, but the test set is only 2 children (subjects 22–23). With heavy imbalance, balanced accuracy is 0.57–0.74 and AUC-PR 0.12–0.37, while AUROC is 0.80–0.89 (App. E.2, Table 8). 🤖 AUROC looks good under rare positives; AUC-PR is the more honest number.
 - [[li2022eeg]]: a 7-strategy split taxonomy for emotion EEG (Fig. 32, §5.3). Trial-level splits are recommended. Cutting trials into segments that inherit the trial label adds label noise, and random k-fold over segments is "wrong" because segments of one trial land in both train and test (p. 25). The reason people do it: subjects give ≤~100 trials (p. 25). Its own results table (Table 4) doesn't mark which papers used which split.
 - [[roy2019deep]] (2010–2018, 156 DL papers): 60% used no cross-validation, and only 22 of 108 inter-subject studies held subjects out (§3.7.3–3.7.4, pp. 22–23). 21.1% had no baseline, 19.9% used statistical tests (pp. 21, 23). Example counts are inflated by window overlap: 4.05M examples from 18 h of EEG (p. 11). 🤖 Overlapping windows plus random splits is the segment-leakage pattern [[li2022eeg]] calls wrong.
+- [[lawhern2018eegnet]]: the same 5 models on the same 4 datasets, within-subject (4-fold blockwise CV) and cross-subject (random held-out subjects, 30–90 folds) (§2.3). The gap depends on the paradigm: P300 AUC barely drops (~0.92 → ~0.90), but 4-class motor imagery falls from ~0.68 to ~0.40 (EEGNet) and ~0.32 (FBCSP), chance 0.25 (Figs. 2–5). Model rankings flip between protocols: DeepConvNet is worst within-subject on MRCP (~0.66) but best cross-subject (~0.83), which the authors attribute to 10–15× more training data (p. 21).
 
 ## Variants & disagreements
 - Same dataset, different protocol: SEED appears as 5-fold window CV in Conformer and as a trial split in LaBraM (SEED-V). Accuracies are not comparable. The emotion review [[li2022eeg]] calls the first one wrong (§5.3).
+- Same model, same dataset, different paper: EEGNet on BCI IV-2a within-subject is ~0.68 in [[lawhern2018eegnet]] (Fig. 3) but 74.50% in [[song2022eeg]] (Table II). 🤖 Different splits, windows and preprocessing; baseline numbers are protocol-specific.
 - Within vs cross-subject on the same model and data: DGCNN on SEED 90.4% → 79.95%; BiDCNN on DEAP valence 94.4% → 68.1% [[li2022eeg]] (Table 4). → [[domain-adaptation]]
 - Baselines copied vs re-run: LaBraM copies BIOT's baseline numbers (§3.2). Conformer doesn't say.
 
 ## Open questions
 - Is there a standard cross-subject benchmark suite the field is converging on for foundation models? (look for benchmark papers)
-- What is the protocol-matched gap between within- and cross-subject accuracy on motor imagery?
+- What is the protocol-matched gap between within- and cross-subject accuracy on motor imagery? *Partial (2026-10-11):* ~0.68 → ~0.40 (4-class, BCI IV-2a, EEGNet) [[lawhern2018eegnet]] (Figs. 3, 5); own EEGMMI test 0.64 → 0.56 (2-class, CSP + LDA). Still no 2022+ source.
 
 ## Related concepts
 - [[domain-adaptation]]: methods that try to close the within/cross-subject gap.

@@ -13,7 +13,7 @@ Questions the human asks are treated as signals of what matters. Maintained auto
 
 - EEG's clinical niche vs other modalities (is EEG redundant to CT/MRI/ultrasound, like "ECG vs CT"?): 1, 2026-10-11. [[q1-what-is-eeg]] *Is EEG redundant to imaging?* (textbook 🤖, unsourced). Related: the human's refined view on Q6. The bottleneck is well-labelled multi-subject data and well-defined diagnostic problems, not data volume → [[q6-reliability-of-eeg-diagnoses]].
 - Sleep stages: definition, clinical use, value as a benchmark: 2, 2026-10-11 (diagnostic value of N1-N3; why benchmark on it). [[sleep-staging]] (*Diagnostic use of the stages*). Related to the labels theme above.
-- Physiology of BCI signals (motor imagery vs actual movement, single-trial separability): 2, 2026-10-10. [[bci-paradigms]] (*Imagined vs executed movement*).
+- Physiology of BCI signals (motor imagery vs actual movement, single-trial separability; what a BCI is): 3, last 2026-10-11. [[bci-paradigms]] (*What a BCI is*, *Imagined vs executed movement*).
 
 ## Open questions
 - Which commercial automated EEG analysis systems exist, what do they predict, and how well are they validated? (2026-10-11) → [[q8-commercial-eeg-analysis-systems]] (new core question). Only sleep headbands sourced so far. Regulatory summaries allowed as sources for Q8 (2026-10-11).
@@ -50,4 +50,4 @@ Questions the human asks are treated as signals of what matters. Maintained auto
 - Chen et al. 2023, FACED dataset (123 subjects, 9 emotions): the largest emotion EEG set in the vault, used by [[wang2024cbramod]]. 2023, so in scope; not in screening.
 - Wan et al. 2021, "A review on transfer learning in EEG signal analysis" (Neurocomputing 421:1–14): recommended by [[li2022eeg]] (p. 21) for cross-subject methods → [[domain-adaptation]]. Pre-2022; not in screening.
 - To find: a 2022+ study testing confounds in EEG emotion recognition (clip identity, EMG, cross-dataset). From [[emotion-recognition]].
-- Needs manual PDF: [[kaongoen2023future]], [[weng2025self]], [[wang2024eegpt]]
+- PDFs (updated 2026-10-11): [[kaongoen2023future]] (paywalled, fetched by hand on 2026-10-10), [[weng2025self]], [[wang2024eegpt]] and [[yang2023biot]] are all in `pdf/` and converted to `fulltext/`; none read yet. Still needs a manual PDF: [[bank2022structural]].
