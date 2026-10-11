@@ -12,7 +12,9 @@ This folder is a literature review on EEG. You help find, screen, read, summariz
   5. What is the current state of the art?
   6. How reliable are EEG-based diagnoses and predictions (split leakage, confounds, small single-site data, cross-site/device generalization)? (added 2026-10-10)
   7. How much do EEG foundation models actually beat strong classical (CSP, Riemannian, LDA) and small supervised (EEGNet) baselines under matched protocols, including few-shot and frozen-embedding probes? (added 2026-10-10)
+  8. What commercially deployed automated EEG analysis systems exist (clinical software, regulator-cleared devices, consumer products), what do they predict, and how well are they validated? (added 2026-10-11)
 - **Inclusion:** published 2022 onward (last ~4 years), prioritised by influence (citation count, normalised for age) — start from the most influential papers and reviews. Peer-reviewed or preprint. English.
+- **Q8 exception (regulatory sources):** for Q8 only, regulatory summaries are allowed as sources (FDA 510(k) / De Novo / PMA decision summaries, CE / EUDAMED records), regardless of year. Identifier = the submission number (e.g. `K201234`, `DEN200001`) plus its public URL, recorded as `regulatory_id` in frontmatter. Citekey = `manufacturer` + `year` + product name, e.g. `persyst2021persyst14`. Set `source_type: regulatory`. 🤖 Treat them as manufacturer-reported evidence, not independent validation. (added 2026-10-11)
 - **Backward exception:** an older paper is included when 2022+ papers repeatedly cite it as foundational (a dataset, device standard, landmark method or canonical review). Record the citing papers in `reason`.
 - **Exclusion:** <to be refined after the pilot>
 - **Other fields:** out of scope for now. EEG is the only field; don't create cross-field bridges until the human widens the scope.

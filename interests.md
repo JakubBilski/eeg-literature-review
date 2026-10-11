@@ -15,6 +15,7 @@ Questions the human asks are treated as signals of what matters. Maintained auto
 - Physiology of BCI signals (motor imagery vs actual movement, single-trial separability): 2, 2026-10-10. [[bci-paradigms]] (*Imagined vs executed movement*).
 
 ## Open questions
+- Which commercial automated EEG analysis systems exist, what do they predict, and how well are they validated? (2026-10-11) → [[q8-commercial-eeg-analysis-systems]] (new core question). Only sleep headbands sourced so far. Regulatory summaries allowed as sources for Q8 (2026-10-11).
 - How much weaker is imagery ERD than execution ERD, and do executed-movement decoders transfer to imagery? (2026-10-10) → [[bci-paradigms]]. Partial, from own analysis of EEGMMI (10 subjects): ~20% vs ~30% mu drop at C3. Imagery is lateralized but execution was bilateral, which is unexplained. Transfer is untested.
 <!-- questions not yet answered by the vault; remove when answered (link the answer) -->
 - Which sleep-EEG features have diagnostic value beyond REM and sleep/wake timing (spindle density, slow-wave activity in schizophrenia, Alzheimer's, depression), and do they replicate across sites? (2026-10-11) -> [[sleep-staging]]. Only a textbook answer so far.

@@ -8,6 +8,7 @@
 - [[q5-state-of-the-art]]
 - [[q6-reliability-of-eeg-diagnoses]]
 - [[q7-foundation-models-vs-baselines]]
+- [[q8-commercial-eeg-analysis-systems]]
 
 ## Other topics
 <!-- synthesis notes not owned by a single hub -->

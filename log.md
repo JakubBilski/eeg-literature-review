@@ -133,3 +133,9 @@
   - [[lee2021interrater]] full read (open access, PMC8807917). The gans supplement (S1–S4) was not retrieved.
   - [[wang2024eegpt]]: the PDF is present but not converted yet.
   - Next: [[wong2023eeg]] (seizures), then switch to forward snowballing toward 2025–26 papers.
+
+## 2026-10-11 (side session: Q8)
+- **Added:** core question Q8 → [[q8-commercial-eeg-analysis-systems]] (stub hub; only the sleep headbands from [[gans2024sleep]] are sourced so far). Scope, `index.md` and `interests.md` updated.
+- **Changed:** `CLAUDE.md` Scope: Q8 exception allows regulatory summaries (FDA 510(k) / De Novo / PMA, CE / EUDAMED) as sources, with `regulatory_id`, `source_type: regulatory` and a manufacturer-based citekey (human decision).
+- **Questions explored:** none beyond setting up Q8.
+- **Open:** run find-papers for commercial / FDA-cleared EEG analysis tools (seizure detection, ICU EEG, automated sleep scoring, BIS, qEEG for TBI); the search leads in the hub are 🤖 from model memory and unverified.
