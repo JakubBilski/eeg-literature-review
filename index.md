@@ -42,7 +42,8 @@
 - [[pretext-loss-anomaly-score]] — idea · medium · Q9/Q6: is masked-prediction error more than a power detector?
 - [[covariance-pseudo-labels]] — idea · high · Q9: filter-bank covariance k-means as HuBERT targets
 - [[cross-channel-phase-target]] — idea · high · Q9: per-channel phase-invariant, cross-channel phase-aware target for TUEV
-- [[pretext-downstream-scaling-sweep]] — idea · high · Q9/Q7: fixed-target size × data sweep with held-out pretext loss
+- [[pretext-downstream-scaling-sweep]] — idea · high · Q9/Q7: size × data × target sweep: per-target scaling curves, held-out pretext loss
+- [[property-probe-battery]] — idea · medium · Q9/Q7: probe frozen FMs for signal properties (spectral, spatial phase, morphology, nuisance), then predict downstream ranks
 
 ## Bridges (ECG ↔ EEG)
 - [[hubert-style-pseudo-labels]] — HuBERT-ECG and Sleep2.0 share the k-means pseudo-label recipe (plausible)

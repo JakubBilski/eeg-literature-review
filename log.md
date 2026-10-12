@@ -325,3 +325,24 @@
   - Read [[tibermacine2026manifold]] (no abstract in OpenAlex; check OA) before pursuing covariance targets.
   - Check whether the released CBraMod checkpoint includes its reconstruction head (needed for [[pretext-loss-anomaly-score]]).
   - Carried over: reads of [[zare2026negative]], [[yu2026neural]], [[xie2026specbram]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-12 (session 16)
+- **Added:**
+  - Experiment [[property-probe-battery]] (idea): probe frozen FMs for signal properties (spectral, cross-channel phase, morphology, nuisance) in bits, then predict downstream ranks.
+  - Skill `/review-experiment`: fresh-context subagent review of an experiment note, filed as `## Review`; first run on the two notes below.
+  - Screening (+9): [[cao2026when]], [[sirca2026beyond]], [[lehnschiler2026mechanistic]], [[kommineni2026aperiodic]], [[oliveira2026scaling]], [[panchavati2026laya]] (include); [[shama2026eeg]], [[yue2024braingpt]], [[dou2026taming]] (maybe).
+- **Changed:**
+  - [[q9-pretraining-objectives-and-scale]]: new sections *Probe FMs on EEG properties before downstream?* (incl. *Information-theory framing*: cross-entropy bounds, prediction vs decodability, V-information) and *Scaling laws per target T?*; Current answer bullet; prior-work claims corrected after the review (spectral/nuisance probing already done by [[kommineni2026aperiodic]]).
+  - [[pretext-downstream-scaling-sweep]]: target T added as a sweep axis; Review filed (pursue with major changes; minimal 54-run version, kill criteria, likely null).
+  - [[property-probe-battery]]: Review filed (pursue with major changes; better first project; partly scooped).
+  - Read sections of [[wang2026eeg]] (NPP: shared-phase surrogate, Table 6) and [[chen2026benchmarking]] (protocols, REVE data-scaling p. 13) without full notes.
+- **Questions explored:**
+  - Compare FMs on designed property tasks first, then transfer to downstream? → Q9 + [[property-probe-battery]].
+  - Entropy vs cross-entropy vs V-information; can it be computed from M, X and the task? → Q9 *Information-theory framing*.
+  - Per-target scaling laws; is this absent in NLP because text is discrete? → Q9 *Scaling laws per target T?*
+  - Independent judgement of the experiment ideas → `## Review` in both notes; tooling → `/review-experiment`.
+- **Open:**
+  - Check whether EEG-Arena's REVE data-scaling checkpoints are public (needed by both experiments).
+  - Read [[kommineni2026aperiodic]] before planning [[property-probe-battery]]; full reads of [[wang2026eeg]], [[chen2026benchmarking]] still pending.
+  - 🤖 Q9 hub now has ~8 sub-sections; consider splitting into topic notes (proposed to the human).
+  - Carried over: reads of [[zare2026negative]], [[yu2026neural]], [[xie2026specbram]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).

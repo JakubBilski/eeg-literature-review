@@ -37,7 +37,7 @@ interests.md         what the human asks about; open questions; reading queue
 data/screening.csv   every candidate paper and its include/exclude decision
 data/comparison.csv  one row per included paper, key comparable fields
 templates/           note templates (paper, concept, topic, bridge, experiment)
-.claude/skills/      find-papers, read-paper, wrap-session
+.claude/skills/      find-papers, read-paper, review-experiment, wrap-session
 scripts/             helper scripts (search, conversion, table export)
 figures/             plots made from public EEG data (embed in notes with ![[file.png]])
 data/eeg/            downloaded raw EEG datasets (gitignored, re-downloadable)
