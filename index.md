@@ -19,6 +19,7 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-12 [[chen2026benchmarking]] — EEG-Arena: 30 FMs vs 25 supervised baselines, 57 tasks; FMs win most tasks (margins ~2× larger within-subject), pretraining beats scratch more with more labels, no size scaling, REVE-base +4–7 points from 600 → 30k h; single runs, no classical pipeline
 - 2026-10-12 [[xie2026specbram]] — SpecBraM: matched ablation; band-power target beats raw-waveform reconstruction for frozen sleep features (+2–3, +5–7 points at 1% labels), not for MI/vigilance; full TUEG ≈ 2,388 h
 - 2026-10-11 [[liu2026eeg]] — EEG-FM-Compass: survey of 55 FMs + matched benchmark of 12; specialists tie FMs cross-subject and win few-shot, probes weak, no scaling
 - 2026-10-11 [[coppola2024hubert]] — HuBERT-ECG (ECG method parallel): k-means pseudo-labels on MFCC then latent features, 9.1M ECGs; same recipe as Sleep2.0 → bridge [[hubert-style-pseudo-labels]]
@@ -44,6 +45,7 @@
 - [[covariance-pseudo-labels]] — idea · high · Q9: filter-bank covariance k-means as HuBERT targets
 - [[cross-channel-phase-target]] — idea · high · Q9: per-channel phase-invariant, cross-channel phase-aware target for TUEV
 - [[pretext-downstream-scaling-sweep]] — idea · high · Q9/Q7: size × data × target sweep: per-target scaling curves, held-out pretext loss
+- [[subject-diversity-gap]] — idea · medium · Q9/Q7/Q6: does subject count gate the benefit of model size (CNN 10k→1M, CBraMod) in sleep staging? SHHS, 20–5,000 people at fixed labelled data
 - [[property-probe-battery]] — idea · medium · Q9/Q7: probe frozen FMs for signal properties (spectral, spatial phase, morphology, nuisance), then predict downstream ranks
 
 ## Bridges (ECG ↔ EEG)

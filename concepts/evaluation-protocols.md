@@ -45,6 +45,19 @@ How data is split into training and test sets, and what is measured, determines 
   - 🤖 *Verdict:* label leakage through splits is unlikely on TUAB/TUEV (official patient-disjoint test sets). Unlabelled exposure to test patients is common and under-reported, with one ablation showing a small effect. Hyperparameter search on the test set can't be excluded from the papers alone.
 - [[xie2026specbram]]: a **strict linear probe** (frozen encoder, mean-pooled tokens, logistic regression, C chosen on validation, test scored once) applied identically to all models (§5). Mean-pooling can understate models built for all-token heads: CBraMod frozen 0.171 (mean-pool) vs 0.315 (own head) on FACED (§6.4). Also found that CBraMod's released SEED-VIG script sorts files lexicographically ('10_' before '1_'), giving a different split from the paper's; the paper's R²/RMSE match the subject-ordered split (App. B). 🤖 Released preprocessing code can silently differ from the stated protocol.
 
+- [[chen2026benchmarking]]: EEG-Arena ranks models separately for within-subject and cross-subject splits and for bipolar vs non-bipolar data, and drops results where pretraining data overlap the task. It picks the checkpoint on validation and reports single runs with no error bars. FM margins are about twice as large within-subject (median +5.9 vs +2.5 points, own tally of Fig. 3), and the largest ones (DTU-AAD WS +49, SEED WS 94%) look like within-trial leakage. 🤖
+
+## When is within-subject (calibrated) evaluation clinically realistic? (asked 2026-10-12)
+🤖 Synthesis; mostly textbook and needs sources.
+- **For one-off diagnosis it isn't.** Routine EEG, abnormality screening, dementia and depression need a model that works on a *new* patient without labels. The matching protocol is cross-subject, ideally cross-site.
+- **Per-person calibration is realistic in four settings,** all where the same person is recorded for a long time or repeatedly and labels accrue as a by-product:
+  1. *BCI:* a ~20-min calibration session per user is standard [[lawhern2018eegnet]] (§2.1.4); the user is also the beneficiary.
+  2. *Long-term epilepsy monitoring* (epilepsy monitoring unit, ICU continuous EEG, home or implanted devices): once a clinician has marked a patient's first seizures, a patient-specific detector can watch for the next ones. CHB-MIT was collected for patient-specific detection (Shoeb 2009). Implanted responsive neurostimulators are tuned per patient by clinicians.
+  3. *Repeated monitoring of one person,* e.g. sleep wearables or tracking drug response over weeks.
+  4. *Semi-supervised:* use the patient's own unlabeled baseline recording to normalise or adapt ([[domain-adaptation]]); this needs no doctor's annotation.
+- **Even then, benchmark "within-subject" splits usually aren't that protocol.** A realistic calibrated test trains on an *earlier* session or earlier events and tests on *later* ones (chronological, cross-session). Random window or trial splits from the same session measure recognition of the session (electrode contact, state, clip) more than of the condition. Example: the large within-subject margins in [[chen2026benchmarking]] (DTU-AAD +49 points).
+- So: report within-subject results only with a chronological, cross-session split, and treat them as relevant to BCI and long-term monitoring, not to diagnosis. → [[q6-reliability-of-eeg-diagnoses]]
+
 ## Variants & disagreements
 - Same dataset, different protocol: SEED appears as 5-fold window CV in Conformer and as a trial split in LaBraM (SEED-V). Accuracies are not comparable. The emotion review [[li2022eeg]] calls the first one wrong (§5.3).
 - Same model, same dataset, different paper: EEGNet on BCI IV-2a within-subject is ~0.68 in [[lawhern2018eegnet]] (Fig. 3) but 74.50% in [[song2022eeg]] (Table II). 🤖 Different splits, windows and preprocessing; baseline numbers are protocol-specific.

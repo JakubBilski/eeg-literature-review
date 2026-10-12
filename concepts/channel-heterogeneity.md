@@ -29,6 +29,8 @@ Recordings come from sensor setups that differ in the number and placement of se
 - [[coppola2024hubert]] (ECG contrast case): the 12 leads are fixed, so they are concatenated end to end into one 1D sequence with positional encodings (pp. 12–13). Models pretrained on 12 leads still transfer to single-lead ECG (macro AUROC 0.878–0.917, p. 7). 🤖 The trick depends on a fixed lead set and does not carry over to variable EEG montages → [[hubert-style-pseudo-labels]].
 - [[liu2026eeg]]: six channel-unification strategies across 55 FMs (pp. 8–9): (1) fixed montage (CBraMod, BENDR); (2) template or region remap (CSBrain, Uni-NTFM); (3) channel-wise or single-channel (BIOT, SingLEM); (4) learnable channel embeddings (LaBraM, EEGPT); (5) coordinate-aware encodings (REVE, LUNA, HEAR); (6) projection to a fixed latent space (LUNA, BrainOmni). In practice BrainOmni can't take bipolar montages (p. 16), and the topology-agnostic LUNA collapses outside clinical data (p. 17).
 
+- [[chen2026benchmarking]]: compares channel-constrained FMs (CBraMod, CodeBrain, CSBrain, EEGPT, NeuroRVQ, ST-EEGFormer) with channel-flexible ones (REVE, HEAR, LEAD) on task-informed channel subsets. Flexible models score higher at most retained-channel ratios (Fig. 7, p. 14). Arbitrary dropout, re-referencing and device changes are untested (p. 17).
+
 ## Variants & disagreements
 - Fixed montage + spatial conv (Conformer, EEGNet) vs channel-as-token + electrode embedding (LaBraM). Other strategies (graph/topology-aware, mapping channels to a template) are not yet in the vault.
 

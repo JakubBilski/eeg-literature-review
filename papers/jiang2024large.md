@@ -83,6 +83,7 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[emotion-recognition]]: SEED-V downstream task (5-class, subjects pooled, trial split); SEED-family data in pretraining.
 
 ## Related papers
+- [[chen2026benchmarking]]: LaBraM-base is one of 30 FMs in EEG-Arena; it rarely reaches the top 3 there (one task win, Large-MI 11-class CS, Fig. 3).
 - [[liu2026eeg]]: independent benchmark; LaBraM ranks 9th of 20 (9.36), and its probe < fine-tune gap is significant (Supp. Tables 52, 58).
 - [[song2022eeg]]: the non-pretrained conv + attention predecessor pattern. Not used as a LaBraM baseline.
 - [[yang2023biot]]: BIOT, the main baseline and source of the evaluation splits. *(screening: maybe)*

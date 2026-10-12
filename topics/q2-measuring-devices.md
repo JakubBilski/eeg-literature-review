@@ -2,7 +2,7 @@
 slug: q2-measuring-devices
 kind: hub
 status: stub
-updated: 2026-10-10
+updated: 2026-10-12
 ---
 
 # q2-measuring-devices
@@ -41,6 +41,11 @@ updated: 2026-10-10
   - In practice: half of the public scalp seizure datasets follow 10-20 [[wong2023eeg]] (§5.1). CBraMod pretrains on 19 common 10-20 channels (Fp1 … O2) [[wang2024cbramod]] (§3, p. 6). TUAB/TUEV benchmarks use 16 *bipolar* channels (differences between neighbouring electrodes) (App. E).
   - The reference electrode is subtracted from all others. Devices place it differently (earlobe, mastoid, a 10-20 site, or flexible), and its contact is critical, so it sometimes gets gel when the other electrodes don't [[niso2022wireless]] (§3.2, Table 1).
   - Datasets range from 3 bipolar channels (BCI IV-2b) to 62 (SEED) [[song2022eeg]] (§IV-A). → [[channel-heterogeneity]]
+  - **Referential vs bipolar (asked 2026-10-12; 🤖 textbook, no vault source yet).** Every EEG channel is a voltage *difference* between two points.
+    - *Referential:* each electrode minus one shared reference (mastoid, earlobe, Cz, or the average of all electrodes). The signal can be assigned to one scalp position, and any other montage can be computed from it later.
+    - *Bipolar:* each channel is the difference between two neighbouring electrodes, e.g. Fp1−F7. Activity common to both cancels, so the channel shows local activity and suppresses widespread noise. Clinicians read chains of these ("double banana", the TCP montage used for TUH data) and localise a focus by where the sign flips between neighbouring channels (phase reversal). A bipolar channel has no single position, and you can't recover the referential signals from it.
+    - *Why sleep data count as "bipolar":* polysomnography records only a few EEG derivations, each a fixed pair: the AASM set F4−M1, C4−M1, O2−M1 (electrode minus the opposite mastoid), or Fpz−Cz and Pz−Oz in Sleep-EDF. Staging needs only coarse rhythms (alpha, spindles, slow waves), so a few channels are enough. Fewer electrodes also mean less disturbed sleep, and the PSG adds eye (EOG) and chin (EMG) channels. Each channel is stored as a pair difference with no common reference, so for ML it behaves like bipolar data.
+    - *Why it matters for FMs:* channel-flexible FMs embed each channel by its electrode *position* (REVE, LEAD), and a pair has no position, so they can't take bipolar input natively. LEAD supports "only non-bipolar configurations" [[chen2026benchmarking]] (p. 16). That is why EEG-Arena ranks bipolar and non-bipolar tasks separately; the paper doesn't list which tasks fall in each group.
 
 ## Comparisons
 | class | channels | conductive medium | typical use | source |
@@ -52,7 +57,7 @@ updated: 2026-10-10
 ## Open threads
 - Ear-EEG: [[kaongoen2023future]] (full text ready, not yet read).
 - Has anyone run a standardized multi-device quality benchmark since 2022 (e.g. on ERP CORE)? Not searched yet.
-- Clinical montage standards beyond 10-20 (e.g. 10-10, bipolar clinical montages).
+- Clinical montage standards beyond 10-20 (e.g. 10-10, bipolar clinical montages). *Partly answered 2026-10-12 (textbook, 🤖):* referential vs bipolar, above; still needs a source (ACNS montage guideline).
 
 ## Sources
 - [[chaddad2023electroencephalography]]: lab vs portable acquisition; Emotiv and Muse examples (§2.1).

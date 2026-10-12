@@ -19,7 +19,7 @@ updated: 2026-10-12
 ## Design
 - **Fixed:** one backbone family, preprocessing, masking; raw-EEG input for every arm.
 - **Target T as an axis (added 2026-10-12):** raw-patch MSE, band power ([[xie2026specbram]]), band power + cross-channel phase ([[cross-channel-phase-target]]), clustered covariance ([[covariance-pseudo-labels]]), latent (EMA encoder). Goal: per-T scaling curves of downstream vs compute, and where they cross. Reasoning → [[q9-pretraining-objectives-and-scale]] *Scaling laws per target T?*
-- **Sweep:** model size (≈1M, 5M, 25M, 100M) × pretraining hours (≈500, 2k, 9k of TUEG; or REVE-scale 600–30,000 h as in [[chen2026benchmarking]] p. 13), with distinct-subject count as a separate axis where possible.
+- **Sweep:** model size (≈1M, 5M, 25M, 100M) × pretraining hours (≈500, 2k, 9k of TUEG; or REVE-scale 600–30,000 h as in [[chen2026benchmarking]] p. 13), with distinct-subject count as a separate axis where possible (cheap supervised version first: [[subject-diversity-gap]]).
 - **Fit per T:** L_T(N, D) = E_T + A/N^α + B/D^β for pretext loss; downstream CE (bits, averaged over tasks) vs compute. Don't compare pretext losses across T.
 - **Cost note:** 5 targets × 4 sizes × 3 data amounts = 60 pretraining runs; start with 2 targets × the smallest 3 sizes.
 - **Measure at every checkpoint:**

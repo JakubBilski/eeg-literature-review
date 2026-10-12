@@ -25,6 +25,8 @@ Training a model on large amounts of unlabeled data with a task made from the da
 - [[liu2026eeg]]: survey of 55 FMs (raw reconstruction 25.5%, random masking 71.7%, transformers 83.6%; Fig. 3). Benchmark of 12: no objective family wins (ranks: raw 1–15, embedded tokens 7–18, codebook 9–20). Fine-tuning beats the linear probe significantly for 9/12 FMs (Supp. Table 58). Size does not predict rank (pp. 21–22).
 - [[xie2026specbram]]: matched target ablation (same 51M backbone, 2,388 h, steps, 3 seeds). Regressing log band power of masked patches beats raw-waveform reconstruction by +1.6–2.8 BA points on frozen sleep features (+5–7 with 1% labels); the tokenizer matters less (Tables 1–2). Gap ~1 point after fine-tuning; no gain on motor imagery (§6.3–6.4). Full TUEG ≈ 2,388 h subset (App. C).
 
+- [[chen2026benchmarking]]: pretrain vs same-architecture scratch for 10 FMs. Gain is 0.4 points at 2% of labels and 8.2 at 100% (Fig. 4). Controlled data scaling on REVE-base: 600 → 30,000 h gives +6.69 / +4.22 points fine-tuned (WS / CS) and +5.97 / +1.89 probed (Fig. 6a). Model size shows no trend (Fig. 5).
+
 ## Variants & disagreements
 - Objective: predict raw signal, spectrum, or discrete codes. LaBraM found raw reconstruction better on TUAB but discrete codes better on TUEV (App. G, Table 7). The best target may depend on the task.
 - Contrastive (BENDR, BIOT) vs masked (LaBraM, CBraMod): not yet compared in the vault. [[weng2025self]] calls contrastive "the most widely used" and "the most effective" (§5, §5.6) but gives no numbers. 🤖 Note that BENDR is itself a hybrid: masked embeddings with a contrastive loss (§4.1).

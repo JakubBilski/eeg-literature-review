@@ -115,7 +115,8 @@ A survey of 55 EEG FMs and a benchmark of 12 open FMs against 8 specialist basel
 - [[yang2023biot]]: more pretraining datasets don't help consistently. BIOT-1D/2D/6D score 32.2/33.3/34.3 LOSO but 45.6/43.6/48.6 few-shot on BNCI2014001 (Supp. Table 16).
 - [[lawhern2018eegnet]]: EEGNet (2K params) ranks 2nd overall, and the 2018 matched-comparison pattern holds in 2026.
 - [[xie2026specbram]]: hand-crafted band power ≈ FM frozen features; consistent.
-- [[chen2026benchmarking]], [[kontras2026neuroatlas]], [[xiong2025eeg]], [[shen2026brain4fms]]: other 2025–26 benchmarks to cross-check.
+- [[chen2026benchmarking]]: EEG-Arena, the larger competing benchmark (30 FMs, 57 tasks). It finds FMs win most tasks, but with single runs, validation checkpointing, no significance test and no classical pipeline. Its cross-subject margin (~2.5 points) is compatible with this paper.
+- [[kontras2026neuroatlas]], [[xiong2025eeg]], [[shen2026brain4fms]]: other 2025–26 benchmarks to cross-check.
 - [[coppola2024hubert]]: ECG parallel with the same weak-probe pattern.
 
 ## Q&A notes

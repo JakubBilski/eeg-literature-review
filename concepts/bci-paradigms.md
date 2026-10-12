@@ -71,6 +71,7 @@ A recipe for producing a brain signal that a classifier can reliably tell apart.
 - [[sabio2024scoping]]: BCI is the top use of consumer headsets (44.5%), with MI, SSVEP and P300 paradigms (§Research domains).
 - [[lawhern2018eegnet]]: one compact CNN across four paradigms (P300, ERN, MRCP, SMR), i.e. a paradigm-agnostic model replacing paradigm-specific pipelines (Abstract, Table 1). Within-subject it matches or beats the paradigm-specific pipelines; cross-subject 4-class SMR is near chance for every model (~0.40 CNNs, 0.32 FBCSP, chance 0.25; Fig. 5). **Confound example:** P300 targets required a button press, so the model also learned a left-motor-cortex alpha-desynchronization filter (Fig. 6, p. 15).
 - [[liu2026eeg]]: benchmark over 9 paradigms. SSVEP within-subject is nearly solved by the classical TRCA (98.77, 12 trials per class). FMs range 8.5–92.9 on SSVEP LOSO; LUNA and TFM collapse to chance (8.52 and 12.84 with 12 classes, chance 8.3%) (Table 3). MI is the hardest (best LOSO 4-class: MIRepNet 54.21).
+- [[chen2026benchmarking]]: MI is the largest task block of EEG-Arena (10 datasets, ~25 tasks). FMs win most of it, but supervised baselines still win BCIC-IV-2A 4-class and L/R (Fig. 3).
 
 ## Variants & disagreements
 - **"BCI" scope:** [[varbu2022past]] includes passive monitoring (emotion, fatigue) as BCI, while narrower definitions require intentional real-time control. This changes all reported domain shares.

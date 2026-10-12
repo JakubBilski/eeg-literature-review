@@ -366,3 +366,29 @@
   - Find 2022+ benchmarks with outcome-based labels (cardiac-arrest outcome, video-EEG-confirmed onsets, linked diagnoses); read [[kiessner2024reaching]] and the TUAB dataset paper (what "abnormal" means).
   - Next reads: [[chen2026benchmarking]] (EEG-Arena), [[kontras2026neuroatlas]], [[zare2026negative]]; [[yu2026understanding]] (FAME) for Q9.
   - Carried over: reads of [[yu2026neural]], [[kommineni2026aperiodic]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1). Q9 hub split still proposed.
+
+## 2026-10-12 (session 18)
+- **Added:**
+  - Paper [[chen2026benchmarking]] (EEG-Arena, full read): 30 FM checkpoints vs 25 supervised baselines, 57 tasks. FMs win most tasks, but the median margin is +5.9 within-subject and +2.5 cross-subject (own re-tally of Fig. 3). Pretrain-vs-scratch gain grows with labels; no model-size scaling; REVE-base 600 → 30k h gives +4–7 points. Single runs, no significance tests, no classical pipeline.
+  - Script `scripts/eegarena_tally.py`: re-tallies Fig. 3 and the collapsed runs (κ = 0) in Tables 27–31.
+  - Experiment [[subject-diversity-gap]] (idea, design v2 after an independent review): does subject count gate the benefit of model size in sleep staging? SHHS with a PhysioNet 2018 pilot, H1–H4 pre-registered, CBraMod arm.
+  - Screening (+4): [[banville2026neuralbench]], [[wang2024causes]] (include); [[olesen2020automatic]] (maybe); OpenEEG-Bench noted without an identifier.
+- **Changed:**
+  - [[q7-foundation-models-vs-baselines]]: EEG-Arena bullet and why it disagrees with [[liu2026eeg]].
+  - [[q5-state-of-the-art]] (stub → active): EEG-Arena winners and public leaderboard.
+  - [[q9-pretraining-objectives-and-scale]]: new sections *Where fine-tuning changes the network* and *Does the lack of size scaling undermine EEG FMs?* (Chinchilla correction, ViT/DeiT, double descent, distinct people as effective data, Oliveira counter-evidence).
+  - [[q2-measuring-devices]]: *Referential vs bipolar*.
+  - [[evaluation-protocols]]: *When is within-subject evaluation clinically realistic?*
+  - [[classical-ml-baselines]], 5 concept notes, reverse links in 5 papers, [[property-probe-battery]] (checkpoint availability).
+- **Questions explored:**
+  - What is bipolar data; why is sleep bipolar? → [[q2-measuring-devices]].
+  - Is within-subject accuracy clinically useful; is per-patient calibration feasible? → [[evaluation-protocols]].
+  - Is the 2% pretraining gain just non-convergence? → [[chen2026benchmarking]] Q&A (mostly yes: ~40% of runs collapse in both arms).
+  - Where does fine-tuning change the network, and how does that compare with other domains? → Q9.
+  - Does the lack of size scaling undermine FMs (Chinchilla, double descent, people as data size)? → Q9; experiment [[subject-diversity-gap]].
+  - Is there a dataset with >300 people? → review in [[subject-diversity-gap]] (SHHS ~5.8k via NSRR; PhysioNet 2018, 994, open).
+- **Open:**
+  - Read [[oliveira2026scaling]] in full before [[subject-diversity-gap]]. The NSRR access request for SHHS needs the human.
+  - Next reads: [[kontras2026neuroatlas]], [[zare2026negative]].
+  - Other-domain claims in Q9 (Kaplan, Chinchilla, DeiT, Aghajanyan, Merchant, Raghu, Nakkiran) are from memory, not vault sources.
+  - Carried over: Q9 hub split (now ~260 lines) still proposed; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]; concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).

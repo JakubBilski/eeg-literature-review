@@ -94,6 +94,7 @@ Two families: **ERP** BCIs (time-locked waveform, robust across subjects) vs **o
 - [[channel-heterogeneity]]: fixed montage; the depthwise conv spans exactly C channels.
 
 ## Related papers
+- [[chen2026benchmarking]]: EEGNet is one of 24 DL baselines in EEG-Arena; rarely in the top 3 (Fig. 3).
 - [[liu2026eeg]]: 2026 benchmark where EEGNet (2K params) ranks 2nd of 20 overall and has the most top-1 placements, not significantly behind CBraMod (pp. 20–21).
 - [[roy2019deep]]: the systematic review of the same era; EEGNet is the "temporal then spatial conv" pattern it describes (p. 18).
 - [[song2022eeg]]: EEG Conformer reuses EEGNet-style conv modules and beats it on BCI IV-2a (74.50% → 78.66%, Table II).
