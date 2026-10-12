@@ -25,6 +25,9 @@ updated: {{date}}
 ## Prior work
 <!-- - [[citekey]] — closest published result; check before running -->
 
+### Other fields
+<!-- same question in fMRI/MEG, ECG, speech, time series, other FMs, NLP/vision: - [[citekey]] (field; abstract | full text) — finding (location); transfers to EEG? -->
+
 ## Results
 <!-- running/done only: numbers with script + figure; 🤖 for interpretation. Main claim also goes into the hub's Current answer, linked here. -->
 

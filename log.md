@@ -392,3 +392,8 @@
   - Next reads: [[kontras2026neuroatlas]], [[zare2026negative]].
   - Other-domain claims in Q9 (Kaplan, Chinchilla, DeiT, Aghajanyan, Merchant, Raghu, Nakkiran) are from memory, not vault sources.
   - Carried over: Q9 hub split (now ~260 lines) still proposed; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]; concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+- **Addendum (same session):**
+  - Read [[oliveira2026scaling]] (main text, no paper note yet). Its loss-based fits call subjects "the binding constraint" (p. 4); its matched-volume accuracy comparison is "generally limited" (Fig. 3; CTNet, 5 seeds). Filed in [[subject-diversity-gap]] and Q9.
+  - Rule added (human, 2026-10-12): adjacent-field exception for experiment decisions. Changed CLAUDE.md, the `/review-experiment` skill and `templates/experiment.md` (*Prior work → Other fields*).
+  - Screening (+6): [[bomatter2025limited]], [[banville2025scaling]] (EEG); [[ooi2025longer]] (fMRI), [[yong2025effects]], [[berrebbi2023more]] (speech), [[denadel2026evaluating]] (single-cell), all marked OTHER FIELD.
+  - [[subject-diversity-gap]]: cross-entropy co-primary, paired tests, minimal detectable difference from the pilot. Status stays `idea` (human).

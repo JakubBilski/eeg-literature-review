@@ -15,7 +15,7 @@ Goal: an honest second opinion on an experiment from an agent that did **not** h
 3. **While it runs**, tell the human it's running; don't predict its findings.
 4. **When it returns, verify before filing:**
    - Every paper it cites as EEG prior work: run `discover.py lookup arxiv:<id>` (or DOI) and add with `--add --source "<date> subagent review of [[<slug>]]" --decision … --reason "… — Q<N>"`. Unresolvable identifiers are dropped, not filed.
-   - Non-EEG references (ML, vision, speech, time series) are cited in the note by identifier only, not added to screening (out of field scope; ECG is the exception, per CLAUDE.md).
+   - Adjacent-field references (fMRI/MEG, ECG, speech, time series, other scientific FMs, NLP/vision scaling) are verified the same way and added to screening with reason prefix `OTHER FIELD (<field>)` (adjacent-field exception in CLAUDE.md). File their findings under *Prior work → Other fields* in the note, saying whether each was read from the abstract or the full text.
    - Claims it marks as verified from vault files: spot-check one or two against the cited file/page.
 5. **File the review** into the experiment note as `## Review (<date>, independent subagent, <evidence depth>)`, placed before `## Results`. Replace an older review only if the design changed since; otherwise add the new one above it. Contents: verdict line, novelty (with `[[citekeys]]` for screened papers), well-posedness fix, ranked threats, minimal version, kill criteria, likely outcome. Mark interpretation 🤖; abstract-only sources say so. Add a `## Log` line.
 6. **Propagate one line each:** the hub's section or *Current answer* that points to this experiment (note verdict + "see Review"); correct any hub claim the review falsified (e.g. "no prior work" when prior work was found), rewriting rather than appending. Update the experiment's line in `index.md` only if its status changes.
@@ -32,7 +32,7 @@ Repo: <repo path> (Obsidian literature-review vault on EEG). Read first:
 - <the hub section(s) it links to, related experiments, key fulltext/ or papers/ files>
 - CLAUDE.md for context only.
 
-Check novelty beyond the vault. Tools: `.venv/Scripts/python.exe scripts/discover.py search "<title query>" -n 15` (OpenAlex title search, from the repo root), the arXiv API via curl (print with PYTHONIOENCODING=utf8), WebSearch/WebFetch if available. Look in EEG and in adjacent modalities (speech, vision, time series, ECG) for the same question. Never invent papers; cite only what you found, with identifier.
+Check novelty beyond the vault. Tools: `.venv/Scripts/python.exe scripts/discover.py search "<title query>" -n 15` (OpenAlex title search, from the repo root), the arXiv API via curl (print with PYTHONIOENCODING=utf8), WebSearch/WebFetch if available. Look in EEG and, as a required part of the review, in adjacent fields facing the same question (fMRI/MEG/iEEG, ECG and other physiological signals, speech, time series, other scientific foundation models, NLP/vision scaling): report how the question came out there and whether it transfers to EEG. Never invent papers; cite only what you found, with identifier.
 
 Assess concisely:
 1. Is the hypothesis well-posed and falsifiable? Give a pre-registrable version.

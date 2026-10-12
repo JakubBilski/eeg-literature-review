@@ -47,7 +47,7 @@ Pre-registered (κ = Cohen's kappa on 5 stages, primary metric; CIs = 95% bootst
   - Don't use BIOT-shhs or SleepFM: their pretraining includes SHHS or PSG archives that may overlap. Check REVE's corpus before adding it.
 - **Tuning:** per (model, E, K) cell, a small grid (3 learning rates × 2 weight decays) on validation people, with one seed. This addresses the review's "recipe tuned at small K" threat.
 - **Repeats:** 3 subject draws × 2 seeds per cell. ≈ 6 configs × 6 (E, K) cells × 6 repeats ≈ 216 final runs, plus tuning.
-- **Metrics:** κ and balanced accuracy on train, core visit 2, core within-night and unseen.
+- **Metrics:** held-out **cross-entropy (bits per epoch)** as co-primary with κ: it is smoother than thresholded scores and is the readout under which [[oliveira2026scaling]] did see a subject effect. Also balanced accuracy, on train, core visit 2, core within-night and unseen. Compare arms **paired** on the same test people (paired bootstrap over people), not with unpaired tests over seeds. The pilot estimates the minimal detectable difference for 300 test people before SHHS is requested.
   - Gap = κ(core v2) − κ(unseen).
   - κ(core within-night) − κ(core v2) estimates the 5-year aging / equipment shift on its own.
 - **Secondary (only if time):** identity probe = linear subject-ID decoding from penultimate features on core people. [[wang2024causes]] predicts it matters little for multi-class-per-subject tasks like sleep; a one-class-per-subject task (TUAB) would be the proper test.
@@ -68,13 +68,26 @@ Pre-registered (κ = Cohen's kappa on 5 stages, primary metric; CIs = 95% bootst
 - **Large aging shift** (core within-night ≫ core visit 2) → the same person across years behaves like a new person. "Within-subject" calibration then has a shelf life (→ [[evaluation-protocols]] *When is within-subject evaluation clinically realistic?*).
 
 ## Prior work
-- [[oliveira2026scaling]] (abstract; full text summarised by the review subagent, §3.3/§4): trial-heavy vs subject-heavy splits at fixed volume, CTNet, 4 datasets incl. ISRUC sleep (118 people) and TUAB/NMT. Composition effects were "generally limited". No gap, no identity probe, no model-size axis (future work, §5). **Read in full before running.**
+- [[oliveira2026scaling]] (main text read 2026-10-12): 5 models × 4 datasets (PhysioNet-MI 109, ISRUC sleep 118, TUAB ~3,000, NMT ~1,500 people), 80/20 cross-subject split, 5 seeds, power laws fitted to **test cross-entropy** over subjects and trials (§3.3–3.4).
+  - **The two readouts disagree.** The loss fits say "subject diversity is the binding constraint" (p. 4): per-subject recording saturates fast once enough people are in (ISRUC: ~35 people and one night reach >85% of the gain), and the subject term dominates on TUAB/NMT (Table 2, Fig. 2). The matched-volume comparison says differences "were generally limited" (§4, Fig. 3).
+  - That comparison uses **one model (CTNet), balanced accuracy, 5 seeds, unpaired Mann–Whitney** (Fig. 3 caption). Test sets are 20% of people (≈ 22 for PhysioNet, ≈ 24 for ISRUC). The ISRUC High tier has only two arms (p. 3).
+  - 🤖 So the null is a low-resolution null, in line with the human's point (2026-10-12) that a coarse downstream readout may hide the effect. Our design must use the sharper readout (held-out cross-entropy) and paired comparisons.
+  - No seen-vs-unseen gap, no identity probe, no within-architecture size axis ("remains to be isolated", p. 8). REVE lagged at 10–25% of subjects on PhysioNet and then caught up (p. 7).
+- [[bomatter2025limited]] (screening, abstract; NeurIPS 2025): EEG scaling with total samples vs participant diversity in a multi-level data model, also testing augmentation and SSL. "Model performance scaling can be severely constrained by participant distribution shifts." **Closest prior work; read in full before running** (it may already cover axis 1 and the SSL arm).
+- [[banville2025scaling]] (screening): image decoding from EEG/MEG/fMRI; per [[oliveira2026scaling]] (p. 2) it suggests data per subject may matter more there.
 - [[wang2024causes]] (abstract): the cross-subject drop comes from inter-subject variability (multi-class-per-subject tasks) vs identity shortcuts (one-class-per-subject tasks).
 - [[zare2026negative]] (abstract): FMs decode *dataset* identity at 1.000.
 - [[eegmmi-imagined-vs-executed]] (own): recording-block identity inflated a within-session result.
 - [[chen2026benchmarking]]: within-subject FM margins ~2× cross-subject (Fig. 3 re-tally); pretrain-vs-scratch gain by label budget (Fig. 4).
 - [[olesen2020automatic]] (screening): mixed-cohort sleep staging on SHHS and other NSRR cohorts; source for cohort sizes and channel handling.
-- Out of field (cited by ID only): speech, speakers vs hours per speaker (arXiv 2506.04364, 2211.00854); vision, wide vs deep face datasets (arXiv 1705.07426).
+
+### Other fields
+- [[yong2025effects]] (speech ASR; abstract): at fixed training hours, more speakers beats more hours per speaker, and "more speakers enables ASR performance gains from scaling number of hours". 🤖 A speakers × hours interaction, the closest analogue to H3 (people gate the benefit of another resource). Transfers if EEG people behave like speakers (a person-level shift at test).
+- [[berrebbi2023more]] (speech; abstract): SSL (wav2vec 2.0) mostly needs unlabeled *hours*, self-training needs labelled *speakers*, especially at low resource. 🤖 This suggests pretraining (FM) and supervised fine-tuning may want different compositions, which is relevant to H4.
+- [[ooi2025longer]] (fMRI; abstract): prediction accuracy grows with sample size × scan time per person (R² = 0.89 over 76 phenotypes). The two are interchangeable for scans ≤ 20 min, but sample size is "ultimately more important". 🤖 The closest neuroimaging analogue, and its interchangeability-then-divergence pattern is what Oliveira's loss fits suggest too.
+- [[denadel2026evaluating]] (single-cell FMs; title only, plus [[oliveira2026scaling]] p. 7): performance plateaus as pretraining data grows. A non-EEG case where FM data scaling fails, as a contrast to the REVE series ([[chen2026benchmarking]]).
+- Vision: wide vs deep face datasets (Bansal et al., arXiv 1705.07426; not read, not screened).
+- 🤖 **Cross-field reading:** in speech and fMRI, people matter more than time per person once there is some data per person, and people also unlock the value of other resources. EEG's one supporting null (Oliveira's accuracy comparison) is the low-resolution readout. The prior therefore favours running H1–H3, but [[bomatter2025limited]] must be read first.
 
 ## Review (2026-10-12, independent subagent, full text of Oliveira + abstracts + dataset pages)
 **Verdict: pursue with major changes.** 🤖 throughout except identifiers and facts marked from sources.
@@ -107,11 +120,13 @@ Pre-registered (κ = Cohen's kappa on 5 stages, primary metric; CIs = 95% bootst
   - Sleep-EDF / HMC / ISRUC: 78 / 151 / 118 people, open.
   - Don't mix Fpz−Cz (Sleep-EDF) with SHHS central derivations. SHHS sizes are cross-cited by [[olesen2020automatic]] (screening).
 - **Likely outcome 🤖:** the K-at-fixed-E effect is small (replicating Oliveira); the size × K interaction is the open, publishable part.
+- *Note after the review (2026-10-12, main session):* Oliveira's "generally limited" holds only for its accuracy comparison (CTNet, 5 seeds, unpaired). Its own loss-based fits call subjects "the binding constraint" (p. 4). So "largely done" overstates it; see *Prior work*.
 
 ## Results
 <!-- none yet -->
 
 ## Log
+- 2026-10-12 prior work extended after reading [[oliveira2026scaling]] in full and searching adjacent fields (speech, fMRI, single-cell). Its "limited" composition effect comes from the coarse accuracy readout, so cross-entropy is now co-primary with paired tests. Bomatter & Gouk 2025 is to be read first. Status stays `idea` (human, 2026-10-12).
 - 2026-10-12 design v2: SHHS + PhysioNet 2018 pilot, nested core, H1–H4 pre-registered, CBraMod arm, per-cell tuning, stop rules.
 - 2026-10-12 independent review filed (pursue with major changes; SHHS recommended; main axis largely done by [[oliveira2026scaling]]).
 - 2026-10-12 created from the human's question; pretraining-level version = the distinct-subject axis of [[pretext-downstream-scaling-sweep]].
