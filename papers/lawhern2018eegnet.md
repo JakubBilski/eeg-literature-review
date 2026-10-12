@@ -103,5 +103,6 @@ Two families: **ERP** BCIs (time-locked waveform, robust across subjects) vs **o
 - [[varbu2022past]]: the paradigm-specific pipelines that EEGNet aims to replace.
 - [[schirrmeister2017deep]]: source of DeepConvNet/ShallowConvNet baselines (ref [32]); not yet read.
 - [[weng2025self]]: lists SPP-EEGNet (SSL built on EEGNet, ref [87]); no SSL-vs-EEGNet numbers.
+- [[xie2026specbram]]: EEGNet is the weakest fine-tuned baseline on ISRUC/HMC sleep staging (0.715/0.653 BA vs FMs 0.75–0.81; Table 6, quoted from CSBrain).
 
 ## Q&A notes

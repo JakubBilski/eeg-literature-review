@@ -14,11 +14,12 @@
 ## Other topics
 <!-- synthesis notes not owned by a single hub -->
 - [[classical-ml-baselines]] — classical EEG classifiers (LDA, CSP, Riemannian) and how much DL beats them
-- [[eeg-labels-and-metadata]] — what labels/metadata come with EEG recordings
+- [[eeg-labels-and-metadata]] — what labels/metadata come with EEG recordings; why no common task makes a good FM benchmark
 - [[eeg-depression-detection]] — is depression detection from EEG as easy as reported? (open)
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-12 [[xie2026specbram]] — SpecBraM: matched ablation; band-power target beats raw-waveform reconstruction for frozen sleep features (+2–3, +5–7 points at 1% labels), not for MI/vigilance; full TUEG ≈ 2,388 h
 - 2026-10-11 [[liu2026eeg]] — EEG-FM-Compass: survey of 55 FMs + matched benchmark of 12; specialists tie FMs cross-subject and win few-shot, probes weak, no scaling
 - 2026-10-11 [[coppola2024hubert]] — HuBERT-ECG (ECG method parallel): k-means pseudo-labels on MFCC then latent features, 9.1M ECGs; same recipe as Sleep2.0 → bridge [[hubert-style-pseudo-labels]]
 - 2026-10-11 [[kuruppu2026eeg]] — critical review of the first 10 EEG foundation models: transformers + masked reconstruction, weak linear probes, weak scaling evidence, mostly in-distribution tests

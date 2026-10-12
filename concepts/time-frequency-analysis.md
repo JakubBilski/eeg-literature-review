@@ -83,6 +83,7 @@ How `scripts/plot_motor_erd.py` computes "mu power" for [[bci-paradigms]]:
 - [[li2022eeg]]: DWT levels mapped to EEG bands at 128 Hz (A5 ≈ δ, D5 ≈ θ, D4 ≈ α, D3 ≈ β, D2 ≈ γ; Table 1); wavelet energy and entropy per level as features. Recommends wavelets over STFT for non-stationary EEG (§3.4, pp. 6–7). Also EMD/VMD (p. 7).
 - [[weng2025self]]: time–frequency views as SSL targets: masked reconstruction of continuous-wavelet maps with a ViT, per-band reconstruction, and Fourier magnitude + phase prediction (neuro2vec) (§4.2).
 - [[kuruppu2026eeg]]: FM input choices: raw time series (6/10), power spectra (BIOT, EEGFormer), time series + spectra (Brant, FoME), per-channel STFT/superlet spectrograms (BrainBERT, BrainWave). No ablation settles which is better (§4.1, §5.2).
+- [[xie2026specbram]]: the statistical argument for power over phase. For a stationary Gaussian segment, Fourier phases are uniform and independent of the state, the periodogram is sufficient, and log band power has state-independent variance ≈ 1/(number of bins) (App. A, Props. 1–3). 🤖 Explains why spectral features are robust targets and why raw-waveform losses chase irreducible detail.
 
 ## Variants & disagreements
 - Fixed basis (Fourier, wavelets) vs data-driven (EMD) vs learned (CNN filters). There is no vault evidence yet on which works best as model input.

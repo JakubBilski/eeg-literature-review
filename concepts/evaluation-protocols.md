@@ -43,6 +43,7 @@ How data is split into training and test sets, and what is measured, determines 
   - BIOT pretrained on CHB-MIT, then ranks top on it ([[zare2026negative]], provenance note). LaBraM pretrained on PhysioNet-MI, which CBraMod uses as a downstream task [[jiang2024large]] (App. D).
   - The 2026 EEG-Arena benchmark drops results where pretraining data overlaps the downstream dataset [[chen2026benchmarking]] (§2.2, p. 4).
   - 🤖 *Verdict:* label leakage through splits is unlikely on TUAB/TUEV (official patient-disjoint test sets). Unlabelled exposure to test patients is common and under-reported, with one ablation showing a small effect. Hyperparameter search on the test set can't be excluded from the papers alone.
+- [[xie2026specbram]]: a **strict linear probe** (frozen encoder, mean-pooled tokens, logistic regression, C chosen on validation, test scored once) applied identically to all models (§5). Mean-pooling can understate models built for all-token heads: CBraMod frozen 0.171 (mean-pool) vs 0.315 (own head) on FACED (§6.4). Also found that CBraMod's released SEED-VIG script sorts files lexicographically ('10_' before '1_'), giving a different split from the paper's; the paper's R²/RMSE match the subject-ordered split (App. B). 🤖 Released preprocessing code can silently differ from the stated protocol.
 
 ## Variants & disagreements
 - Same dataset, different protocol: SEED appears as 5-fold window CV in Conformer and as a trial split in LaBraM (SEED-V). Accuracies are not comparable. The emotion review [[li2022eeg]] calls the first one wrong (§5.3).

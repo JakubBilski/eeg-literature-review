@@ -1,5 +1,5 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "-path:templates -path:fulltext",
   "showTags": false,
   "showAttachments": false,
@@ -27,9 +27,16 @@
         "a": 1,
         "rgb": 10181046
       }
+    },
+    {
+      "query": "path:experiments",
+      "color": {
+        "a": 1,
+        "rgb": 5025616
+      }
     }
   ],
-  "collapse-display": true,
+  "collapse-display": false,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
@@ -39,6 +46,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.44151027477271065,
+  "scale": 0.36231100887774986,
   "close": true
 }

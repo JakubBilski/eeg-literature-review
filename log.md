@@ -346,3 +346,23 @@
   - Read [[kommineni2026aperiodic]] before planning [[property-probe-battery]]; full reads of [[wang2026eeg]], [[chen2026benchmarking]] still pending.
   - 🤖 Q9 hub now has ~8 sub-sections; consider splitting into topic notes (proposed to the human).
   - Carried over: reads of [[zare2026negative]], [[yu2026neural]], [[xie2026specbram]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-12 (session 17)
+- **Added:**
+  - Paper [[xie2026specbram]] (SpecBraM, full read): matched pretext-target ablation; band power beats raw-waveform reconstruction for frozen sleep features (+1.6–2.8 BA, +5–7 at 1% labels), ~1 point after fine-tuning, no gain on MI/depression/vigilance; full TUEG ≈ 2,388 h subset (App. C).
+  - Screening (+5, cited by SpecBraM): [[yu2026understanding]] (FAME, include); [[kulkarni2026manas]], [[sukhbaatar2026bandvq]], [[bettinardi2025bioserenity]], [[zhou2025csbrain]] (maybe).
+- **Changed:**
+  - [[q9-pretraining-objectives-and-scale]]: data-scale null; SpecBraM controls (band-waveform, freq-axis masking, SIGReg alone); transient-task open thread partly answered; Table 3 gap narrowing along pretraining under *Scaling laws per target T?*; δ-band (<2 Hz) open thread.
+  - [[q7-foundation-models-vs-baselines]]: corrected the probing caveat (own input conventions, but mean-pooled readout); beyond-sleep target results; pointer to benchmark-quality section.
+  - [[eeg-labels-and-metadata]] (stub → active): *Is the field missing a good downstream task?* with 4 criteria, a per-task table and why each task fails; linked from [[q6-reliability-of-eeg-diagnoses]].
+  - [[eeg-depression-detection]]: random-init encoder 0.871 on Mumtaz (saturation).
+  - Concepts: [[self-supervised-pretraining]], [[frequency-bands]], [[time-frequency-analysis]], [[signal-quality-and-noise]], [[evaluation-protocols]] (CBraMod SEED-VIG split bug).
+- **Questions explored:**
+  - Per-channel target, devices, does high raw-MSE error mean FM features lack band-power information? → [[xie2026specbram]] Q&A (no: error measures unpredictability of the masked data; misaligned, not ill-defined).
+  - "Much better" vs "modestly worse": wording clarified (gap is +1.6–2.8 at 100% labels, +5–7 at 1%); no note change needed.
+  - Is this squeezing gains from a noisy task? → [[xie2026specbram]] Q&A (trust the direction and low-label effect, not the SOTA row).
+  - Is the lack of a well-labelled downstream task the main problem? → [[eeg-labels-and-metadata]], [[q6-reliability-of-eeg-diagnoses]], [[q7-foundation-models-vs-baselines]].
+- **Open:**
+  - Find 2022+ benchmarks with outcome-based labels (cardiac-arrest outcome, video-EEG-confirmed onsets, linked diagnoses); read [[kiessner2024reaching]] and the TUAB dataset paper (what "abnormal" means).
+  - Next reads: [[chen2026benchmarking]] (EEG-Arena), [[kontras2026neuroatlas]], [[zare2026negative]]; [[yu2026understanding]] (FAME) for Q9.
+  - Carried over: reads of [[yu2026neural]], [[kommineni2026aperiodic]]; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]. Concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1). Q9 hub split still proposed.

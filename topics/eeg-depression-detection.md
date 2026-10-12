@@ -21,6 +21,7 @@ Hub: [[q6-reliability-of-eeg-diagnoses]]
   - The task contrasts diagnosed patients with healthy controls from one site. That isn't screening a general population, where cases are milder and rarer.
   - Plausible confounds (not checked in the vault): medication, recording session, and group-level differences unrelated to depression itself. Models could pick these up.
   - The model ranking spans only ~4 points, so the dataset seems close to saturated rather than a test of what models can do.
+  - Supporting this: a *randomly initialised*, untrained encoder with a linear probe already reaches 0.871 balanced accuracy, and the pretext target makes no difference [[xie2026specbram]] (Table 7, §6.4).
 - **Status: open.** No vault source tests cross-site / cross-dataset generalization for depression.
 
 ## Comparisons
@@ -28,6 +29,7 @@ Hub: [[q6-reliability-of-eeg-diagnoses]]
 |---|---|---|---|
 | DeprNet (via [[chaddad2023electroencephalography]], Table 6) | not given in the review | recording vs subject | 99.37% vs 91.4% acc |
 | [[wang2024cbramod]] (Table 10) | Mumtaz2016, 64 subjects | subject-disjoint (43/9/10) | 0.923 (EEGNet) – 0.956 (CBraMod) bal. acc |
+| [[xie2026specbram]] (Table 7) | Mumtaz2016, CBraMod's split | frozen encoder + linear probe | 0.935 (band-power FM, = raw-recon. control), 0.893 CBraMod, 0.876 LaBraM; **random-init encoder 0.871** |
 
 ## Open threads
 - Cross-dataset or multi-site evaluation of EEG depression classifiers. Need a review of EEG biomarkers for depression (to find via `find-papers`).
@@ -36,4 +38,5 @@ Hub: [[q6-reliability-of-eeg-diagnoses]]
 
 ## Sources
 - [[chaddad2023electroencephalography]]: the DeprNet split comparison.
+- [[xie2026specbram]]: frozen probes on Mumtaz2016, including a random-init floor.
 - [[wang2024cbramod]]: Mumtaz2016 benchmark with a subject-disjoint split *(paper not yet fully read; appendix E.4 and Table 10 only)*.

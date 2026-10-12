@@ -96,5 +96,6 @@ How mature are early EEG-FMs for clinical and real-world use, judged through dat
 - [[wang2024cbramod]]: published after the cutoff, not covered.
 - [[roy2019deep]], [[lawhern2018eegnet]]: cited as the supervised EEG-DL era (refs [2], [78]).
 - [[banville2020uncovering]]: cited (ref [6]) for SSL reducing label dependence.
+- [[xie2026specbram]]: adds a direct data-scale null (full TUEG ≈ 2,388 h subset, App. C) and the kind of matched target ablation the review calls for.
 
 ## Q&A notes
