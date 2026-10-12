@@ -95,6 +95,7 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[roy2019deep]]: the pre-foundation-model DL-EEG landscape (2010–2018). It anticipated that large corpora like TUH would make deeper models usable (p. 27). Its 2010–2014 unsupervised pretraining (RBM/DBN/AE) is a precursor to LaBraM's.
 - [[kuruppu2026eeg]]: 2026 review of 10 early FMs. LaBraM leads TUAB/TUEV, possibly through data diversity; its probe gap is the field-wide pattern; the review counts it as fixed-montage (🤖 debatable).
 - [[weng2025self]]: survey of the SSL methods before LaBraM (≈2019–2023). LaBraM itself isn't covered.
+- [[bomatter2025limited]]: LaBraM-Base fine-tuned vs from scratch over a people × segments grid on TUAB, CAUEEG and sleep. Pretraining helps except at the smallest data; from scratch it is the least sample-efficient of three models (Figs. 5, 9–12).
 - [[xie2026specbram]]: probes LaBraM-Base frozen on sleep (ISRUC 0.752, HMC 0.632), below hand-crafted spectral features on HMC (Table 4); argues a fixed band-power target avoids the learned codebook.
 
 ## Q&A notes

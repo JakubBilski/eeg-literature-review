@@ -120,6 +120,7 @@ Five research questions, each with its own protocol (Fig. 1C, p. 3):
 - [[jiang2024large]], [[wang2024cbramod]], [[yang2023biot]], [[wang2024eegpt]]: among the evaluated FMs. BIOT leads the bipolar ranking.
 - [[ouahidi2025reve]]: REVE-base is the top non-bipolar FM and the backbone of the data-scaling series.
 - [[lawhern2018eegnet]]: EEGNet as a baseline; rarely in the top 3 here.
+- [[bomatter2025limited]]: the same pretrain-vs-scratch question over people × segments (LaBraM). Gain ≈ 0 at the smallest TUAB data and largest at moderate data, matching this paper's small gain at 2% of labels.
 - [[kontras2026neuroatlas]], [[xiong2025eeg]], [[lu2026omnieeg]], [[banville2026neuralbench]]: other benchmarks in Table 1.
 
 ## Q&A notes

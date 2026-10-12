@@ -98,7 +98,20 @@ The human's objection: expert agreement is poor (N1 κ 0.24, N2/N3 0.57 [[lee202
   - Predicting outcomes or diagnoses from a whole night, which [[wang2024cbramod]] cites as a combined task ("Lpsgm: … sleep staging and mental disorder diagnosis").
   - Scoring with soft labels or several scorers, to measure the model against the spread between humans rather than one hypnogram.
 
+- [[bomatter2025limited]]: PhysioNet 2018 sleep (6 EEG channels, single 30-s epochs) as the one task where data per person matters as much as the number of people (Fig. 3). PhaseRandomisation augmentation hurts small models here because it destroys waveform shapes such as K-complexes (§4.3).
 - [[xie2026specbram]]: ISRUC/HMC sleep staging as the main probe task. Hand-crafted 5-band power ≈ FM frozen features (Table 5); fine-tuned SOTA 0.811 BA on ISRUC (Table 6). Comparison noise: std over 3 pretraining seeds is 0.002–0.008, but there's no CI over test subjects.
+
+## Do people matter in sleep staging? (asked 2026-10-12)
+*The human's claim: sleep staging is the task where the number of distinct people should matter least.*
+- **The evidence agrees.**
+  - [[bomatter2025limited]] (Fig. 3, TCN, PhysioNet 2018): 25 people × 640 epochs reach the same accuracy as 400 people × 5 epochs (0.66). On TUAB and dementia (CAUEEG), extra data per person adds ~nothing and people dominate.
+  - [[oliveira2026scaling]]: ISRUC sleep is the one dataset where the per-trial term dominated for most models (p. 6), while TUAB/NMT are subject-dominated (Table 2).
+  - People still help a little in sleep: at a fixed 8,000 epochs, 25 → 50 people gives +4 accuracy points, then it is flat up to 800 ([[bomatter2025limited]] Fig. 3).
+- 🤖 **Why:**
+  - *Every night contains every label.* One person gives all five stages, so each extra epoch is a new labelled example of some class. In one-label-per-person tasks (abnormal, dementia), extra segments repeat the same label, so the number of independent labels *is* the number of people.
+  - *The label is a person-independent rule over the signal.* The stage contrasts (alpha vs theta vs spindles vs delta, see *What the stages look like*) are large compared with individual differences, and scorers apply the same thresholds to everyone.
+  - *What still varies by person* (from memory, to source): slow-wave amplitude falls with age, so fewer epochs cross the 75 µV N3 threshold; individual spindle and alpha frequencies; medication; sleep disorders. That is why people still add a few points, and why an older, sicker cohort (e.g. SHHS) may show more person effect than PhysioNet 2018.
+- **Consequence for experiments:** sleep is the weakest task for testing whether the number of people gates model capacity. Use it as the contrast, not the main test → [[subject-diversity-gap]] *After reading Bomatter & Gouk*.
 
 ## Variants & disagreements
 - **5 vs 4 stages:** many consumer devices merge N1+N2 into "light" (Zeo, Neuroon, Umind, Zmachine, LANMAO) [[gans2024sleep]] (Table 1). Scores on 4-class and 5-class outputs are not comparable.

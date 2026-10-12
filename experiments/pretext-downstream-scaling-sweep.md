@@ -15,6 +15,7 @@ updated: 2026-10-12
 
 ## Hypothesis
 🤖 "Better pretext, worse downstream" is mostly an artifact of comparing loss values across different target definitions, and of cross-model confounding. Within one fixed model family and target, held-out pretext loss should track downstream quality for a while and then decouple, with the decoupling coming from objective misalignment, not from overfitting during pretraining. Ranked candidate causes → [[q9-pretraining-objectives-and-scale]] *Why pretext gains don't transfer downstream*.
+- **Competing hypothesis (human, 2026-10-12):** non-scaling of FM size is overfitting from repeated passes over too few independent samples, as with ViT on ImageNet-1k. Under it, larger models win at matched examples seen before repetition, and lose after. Track train vs held-out pretext loss per size *per pass* to separate it from misalignment. Supervised version → [[subject-diversity-gap]] *Repetitions (H5)*.
 
 ## Design
 - **Fixed:** one backbone family, preprocessing, masking; raw-EEG input for every arm.

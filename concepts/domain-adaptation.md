@@ -39,6 +39,8 @@ A model trained on data from some sources (people, sessions, devices, datasets) 
 - [[roy2019deep]]: in 2010–2018, 61% of DL papers were inter-subject, but only 22 of 108 held subjects out (pp. 22–23). One study got 75% on seen vs 38% on unseen subjects (p. 23). Pooling subjects, then fine-tuning per subject worked best (ref [127], p. 27).
 - [[liu2026eeg]]: Euclidean alignment (whitening each subject's mean covariance to identity, a Riemannian re-centering) improves most models in cross-subject MI on BNCI2014001 (Fig. 7c, p. 23). EA also mixes channels, which may conflict with coordinate-aware FMs (p. 25).
 
+- [[bomatter2025limited]]: participant distribution shift bounds scaling. With a person-level shift, overfitting is governed by the number of people, not data per person (theory, §3), and on TUAB/CAUEEG more segments per person don't help (Fig. 3). Standard augmentations don't close the gap; the authors ask for augmentations that imitate person differences (§5).
+
 ## Variants & disagreements
 - 🤖 Many DA papers use the *unlabelled* target subject's test data during training (transductive). That's legitimate only if the deployment scenario allows it, so compare DA numbers to plain cross-subject numbers with care.
 - 🤖 Within one dataset, "cross-subject" still shares device, lab, stimuli and protocol. Cross-*dataset* transfer is the harder and rarer test [[li2022eeg]] (p. 28).

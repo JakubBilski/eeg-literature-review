@@ -47,6 +47,8 @@ How data is split into training and test sets, and what is measured, determines 
 
 - [[chen2026benchmarking]]: EEG-Arena ranks models separately for within-subject and cross-subject splits and for bipolar vs non-bipolar data, and drops results where pretraining data overlap the task. It picks the checkpoint on validation and reports single runs with no error bars. FM margins are about twice as large within-subject (median +5.9 vs +2.5 points, own tally of Fig. 3), and the largest ones (DTU-AAD WS +49, SEED WS 94%) look like within-trial leakage. 🤖
 
+- [[bomatter2025limited]]: a **people × segments-per-person grid** with one fixed cross-subject test set separates participant diversity from sample size. TUAB/CAUEEG are scored per person (majority vote over segments), because the label belongs to the person (App. A.3). Random vs contiguous segment sampling gives the same picture on TUAB (App. A.7). 🤖 Error bars are over training subsamples only, not over test people.
+
 ## When is within-subject (calibrated) evaluation clinically realistic? (asked 2026-10-12)
 🤖 Synthesis; mostly textbook and needs sources.
 - **For one-off diagnosis it isn't.** Routine EEG, abnormality screening, dementia and depression need a model that works on a *new* patient without labels. The matching protocol is cross-subject, ideally cross-site.

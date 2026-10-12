@@ -397,3 +397,22 @@
   - Rule added (human, 2026-10-12): adjacent-field exception for experiment decisions. Changed CLAUDE.md, the `/review-experiment` skill and `templates/experiment.md` (*Prior work → Other fields*).
   - Screening (+6): [[bomatter2025limited]], [[banville2025scaling]] (EEG); [[ooi2025longer]] (fMRI), [[yong2025effects]], [[berrebbi2023more]] (speech), [[denadel2026evaluating]] (single-cell), all marked OTHER FIELD.
   - [[subject-diversity-gap]]: cross-entropy co-primary, paired tests, minimal detectable difference from the pilot. Status stays `idea` (human).
+
+## 2026-10-12 (session 19)
+- **Added:**
+  - Paper [[bomatter2025limited]] (full read): people × segments-per-person grid on TUAB, CAUEEG and PhysioNet 2018 sleep (TCN, mAtt, LaBraM). People dominate one-label-per-person diagnosis; sleep is the exception (25 × 640 ≈ 400 × 5). LaBraM pretraining gain is ≈ 0 at the smallest TUAB data and flat across people on sleep. Augmentations don't help.
+  - [[sleep-staging]] *Do people matter in sleep staging?*
+  - [[subject-diversity-gap]]: *After reading Bomatter & Gouk*, design v3 adopted by the human (TUAB main, sleep as contrast, CNN + transformer-from-scratch families, size × K vs size × m slopes). *Is a CNN family valid for the size axis?* New H5 *Repetitions*.
+- **Changed:**
+  - Q9 (people-as-data bullet, speech transfer, *Is it just overfitting from repetition?*), Q7 (pretrain vs scratch), Q6 (people = data size for one-label-per-person diagnosis).
+  - [[evaluation-protocols]], [[self-supervised-pretraining]], [[domain-adaptation]]; reverse links in [[jiang2024large]], [[roy2019deep]], [[chen2026benchmarking]].
+  - [[pretext-downstream-scaling-sweep]]: the human's pretraining-repetition hypothesis recorded as the competing one.
+- **Questions explored:**
+  - Is sleep the task where people matter least, and what does that mean for the experiment? → [[sleep-staging]], [[subject-diversity-gap]] (yes; sleep becomes the contrast, TUAB the main task).
+  - Are CNNs valid for testing scaling here? → [[subject-diversity-gap]] (valid for H3, not enough for FMs; add a transformer family).
+  - Is FM non-scaling just overfitting from repeated passes (like ViT on ImageNet-1k)? → [[subject-diversity-gap]] *Repetitions (H5)*, Q9, [[pretext-downstream-scaling-sweep]].
+- **Open:**
+  - Before running v3: check the TUAB eval-set size (bounds the CI); TUH access registration; reuse Bomatter's code.
+  - Reading: Rommel et al. 2022 (EEG augmentation comparison; not in screening); [[kiessner2024reaching]] still needs a manual PDF.
+  - Next reads: [[kontras2026neuroatlas]], [[zare2026negative]]; paper note for [[oliveira2026scaling]].
+  - Carried over: Q9 hub split (~265 lines) still proposed; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]; concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1). Other-field claims in the CNN and H5 answers (Hestness, Rosenfeld, Smith, DeiT) are from memory.
