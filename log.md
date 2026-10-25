@@ -450,3 +450,17 @@
 - **Open:**
   - The human will talk to the authors: question list in [[poziomska2025quantity]] Q&A.
   - Carried over: data-inventory task (FM corpora vs NeuroAtlas data); next reads [[zare2026negative]], [[kommineni2026aperiodic]], [[oliveira2026scaling]] note; Q9 hub split (~270 lines); manual PDFs [[janmohamed2023comparison]], [[bank2022structural]], [[kiessner2024reaching]]; concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
+
+## 2026-10-25 (session 22)
+- **Added:** [[wang2024cbramod]] (CBraMod, ICLR 2025; full read incl. App. A–S).
+- **Changed:**
+  - [[q5-state-of-the-art]]: CBraMod bullet replaces "not yet read"; TUAB/TUEV rows now CBraMod ≈ LaBraM-Huge.
+  - [[q7-foundation-models-vs-baselines]]: CBraMod frozen-backbone result (App. J); new section *Saturated, noisy, or headroom?*; open thread "headroom table".
+  - [[q9-pretraining-objectives-and-scale]]: data quality vs quantity vs architecture (clean/dirty/no pretraining, App. G re-pretraining, App. F data curve).
+  - Corrections: [[evaluation-protocols]] (CBraMod did re-pretrain without TUAB/TUEV); [[q6-reliability-of-eeg-diagnoses]] (>9,000 h, not 2,500 h).
+  - Concepts [[self-supervised-pretraining]], [[channel-heterogeneity]], [[cnn-transformer-hybrid]], [[time-frequency-analysis]], [[eeg-preprocessing-pipeline]], [[digital-filtering]], [[signal-quality-and-noise]]: CBraMod entries; 4 open questions partly answered. Reverse links in [[jiang2024large]], [[song2022eeg]], [[lee2021interrater]], [[classical-ml-baselines]], [[eeg-depression-detection]].
+- **Questions explored:**
+  - Are the small pretraining/architecture gains a sign of noisy, saturated tasks; is there evidence of headroom? → [[q7-foundation-models-vs-baselines]] *Saturated, noisy, or headroom?* (noisy everywhere; saturated for sleep/TUAB; headroom on cross-subject MI via alignment (+14 on the same CBraMod, App. Q) and on seizures).
+- **Open:**
+  - Headroom table (label ceiling + subject-bootstrap CI per benchmark); seizure-annotation inter-rater source still missing.
+  - Next FM read: [[wang2024eegpt]] (PDF in `pdf/`). Carried over: data-inventory task, [[zare2026negative]], [[kommineni2026aperiodic]], Q9 hub split, manual PDFs [[janmohamed2023comparison]], [[bank2022structural]], [[kiessner2024reaching]]; concepts with <2 papers: computed-tomography, magnetic-resonance-imaging.

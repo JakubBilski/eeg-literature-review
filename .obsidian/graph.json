@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "-path:templates -path:fulltext",
+  "search": "path:papers OR path:concepts OR path:experiments",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -46,6 +46,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.4243191976410858,
-  "close": true
+  "scale": 0.6982760307874836,
+  "close": false
 }

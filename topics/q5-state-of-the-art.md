@@ -13,7 +13,7 @@ updated: 2026-10-12
 - As of ICLR 2024, **LaBraM** reported the best results on clinical TUH benchmarks: TUAB balanced accuracy 0.8258 and TUEV 0.6616 (Huge), vs BIOT 0.7959 / 0.5281 [[jiang2024large]] (Tables 1–2).
 - For per-subject motor imagery without pretraining, **EEG Conformer** reported 78.66% on BCI IV-2a and 84.63% on 2b [[song2022eeg]] (Tables II–III). It is now a common baseline.
 - 🤖 These numbers are not one leaderboard. The protocols differ (within-subject vs cross-patient, window CV vs trial split) → [[evaluation-protocols]]. "SOTA" in EEG has to be stated per task and per protocol.
-- 🤖 Newer foundation models (CBraMod, EEGPT) claim to improve on LaBraM. Not yet read.
+- **CBraMod (ICLR 2025) reported best on all 13 of its datasets,** by 1–4 points over fine-tuned LaBraM-Base and ≈ LaBraM-Huge on TUH tasks (TUAB 0.829 vs 0.826, TUEV 0.667 vs 0.662) with 4M params [[wang2024cbramod]] (Tables 2–15). 🤖 Margins are within seed SD on several sets, test sets are 2–23 subjects, and independent benchmarks later find its lead not significant ([[liu2026eeg]], next bullets). EEGPT not yet read.
 - **As of Sep 2024, no field-wide leaderboard existed.** Only TUAB and TUEV are shared across EEG-FM papers, and only 4 of 10 models report them: fine-tuned TUAB AUC 0.86–0.92, TUEV F1 0.70–0.83, with LaBraM on top [[kuruppu2026eeg]] (Fig. 3, §5.1). Only BrainWave tested broadly (12 tasks, cross-site, few-shot). General time-series FMs (TimesNet, MOMENT) are sometimes competitive (p. 17). TUAB may be saturated (85–87% accuracy with traditional methods; §5.2).
 
 - **As of mid-2026, no FM is the clear state of the art across paradigms.** In the largest matched benchmark (12 open FMs, 13 datasets), CBraMod has the best average rank, but EEGNet, Conformer, ShallowConv, Deformer and LMDA are statistically tied with it. Per-task winners are mostly specialists: EEGNet has the most first places (p. 20). The paradigm-specific MIRepNet leads MI (BNCI2014001 LOSO 54.2) [[liu2026eeg]] (Supp. Tables 16, 52). FMs that look strong on clinical data fail elsewhere: LUNA tops TUAB (81.9, but TUAB was in its pretraining) yet sits at chance on SSVEP (p. 17; Table 3).
@@ -24,8 +24,8 @@ updated: 2026-10-12
 ## Comparisons
 | task (protocol) | best in vault | score | source |
 |---|---|---|---|
-| TUAB abnormal (cross-patient) | LaBraM-Huge | BA 0.8258, AUROC 0.9162 | [[jiang2024large]] Table 1 |
-| TUEV events (cross-patient) | LaBraM-Huge | BA 0.6616, κ 0.6745 | [[jiang2024large]] Table 2 |
+| TUAB abnormal (cross-patient, fine-tuned) | CBraMod (4M) ≈ LaBraM-Huge (369M) | BA 0.8289 vs 0.8258, AUROC 0.9227 vs 0.9162 | [[wang2024cbramod]] Table 14; [[jiang2024large]] Table 1 |
+| TUEV events (cross-patient, fine-tuned) | CBraMod ≈ LaBraM-Huge | BA 0.6671 vs 0.6616, κ 0.6772 vs 0.6745 | [[wang2024cbramod]] Table 13; [[jiang2024large]] Table 2 |
 | BCI IV-2a MI (within-subject) | Conformer | 78.66%, κ 0.7155 | [[song2022eeg]] Table II |
 | BCI IV-2b MI (within-subject) | Conformer | 84.63%, κ 0.6926 | [[song2022eeg]] Table III |
 | BCI IV-2a MI (LOSO, 4-class) | MIRepNet | BA 54.21 | [[liu2026eeg]] Supp. Table 16 |
@@ -35,10 +35,11 @@ updated: 2026-10-12
 | SSVEP Nakanishi2015 (few-shot) | TRCA | 98.77 | [[liu2026eeg]] Table 3 |
 
 ## Open threads
-- Read [[wang2024cbramod]] (downloaded) and [[wang2024eegpt]] (needs manual download) for post-LaBraM results.
+- ~~Read [[wang2024cbramod]]~~ (read 2026-10-25). Still to read: [[wang2024eegpt]] (PDF in `pdf/`).
 - Is there a common benchmark suite for foundation models? *As of Sep 2024: no* [[kuruppu2026eeg]] (§5.2). 2026: [[liu2026eeg]] read (a benchmark, but its code is only announced, so it is not yet a public leaderboard). [[chen2026benchmarking]] read 2026-10-12: code and a live leaderboard released, so this is the first public leaderboard, though without error bars. [[kontras2026neuroatlas]] read 2026-10-25: code announced, but explicitly *not* a scoreboard, because pretraining overlap with public data can't be verified (p. 9). Queued: [[xiong2025eeg]].
 
 ## Sources
+- [[wang2024cbramod]]: CBraMod, criss-cross FM; 13-dataset fine-tuning tables (2025).
 - [[kontras2026neuroatlas]]: NeuroAtlas frozen-probe benchmark (20 models, 42 datasets, 2026).
 - [[chen2026benchmarking]]: EEG-Arena benchmark and public leaderboard (30 FM checkpoints, 23 datasets, 2026).
 - [[liu2026eeg]]: EEG-FM-Compass benchmark (12 FMs, 13 datasets, 2026).

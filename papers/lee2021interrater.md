@@ -58,6 +58,6 @@ How well do human scorers agree when manually staging polysomnography, overall a
 
 ## Related papers
 - [[gans2024sleep]]: cites this paper (ref [96]) for the claim that manual scoring varies by technician (p. 10).
-- [[wang2024cbramod]]: its ISRUC sleep benchmark uses expert AASM labels (App. E.1). Which scorer's labels it used is not stated in the vault notes.
+- [[wang2024cbramod]]: its ISRUC sleep benchmark uses expert AASM labels (App. E.1). The paper says only "by sleep experts" and does not say which ISRUC scorer's labels it used (App. E.1, p. 23).
 
 ## Q&A notes

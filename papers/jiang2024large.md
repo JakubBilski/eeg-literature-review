@@ -88,7 +88,7 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[liu2026eeg]]: independent benchmark; LaBraM ranks 9th of 20 (9.36), and its probe < fine-tune gap is significant (Supp. Tables 52, 58).
 - [[song2022eeg]]: the non-pretrained conv + attention predecessor pattern. Not used as a LaBraM baseline.
 - [[yang2023biot]]: BIOT, the main baseline and source of the evaluation splits. *(screening: maybe)*
-- [[wang2024cbramod]]: a later EEG foundation model that compares against LaBraM. *(seed, not yet read)*
+- [[wang2024cbramod]]: CBraMod (ICLR 2025): raw-patch MSE + criss-cross attention, 4M params; beats fine-tuned LaBraM-Base by 1–4 points, ≈ LaBraM-Huge on TUAB/TUEV; re-pretraining LaBraM's architecture on CBraMod's data doesn't close the gap (App. G).
 - [[lawhern2018eegnet]]: cited as the canonical CNN approach (§1).
 - [[chaddad2023electroencephalography]]: classical time–frequency features, which LaBraM's Fourier-amplitude/phase targets learn instead.
 - [[wong2023eeg]]: describes TUSZ, LaBraM's largest pretraining source: 3,050 seizures, the richest clinical metadata (Tables 5–6, 8).

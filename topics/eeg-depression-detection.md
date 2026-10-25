@@ -39,4 +39,4 @@ Hub: [[q6-reliability-of-eeg-diagnoses]]
 ## Sources
 - [[chaddad2023electroencephalography]]: the DeprNet split comparison.
 - [[xie2026specbram]]: frozen probes on Mumtaz2016, including a random-init floor.
-- [[wang2024cbramod]]: Mumtaz2016 benchmark with a subject-disjoint split *(paper not yet fully read; appendix E.4 and Table 10 only)*.
+- [[wang2024cbramod]]: Mumtaz2016 benchmark with a subject-disjoint split (eyes-open/closed sessions only; 50 Hz notch; 5 s windows; test = 5 MDD + 5 HC, App. E.4). *(full read 2026-10-25)*.

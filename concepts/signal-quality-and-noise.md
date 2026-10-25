@@ -24,6 +24,7 @@ The measured signal is weak relative to unwanted contributions (other body signa
 
 - [[gans2024sleep]]: in sleep wearables, quality is reported as feasibility (artifact share, recording success rate, compliance), e.g. Dreem <20% artifacts, Cerebra 83% success (p. 9). It is validated by agreement with a simultaneous PSG, not by signal metrics (Table 1).
 - [[wong2023eeg]]: intracranial EEG has a higher signal-to-noise ratio than scalp EEG and is less affected by artifacts and the environment (§7).
+- [[wang2024cbramod]]: TUEG has "a substantial amount of unmarked noise, artifacts, and faulty channels" (§3.1). A crude rule (drop any 30 s window with |x| >100 µV) is what makes pretraining useful: uncleaned pretraining ≈ none (Table 4). The authors call it crude and costly in data (App. S.2).
 - [[xie2026specbram]]: artifacts can corrupt a *pretraining target*, not just the input. On vigilance regression a band-power FM improves by 5–7 Pearson points when input <4 Hz is removed, while a raw-reconstruction FM doesn't; the authors' untested hypothesis is that ocular artifacts, 1–2 orders of magnitude larger than cortical activity, dominate the low target bands (§6.5, Table 9).
 
 ## Variants & disagreements

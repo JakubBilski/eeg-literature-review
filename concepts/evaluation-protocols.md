@@ -17,6 +17,7 @@ How data is split into training and test sets, and what is measured, determines 
 
 ## Papers
 - [[song2022eeg]]: within-subject only. Cross-session split on BCI IV-2a/2b, but 5-fold CV over 1 s windows from a single SEED session (likely leakage 🤖) (§IV-A).
+- [[wang2024cbramod]]: fixed subject-disjoint splits on most of 13 datasets, SD over 5 fine-tuning seeds only (so it reflects seed noise, not subject sampling); test sets of 2 (CHB-MIT, BCIC-IV-2a), 4 (SEED-VIG, MentalArithmetic), 5 (SHU-MI) and 10 subjects (Mumtaz, ISRUC) (§3.3, App. E). SEED-V uses a within-session trial split with pooled subjects (§3.3). Also reports frozen vs fine-tuned (App. J) and LOSO on BCIC-IV-2a (App. Q).
 - [[jiang2024large]]: patient-level split on TUAB/TUEV (following BIOT), but SEED-V splits trials and pools subjects (App. F). Reports fine-tuning and linear probing; the probe is much weaker on TUEV (Table 10).
 
 - [[varbu2022past]]: in BCI, inter- and intra-subject variability is "one of the most important obstacles", and subject-independent BCIs remain a challenge. Per-user calibration is time-consuming and especially hard for people with mental disabilities (§6.1, pp. 21–22).
@@ -38,7 +39,7 @@ How data is split into training and test sets, and what is measured, determines 
 
 - **Pretraining exposure to test recordings (asked 2026-10-11):** TUAB and TUEV are subsets of the TUH corpus (TUEG) [[kuruppu2026eeg]] (§4.1).
   - [[jiang2024large]] excluded its four downstream datasets and states TUAB/TUEV recordings are disjoint from pretraining. Adding them back changed results "not significantly" (§3.5, Fig. 4). Model selection uses a validation split of 20% of training patients, over 5 seeds (§3.2).
-  - [[wang2024cbramod]] pretrains on all of TUEG and evaluates on TUAB/TUEV. I found no statement that test recordings were removed (§3.1).
+  - [[wang2024cbramod]] pretrains on all of TUEG and evaluates on TUAB/TUEV, but also re-pretrains with TUAB / TUEV removed: TUAB 0.825 vs 0.829, TUEV 0.666 vs 0.667 (App. E.7–E.8, Tables 13–14). *Corrected 2026-10-25 after the full read.* 🤖 Only the subset files were dropped; the same patients' other TUEG sessions may remain.
   - [[xie2026specbram]] says outright "Downstream patients are not excluded from pretraining (as in prior work)" (§5).
   - BIOT pretrained on CHB-MIT, then ranks top on it ([[zare2026negative]], provenance note). LaBraM pretrained on PhysioNet-MI, which CBraMod uses as a downstream task [[jiang2024large]] (App. D).
   - The 2026 EEG-Arena benchmark drops results where pretraining data overlaps the downstream dataset [[chen2026benchmarking]] (§2.2, p. 4).

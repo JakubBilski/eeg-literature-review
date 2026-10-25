@@ -55,4 +55,4 @@ updated: 2026-10-11
 - [[chaddad2023electroencephalography]]: catalogue of classical classifiers.
 - [[varbu2022past]]: frequency of features and classifiers in 2009–2019 BCI papers.
 - [[song2022eeg]]: FBCSP vs DL on motor imagery.
-- [[wang2024cbramod]]: modern baseline set *(Table 10 only so far)*.
+- [[wang2024cbramod]]: modern deep baseline set on 13 datasets (EEGNet … ST-Transformer); no classical pipeline (§3.2). *(full read 2026-10-25)*

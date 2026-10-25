@@ -37,6 +37,7 @@ Remove or keep parts of a signal according to how fast they oscillate. A filter 
 
 ## Papers
 - [[niso2022wireless]]: dry electrodes drift below 2 Hz with sweat, which "forces higher high-pass cut-offs" (p. 6). Activity of interest is mostly ≤50 Hz, so 250–500 Hz sampling is common (§3.8).
+- [[wang2024cbramod]]: 0.3–75 Hz band-pass + 60 Hz notch for TUEG, TUAB and TUEV; 50 Hz notch for Mumtaz2016; 0.3–40 Hz for BCIC-IV-2a; resample to 200 Hz everywhere (§3.1; App. E.4, E.7–E.9).
 - [[song2022eeg]]: band-pass 4–40 Hz (motor imagery) and 4–47 Hz (SEED) before the model (§IV-A).
 - [[lawhern2018eegnet]]: band-pass depends on the paradigm: 1–40 Hz for P300/ERN, 0.1–40 Hz for MRCP (to keep slow potentials), 4–40 Hz for SMR (Table 1). EEGNet's first layer is a learned temporal filter bank, conceptually like FBCSP's band-pass bank (§1).
 - [[varbu2022past]]: dry headsets are reportedly more robust to line noise (Soufineyestani, p. 15).
@@ -45,7 +46,7 @@ Remove or keep parts of a signal according to how fast they oscillate. A filter 
 - How much to filter before deep learning: many DL pipelines still band-pass (Conformer 4–40 Hz), while others feed minimally filtered data and let the first conv layer learn the filters. 🤖 There's no vault evidence on which is better.
 
 ## Open questions
-- Standard filter settings in foundation-model preprocessing (LaBraM, CBraMod): check their appendices.
+- Standard filter settings in foundation-model preprocessing (LaBraM, CBraMod): *answered for CBraMod (2026-10-25):* 0.3–75 Hz + mains notch, 200 Hz → *Papers*. LaBraM still to check.
 
 ## Related concepts
 - [[eeg-preprocessing-pipeline]]: filtering is usually the first step.

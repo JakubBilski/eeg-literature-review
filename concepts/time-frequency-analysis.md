@@ -79,6 +79,7 @@ How `scripts/plot_motor_erd.py` computes "mu power" for [[bci-paradigms]]:
 ## Papers
 - [[chaddad2023electroencephalography]]: wavelets and EMD for denoising (§2.2.4–2.2.5); time–frequency analysis as a feature family (§2.4.1).
 - [[varbu2022past]]: PSD (23/126) and Fourier (20/126) are the most common BCI features, wavelets 8/126 (Fig. 12).
+- [[wang2024cbramod]]: FFT-magnitude branch added to a conv branch in the patch encoder; frequency-only input is worst (FACED 0.521 vs time-only 0.544, both 0.551; Table 17). The authors' reading: the waveform contains the spectrum implicitly, but FFT magnitude loses timing (App. I).
 - [[jiang2024large]]: tokenizer targets are the Fourier amplitude and phase of 1 s patches (§2.2), i.e. a per-patch short-time Fourier view.
 - [[li2022eeg]]: DWT levels mapped to EEG bands at 128 Hz (A5 ≈ δ, D5 ≈ θ, D4 ≈ α, D3 ≈ β, D2 ≈ γ; Table 1); wavelet energy and entropy per level as features. Recommends wavelets over STFT for non-stationary EEG (§3.4, pp. 6–7). Also EMD/VMD (p. 7).
 - [[weng2025self]]: time–frequency views as SSL targets: masked reconstruction of continuous-wavelet maps with a ViT, per-band reconstruction, and Fourier magnitude + phase prediction (neuro2vec) (§4.2).
@@ -89,7 +90,7 @@ How `scripts/plot_motor_erd.py` computes "mu power" for [[bci-paradigms]]:
 - Fixed basis (Fourier, wavelets) vs data-driven (EMD) vs learned (CNN filters). There is no vault evidence yet on which works best as model input.
 
 ## Open questions
-- Do foundation models benefit from spectral inputs/targets over raw waveforms? LaBraM says raw reconstruction fails to converge (§2.2). Check CBraMod/BIOT.
+- Do foundation models benefit from spectral inputs/targets over raw waveforms? LaBraM says raw reconstruction fails to converge (§2.2). *Partial (2026-10-25):* CBraMod's raw-patch MSE converges (Fig. 6) and is competitive; as *input*, spectrum alone is worse than waveform (Table 17). As *target*, band power beats raw reconstruction on sleep in a matched study → [[xie2026specbram]], [[q9-pretraining-objectives-and-scale]]. BIOT unchecked.
 
 ## Related concepts
 - [[digital-filtering]]: a band-pass filter is the first step of the Hilbert route; the DWT is a filter cascade.

@@ -42,6 +42,7 @@ The two vault reviews describe the same skeleton: raw EEG → preprocessing (den
 
 ## Papers
 - [[varbu2022past]]: four-step skeleton; frequencies of feature and classifier choices (§2; Figs. 12–13).
+- [[wang2024cbramod]]: FM pretraining pipeline on TUEG: drop recordings ≤5 min and first/last minute, 19 10-20 channels, 0.3–75 Hz band-pass, 60 Hz notch, 200 Hz, 30 s windows, reject windows with any |x| >100 µV, scale by 100 µV (§3.1). Keeps ~9,000 of 27,062 h.
 - [[chaddad2023electroencephalography]]: the classical pipeline with the denoising toolbox in detail (Fig. 2, §2.2–2.5).
 - [[niso2022wireless]]: acquisition side: sampling rate, reference, impedance (§3).
 - [[kuruppu2026eeg]]: foundation models pretrain on *minimally* preprocessed EEG: bandpass from 0.5 Hz, notch, resample to 200/250 Hz, 1–10 s epochs, with no artifact removal or outlier exclusion and mostly undescribed normalization (§4.1, p. 9). The effect of that choice is an open gap (§5.2).
@@ -52,7 +53,7 @@ The two vault reviews describe the same skeleton: raw EEG → preprocessing (den
 - Minimal vs heavy preprocessing before DL: should the network learn from near-raw data? [[roy2019deep]] concludes that artifact removal "is in general not required", because 46% of DL papers skipped it and still beat their baselines (p. 27). It also calls preprocessing in general an open question: two raw-EEG models beat preprocessed baselines by ~4% (p. 27). Exception: tasks that provoke fast eye movements (p. 27). 🤖 This is weak evidence: it counts what papers did instead of comparing pipelines, and a network may exploit artifacts (EMG, eye movements) as features. A controlled comparison is still missing from the vault.
 
 ## Open questions
-- What preprocessing do foundation models (LaBraM, CBraMod) apply, and does it differ enough between pretraining corpora to matter?
+- What preprocessing do foundation models (LaBraM, CBraMod) apply, and does it differ enough between pretraining corpora to matter? *Partial (2026-10-25):* CBraMod's pipeline is listed under *Papers*; it follows LaBraM's 100 µV scaling. Its amplitude rejection matters: without it pretraining ≈ no pretraining ([[wang2024cbramod]] Table 4). Cross-corpus differences are still unchecked.
 
 ## Related concepts
 - every concept linked in the table above.
