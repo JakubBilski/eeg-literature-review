@@ -94,6 +94,7 @@ Two families: **ERP** BCIs (time-locked waveform, robust across subjects) vs **o
 - [[channel-heterogeneity]]: fixed montage; the depthwise conv spans exactly C channels.
 
 ## Related papers
+- [[kontras2026neuroatlas]]: EEGNet trained end-to-end (LOSO) beats the best frozen foundation model on 13 of 18 BCI tasks (9 of 18 after confound filtering) (App. D.7).
 - [[chen2026benchmarking]]: EEGNet is one of 24 DL baselines in EEG-Arena; rarely in the top 3 (Fig. 3).
 - [[liu2026eeg]]: 2026 benchmark where EEGNet (2K params) ranks 2nd of 20 overall and has the most top-1 placements, not significantly behind CBraMod (pp. 20–21).
 - [[roy2019deep]]: the systematic review of the same era; EEGNet is the "temporal then spatial conv" pattern it describes (p. 18).

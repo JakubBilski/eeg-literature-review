@@ -18,6 +18,7 @@ updated: 2026-10-12
 
 - **As of mid-2026, no FM is the clear state of the art across paradigms.** In the largest matched benchmark (12 open FMs, 13 datasets), CBraMod has the best average rank, but EEGNet, Conformer, ShallowConv, Deformer and LMDA are statistically tied with it. Per-task winners are mostly specialists: EEGNet has the most first places (p. 20). The paradigm-specific MIRepNet leads MI (BNCI2014001 LOSO 54.2) [[liu2026eeg]] (Supp. Tables 16, 52). FMs that look strong on clinical data fail elsewhere: LUNA tops TUAB (81.9, but TUAB was in its pretraining) yet sits at chance on SSVEP (p. 17; Table 3).
 - **EEG-Arena (Sep 2026; 30 FM checkpoints, 57 tasks):** REVE-base wins the most tasks (18 of 104 task × split rows in Fig. 3), then NeuroRVQ, ST-EEGFormer-small and Uni-DMFM. BIOT variants lead bipolar (sleep) tasks; channel-flexible FMs (REVE, LEAD, HEAR) lead non-bipolar ones [[chen2026benchmarking]] (§3.1, Figs. 2–3). No seeds or significance tests, and TUAB/TUSZ/CHB-MIT results are not reported. Public leaderboard at eeg.fm/leaderboards.
+- **NeuroAtlas (Sep 2026; frozen linear probe, 42 datasets):** NeuroLM and REVE are the most consistent EEG-FMs across seizure, sleep and BCI. Brain age has no stable FM leader [[kontras2026neuroatlas]] (§5, p. 9). Frozen TUAB AUROC: REVE 0.898, ST-EEGFormer-L 0.880 (App. D.1.3). Task-specific supervised models still lead sleep staging (sequence context) and brain age (sleep features).
 - 🤖 **SOTA now means "per task, per protocol, per calibration budget".** The LOSO and few-shot winners differ on most datasets [[liu2026eeg]] (Tables 2–3).
 
 ## Comparisons
@@ -35,9 +36,10 @@ updated: 2026-10-12
 
 ## Open threads
 - Read [[wang2024cbramod]] (downloaded) and [[wang2024eegpt]] (needs manual download) for post-LaBraM results.
-- Is there a common benchmark suite for foundation models? *As of Sep 2024: no* [[kuruppu2026eeg]] (§5.2). 2026: [[liu2026eeg]] read (a benchmark, but its code is only announced, so it is not yet a public leaderboard). [[chen2026benchmarking]] read 2026-10-12: code and a live leaderboard released, so this is the first public leaderboard, though without error bars. Queued: [[kontras2026neuroatlas]], [[xiong2025eeg]].
+- Is there a common benchmark suite for foundation models? *As of Sep 2024: no* [[kuruppu2026eeg]] (§5.2). 2026: [[liu2026eeg]] read (a benchmark, but its code is only announced, so it is not yet a public leaderboard). [[chen2026benchmarking]] read 2026-10-12: code and a live leaderboard released, so this is the first public leaderboard, though without error bars. [[kontras2026neuroatlas]] read 2026-10-25: code announced, but explicitly *not* a scoreboard, because pretraining overlap with public data can't be verified (p. 9). Queued: [[xiong2025eeg]].
 
 ## Sources
+- [[kontras2026neuroatlas]]: NeuroAtlas frozen-probe benchmark (20 models, 42 datasets, 2026).
 - [[chen2026benchmarking]]: EEG-Arena benchmark and public leaderboard (30 FM checkpoints, 23 datasets, 2026).
 - [[liu2026eeg]]: EEG-FM-Compass benchmark (12 FMs, 13 datasets, 2026).
 - [[kuruppu2026eeg]]: review of 10 early EEG-FMs; the shared TUAB/TUEV comparison and evaluation gaps (2026).

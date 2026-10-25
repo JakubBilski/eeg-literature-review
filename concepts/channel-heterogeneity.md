@@ -1,7 +1,7 @@
 ---
 slug: channel-heterogeneity
 fields: [eeg, ml]
-familiarity: new     # human's level: new | introduced | understood | skip
+familiarity: introduced     # human's level: new | introduced | understood | skip
 ---
 
 # channel-heterogeneity
@@ -30,6 +30,7 @@ Recordings come from sensor setups that differ in the number and placement of se
 - [[liu2026eeg]]: six channel-unification strategies across 55 FMs (pp. 8–9): (1) fixed montage (CBraMod, BENDR); (2) template or region remap (CSBrain, Uni-NTFM); (3) channel-wise or single-channel (BIOT, SingLEM); (4) learnable channel embeddings (LaBraM, EEGPT); (5) coordinate-aware encodings (REVE, LUNA, HEAR); (6) projection to a fixed latent space (LUNA, BrainOmni). In practice BrainOmni can't take bipolar montages (p. 16), and the topology-agnostic LUNA collapses outside clinical data (p. 17).
 
 - [[chen2026benchmarking]]: compares channel-constrained FMs (CBraMod, CodeBrain, CSBrain, EEGPT, NeuroRVQ, ST-EEGFormer) with channel-flexible ones (REVE, HEAR, LEAD) on task-informed channel subsets. Flexible models score higher at most retained-channel ratios (Fig. 7, p. 14). Arbitrary dropout, re-referencing and device changes are untested (p. 17).
+- [[kontras2026neuroatlas]]: feeds every model its own pretraining montage from the same recording (Table 1). Channels are *picked* (CBraMod 19, NeuroGPT 22, sleep models 1 derivation), *recombined exactly* (bipolar differences for BIOT, common average reference), *interpolated* (MIRepNet: inverse-distance mapping to a 45-channel motor template) or passed as-is (REVE 3D coordinates, LaBraM/NeuroLM embeddings). It doesn't say what fixed-montage models got when channels were missing (wearable SeizeIT2, 3-channel BNCI2014-004).
 
 ## Variants & disagreements
 - Fixed montage + spatial conv (Conformer, EEGNet) vs channel-as-token + electrode embedding (LaBraM). Other strategies (graph/topology-aware, mapping channels to a template) are not yet in the vault.

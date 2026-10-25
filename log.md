@@ -416,3 +416,22 @@
   - Reading: Rommel et al. 2022 (EEG augmentation comparison; not in screening); [[kiessner2024reaching]] still needs a manual PDF.
   - Next reads: [[kontras2026neuroatlas]], [[zare2026negative]]; paper note for [[oliveira2026scaling]].
   - Carried over: Q9 hub split (~265 lines) still proposed; needs manual PDF: [[janmohamed2023comparison]], [[bank2022structural]]; concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1). Other-field claims in the CNN and H5 answers (Hestness, Rosenfeld, Smith, DeiT) are from memory.
+
+## 2026-10-25
+- **Added:** [[kontras2026neuroatlas]] (full read: NeuroAtlas, frozen linear probes, 20 models, 42 datasets, clinical metrics). Experiment [[embedding-data-diagnostics]] (idea; independent review filed). 22 papers screened: 4 from NeuroAtlas refs ([[yang2026eeg]] = ST-EEGFormer ICLR 2026, no DOI/arXiv; [[dan2024szcore]]; [[sun2026machine]]; [[jirsaraie2023systematic]] maybe), 2 EEG experiment priors ([[rossi2025sleepyland]], [[zhao2025selectivefinetuning]]), 12 OTHER FIELD priors (OTDD, LogME, scIB, single-cell FM zero-shot, dataset bias, Zech 2018, ATC, agreement-on-the-line, Deng 2021, others).
+- **Changed:**
+  - Q5/Q6/Q7/Q9 hubs and [[classical-ml-baselines]] updated with NeuroAtlas findings: EEG-FMs ≈ time-series FMs; seizures ≈ random-init except NeuroLM/REVE; LODO −24–45%; brain-age gap AUROC 0.59; MI eye-movement confounds; 2 new Q6 scorecard rows; Q6 normative-model thought experiment now has a first sourced test.
+  - Concepts: [[seizure-detection]] (*Event-level scoring, explained*), [[evaluation-protocols]] (*Across sites*; readout variants), [[self-supervised-pretraining]] (masking unit), [[channel-heterogeneity]] (per-model channel sourcing; familiarity → introduced), [[sleep-staging]], [[bci-paradigms]].
+  - Tooling: `.venv` was missing and is rebuilt. Python is now 3.14, so matplotlib is pinned to 3.11.2 (3.9.2 has no wheel). The `pdf/` folder was missing and is recreated; the NeuroAtlas PDF is re-downloaded and Fig. 5 is transcribed into its fulltext.
+- **Questions explored:**
+  - Reading-list status → `interests.md` (no filing).
+  - Event-Sens@FA AUC, window AUROC, Spearman ρ, sleep epoch sequences, LODO vs the clinical setting, devices/channels, brain-age montage, drift artifacts, token pooling, clinical usability → [[kontras2026neuroatlas]] Q&A + concept notes above.
+  - Channel sourcing per model, whether MI is "random" after confound filtering, token = channel × time and masking units → [[kontras2026neuroatlas]] Q&A, [[self-supervised-pretraining]].
+  - Human's impression "EEG looks like astrology" → [[q6-reliability-of-eeg-diagnoses]] *Is EEG ML astrology?* (🤖 counterpoint).
+  - Embeddings as a data lens for failure modes, and whether they are noise → [[embedding-data-diagnostics]] (Stage 0 noise vs nuisance; Test A distance → transfer drop; Test B geometry vs scorer disagreement). Review: Test A needs subject-level units, a derivation control and ATC/agreement baselines; Test B small; Stage 0 descriptive. Kept at `idea` (human).
+- **Open:**
+  - **Next session task (defined by the human):** data inventory of the FM pretraining corpora vs the NeuroAtlas downstream data → `interests.md` reading queue. NeuroLM, NeuroGPT, NeuroRVQ, SleepFM and MIRepNet need screening rows.
+  - Next reads: [[zare2026negative]] (§3–4.4 already read), then [[kommineni2026aperiodic]] (moved up at the human's request), then the [[oliveira2026scaling]] note.
+  - Redesign [[embedding-data-diagnostics]] per its review; verify DOD scorer count, ISRUC double scoring and cohort derivations.
+  - Unverified: the clinically required seizure alarm rate (open question; candidate [[dan2024szcore]]); hypnodensity papers named by the reviewer (no identifier).
+  - Carried over: Q9 hub split (~270 lines); needs a manual PDF: [[janmohamed2023comparison]], [[bank2022structural]], [[kiessner2024reaching]]. [[kontras2026neuroatlas]] note is 158 lines (Q&A-heavy).

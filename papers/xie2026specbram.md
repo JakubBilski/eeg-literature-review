@@ -97,6 +97,7 @@ A controlled ablation: same backbone, data and steps, only the masked-prediction
 - [[signal-quality-and-noise]]: ocular artifacts likely contaminate low-band targets on vigilance (§6.5).
 
 ## Related papers
+- [[kontras2026neuroatlas]]: frozen-probe benchmark where the hand-crafted Sun et al. sleep-feature model wins brain age, and the readout matters (token flatten vs mean pool +7 points on BCI), the same two lessons as here.
 - [[chen2026benchmarking]]: EEG-Arena; a positive controlled data-scaling series (REVE-base 600 → 30,000 h, +4–7 points fine-tuned) against this paper's data-scale null (App. C).
 - [[jiang2024large]]: LaBraM, VQ codes of Fourier amplitude + phase; a baseline that loses to SpecBraM frozen (Table 4).
 - [[wang2024cbramod]]: CBraMod, the raw-reconstruction design SpecBraM copies (criss-cross, linear patch embedding) and changes only the target.

@@ -48,6 +48,11 @@ How data is split into training and test sets, and what is measured, determines 
 - [[chen2026benchmarking]]: EEG-Arena ranks models separately for within-subject and cross-subject splits and for bipolar vs non-bipolar data, and drops results where pretraining data overlap the task. It picks the checkpoint on validation and reports single runs with no error bars. FM margins are about twice as large within-subject (median +5.9 vs +2.5 points, own tally of Fig. 3), and the largest ones (DTU-AAD WS +49, SEED WS 94%) look like within-trial leakage. 🤖
 
 - [[bomatter2025limited]]: a **people × segments-per-person grid** with one fixed cross-subject test set separates participant diversity from sample size. TUAB/CAUEEG are scored per person (majority vote over segments), because the label belongs to the person (App. A.3). Random vs contiguous segment sampling gives the same picture on TUAB (App. A.7). 🤖 Error bars are over training subsamples only, not over test people.
+- [[kontras2026neuroatlas]]: **frozen linear probe with each model's own preprocessing** (shared steps are only 0.5 Hz high-pass + notch) over 42 datasets. It adds:
+  - a **LODO probe** (no target labels; costs 24–45% on seizures);
+  - a **binomial top-3 win test** for whether a model is consistently good;
+  - a **per-dataset binomial chance threshold** for small BCI test sets (Combrisson & Jerbi 2015).
+  Pretraining overlap is flagged but not excluded (p. 9). Readout matters: flattening tokens instead of mean pooling adds +7 points on BCI (App. D.8).
 
 ## When is within-subject (calibrated) evaluation clinically realistic? (asked 2026-10-12)
 🤖 Synthesis; mostly textbook and needs sources.
@@ -59,8 +64,10 @@ How data is split into training and test sets, and what is measured, determines 
   4. *Semi-supervised:* use the patient's own unlabeled baseline recording to normalise or adapt ([[domain-adaptation]]); this needs no doctor's annotation.
 - **Even then, benchmark "within-subject" splits usually aren't that protocol.** A realistic calibrated test trains on an *earlier* session or earlier events and tests on *later* ones (chronological, cross-session). Random window or trial splits from the same session measure recognition of the session (electrode contact, state, clip) more than of the condition. Example: the large within-subject margins in [[chen2026benchmarking]] (DTU-AAD +49 points).
 - So: report within-subject results only with a chronological, cross-session split, and treat them as relevant to BCI and long-term monitoring, not to diagnosis. → [[q6-reliability-of-eeg-diagnoses]]
+- **Across sites (asked 2026-10-25):** 🤖 a product bought off the shelf meets a new hospital with no local labels, which is leave-one-dataset-out (external validation). A hospital training on its own past patients corresponds to within-dataset patient-level CV. Real deployments sit in between (site threshold tuning, a local validation set). NeuroAtlas measures both ends: LODO costs 24–45% on seizures [[kontras2026neuroatlas]] (App. D.3). Its LODO is pessimistic, though: a linear probe, 6 training cohorts, and held-out populations (neonates) absent from training. → [[kontras2026neuroatlas]] Q&A
 
 ## Variants & disagreements
+- **Readout of frozen FM embeddings (asked 2026-10-25):** mean-pooling tokens is the common default, but masked-reconstruction pretraining never trains a pooled vector. Averaging discards *when* (time) and, over channel tokens, *where* (e.g. C3 vs C4 laterality in MI). Flattening tokens beats mean pooling by +7.0 points on BCI, +22.5 on SSVEP and +0.9 on cognitive tasks [[kontras2026neuroatlas]] (App. D.8). CBraMod's own all-token head roughly doubles the mean-pooled FACED score [[xie2026specbram]] (§6.4). 🤖 Flattening overfits with few trials, and a small attention-pooling head is the usual compromise. A "weak frozen FM" result is therefore partly a statement about the readout.
 - Same dataset, different protocol: SEED appears as 5-fold window CV in Conformer and as a trial split in LaBraM (SEED-V). Accuracies are not comparable. The emotion review [[li2022eeg]] calls the first one wrong (§5.3).
 - Same model, same dataset, different paper: EEGNet on BCI IV-2a within-subject is ~0.68 in [[lawhern2018eegnet]] (Fig. 3) but 74.50% in [[song2022eeg]] (Table II). 🤖 Different splits, windows and preprocessing; baseline numbers are protocol-specific.
 - Within vs cross-subject on the same model and data: DGCNN on SEED 90.4% → 79.95%; BiDCNN on DEAP valence 94.4% → 68.1% [[li2022eeg]] (Table 4). → [[domain-adaptation]]

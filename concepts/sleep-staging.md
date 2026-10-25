@@ -82,6 +82,7 @@ A night of recording is cut into fixed-length windows, and each window is labell
 - [[niso2022wireless]]: at-home sleep staging is one of the main clinical uses of wireless EEG (§4.2.2).
 - [[weng2025self]]: sleep is the most common SSL-EEG downstream task (15 of 34 contrastive methods, Table 3), favoured because sleep sets are long, few-channel recordings (p. 28). Relative positioning and CPC exploit slow stage changes (§3.2).
 - [[chen2026benchmarking]]: sleep is the bipolar block of EEG-Arena (CAP, HMC, UCDDB). BIOT and SleepFM lead it, and SleepEEGNet is the strongest baseline, with the most top-5 placings overall (Fig. 2). Several UCDDB and CAP 4-s tasks are won by baselines (Fig. 3).
+- [[kontras2026neuroatlas]]: the largest sleep benchmark so far, 15 cohorts, ~15.8k patients, ~201k h. Frozen probes: best κ per cohort 0.62–0.85. Supervised **sequence** models win on all 15 cohorts; without inter-epoch context they tie FMs, and an LSTM probe on FM embeddings closes most of the gap (pp. 5–6, Table 6). κ doesn't predict hypnogram-feature accuracy (REM latency, p. 6). N1 and REM are the worst stages (App. D.4). Consensus labels raise κ (Fig. 14).
 
 ## Why is 5-class staging a benchmark at all? (asked 2026-10-11)
 The human's objection: expert agreement is poor (N1 κ 0.24, N2/N3 0.57 [[lee2021interrater]]), the label is not grounded in brain function (it is a rule over the signal itself), and the stages are rarely used diagnostically (above). So why benchmark on it?

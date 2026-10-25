@@ -61,7 +61,7 @@ updated: 2026-10-10
 | sleep staging | ISRUC, Sleep-EDF; wearable-vs-PSG validations | [[gans2024sleep]], [[wang2024cbramod]], [[sleep-staging]] |
 
 ## Open threads
-- Seizure detection: datasets covered by [[wong2023eeg]]. Still missing: a 2022+ review of methods and clinical performance (sensitivity, false alarms per hour), and inter-rater agreement on seizure labels.
+- Seizure detection: datasets covered by [[wong2023eeg]]. Event-level performance (sensitivity vs false alarms/h) on 7 continuous cohorts now comes from [[kontras2026neuroatlas]] (frozen FMs only; → [[seizure-detection]] *Event-level scoring*). Still missing: a 2022+ review of methods and of deployed detectors' clinical performance, the clinically required alarm rate, and inter-rater agreement on seizure labels.
 - Sleep: human inter-scorer agreement is now sourced (κ 0.76 overall, 0.24 on N1 [[lee2021interrater]], abstract only) → [[sleep-staging]]. Full read pending (open access in PMC).
 - Emotion: read [[li2022eeg]] (2026-10-11). Still missing: any test of whether emotion models decode the clip or muscle activity rather than emotion → [[emotion-recognition]] *Open questions*.
 - BCI after 2019: [[varbu2022past]] stops in Oct 2019, so a 2022+ BCI review covering DL/transfer learning is still missing.

@@ -27,11 +27,17 @@ Training a model on large amounts of unlabeled data with a task made from the da
 
 - [[bomatter2025limited]]: LaBraM-Base pretrained vs scratch over a people × segments grid, LR tuned for both arms. Gain on TUAB is ≈ 0 at 25 people, +3–4 points at moderate data, +1–2 at the most (Fig. 5); on sleep +1 to +8 with no trend (Fig. 11). The effect "looks like a boost in the amount of data per participant" (§4.4).
 - [[chen2026benchmarking]]: pretrain vs same-architecture scratch for 10 FMs. Gain is 0.4 points at 2% of labels and 8.2 at 100% (Fig. 4). Controlled data scaling on REVE-base: 600 → 30,000 h gives +6.69 / +4.22 points fine-tuned (WS / CS) and +5.97 / +1.89 probed (Fig. 6a). Model size shows no trend (Fig. 5).
+- [[kontras2026neuroatlas]]: frozen probes on 11 EEG-FMs vs 3 general time-series FMs vs random-init CBraMod. EEG-specific pretraining shows no consistent edge over TS-FMs (§5, p. 9). Pretrained CBraMod = random-init CBraMod on event-level seizure detection (0.440, Table 4), and only +0.02 AUROC on TUAB/NMT (App. D.1.3). Embedding dimension doesn't predict performance (Figs. 10, 19).
 
 ## Variants & disagreements
 - Objective: predict raw signal, spectrum, or discrete codes. LaBraM found raw reconstruction better on TUAB but discrete codes better on TUEV (App. G, Table 7). The best target may depend on the task.
 - Contrastive (BENDR, BIOT) vs masked (LaBraM, CBraMod): not yet compared in the vault. [[weng2025self]] calls contrastive "the most widely used" and "the most effective" (§5, §5.6) but gives no numbers. 🤖 Note that BENDR is itself a hybrid: masked embeddings with a contrastive loss (§4.1).
 - **Taxonomy (pre-foundation-model, ≈2019–2023):** predictive (classify a pseudo-label: time distance, shuffled order, removed band, applied augmentation), generative (reconstruct masked signal, spectrum or embeddings; GANs), contrastive (pull augmented views together; CPC), hybrid [[weng2025self]] (Fig. 3). 🤖 Foundation models mostly use the generative / masked branch at scale.
+- **Masking unit (asked 2026-10-25):** 🤖 tokens in most EEG-FMs are channel × time patches (e.g. CBraMod 1 s per channel), and masking hides scattered patches. The unit decides which shortcut is cheapest:
+  - *Masking a whole channel* (all of its time) can largely be solved by spatial interpolation from neighbouring electrodes. Volume conduction makes nearby electrodes highly correlated, and a spherical spline does this with no learning. A low loss is cheap and teaches mostly the head's spatial smoothing; what is left over (local sources) is small and hard.
+  - *Masking a time span across all channels* forces temporal prediction. The unpredictable part (phase, noise) then dominates raw MSE, and the model drifts towards predicting the mean.
+  - *Random scattered patches* allow both shortcuts at once.
+  So neither unit is clean: the masking and the target (raw vs spectral vs latent) together decide what has to be learned. → [[q9-pretraining-objectives-and-scale]] *Why raw-MSE may be a weak target*; shortcut argument in [[yu2026neural]] (screening). Unverified which FMs use which masking scheme; to check per paper.
 
 ## Data scale, prediction targets, pretext loss
 Moved to the hub [[q9-pretraining-objectives-and-scale]] (2026-10-11): corpus sizes, what each FM predicts and with which loss, target ablations, the MSE double penalty, and what pretext loss does and doesn't tell you.

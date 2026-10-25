@@ -84,6 +84,7 @@ On three >1,000-person datasets, the number of people dominates accuracy for one
 - [[sleep-staging]] — the task where people matter least.
 
 ## Related papers
+- [[kontras2026neuroatlas]]: leave-one-dataset-out probes lose 24–45% (seizures), and only 3/42 brain-age fits beat the cohort mean. Cohort shift outweighs model choice.
 - [[oliveira2026scaling]] — concurrent supervised scaling study over subjects vs trials; same task split (subjects bind TUAB, trials bind sleep).
 - [[jiang2024large]] — LaBraM-Base, the pretrained model evaluated here.
 - [[chen2026benchmarking]] — pretrain-vs-scratch gain by label budget, same direction (small at the lowest budget).

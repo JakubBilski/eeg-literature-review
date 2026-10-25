@@ -43,7 +43,8 @@ updated: 2026-10-12
   - **HEEDB** (Harvard EEG Database, Epilepsia 2025): ~280k clinical EEGs from ~108k patients at 4 Boston hospitals (routine, EMU, ICU, all ages), linked to reports, ICD-10 codes and medications, hosted on the Brain Data Science Platform [[sun2025harvard]] (abstract, via web search; hours and access terms not checked).
   - **REVE** (NeurIPS 2025) pooled >60,000 h from 92 datasets, ~25,000 subjects, of which TUH is 44% ([[ouahidi2025reve]], as cited by [[zare2026negative]]).
   - **Sleep PSG** archives are larger in hours: SleepFM used >100,000 h from 14,000 participants [[kuruppu2026eeg]] (Supplement); SHHS alone is 42,446 h (Supp. Table 1).
-  - The NeuroAtlas *benchmark* aggregates ~260k h across 42 datasets [[kontras2026neuroatlas]] (abstract).
+  - The NeuroAtlas *benchmark* aggregates ~260k h across 42 datasets, ~201k h of it sleep PSG [[kontras2026neuroatlas]] (Fig. 1). Of the FMs it tests, only REVE saw sleep data in pretraining, and only 34 of 24,274 patients (p. 32). 🤖 So the largest open EEG source (sleep PSG) is barely used for pretraining.
+  - Same benchmark: EEG-FMs show no consistent edge over time-series FMs never trained on EEG, and embedding dimension doesn't predict probe performance (§5; Figs. 10, 19). 🤖 Under frozen probes, *what* the EEG pretraining data and objective contribute is not yet visible.
 - 🤖 **In LLM terms:** with 1 s per-channel patches as tokens, LaBraM sees ~0.3B tokens, full TUEG ~2B and BrainWave ~3.2B. That is roughly BERT-sized (~3.3B words), and 3–4 orders of magnitude below current LLMs. Each token also carries far less information than a word, because neighbouring seconds and electrodes are highly correlated (volume conduction). The number of distinct *people* (≤15k in TUEG) is probably the tighter limit → [[q6-reliability-of-eeg-diagnoses]].
 
 **What is predicted.** Both answers occur, plus latent-space targets:

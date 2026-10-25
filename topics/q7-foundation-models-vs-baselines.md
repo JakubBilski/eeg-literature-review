@@ -2,7 +2,7 @@
 slug: q7-foundation-models-vs-baselines
 kind: hub
 status: active
-updated: 2026-10-12
+updated: 2026-10-25
 ---
 
 # q7-foundation-models-vs-baselines
@@ -22,6 +22,12 @@ updated: 2026-10-12
   - 🤖 *Why the two benchmarks disagree:* EEG-Arena has no seeds, error bars or significance tests; it picks checkpoints on validation (Liu: final epoch); it compares best-of-30 FMs vs best-of-25 baselines; many baseline cells sit at chance (failed runs); its within-subject rows (largest margins, e.g. DTU-AAD +49) use an undescribed split; and it has no classical pipeline (CSP/Riemannian). The cross-subject margin of ~2.5 points fits Liu's "comparable". → [[chen2026benchmarking]] *Assessment*
   - **Pretraining vs the same architecture from scratch:** all 10 FMs tested gain by the final epoch; the mean gain is 0.4 points at 2% of labels and 8.2 at 100% (Fig. 4, p. 11). 🤖 This is the opposite of the usual "FMs help most when labels are scarce" claim, and it agrees with Liu's few-shot result.
   - Same direction with 25 seeds and tuned LRs: LaBraM-Base gains ≈ 0 on TUAB with 25 people, +3–4 points at moderate data, +1–2 at the most; on sleep +1 to +8 throughout [[bomatter2025limited]] (Figs. 5, 11). Pretrained LaBraM then matches small TCN/mAtt models; from scratch it is the worst of the three (Fig. 12).
+- **Under frozen probes (the "out-of-the-box" promise) FMs mostly don't deliver (2026).** NeuroAtlas: 20 models, 42 datasets, linear probe on frozen features, clinical metrics [[kontras2026neuroatlas]].
+  - **Seizures (7 cohorts, event-level sensitivity vs FA/h):** NeuroLM 0.553 and REVE 0.549 are the only models consistently top-3. Random-init CBraMod scores 0.440, the same as pretrained CBraMod, and 7 of 11 EEG-FMs are at or below it (Tables 3–4, pp. 32–33).
+  - **EEG-FMs ≈ general time-series FMs** (Chronos, Moirai, MOMENT; never trained on EEG) in every domain (§5, p. 9). Moirai-L beats 9 of 11 EEG-FMs on seizures (App. D.2).
+  - **Supervised models still win where they encode the task's structure:** sequence sleep models (top-3 on 15/15 cohorts, gap closed by an LSTM probe) and the feature-based Sun et al. brain-age model (Table 6, Table 11).
+  - **End-to-end EEGNet (LOSO) beats the best frozen FM on 13 of 18 BCI tasks**, or 9 of 18 after confound filtering (App. D.7, pp. 48–49).
+  - 🤖 The frozen-probe verdict agrees with [[liu2026eeg]]'s fine-tune verdict. Readout choice matters a lot (token flatten vs mean pool +7 points), and there are still no CSP/Riemannian baselines. → [[kontras2026neuroatlas]] *Assessment*
 - **Historical DL gain over classical pipelines was modest and overstated:** median +5.4% accuracy (2010–2018), against often weak baselines; only 2 studies used Riemannian methods. → [[classical-ml-baselines]] ([[roy2019deep]])
 - **Before foundation models, small CNN vs classical was already a split decision:** with matched splits, EEGNet beat xDAWN + Riemannian on P300 and MRCP but lost on cross-subject ERN, and tied FBCSP within-subject on motor imagery [[lawhern2018eegnet]] (Figs. 2–5). → [[classical-ml-baselines]]
 - **Pretraining adds little on motor imagery:** CBraMod 0.642 vs 0.620 without pretraining (same architecture), and EEGNet (3k params) 0.581 on PhysioNet-MI 4-class, cross-subject [[wang2024cbramod]] (Tables 3–4). On depression, EEGNet 0.923 vs CBraMod 0.956 (Table 10). On sleep staging (ISRUC, 5-class), κ is EEGNet 0.704, USleep 0.721 (a dedicated supervised sleep model), LaBraM 0.723 and CBraMod 0.744 (Table 7). → [[classical-ml-baselines]], [[sleep-staging]]
@@ -33,7 +39,7 @@ updated: 2026-10-12
 - **Hand-crafted band power ≈ published FM frozen features on sleep staging.** Strict linear probe, balanced accuracy at 100% of labels: ISRUC 5-band power 0.742 vs LaBraM-Base 0.752, BIOT 0.736, CBraMod 0.729; HMC 5-band 0.682 vs BIOT 0.658, LaBraM 0.633, CBraMod 0.620. A "rich" hand-crafted set beats all three (0.763 / 0.723), and a band-power-target FM beats everything (0.792 / 0.742) [[xie2026specbram]] (Table 5). With 1% of labels, 5-band power leads all published FMs (ISRUC 0.707 vs ≤0.680). 🤖 Caveats: sleep stages are defined by spectral content, so band power is task-aligned. Each baseline gets its own input convention (CBraMod/LaBraM at 200 Hz, µV/100; §5), but all are read out by mean-pooling tokens, which can hurt them: CBraMod's frozen backbone with its own all-token head gets 0.315 on FACED vs 0.171 mean-pooled (§6.4, Table 8). Fine-tuned FMs still beat EEGNet (ISRUC 0.763 LaBraM vs 0.715; Table 6).
   - **Beyond sleep the target's advantage fades.** Matched band-power vs raw-reconstruction: FACED +2.4, Mumtaz tie, PhysioNet-MI −0.9/+0.3, vigilance fine-tuned raw better (0.626 vs 0.587 Pearson) [[xie2026specbram]] (Tables 7–9). 🤖 A task-aligned target helps frozen features only where the label is a per-channel spectral state.
 - **The same pattern in ECG (method parallel):** HuBERT-ECG compares mostly against numbers quoted from papers that used other label subsets, with no classical-feature baseline. On PTB-XL it trails supervised and other SSL models (0.911 vs 0.925–0.947), and freezing the encoder was not effective [[coppola2024hubert]] (Supp. Table 10, p. 16).
-- **Field audit up to Sep 2024:** after fine-tuning, FMs give "at least some improvement, if not drastic" over supervised DL; expert-feature baselines appear in only 4 of 10 papers; scaling evidence is "weak, if any" [[kuruppu2026eeg]] (Fig. 4, §5.1). General time-series FMs not trained on EEG sometimes beat EEG-FMs (p. 17). 🤖 This is the pre-benchmark picture; [[liu2026eeg]] (top bullet) confirms it under matched protocols, [[chen2026benchmarking]] disputes it with weaker statistics, and [[kontras2026neuroatlas]], [[zare2026negative]] are still to read.
+- **Field audit up to Sep 2024:** after fine-tuning, FMs give "at least some improvement, if not drastic" over supervised DL; expert-feature baselines appear in only 4 of 10 papers; scaling evidence is "weak, if any" [[kuruppu2026eeg]] (Fig. 4, §5.1). General time-series FMs not trained on EEG sometimes beat EEG-FMs (p. 17). 🤖 This is the pre-benchmark picture; [[liu2026eeg]] (top bullet) confirms it under matched protocols, [[chen2026benchmarking]] disputes it with weaker statistics, and [[kontras2026neuroatlas]] confirms it under frozen probes (EEG-FMs ≈ TS-FMs, p. 9). [[zare2026negative]] is still to read.
 - **Matched protocols matter more than models:** shuffled vs held-out-block vs cross-subject splits move CSP + LDA from 0.83 to 0.64 to 0.56 on one task (own test). → [[eegmmi-imagined-vs-executed]], [[evaluation-protocols]]
 
 ## Comparisons
@@ -62,11 +68,12 @@ updated: 2026-10-12
 
 ## Open threads
 - Own test planned: frozen CBraMod + linear probe vs CSP + LDA, Riemannian and EEGNet on EEGMMI left vs right imagery, few-shot → [[eegmmi-frozen-probe]].
-- Literature: a benchmark paper that runs Riemannian/FBCSP alongside foundation models on matched splits. *Searched 2026-10-11:* [[liu2026eeg]] read (CSP/xDAWN/PSD/TRCA but no Riemannian). [[chen2026benchmarking]] read 2026-10-12: no classical pipeline except YASA. Still to read: [[wang2026eeg]] (tuned baselines), [[zare2026negative]] (classical features), [[xiong2025eeg]] (EEG-FM-Bench). Lotte 2018 for classical baselines (reading queue).
+- Literature: a benchmark paper that runs Riemannian/FBCSP alongside foundation models on matched splits. *Searched 2026-10-11:* [[liu2026eeg]] read (CSP/xDAWN/PSD/TRCA but no Riemannian). [[chen2026benchmarking]] read 2026-10-12: no classical pipeline except YASA. [[kontras2026neuroatlas]] read 2026-10-25: none either (only the Sun et al. sleep-feature brain-age model, which wins). Its ref [95] [[yang2026eeg]] (ICLR 2026, "Are EEG foundation models worth it? … traditional decoders") is the most direct candidate; it has no DOI/arXiv yet. Still to read: [[wang2026eeg]] (tuned baselines), [[zare2026negative]] (classical features), [[xiong2025eeg]] (EEG-FM-Bench). Lotte 2018 for classical baselines (reading queue).
 - Does pretraining help more for clinical tasks (TUAB/TUEV) than for BCI?
 - Benchmarks may be the bottleneck: no common task has objective labels, meaning, headroom and enough test subjects at once → [[eeg-labels-and-metadata]] (*Is the field missing a good downstream task?*).
 
 ## Sources
+- [[kontras2026neuroatlas]]: NeuroAtlas; frozen linear probe, 11 EEG-FMs vs 3 TS-FMs vs supervised + random init, 42 datasets, clinical metrics, LODO.
 - [[chen2026benchmarking]]: EEG-Arena; 30 FMs vs 25 supervised baselines, 57 tasks, pretrain-vs-scratch by label budget, size and data scaling; no seeds or significance.
 - [[liu2026eeg]]: EEG-FM-Compass; matched benchmark, 12 FMs vs 8 specialists, LOSO + few-shot, probe vs fine-tune, ranks + significance.
 - [[bomatter2025limited]]: LaBraM pretrained vs scratch vs TCN/mAtt over a people × segments grid (TUAB, CAUEEG, sleep).

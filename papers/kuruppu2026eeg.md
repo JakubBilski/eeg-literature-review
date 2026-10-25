@@ -89,6 +89,7 @@ How mature are early EEG-FMs for clinical and real-world use, judged through dat
 - [[classical-ml-baselines]]: only 4 of 10 FM papers compare with expert-feature ML.
 
 ## Related papers
+- [[kontras2026neuroatlas]]: NeuroAtlas (2026) cites this review for incomparable FM protocols and confirms at scale that general time-series FMs match EEG-FMs (frozen probes, 42 datasets).
 - [[chen2026benchmarking]]: EEG-Arena (2026) confirms no model-size scaling across 30 FMs, but finds sustained gains from pretraining hours with the architecture fixed (REVE-base, Fig. 6).
 - [[liu2026eeg]]: a 2026 matched benchmark of 12 FMs that confirms this review's inferences (weak probes, no scaling, specialists competitive).
 - [[jiang2024large]]: LaBraM, one of the 10. It leads TUAB/TUEV, possibly because of data diversity. Its linear probe is weak.

@@ -59,8 +59,16 @@ What to see (own analysis; readings marked 🤖 are my interpretation):
 - [[weng2025self]]: SSL seizure methods include MBrain (channel-correlation prediction + CPC), Wavelet2vec (per-band masked reconstruction, seizure subtypes), EEG-CGS (graph anomaly detection) and BrainNet (SEEG) (Tables 1–3). No performance comparison.
 - [[liu2026eeg]]: CHB-MIT as ictal vs 10-min pre-ictal segment classification, not continuous detection. Few-shot (first seizure only): Conformer 91.58, CBraMod 88.54, PSD+SVM 77.71. LOSO: ShallowConv 80.18 vs best FM LUNA 78.12 (Tables 2, 15).
 
+- [[kontras2026neuroatlas]]: the first vault source with **event-level metrics**: any-overlap scoring (SzCORE, [[dan2024szcore]]), with sensitivity integrated over 0.1–100 false alarms/h on 7 continuous cohorts (~58k h, ~9k seizures). The best frozen FM gets 0.50 (neonatal Helsinki) to 0.74 (SeizeIT1). Random-init encoder: 0.44 (Fig. 2, Table 4). Bonn is saturated (AUROC ≥ 0.99 for 11 models; App. D.1.3).
+
+## Event-level scoring, explained (asked 2026-10-25)
+- A model scores each short window (e.g. 10 s). At a threshold, consecutive positive windows merge into *predicted events*. A true seizure counts as detected if any predicted event overlaps it (any-overlap, SzCORE [[dan2024szcore]]), and a predicted event that overlaps no seizure is a *false alarm*. That gives one point: **sensitivity** (detected / all seizures) and **false alarms per hour**.
+- Sweeping the threshold trades the two off. NeuroAtlas summarises the curve as the mean sensitivity over 0.1–100 FA/h on a log axis (its "Event-Sens@FA AUC", in [0, 1]) [[kontras2026neuroatlas]] (App. C.1).
+- 🤖 0.1 FA/h is already 2.4 false alarms a day. Clinically only the low end of that range matters, so a single sensitivity at a fixed low alarm rate (e.g. per 24 h) is the more honest summary.
+- **Window-level AUROC** instead ranks individual windows. It ignores alarms per hour and fragmentation, and stays high when >99% of windows are background.
+
 ## Variants & disagreements
-- **Segment vs event metrics.** Window-level accuracy on balanced pre-cut segments (Bonn) is not comparable to event-level sensitivity with false alarms per hour on continuous recordings. 🤖 Clinically, false alarms per hour is what decides usability; the vault has no source for it yet.
+- **Segment vs event metrics.** Window-level accuracy on balanced pre-cut segments (Bonn) is not comparable to event-level sensitivity with false alarms per hour on continuous recordings. Clinically, false alarms per hour is what decides usability. On the same predictions, AUROC and event-level rankings disagree on every cohort (Spearman ρ 0.61–0.81; on TUSZ the AUROC winner NeuroLM loses to Seizure-TF) [[kontras2026neuroatlas]] (App. D.1.2, Fig. 7).
 - **Patient-specific vs general models:** ML work often trains one model per patient because seizure patterns are patient-specific, unlike the clinical habit of grouping by seizure type [[wong2023eeg]] (§2).
 
 ## Open questions

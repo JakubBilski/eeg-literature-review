@@ -19,6 +19,7 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-25 [[kontras2026neuroatlas]] — NeuroAtlas: frozen linear probes, 20 models, 42 datasets with clinical metrics; EEG-FMs ≈ time-series FMs, seizures often ≈ random init (only NeuroLM/REVE consistent), supervised sequence/feature models win sleep and brain age, LODO costs 24–45%, MI drops to chance after eye-movement confound filtering
 - 2026-10-12 [[bomatter2025limited]] — people vs data per person on TUAB, CAUEEG, sleep: people dominate one-label-per-person diagnosis, sleep is the exception; LaBraM pretraining helps except at the smallest data; augmentations don't
 - 2026-10-12 [[chen2026benchmarking]] — EEG-Arena: 30 FMs vs 25 supervised baselines, 57 tasks; FMs win most tasks (margins ~2× larger within-subject), pretraining beats scratch more with more labels, no size scaling, REVE-base +4–7 points from 600 → 30k h; single runs, no classical pipeline
 - 2026-10-12 [[xie2026specbram]] — SpecBraM: matched ablation; band-power target beats raw-waveform reconstruction for frozen sleep features (+2–3, +5–7 points at 1% labels), not for MI/vigilance; full TUEG ≈ 2,388 h
@@ -48,6 +49,7 @@
 - [[pretext-downstream-scaling-sweep]] — idea · high · Q9/Q7: size × data × target sweep: per-target scaling curves, held-out pretext loss
 - [[subject-diversity-gap]] — idea · medium · Q9/Q7/Q6: does subject count gate the benefit of model size (CNN 10k→1M, CBraMod)? v3 (2026-10-12): TUAB main, sleep as contrast, CNN + transformer, H5 = does limiting repetitions make bigger models win?
 - [[property-probe-battery]] — idea · medium · Q9/Q7: probe frozen FMs for signal properties (spectral, spatial phase, morphology, nuisance), then predict downstream ranks
+- [[embedding-data-diagnostics]] — idea · medium · Q6/Q7/Q9: frozen-FM embeddings as a data lens: noise vs nuisance variance, does embedding distance predict cross-cohort transfer drop beyond band power / random init, does geometry locate scorer disagreement (sleep)
 
 ## Bridges (ECG ↔ EEG)
 - [[hubert-style-pseudo-labels]] — HuBERT-ECG and Sleep2.0 share the k-means pseudo-label recipe (plausible)
