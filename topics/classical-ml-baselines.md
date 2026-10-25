@@ -24,6 +24,7 @@ updated: 2026-10-11
 - **Band power is still a strong baseline for frozen features:** on sleep staging, 5-band power with logistic regression matches or beats the frozen embeddings of LaBraM, BIOT and CBraMod [[xie2026specbram]] (Table 5). → [[q7-foundation-models-vs-baselines]]
 - **The largest FM benchmark has no classical pipeline:** EEG-Arena's 25 baselines are 24 DL models plus YASA (spectral sleep features) [[chen2026benchmarking]] (Table 6). 🤖 So its "FMs beat supervised baselines" says nothing about CSP/Riemannian pipelines.
 - **Hand-crafted sleep features win brain-age prediction:** in NeuroAtlas, the feature-based Sun et al. (2019) sleep-EEG model is the only one consistently top-3 on both MAE and Pearson r across 7 cohorts. It beats all 11 frozen EEG-FMs and 3 time-series FMs [[kontras2026neuroatlas]] (p. 7, Table 11). The benchmark has no CSP/Riemannian pipeline for BCI; there, end-to-end EEGNet is the strongest reference (13/18 tasks; App. D.7).
+- **On clinical abnormal-EEG screening, a feature ensemble holds up until tens of thousands of recordings.** A CatBoost ensemble on band power + coherence + Riemannian tangent-space features (GBE) is the best single model on TUH (AUC 92.2) and on a 39-hospital set up to ~24k recordings (86.2 vs 86.0 for a transformer MIL model). Only at 55,787 recordings do attention/transformer networks pass it (87.5 vs 86.5), and GBE's curve flattens [[poziomska2025quantity]] (Table B.5, p. 11). On TUH all 11 models are statistically indistinguishable (Fig. C.15a). Riemannian features alone (190) beat 2,660 normalised spectral features (p. 10). 🤖 A matched-protocol data point for Q7: the crossover is about 1 AUC point and needs ~20× TUAB's size.
 - **DL in that period:** CNN 41%, RNN ~14%, autoencoders ~13%, CNN+RNN 7% of papers [[roy2019deep]] (§3, p. 17).
 
 ## Glossary (🤖 standard definitions, no vault source yet; Lotte 2018 should cover them)
@@ -36,7 +37,8 @@ updated: 2026-10-11
 |---|---|---|---|
 | band power + SVM/LDA | spectral features | classifier only | [[chaddad2023electroencephalography]], [[varbu2022past]] |
 | FBCSP | band-passed raw EEG | spatial filters + linear classifier | [[song2022eeg]] (Table II) |
-| [[riemannian-methods]] (MDM / tangent space) | covariance matrices | class means / linear classifier | [[roy2019deep]] (§4.5: named as SOTA, used by 2 of 156 DL papers) |
+| [[riemannian-methods]] (MDM / tangent space) | covariance matrices | class means / linear classifier | [[roy2019deep]] (§4.5: named as SOTA, used by 2 of 156 DL papers); [[poziomska2025quantity]] (tangent space + RBF-SVC on pathology) |
+| gradient-boosted ensemble (CatBoost) | band power + coherence + tangent-space features (2,850) | 30 boosted tree models | [[poziomska2025quantity]] (best single model ≤ ~24k recordings) |
 | xDAWN + Riemannian tangent space + elastic net | ERP epochs | ERP spatial filters + covariance classifier | [[lawhern2018eegnet]] (§2.2.3) |
 | EEGNet | raw EEG | everything (~1–3k params) | [[lawhern2018eegnet]], [[song2022eeg]], [[wang2024cbramod]] |
 
@@ -44,6 +46,7 @@ updated: 2026-10-11
 - Protocol-matched comparison: Riemannian/FBCSP vs foundation models (also in [[interests]] *Open questions*). Source to add: Lotte et al. 2018 (Roy ref [105]; also [[varbu2022past]] ref [22], which cites it for the need for user-adaptive classifiers, §5.9).
 
 ## Sources
+- [[poziomska2025quantity]]: RF / Riemannian SVC / CatBoost ensemble vs EEGNet-based MIL networks on TUH and up to 55,787 multi-hospital recordings; crossover only at the largest size.
 - [[kontras2026neuroatlas]]: NeuroAtlas; the hand-crafted brain-age model wins; no classical BCI pipeline; end-to-end EEGNet vs frozen FMs.
 - [[chen2026benchmarking]]: EEG-Arena; 24 DL baselines + YASA, no CSP/Riemannian.
 - [[kuruppu2026eeg]]: review of 10 EEG-FMs; how rarely they test against classical baselines (Fig. 4a).

@@ -113,6 +113,7 @@ Do pretrained representations (EEG-FM, TS-FM or supervised) encode clinically re
 - [[channel-heterogeneity]]: each model gets its own montage from the same recording (picked, bipolar-recomputed, interpolated or coordinate-based); handling of missing channels unstated.
 
 ## Related papers
+- [[poziomska2025quantity]] — multi-hospital abnormal-EEG detection that pools sites but never holds one out; NeuroAtlas LODO measures what it leaves open.
 - [[liu2026eeg]]: the matched fine-tune + few-shot benchmark (FMs ≈ specialists). NeuroAtlas reaches the same verdict under frozen probes and adds TS-FMs and random init.
 - [[chen2026benchmarking]]: EEG-Arena (fine-tune, FMs win most tasks). NeuroAtlas disagrees under frozen probing; REVE leads in both.
 - [[kuruppu2026eeg]]: cited (ref 45) for incomparable FM protocols. Its remark that general time-series FMs can beat EEG-FMs is confirmed here at scale.

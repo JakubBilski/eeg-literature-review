@@ -19,6 +19,7 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-25 [[poziomska2025quantity]] — quantity vs diversity for abnormal EEG: TUH vs 39 Polish hospitals (55,787 recordings); ~10 AUC lost to heterogeneity at equal size, mostly recovered at 19× size; CatBoost feature ensemble best until ~24k recordings, then transformer MIL nets; no site hold-out
 - 2026-10-25 [[kontras2026neuroatlas]] — NeuroAtlas: frozen linear probes, 20 models, 42 datasets with clinical metrics; EEG-FMs ≈ time-series FMs, seizures often ≈ random init (only NeuroLM/REVE consistent), supervised sequence/feature models win sleep and brain age, LODO costs 24–45%, MI drops to chance after eye-movement confound filtering
 - 2026-10-12 [[bomatter2025limited]] — people vs data per person on TUAB, CAUEEG, sleep: people dominate one-label-per-person diagnosis, sleep is the exception; LaBraM pretraining helps except at the smallest data; augmentations don't
 - 2026-10-12 [[chen2026benchmarking]] — EEG-Arena: 30 FMs vs 25 supervised baselines, 57 tasks; FMs win most tasks (margins ~2× larger within-subject), pretraining beats scratch more with more labels, no size scaling, REVE-base +4–7 points from 600 → 30k h; single runs, no classical pipeline

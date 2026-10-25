@@ -53,6 +53,7 @@ How data is split into training and test sets, and what is measured, determines 
   - a **binomial top-3 win test** for whether a model is consistently good;
   - a **per-dataset binomial chance threshold** for small BCI test sets (Combrisson & Jerbi 2015).
   Pretraining overlap is flagged but not excluded (p. 9). Readout matters: flattening tokens instead of mean pooling adds +7 points on BCI (App. D.8).
+- [[poziomska2025quantity]]: **"multi-site" without a site hold-out.** 6-fold CV by recording, stratified by hospital, so all 39 test hospitals are also in training (§3.4); patient-disjointness isn't stated, and TUAB is re-split instead of using its official eval set. 🤖 It measures in-distribution heterogeneity, not transfer to a new hospital. Also: **recording-level training (multiple-instance learning) vs frames that inherit the recording label**: same network, 85.7 vs 83.5 AUC on heterogeneous data, ~equal on TUH (Table B.5).
 
 ## When is within-subject (calibrated) evaluation clinically realistic? (asked 2026-10-12)
 🤖 Synthesis; mostly textbook and needs sources.

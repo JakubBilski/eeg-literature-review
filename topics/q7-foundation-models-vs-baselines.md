@@ -28,6 +28,7 @@ updated: 2026-10-25
   - **Supervised models still win where they encode the task's structure:** sequence sleep models (top-3 on 15/15 cohorts, gap closed by an LSTM probe) and the feature-based Sun et al. brain-age model (Table 6, Table 11).
   - **End-to-end EEGNet (LOSO) beats the best frozen FM on 13 of 18 BCI tasks**, or 9 of 18 after confound filtering (App. D.7, pp. 48–49).
   - 🤖 The frozen-probe verdict agrees with [[liu2026eeg]]'s fine-tune verdict. Readout choice matters a lot (token flatten vs mean pool +7 points), and there are still no CSP/Riemannian baselines. → [[kontras2026neuroatlas]] *Assessment*
+- **A strong classical baseline for TUAB-type screening exists and is hard to beat (no FM tested).** A CatBoost ensemble on band power + coherence + Riemannian features: AUC 92.2 on TUH, best single model up to ~24k multi-hospital recordings; supervised attention/transformer MIL networks (≤4.7M params, no SSL) pass it only at 55,787 recordings, by ~1 point (87.5 vs 86.5) [[poziomska2025quantity]] (Table B.5). 🤖 FM papers reporting TUAB should include this kind of baseline; recording-level aggregation (MIL) also mattered more than encoder choice there. → [[classical-ml-baselines]]
 - **Historical DL gain over classical pipelines was modest and overstated:** median +5.4% accuracy (2010–2018), against often weak baselines; only 2 studies used Riemannian methods. → [[classical-ml-baselines]] ([[roy2019deep]])
 - **Before foundation models, small CNN vs classical was already a split decision:** with matched splits, EEGNet beat xDAWN + Riemannian on P300 and MRCP but lost on cross-subject ERN, and tied FBCSP within-subject on motor imagery [[lawhern2018eegnet]] (Figs. 2–5). → [[classical-ml-baselines]]
 - **Pretraining adds little on motor imagery:** CBraMod 0.642 vs 0.620 without pretraining (same architecture), and EEGNet (3k params) 0.581 on PhysioNet-MI 4-class, cross-subject [[wang2024cbramod]] (Tables 3–4). On depression, EEGNet 0.923 vs CBraMod 0.956 (Table 10). On sleep staging (ISRUC, 5-class), κ is EEGNet 0.704, USleep 0.721 (a dedicated supervised sleep model), LaBraM 0.723 and CBraMod 0.744 (Table 7). → [[classical-ml-baselines]], [[sleep-staging]]
@@ -73,6 +74,7 @@ updated: 2026-10-25
 - Benchmarks may be the bottleneck: no common task has objective labels, meaning, headroom and enough test subjects at once → [[eeg-labels-and-metadata]] (*Is the field missing a good downstream task?*).
 
 ## Sources
+- [[poziomska2025quantity]]: classical feature ensemble vs supervised MIL networks on TUH and up to 55,787 multi-hospital recordings (no FMs).
 - [[kontras2026neuroatlas]]: NeuroAtlas; frozen linear probe, 11 EEG-FMs vs 3 TS-FMs vs supervised + random init, 42 datasets, clinical metrics, LODO.
 - [[chen2026benchmarking]]: EEG-Arena; 30 FMs vs 25 supervised baselines, 57 tasks, pretrain-vs-scratch by label budget, size and data scaling; no seeds or significance.
 - [[liu2026eeg]]: EEG-FM-Compass; matched benchmark, 12 FMs vs 8 specialists, LOSO + few-shot, probe vs fine-tune, ranks + significance.

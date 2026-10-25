@@ -41,7 +41,7 @@ The human's view: the main problem is the lack of any downstream task with good-
 | SSVEP | yes | BCI only | no: TRCA 98.8% | ok | [[liu2026eeg]] Tables 2–3 |
 | depression (Mumtaz) | diagnosis, single site | yes | no: random-init encoder 0.871 | 10 subjects | [[xie2026specbram]] Table 7, [[eeg-depression-detection]] |
 | seizure (CHB-MIT) | expert-marked onsets; agreement unsourced | yes | yes | 2 test children | [[wang2024cbramod]] |
-| abnormal EEG (TUAB) | expert report; what "abnormal" means is unread | yes | ceiling ~85–87%? | large | reading queue, [[kiessner2024reaching]] |
+| abnormal EEG (TUAB) | expert report; >87% of abnormal = epileptic | yes | ceiling ~85–87% acc. / ~91 AUC? | large | [[kiessner2024reaching]] (screening), [[poziomska2025quantity]] |
 | emotion (SEED, FACED) | self-report or clip category | weak | yes (FACED 9-class ~0.24 frozen) | ok | [[li2022eeg]], [[emotion-recognition]], [[xie2026specbram]] Table 8 |
 
 **Why each fails (the binding constraint), 🤖 unless sourced:**
@@ -50,7 +50,7 @@ The human's view: the main problem is the lack of any downstream task with good-
 - **SSVEP fails (3).** The stimulus frequency is exact and the response is strong, so a classical pipeline (TRCA) already reaches 98.8% few-shot [[liu2026eeg]] (Tables 2–3). Nothing is left for an FM to show.
 - **Depression (Mumtaz) fails (3) and (4), and (1) is doubtful.** Patients vs healthy controls from one site with 10 test subjects; an untrained encoder probes at 0.871 [[xie2026specbram]] (Table 7), so the separation is likely easy and may carry group confounds such as medication or session (unchecked) → [[eeg-depression-detection]].
 - **Seizure (CHB-MIT) fails (4), and (1) is unknown.** Only 2 test children in the standard split [[wang2024cbramod]] (App. E.2); with rare positives, one child moves the score. Onsets are expert-marked on the same EEG, and inter-rater agreement for seizure annotation is not sourced in the vault.
-- **Abnormal EEG (TUAB) is the best candidate on (2) and (4), but (1) and (3) are unclear.** Labels come from the clinician's report on the same recording, and accuracy seems to plateau around 85–87% [[kiessner2024reaching]] (screening note, not read), which may be a label ceiling rather than a model ceiling.
+- **Abnormal EEG (TUAB) is the best candidate on (2) and (4), but (1) and (3) are unclear.** Labels come from the clinician's report on the same recording, and accuracy seems to plateau around 85–87% [[kiessner2024reaching]] (screening note, not read), which may be a label ceiling rather than a model ceiling. A second group fits the same ceiling on a 39-hospital set (ACC∞ 86%, AUC∞ ~91 for the best model) and attributes it to moderate inter-rater agreement, proposing multi-rater "fuzzy" labels [[poziomska2025quantity]] (Table 4; §5, p. 13). Over 87% of TUAB abnormals are epileptic (p. 1), so TUAB is narrower than general "abnormal"; the Polish multi-hospital set's are only ~26% (§2).
 - **Emotion fails (1) and (2).** Labels are the clip category or a single per-trial self-rating that every segment inherits [[li2022eeg]] (p. 14, p. 25); clip identity and muscle activity are plausible confounds → [[emotion-recognition]].
 - **The pattern:** tasks with exact labels (BCI cues) have little clinical meaning or are solved; tasks with clinical meaning have labels read from the same EEG, small or single-site test sets, or a ceiling that may be label noise. Outcome-based labels (below) are the way out of this trade-off.
 

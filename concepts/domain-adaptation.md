@@ -40,6 +40,7 @@ A model trained on data from some sources (people, sessions, devices, datasets) 
 - [[liu2026eeg]]: Euclidean alignment (whitening each subject's mean covariance to identity, a Riemannian re-centering) improves most models in cross-subject MI on BNCI2014001 (Fig. 7c, p. 23). EA also mixes channels, which may conflict with coordinate-aware FMs (p. 25).
 
 - [[bomatter2025limited]]: participant distribution shift bounds scaling. With a person-level shift, overfitting is governed by the number of people, not data per person (theory, §3), and on TUAB/CAUEEG more segments per person don't help (Fig. 3). Standard augmentations don't close the gap; the authors ask for augmentations that imitate person differences (§5).
+- [[poziomska2025quantity]]: the "more data" alternative to adaptation. Pooling 39 Polish hospitals costs ~10 AUC points vs single-site TUH at equal size; growing the pool to 55,787 recordings recovers most of it (META 81.8 → 88.7; Table B.5), with a fitted ceiling ≈ TUH level (Table 4). 🤖 No hospital is held out, so this is robustness to seen sites, not adaptation to new ones.
 
 ## Variants & disagreements
 - 🤖 Many DA papers use the *unlabelled* target subject's test data during training (transductive). That's legitimate only if the deployment scenario allows it, so compare DA numbers to plain cross-subject numbers with care.

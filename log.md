@@ -435,3 +435,18 @@
   - Redesign [[embedding-data-diagnostics]] per its review; verify DOD scorer count, ISRUC double scoring and cohort derivations.
   - Unverified: the clinically required seizure alarm rate (open question; candidate [[dan2024szcore]]); hypnodensity papers named by the reviewer (no identifier).
   - Carried over: Q9 hub split (~270 lines); needs a manual PDF: [[janmohamed2023comparison]], [[bank2022structural]], [[kiessner2024reaching]]. [[kontras2026neuroatlas]] note is 158 lines (Q&A-heavy).
+
+## 2026-10-25 (session 21)
+- **Added:** [[poziomska2025quantity]] (full read of arXiv v1: quantity vs diversity for abnormal EEG, TUH vs a 39-hospital Elmiko set of 55,787 recordings). Screening: [[kiessner2023extended]].
+- **Changed:**
+  - [[classical-ml-baselines]], [[q7-foundation-models-vs-baselines]]: a CatBoost feature ensemble is the best single model up to ~24k recordings; supervised transformer MIL nets pass it only at 56k.
+  - [[q6-reliability-of-eeg-diagnoses]]: TUAB flatters abnormal-EEG detection (~10 AUC lost to heterogeneity at equal size); partial answer on what TUAB "abnormal" means (>87% epileptic).
+  - [[q9-pretraining-objectives-and-scale]]: supervised data-scale bullet. [[eeg-labels-and-metadata]]: TUAB ceiling row. [[subject-diversity-gap]]: prior work.
+  - Concepts [[evaluation-protocols]], [[riemannian-methods]], [[domain-adaptation]]; reverse links in 4 papers.
+- **Questions explored:**
+  - Does the missing leave-one-hospital-out test and possible patient leakage invalidate the paper? → [[poziomska2025quantity]] Q&A (no; the generalisation reading fails, and the quantity curve is most exposed because leakage would grow with subset size).
+  - Same-recording leakage? Transformers winning by memorising IDs? → same Q&A (ruled out by design; plausible but not shown, since small MIL nets also beat GBE).
+  - Is the data open? → same Q&A (on request from Elmiko; no code).
+- **Open:**
+  - The human will talk to the authors: question list in [[poziomska2025quantity]] Q&A.
+  - Carried over: data-inventory task (FM corpora vs NeuroAtlas data); next reads [[zare2026negative]], [[kommineni2026aperiodic]], [[oliveira2026scaling]] note; Q9 hub split (~270 lines); manual PDFs [[janmohamed2023comparison]], [[bank2022structural]], [[kiessner2024reaching]]; concepts with <2 papers: computed-tomography (0), magnetic-resonance-imaging (1).
