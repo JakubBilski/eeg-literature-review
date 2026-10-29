@@ -29,6 +29,7 @@ Training a model on large amounts of unlabeled data with a task made from the da
 - [[bomatter2025limited]]: LaBraM-Base pretrained vs scratch over a people × segments grid, LR tuned for both arms. Gain on TUAB is ≈ 0 at 25 people, +3–4 points at moderate data, +1–2 at the most (Fig. 5); on sleep +1 to +8 with no trend (Fig. 11). The effect "looks like a boost in the amount of data per participant" (§4.4).
 - [[chen2026benchmarking]]: pretrain vs same-architecture scratch for 10 FMs. Gain is 0.4 points at 2% of labels and 8.2 at 100% (Fig. 4). Controlled data scaling on REVE-base: 600 → 30,000 h gives +6.69 / +4.22 points fine-tuned (WS / CS) and +5.97 / +1.89 probed (Fig. 6a). Model size shows no trend (Fig. 5).
 - [[kontras2026neuroatlas]]: frozen probes on 11 EEG-FMs vs 3 general time-series FMs vs random-init CBraMod. EEG-specific pretraining shows no consistent edge over TS-FMs (§5, p. 9). Pretrained CBraMod = random-init CBraMod on event-level seizure detection (0.440, Table 4), and only +0.02 AUROC on TUAB/NMT (App. D.1.3). Embedding dimension doesn't predict performance (Figs. 10, 19).
+- [[ndir2025eeg]]: not SSL but its text-supervised sibling. CLIP-style contrastive alignment of a Deep4 CNN with TUAB report text; frozen features ≈ supervised Deep4 on pathology (0.847 vs 0.851) and well above single-task transfer (0.741) (Table 3) → [[language-supervised-pretraining]].
 
 ## Variants & disagreements
 - Objective: predict raw signal, spectrum, or discrete codes. LaBraM found raw reconstruction better on TUAB but discrete codes better on TUEV (App. G, Table 7). The best target may depend on the task.
@@ -74,6 +75,7 @@ Planned own test: frozen encoder + linear probe vs CSP + LDA, Riemannian and EEG
 - Fine-tuning vs linear probing: which should count as evidence of "generic" representations? → [[evaluation-protocols]]. *Partial (2026-10-11):* the probe gap is consistent across every FM that reports both. [[kuruppu2026eeg]] reads it as doubt about SSL representation quality (§5.2, p. 18); 🤖 pretraining currently looks like a good initialization rather than a frozen feature extractor.
 
 ## Related concepts
+- [[language-supervised-pretraining]]: sibling; supervision from paired report text instead of the signal itself (EEG-CLIP).
 - [[channel-heterogeneity]]: pooling many datasets requires handling different montages.
 - [[evaluation-protocols]]: how pretrained models are evaluated (probe vs fine-tune, data overlap).
 - [[cnn-transformer-hybrid]]: the common backbone shape.

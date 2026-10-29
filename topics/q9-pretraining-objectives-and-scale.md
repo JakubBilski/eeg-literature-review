@@ -226,6 +226,7 @@ updated: 2026-10-12
     - **Not fully uniform within a person:** state (sleep stage, alertness, medication) and session factors (electrode contact, impedance) vary across nights, so within-person data are not duplicates. They mostly add nuisance variation, not new label-relevant content.
   - *Is it just overfitting from repetition? (human's hypothesis, 2026-10-12)* Limit passes so models can't memorise; if bigger then wins, benchmark non-scaling is an artifact, as with ViT on ImageNet-1k. 🤖 Repetitions must be counted per independent label (on one-label-per-person tasks, segments of one person are near-repeats), and early-stopped benchmarks already rule out *fine-tuning* overfit as the sole cause; the pretraining-repetition version is open → [[subject-diversity-gap]] *Repetitions (H5)*, [[pretext-downstream-scaling-sweep]].
   - *So the honest reading:* the strong FM claim ("scale the model and it gets better") is unsupported in EEG, and the burden of proof is on it. The weaker claim, that pretraining on more and more diverse data helps a fixed model, has some support. The test that would settle it is a matched sweep of model size × data × objective, with held-out pretext loss → [[pretext-downstream-scaling-sweep]].
+- **Clinical report text is a fifth kind of target.** EEG-CLIP aligns a Deep4 CNN with TUAB report text by a CLIP contrastive loss: frozen features reach 0.847 balanced accuracy on pathology vs 0.851 for supervised Deep4, against 0.741 for transfer from a single other label; zero-shot pathology from a prompt is 0.755 [[ndir2025eeg]] (Tables 3–4). Only ~93 h of EEG (2 min per recording). 🤖 The text is a clinician's reading of the same EEG, and the evaluation labels come from those reports, so this is free weak supervision, not label-independent learning → [[language-supervised-pretraining]].
 
 ## Comparisons
 | family | example | target | loss | phase-sensitive? |
@@ -235,6 +236,7 @@ updated: 2026-10-12
 | clustered features (HuBERT) | Sleep2.0, HuBERT-ECG | k-means ID of feature/latent | CE | no (features) |
 | learned codebook (BEiT-v2) | LaBraM | VQ code of Fourier amp + phase | CE | partly |
 | latent (JEPA / BYOL) | EEGPT, BIOT | EMA-encoder embedding | MSE / contrastive | no |
+| text-aligned (CLIP) | EEG-CLIP | embedding of the paired report | contrastive (InfoNCE) | no |
 
 ## Open threads
 - Is pretext-loss error usable as an unsupervised anomaly score? → experiment [[pretext-loss-anomaly-score]].
@@ -265,4 +267,6 @@ updated: 2026-10-12
 - [[bomatter2025limited]] (full read 2026-10-12): people vs segments per person on TUAB, CAUEEG, sleep; LaBraM pretrained vs scratch over that grid.
 - [[poziomska2025quantity]] (full read 2026-10-25): supervised quantity vs heterogeneity, TUH vs 39 hospitals, 3k → 56k recordings; saturation power-law fits.
 - [[cao2026when]], [[sirca2026beyond]], [[lehnschiler2026mechanistic]] *(abstracts)*: probing and SAE interpretability of EEG FMs.
+- [[ndir2025eeg]] (full read 2026-10-29): EEG-CLIP; report text as the pretraining target; section ablation (Fig. 5), embedding size (Fig. 8).
+- [[language-supervised-pretraining]]: the concept (CLIP-style, NeuroLM, ELM).
 - Bridge: [[hubert-style-pseudo-labels]] (ECG ↔ EEG, plausible).

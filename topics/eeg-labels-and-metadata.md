@@ -19,6 +19,7 @@ updated: 2026-10-12
   - Siena has seizure type, onset area, age and gender. CHB-MIT has only age and gender. Bonn and several Kaggle sets have none [[wong2023eeg]] (§5.7, Table 6).
   - Some sets (Bonn, Hauz Khas) don't even record which segment came from which patient, so subject-wise splits are impossible [[wong2023eeg]] (§5.6).
 - **Medication context can sit in the protocol rather than a field.** CHB-MIT recorded children "following withdrawal of anti-seizure medication" [[wang2024cbramod]] (App. E, p. 23).
+- **Free-text clinical reports come with every TUH recording** and can supervise models directly. TUAB reports have up to 15 sections; Impression, Description of the record and Clinical history are nearly always filled (~2,950 of ~3,065 recordings; 16, 70 and 26 words on average), Medications usually (2,893; 4 words) [[ndir2025eeg]] (Table 1). 🤖 TUAB's normal/abnormal label is, to my knowledge, taken from the report's impression (TUAB dataset paper not in the vault yet), so training on report text and testing on TUAB labels is circular → [[language-supervised-pretraining]].
 - **Auxiliary channels:** ECG (CHB-MIT, TUSZ, Helsinki, Siena), respiratory effort (Helsinki), photic stimulation (TUSZ), vagus nerve stimulation (one CHB-MIT patient) [[wong2023eeg]] (Table 6).
 - **Recording metadata needed to use the signal:** channel names/montage, reference, sampling rate. These vary across datasets and must be harmonized → [[channel-heterogeneity]].
 - 🤖 Also standard but not yet sourced in the vault: event markers ("triggers") time-stamping each stimulus, and the BIDS format for organizing EEG data and metadata.
@@ -65,4 +66,5 @@ The human's view: the main problem is the lack of any downstream task with good-
 ## Sources
 - [[wong2023eeg]]: metadata audit of seizure datasets (§5.6–5.7, Tables 5–6).
 - [[li2022eeg]]: emotion label models (discrete vs valence/arousal, SAM ratings), induction protocols, label drift within trials (§2.1, §2.3, §5.3).
+- [[ndir2025eeg]]: TUAB report sections and coverage (Table 1); reports as training text.
 - [[jiang2024large]], [[song2022eeg]], [[wang2024cbramod]]: label types per benchmark.

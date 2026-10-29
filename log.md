@@ -464,3 +464,17 @@
 - **Open:**
   - Headroom table (label ceiling + subject-bootstrap CI per benchmark); seizure-annotation inter-rater source still missing.
   - Next FM read: [[wang2024eegpt]] (PDF in `pdf/`). Carried over: data-inventory task, [[zare2026negative]], [[kommineni2026aperiodic]], Q9 hub split, manual PDFs [[janmohamed2023comparison]], [[bank2022structural]], [[kiessner2024reaching]]; concepts with <2 papers: computed-tomography, magnetic-resonance-imaging.
+
+## 2026-10-29 (session 23)
+- **Added:** [[ndir2025eeg]] (EEG-CLIP, Frontiers Robot. AI 2025; full read of arXiv v2); concept [[language-supervised-pretraining]]; meeting note [[2026-10-29-poziomska-authors]] + `templates/meeting.md` + *Meetings* section in CLAUDE.md and `index.md` (set up earlier the same day; the author questions moved there from [[poziomska2025quantity]] Q&A).
+- **Changed:**
+  - [[q9-pretraining-objectives-and-scale]]: report text as a fifth target family (EEG-CLIP; frozen pathology 0.847 ≈ supervised 0.851, zero-shot 0.755) + table row.
+  - [[q7-foundation-models-vs-baselines]]: text-supervised ≈ supervised with all labels, not few-shot (0.710 vs 0.781).
+  - [[eeg-labels-and-metadata]]: TUAB report sections as supervision; circularity with report-derived labels.
+  - [[evaluation-protocols]], [[self-supervised-pretraining]]: EEG-CLIP entries. Reverse links in [[jiang2024large]], [[wang2024cbramod]], [[poziomska2025quantity]], [[kontras2026neuroatlas]], [[kuruppu2026eeg]].
+  - Meeting note: prompt on report-supervised pretraining with ELM19's ~56k reports.
+  - Screening: +[[ndir2025eeg]], +[[gijsen2024eeg]] (EEG-language pretraining, MIL alignment; reading queue).
+- **Questions explored:** none beyond the read.
+- **Open:**
+  - 🤖 TUAB's pathology label being taken from the report impression is stated from memory; source it from the TUAB dataset paper (already in the reading queue).
+  - Next reads: [[gijsen2024eeg]] (text supervision), [[wang2024eegpt]]. Carried over: data-inventory task, headroom table, [[zare2026negative]], [[kommineni2026aperiodic]], Q9 hub split (~280 lines), manual PDFs [[janmohamed2023comparison]], [[bank2022structural]], [[kiessner2024reaching]]; concepts with <2 papers: computed-tomography, magnetic-resonance-imaging.

@@ -124,6 +124,7 @@ Do pretrained representations (EEG-FM, TS-FM or supervised) encode clinically re
 - [[zare2026negative]]: classical features beat FMs on dementia, the same direction as brain age here.
 - [[xiong2025eeg]], [[shen2026brain4fms]], [[wu2025adabrain]], [[yang2026eeg]]: earlier benchmarks in §2.1. [[yang2026eeg]] (ICLR 2026, FMs vs traditional decoders on BCI) is queued for Q7.
 - [[dan2024szcore]]: the event-scoring framework used for seizures.
+- [[ndir2025eeg]] — EEG-CLIP, a CLIP-style EEG–report model (not evaluated here); NeuroLM is the text-aligned FM that does well here → [[language-supervised-pretraining]].
 
 ## Q&A notes
 - 2026-10-25 **Q:** Is NeuroLM's 0.553 seizures caught divided by false alarms per hour? **A:** No. The probe gives a seizure probability per 10-s window. Each decision threshold gives one operating point: detected seizures / all seizures (sensitivity, any-overlap scoring) and false alarms per hour. Sweeping the threshold traces sensitivity against FA/h. 0.553 is the area under that curve on a log10 FA/h axis from 0.1 to 100, divided by the width, so it is the *mean sensitivity across alarm budgets* (App. C.1, pp. 22–23). 🤖 The range includes 10–100 FA/h, which is useless clinically, so sensitivity at the clinically relevant low end is lower than 55%. The paper doesn't report it.

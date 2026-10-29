@@ -32,11 +32,12 @@ concepts/            one note per concept, <concept-slug>.md
 topics/              hubs (one per core question, q<N>-<slug>.md) + synthesis notes
 bridges/             cross-field connection notes, <slug>.md (ECG<->EEG active)
 experiments/         own experiment ideas, plans and results, <slug>.md
+meetings/            meetings with researchers: prepared questions + notes, YYYY-MM-DD-<slug>.md
 index.md             vault home: hubs, other topics, recently read
 interests.md         what the human asks about; open questions; reading queue
 data/screening.csv   every candidate paper and its include/exclude decision
 data/comparison.csv  one row per included paper, key comparable fields
-templates/           note templates (paper, concept, topic, bridge, experiment)
+templates/           note templates (paper, concept, topic, bridge, experiment, meeting)
 .claude/skills/      find-papers, read-paper, review-experiment, wrap-session
 scripts/             helper scripts (search, conversion, table export)
 figures/             plots made from public EEG data (embed in notes with ![[file.png]])
@@ -126,6 +127,10 @@ Added 2026-10-12. Ideas for experiments the human might run, and the results of 
 - **Prior work first:** list the closest papers before running, and add them to screening if missing. Include adjacent fields (see *Other fields*, adjacent-field exception): how the same question came out elsewhere is part of deciding whether an experiment is worth running.
 - Own results follow the accuracy rules too: script + figure for every number, 🤖 for interpretation.
 - Every experiment is listed in `index.md` *Experiments* with its status.
+
+## Meetings
+
+Added 2026-10-29. When the human will meet researchers (authors, collaborators), prepare `meetings/YYYY-MM-DD-<slug>.md` from `templates/meeting.md`: context (links only), questions in priority order, each with *why we ask* (vault links) and *what each answer would change*. Questions for authors live there, not in paper Q&A (link from the paper). After the meeting, the human's notes go under *Notes from the meeting*; then file each answer into the paper, topic or concept it belongs to (the meeting is the source, marked e.g. `(authors, meeting 2026-10-29)`; personal communication, not a published claim) and set `status: done`. List meetings in `index.md` *Meetings*.
 
 ## Bridges (cross-field links): active for ECG ↔ EEG
 

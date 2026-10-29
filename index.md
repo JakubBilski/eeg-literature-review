@@ -19,6 +19,7 @@
 
 ## Recently read
 <!-- newest first: - YYYY-MM-DD [[citekey]] — one line -->
+- 2026-10-29 [[ndir2025eeg]] — EEG-CLIP: Deep4 CNN + ClinicalBERT aligned contrastively on TUAB recordings and their reports; frozen pathology 0.847 ≈ supervised 0.851, zero-shot 0.755 from a prompt; few-shot mixed; labels come from the same reports, single runs, Deep4-only baselines
 - 2026-10-25 [[wang2024cbramod]] — CBraMod (ICLR 2025): criss-cross (parallel spatial/temporal heads) transformer, 4M params, raw-patch MSE on ~9,000 cleaned TUEG hours; best on 13 datasets by 1–4 points, but un-pretrained CBraMod already ties LaBraM-Base, uncleaned pretraining ≈ none, frozen features weak; tiny test sets, no classical baselines
 - 2026-10-25 [[poziomska2025quantity]] — quantity vs diversity for abnormal EEG: TUH vs 39 Polish hospitals (55,787 recordings); ~10 AUC lost to heterogeneity at equal size, mostly recovered at 19× size; CatBoost feature ensemble best until ~24k recordings, then transformer MIL nets; no site hold-out
 - 2026-10-25 [[kontras2026neuroatlas]] — NeuroAtlas: frozen linear probes, 20 models, 42 datasets with clinical metrics; EEG-FMs ≈ time-series FMs, seizures often ≈ random init (only NeuroLM/REVE consistent), supervised sequence/feature models win sleep and brain age, LODO costs 24–45%, MI drops to chance after eye-movement confound filtering
@@ -52,6 +53,10 @@
 - [[subject-diversity-gap]] — idea · medium · Q9/Q7/Q6: does subject count gate the benefit of model size (CNN 10k→1M, CBraMod)? v3 (2026-10-12): TUAB main, sleep as contrast, CNN + transformer, H5 = does limiting repetitions make bigger models win?
 - [[property-probe-battery]] — idea · medium · Q9/Q7: probe frozen FMs for signal properties (spectral, spatial phase, morphology, nuisance), then predict downstream ranks
 - [[embedding-data-diagnostics]] — idea · medium · Q6/Q7/Q9: frozen-FM embeddings as a data lens: noise vs nuisance variance, does embedding distance predict cross-cohort transfer drop beyond band power / random init, does geometry locate scorer disagreement (sleep)
+
+## Meetings
+<!-- newest first; status · people -->
+- [[2026-10-29-poziomska-authors]] — upcoming 2026-10-29 · authors of [[poziomska2025quantity]]: LOHO, which tasks are worth pursuing given saturated benchmarks, what their data can test that TUH cannot
 
 ## Bridges (ECG ↔ EEG)
 - [[hubert-style-pseudo-labels]] — HuBERT-ECG and Sleep2.0 share the k-means pseudo-label recipe (plausible)

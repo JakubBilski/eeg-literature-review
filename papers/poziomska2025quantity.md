@@ -96,6 +96,7 @@ How do the quantity and the heterogeneity (pathology mix, hospitals, labelling) 
 - [[oliveira2026scaling]] — subject vs trial scaling with loss fits; TUAB subject-dominated.
 - [[lawhern2018eegnet]] — the frame encoder used by every network here.
 - [[jiang2024large]] — TUAB benchmark numbers on the patient-disjoint split, for comparison.
+- [[ndir2025eeg]] — EEG-CLIP: report-text contrastive pretraining on TUAB; frozen 0.847 balanced accuracy, compared only with Deep4 variants, not with a feature ensemble like the one here.
 
 ## Q&A notes
 - 2026-10-25 **Q:** They had hospital labels for 39 sites but no leave-one-hospital-out test, and the folds may leak patients. Does that invalidate all findings? **A:** 🤖 No. It invalidates the generalisation reading and weakens the quantity claim, but the findings differ in how exposed they are.
@@ -110,10 +111,5 @@ How do the quantity and the heterogeneity (pathology mix, hospitals, labelling) 
     - **Patient memorisation as the reason transformers overtake:** plausible, not shown. Against it as the whole story: the 1.7k-parameter miNet nearly matches GBE on ELM19 (85.7 vs 86.5), and the 168k MINet beats it (87.0) (Table B.5). These models are too small to memorise thousands of patients. Repeat recordings of one person are similar anyway, so tree ensembles can exploit them just as well. For it: transformers gain most at the largest subset, where leakage would be highest.
     - **Decisive test:** rerun each model with patient-grouped folds and compare the drop per model. If the transformer loses more than GBE, the crossover was partly identity; also probe how well the hospital can be decoded from each model's embeddings.
   - *Openness (asked 2026-10-25):* ELM19 is "available ... upon reasonable request" by email to Elmiko (Data availability, p. 14), with no licence, DUA terms, patient IDs or per-hospital metadata described. Yet the paper calls it "the largest publicly available" (Abstract) / "publicly accessible EEG corpus for pathology detection" (p. 3). No code link anywhere in the arXiv text. Hyperparameters are given in footnotes 6, 8, 10 and 14 (pp. 5, 8). 🤖 Not open data and not open code, so the leakage and hospital questions above can't be checked independently without the company's cooperation.
-  - **Questions for the authors (the human will meet them, 2026-10-25):**
-    1. Were folds patient-disjoint? Does ELM19 keep patient IDs, and how many recordings per patient (TUH and ELM)?
-    2. Why no leave-one-hospital-out or ELM → TUH test? How are recordings spread across the 39 hospitals, and how do abnormal rates differ by hospital?
-    3. Does the shared ELM19 include patient IDs, hospital IDs, the per-recording report text, and the fold assignments? Is code available? Under what terms is it shared?
-    4. Does the Neural Networks version change any of this compared with arXiv v1?
-    5. Is medication recorded anywhere in the reports (§5 says no reliable data)?
+  - **Questions for the authors:** moved to and expanded in [[2026-10-29-poziomska-authors]] (meeting 2026-10-29).
   - *Fix:* group folds by patient, then leave-one-hospital-out (or leave-k-hospitals-out for small sites), plus ELM → TUH transfer. ELM19 is on request, so this is runnable if patient IDs exist.

@@ -105,6 +105,7 @@ A 4M-parameter Transformer whose attention heads are split: half attend across c
 - [[xie2026specbram]]: copies the criss-cross design and changes only the target to band power; found a SEED-VIG split bug in CBraMod's released code (App. B).
 - [[liu2026eeg]], [[chen2026benchmarking]], [[kontras2026neuroatlas]], [[zare2026negative]], [[tao2026separating]], [[steglich2026representational]]: independent benchmarks that re-evaluate CBraMod (best average rank but not significant in Liu; pretrained ≈ random init on seizures in Kontras).
 - [[kuruppu2026eeg]]: critical FM review; CBraMod is after its cutoff.
+- [[ndir2025eeg]] — EEG-CLIP: text-supervised alternative to masked pretraining on TUAB (0.847 frozen + MLP vs CBraMod 0.829 fine-tuned, different protocols).
 
 ## Q&A notes
 - 2026-10-25 **Q:** Are the small pretraining / architecture gains a sign of noisy, saturated tasks? **A:** Noisy yes (seed SDs on 2–10 test subjects). Saturated only for sleep and TUAB. On cross-subject MI the same CBraMod gains +14 points from Euclidean alignment and related tricks (0.597 → 0.741, Table 23), about 5× its pretraining gain, so headroom exists but pretraining doesn't reach it → [[q7-foundation-models-vs-baselines]] *Saturated, noisy, or headroom?*

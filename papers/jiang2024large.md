@@ -98,5 +98,6 @@ Can LLM-style self-supervised pretraining on large, heterogeneous EEG collection
 - [[weng2025self]]: survey of the SSL methods before LaBraM (≈2019–2023). LaBraM itself isn't covered.
 - [[bomatter2025limited]]: LaBraM-Base fine-tuned vs from scratch over a people × segments grid on TUAB, CAUEEG and sleep. Pretraining helps except at the smallest data; from scratch it is the least sample-efficient of three models (Figs. 5, 9–12).
 - [[xie2026specbram]]: probes LaBraM-Base frozen on sleep (ISRUC 0.752, HMC 0.632), below hand-crafted spectral features on HMC (Table 4); argues a fixed band-power target avoids the learned codebook.
+- [[ndir2025eeg]] — EEG-CLIP: report-supervised Deep4 on the same TUAB eval split (0.847 frozen + MLP); no comparison with LaBraM.
 
 ## Q&A notes
